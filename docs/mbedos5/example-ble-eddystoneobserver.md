@@ -1,6 +1,6 @@
 # 低功耗蓝牙示例：Eddystone 监听器
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/mbedos5/mbed-os-example-ble/BLE_EddystoneObserver"><button data-md-color-primary="indigo">查看本例源码</button></a>
+<a href="https://github.com/makerdiary/mbed-os-example-ble/tree/master/BLE_EddystoneObserver"><button data-md-color-primary="indigo">查看本例源码</button></a>
 
 ## 功能介绍
 

@@ -1,6 +1,6 @@
 # 低功耗蓝牙示例：Beacon
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/mbedos5/mbed-os-example-ble/BLE_Beacon"><button data-md-color-primary="indigo">查看本例源码</button></a>
+<a href="https://github.com/makerdiary/mbed-os-example-ble/tree/master/BLE_Beacon"><button data-md-color-primary="indigo">查看本例源码</button></a>
 
 ## 功能介绍
 本例即将创建一个 iBeacon 设备，然后每隔 1s 广播一次数据（包括 16字节 UUID + 2字节 Major + 2字节 Minor + 1字节 Tx-Power）。

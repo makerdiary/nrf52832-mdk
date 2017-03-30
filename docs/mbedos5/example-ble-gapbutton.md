@@ -1,6 +1,6 @@
 # 低功耗蓝牙示例：GAP Button
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/mbedos5/mbed-os-example-ble/BLE_GAPButton"><button data-md-color-primary="indigo">查看本例源码</button></a>
+<a href="https://github.com/makerdiary/mbed-os-example-ble/tree/master/BLE_GAPButton"><button data-md-color-primary="indigo">查看本例源码</button></a>
 
 ## 功能介绍
 你可能已经试验过前面介绍的 [BLE Button](/mbedos5/example-ble-button/) 示例，你会发现它其实是需要先建立 GATT 连接，然后再去读取 Button 服务里的 Characteristic 属性值。

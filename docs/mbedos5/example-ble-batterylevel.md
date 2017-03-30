@@ -1,6 +1,6 @@
 # 低功耗蓝牙示例：获取电池电量
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/mbedos5/mbed-os-example-ble/BLE_BatteryLevel"><button data-md-color-primary="indigo">查看本例源码</button></a>
+<a href="https://github.com/makerdiary/mbed-os-example-ble/tree/master/BLE_BatteryLevel"><button data-md-color-primary="indigo">查看本例源码</button></a>
 
 ## 功能介绍
 本例会创建一个电池电量的首要服务，连接后每隔 500ms 更新一次电池电量。作为示例，让电池电量从 50% 每隔 500ms 增加 1%，超过 100% 再回到 20% 继续增加，以此来模拟电池的使用场景。

@@ -1,6 +1,6 @@
 # 低功耗蓝牙示例：Eddystone Beacon
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/mbedos5/mbed-os-example-ble/BLE_EddystoneService"><button data-md-color-primary="indigo">查看本例源码</button></a>
+<a href="https://github.com/makerdiary/mbed-os-example-ble/tree/master/BLE_EddystoneService"><button data-md-color-primary="indigo">查看本例源码</button></a>
 
 ## 功能介绍
 <img align="left" src="https://img.makerdiary.co/wiki/nrf52832mdk/eddystone_logo.png" hspace="15" style="float: left">Eddystone 是 Google 发布的一款跨平台的开源蓝牙低功耗（Bluetooth Low Energy，BLE）Beacon 标准，其目标在于试图创建一个鲁棒、可扩展的 Beacon 标准，并试图把商人、开发者和制造商集合在一起，建立起一个完善的 Beacon 生态系统。

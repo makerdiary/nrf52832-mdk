@@ -1,6 +1,6 @@
 # 低功耗蓝牙示例：LED 外设
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/mbedos5/mbed-os-example-ble/BLE_LED"><button data-md-color-primary="indigo">查看本例源码</button></a>
+<a href="https://github.com/makerdiary/mbed-os-example-ble/tree/master/BLE_LED"><button data-md-color-primary="indigo">查看本例源码</button></a>
 
 ## 功能介绍
 本例将自定义一个 UUID 为 `0xA000` 的首要服务，该服务包含一个 UUID 为 `0xA001` 的 Characteristic，该 Characteristic 是可读可写的，对其写入数值即可控制 LED 的开关。
