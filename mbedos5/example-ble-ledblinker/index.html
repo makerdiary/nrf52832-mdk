@@ -1,0 +1,1484 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
+      
+      
+        <link rel="canonical" href="https://makerdiary.github.io/nrf52832-mdk/mbedos5/example-ble-ledblinker/">
+      
+      
+        <meta name="author" content="Zelin">
+      
+      
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+      
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
+    
+    
+      
+        <title>BLE LED Blinker - nRF52832 Micro Development Kit</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-e17eeafcbc.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-892b79c5c5.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../.." title="nRF52832 Micro Development Kit" class="md-logo md-header-nav__button">
+            <img src="../../img/logo.svg" width="24" height="24">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  示例项目
+                </span>
+              
+                <span class="md-header-nav__parent">
+                  低功耗蓝牙示例
+                </span>
+              
+            
+            BLE LED Blinker
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <div class="md-search__overlay"></div>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+            
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-logo md-nav__button">
+        <img src="../../img/logo.svg">
+      </i>
+    
+    nRF52832 Micro Development Kit
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="首页" class="md-nav__link">
+      首页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../hardware/" title="硬件介绍" class="md-nav__link">
+      硬件介绍
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      快速入门
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        快速入门
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/hello-world/" title="首次使用" class="md-nav__link">
+      首次使用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/how-to-upload/" title="如何下载固件？" class="md-nav__link">
+      如何下载固件？
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      nRF5 SDK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        nRF5 SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      搭建开发环境
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        搭建开发环境
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/setup-devenv-osx/" title="Mac OSX" class="md-nav__link">
+      Mac OSX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/setup-devenv-linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/setup-devenv-win/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      示例项目
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        示例项目
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/example-blinky/" title="Blinky" class="md-nav__link">
+      Blinky
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/example-uart-logger/" title="串口调试" class="md-nav__link">
+      串口调试
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/example-weixin-shake/" title="摇一摇周边" class="md-nav__link">
+      摇一摇周边
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/example-physical-web/" title="Physical Web" class="md-nav__link">
+      Physical Web
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/example-more/" title="更多示例" class="md-nav__link">
+      更多示例
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      mbed OS 5
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        mbed OS 5
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-started/" title="快速入门" class="md-nav__link">
+      快速入门
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" checked>
+    
+    <label class="md-nav__link" for="nav-5-3">
+      示例项目
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        示例项目
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-blinky/" title="Blinky" class="md-nav__link">
+      Blinky
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-2" type="checkbox" id="nav-5-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-5-3-2">
+      低功耗蓝牙示例
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-2">
+        低功耗蓝牙示例
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-index/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-batterylevel/" title="BLE Battery Level" class="md-nav__link">
+      BLE Battery Level
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-beacon/" title="BLE Beacon" class="md-nav__link">
+      BLE Beacon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-button/" title="BLE Button" class="md-nav__link">
+      BLE Button
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-eddystoneobserver/" title="BLE Eddystone Observer" class="md-nav__link">
+      BLE Eddystone Observer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-eddystoneservice/" title="BLE Eddystone Service" class="md-nav__link">
+      BLE Eddystone Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-gapbutton/" title="BLE GAP Button" class="md-nav__link">
+      BLE GAP Button
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-heartrate/" title="BLE Heart Rate" class="md-nav__link">
+      BLE Heart Rate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-led/" title="BLE LED" class="md-nav__link">
+      BLE LED
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        BLE LED Blinker
+      </label>
+    
+    <a href="./" title="BLE LED Blinker" class="md-nav__link md-nav__link--active">
+      BLE LED Blinker
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="功能介绍" class="md-nav__link">
+    功能介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="源代码" class="md-nav__link">
+    源代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="编译" class="md-nav__link">
+    编译
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="下载运行" class="md-nav__link">
+    下载运行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="推荐资源" class="md-nav__link">
+    推荐资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="问题反馈" class="md-nav__link">
+    问题反馈
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-ble-thermometer/" title="BLE Thermometer" class="md-nav__link">
+      BLE Thermometer
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-more/" title="更多示例" class="md-nav__link">
+      更多示例
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Zephyr
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Zephyr
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      搭建开发环境
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        搭建开发环境
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/setup-devenv-osx/" title="Mac OSX" class="md-nav__link">
+      Mac OSX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/setup-devenv-linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/setup-devenv-win/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      入门示例
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        入门示例
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/example-blinky/" title="Blinky" class="md-nav__link">
+      Blinky
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/example-button/" title="Button" class="md-nav__link">
+      Button
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/example-beacon/" title="低功耗蓝牙 Beacon" class="md-nav__link">
+      低功耗蓝牙 Beacon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/example-ble-heartrate/" title="低功耗蓝牙心率计" class="md-nav__link">
+      低功耗蓝牙心率计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/example-more/" title="更多示例" class="md-nav__link">
+      更多示例
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      JerryScript
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        JerryScript
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../jerryscript/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../jerryscript/getting-started/" title="体验 JerryScript" class="md-nav__link">
+      体验 JerryScript
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Espruino
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Espruino
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../espruino/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../espruino/getting-started/" title="快速入门" class="md-nav__link">
+      快速入门
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ordering/" title="购买硬件" class="md-nav__link">
+      购买硬件
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../CONTRIBUTING/" title="反馈与贡献" class="md-nav__link">
+      反馈与贡献
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about-me/" title="关于作者" class="md-nav__link">
+      关于作者
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="功能介绍" class="md-nav__link">
+    功能介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="源代码" class="md-nav__link">
+    源代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="编译" class="md-nav__link">
+    编译
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="下载运行" class="md-nav__link">
+    下载运行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="推荐资源" class="md-nav__link">
+    推荐资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="问题反馈" class="md-nav__link">
+    问题反馈
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+               
+              
+                
+                <h1 id="led-blinker">低功耗蓝牙示例：LED Blinker<a class="headerlink" href="#led-blinker" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/mbedos5/mbed-os-example-ble/BLE_LEDBlinker"><button data-md-color-primary="indigo">查看本例源码</button></a></p>
+<h2 id="_1">功能介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本例将 nRF52832-MDK 当做 BLE 主机，用来控制 <a href="../../mbedos5/example-ble-led/">BLE LED</a>，因此你需要另外一块 nRF52832-MDK 来做为从机设备。</p>
+<h2 id="_2">源代码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;events/mbed_events.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;mbed.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;ble/BLE.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;ble/DiscoveredCharacteristic.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;ble/DiscoveredService.h&quot;</span><span class="cp"></span>
+
+<span class="n">DigitalOut</span> <span class="nf">alivenessLED</span><span class="p">(</span><span class="n">LED1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">DiscoveredCharacteristic</span> <span class="n">ledCharacteristic</span><span class="p">;</span>
+<span class="k">static</span> <span class="kt">bool</span> <span class="n">triggerLedCharacteristic</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">PEER_NAME</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;LED&quot;</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">EventQueue</span> <span class="nf">eventQueue</span><span class="p">(</span>
+    <span class="cm">/* event count */</span> <span class="mi">16</span> <span class="o">*</span> <span class="cm">/* event size */</span> <span class="mi">32</span>    
+<span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">periodicCallback</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">alivenessLED</span> <span class="o">=</span> <span class="o">!</span><span class="n">alivenessLED</span><span class="p">;</span> <span class="cm">/* Do blinky on LED1 while we&#39;re waiting for BLE events */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">advertisementCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">Gap</span><span class="o">::</span><span class="n">AdvertisementCallbackParams_t</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// parse the advertising payload, looking for data type COMPLETE_LOCAL_NAME</span>
+    <span class="c1">// The advertising payload is a collection of key/value records where</span>
+    <span class="c1">// byte 0: length of the record excluding this byte</span>
+    <span class="c1">// byte 1: The key, it is the type of the data</span>
+    <span class="c1">// byte [2..N] The value. N is equal to byte0 - 1</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">uint8_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">advertisingDataLen</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">record_length</span> <span class="o">=</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">advertisingData</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">record_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">type</span> <span class="o">=</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">advertisingData</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="k">const</span> <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">value</span> <span class="o">=</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">advertisingData</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">value_length</span> <span class="o">=</span> <span class="n">record_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">GapAdvertisingData</span><span class="o">::</span><span class="n">COMPLETE_LOCAL_NAME</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">value_length</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PEER_NAME</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">PEER_NAME</span><span class="p">,</span> <span class="n">value_length</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span>
+                    <span class="s">&quot;adv peerAddr[%02x %02x %02x %02x %02x %02x] rssi %d, isScanResponse %u, AdvertisementType %u</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span>
+                    <span class="n">params</span><span class="o">-&gt;</span><span class="n">peerAddr</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">peerAddr</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">peerAddr</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">peerAddr</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                    <span class="n">params</span><span class="o">-&gt;</span><span class="n">peerAddr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">peerAddr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">rssi</span><span class="p">,</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">isScanResponse</span><span class="p">,</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">type</span>
+                <span class="p">);</span>
+                <span class="n">BLE</span><span class="o">::</span><span class="n">Instance</span><span class="p">().</span><span class="n">gap</span><span class="p">().</span><span class="n">connect</span><span class="p">(</span><span class="n">params</span><span class="o">-&gt;</span><span class="n">peerAddr</span><span class="p">,</span> <span class="n">Gap</span><span class="o">::</span><span class="n">ADDR_TYPE_RANDOM_STATIC</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="n">record_length</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">serviceDiscoveryCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">DiscoveredService</span> <span class="o">*</span><span class="n">service</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">service</span><span class="o">-&gt;</span><span class="n">getUUID</span><span class="p">().</span><span class="n">shortOrLong</span><span class="p">()</span> <span class="o">==</span> <span class="n">UUID</span><span class="o">::</span><span class="n">UUID_TYPE_SHORT</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;S UUID-%x attrs[%u %u]</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">service</span><span class="o">-&gt;</span><span class="n">getUUID</span><span class="p">().</span><span class="n">getShortUUID</span><span class="p">(),</span> <span class="n">service</span><span class="o">-&gt;</span><span class="n">getStartHandle</span><span class="p">(),</span> <span class="n">service</span><span class="o">-&gt;</span><span class="n">getEndHandle</span><span class="p">());</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;S UUID-&quot;</span><span class="p">);</span>
+        <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">longUUIDBytes</span> <span class="o">=</span> <span class="n">service</span><span class="o">-&gt;</span><span class="n">getUUID</span><span class="p">().</span><span class="n">getBaseUUID</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">UUID</span><span class="o">::</span><span class="n">LENGTH_OF_LONG_UUID</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%02x&quot;</span><span class="p">,</span> <span class="n">longUUIDBytes</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot; attrs[%u %u]</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">service</span><span class="o">-&gt;</span><span class="n">getStartHandle</span><span class="p">(),</span> <span class="n">service</span><span class="o">-&gt;</span><span class="n">getEndHandle</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">updateLedCharacteristic</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">BLE</span><span class="o">::</span><span class="n">Instance</span><span class="p">().</span><span class="n">gattClient</span><span class="p">().</span><span class="n">isServiceDiscoveryActive</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">ledCharacteristic</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">characteristicDiscoveryCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">DiscoveredCharacteristic</span> <span class="o">*</span><span class="n">characteristicP</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  C UUID-%x valueAttr[%u] props[%x]</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">characteristicP</span><span class="o">-&gt;</span><span class="n">getUUID</span><span class="p">().</span><span class="n">getShortUUID</span><span class="p">(),</span> <span class="n">characteristicP</span><span class="o">-&gt;</span><span class="n">getValueHandle</span><span class="p">(),</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">characteristicP</span><span class="o">-&gt;</span><span class="n">getProperties</span><span class="p">().</span><span class="n">broadcast</span><span class="p">());</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">characteristicP</span><span class="o">-&gt;</span><span class="n">getUUID</span><span class="p">().</span><span class="n">getShortUUID</span><span class="p">()</span> <span class="o">==</span> <span class="mh">0xa001</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* !ALERT! Alter this filter to suit your device. */</span>
+        <span class="n">ledCharacteristic</span>        <span class="o">=</span> <span class="o">*</span><span class="n">characteristicP</span><span class="p">;</span>
+        <span class="n">triggerLedCharacteristic</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">discoveryTerminationCallback</span><span class="p">(</span><span class="n">Gap</span><span class="o">::</span><span class="n">Handle_t</span> <span class="n">connectionHandle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;terminated SD for handle %u</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">connectionHandle</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">triggerLedCharacteristic</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">triggerLedCharacteristic</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">eventQueue</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="n">updateLedCharacteristic</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">connectionCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">Gap</span><span class="o">::</span><span class="n">ConnectionCallbackParams_t</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">params</span><span class="o">-&gt;</span><span class="n">role</span> <span class="o">==</span> <span class="n">Gap</span><span class="o">::</span><span class="n">CENTRAL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">BLE</span> <span class="o">&amp;</span><span class="n">ble</span> <span class="o">=</span> <span class="n">BLE</span><span class="o">::</span><span class="n">Instance</span><span class="p">();</span>
+        <span class="n">ble</span><span class="p">.</span><span class="n">gattClient</span><span class="p">().</span><span class="n">onServiceDiscoveryTermination</span><span class="p">(</span><span class="n">discoveryTerminationCallback</span><span class="p">);</span>
+        <span class="n">ble</span><span class="p">.</span><span class="n">gattClient</span><span class="p">().</span><span class="n">launchServiceDiscovery</span><span class="p">(</span><span class="n">params</span><span class="o">-&gt;</span><span class="n">handle</span><span class="p">,</span> <span class="n">serviceDiscoveryCallback</span><span class="p">,</span> <span class="n">characteristicDiscoveryCallback</span><span class="p">,</span> <span class="mh">0xa000</span><span class="p">,</span> <span class="mh">0xa001</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">triggerToggledWrite</span><span class="p">(</span><span class="k">const</span> <span class="n">GattReadCallbackParams</span> <span class="o">*</span><span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">-&gt;</span><span class="n">handle</span> <span class="o">==</span> <span class="n">ledCharacteristic</span><span class="p">.</span><span class="n">getValueHandle</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;triggerToggledWrite: handle %u, offset %u, len %u</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">-&gt;</span><span class="n">handle</span><span class="p">,</span> <span class="n">response</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">,</span> <span class="n">response</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">response</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c[%02x]&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">response</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+        <span class="kt">uint8_t</span> <span class="n">toggledValue</span> <span class="o">=</span> <span class="n">response</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">^</span> <span class="mh">0x1</span><span class="p">;</span>
+        <span class="n">ledCharacteristic</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">toggledValue</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">triggerRead</span><span class="p">(</span><span class="k">const</span> <span class="n">GattWriteCallbackParams</span> <span class="o">*</span><span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">-&gt;</span><span class="n">handle</span> <span class="o">==</span> <span class="n">ledCharacteristic</span><span class="p">.</span><span class="n">getValueHandle</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">ledCharacteristic</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">disconnectionCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">Gap</span><span class="o">::</span><span class="n">DisconnectionCallbackParams_t</span> <span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;disconnected</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="cm">/* Start scanning and try to connect again */</span>
+    <span class="n">BLE</span><span class="o">::</span><span class="n">Instance</span><span class="p">().</span><span class="n">gap</span><span class="p">().</span><span class="n">startScan</span><span class="p">(</span><span class="n">advertisementCallback</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">onBleInitError</span><span class="p">(</span><span class="n">BLE</span> <span class="o">&amp;</span><span class="n">ble</span><span class="p">,</span> <span class="n">ble_error_t</span> <span class="n">error</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="cm">/* Initialization error handling should go here */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">bleInitComplete</span><span class="p">(</span><span class="n">BLE</span><span class="o">::</span><span class="n">InitializationCompleteCallbackContext</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">BLE</span><span class="o">&amp;</span>        <span class="n">ble</span>   <span class="o">=</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">ble</span><span class="p">;</span>
+    <span class="n">ble_error_t</span> <span class="n">error</span> <span class="o">=</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">error</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="n">BLE_ERROR_NONE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* In case of error, forward the error handling to onBleInitError */</span>
+        <span class="n">onBleInitError</span><span class="p">(</span><span class="n">ble</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* Ensure that it is the default instance of BLE */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ble</span><span class="p">.</span><span class="n">getInstanceID</span><span class="p">()</span> <span class="o">!=</span> <span class="n">BLE</span><span class="o">::</span><span class="n">DEFAULT_INSTANCE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">ble</span><span class="p">.</span><span class="n">gap</span><span class="p">().</span><span class="n">onDisconnection</span><span class="p">(</span><span class="n">disconnectionCallback</span><span class="p">);</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">gap</span><span class="p">().</span><span class="n">onConnection</span><span class="p">(</span><span class="n">connectionCallback</span><span class="p">);</span>
+
+    <span class="n">ble</span><span class="p">.</span><span class="n">gattClient</span><span class="p">().</span><span class="n">onDataRead</span><span class="p">(</span><span class="n">triggerToggledWrite</span><span class="p">);</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">gattClient</span><span class="p">().</span><span class="n">onDataWrite</span><span class="p">(</span><span class="n">triggerRead</span><span class="p">);</span>
+
+    <span class="c1">// scan interval: 400ms and scan window: 400ms.</span>
+    <span class="c1">// Every 400ms the device will scan for 400ms</span>
+    <span class="c1">// This means that the device will scan continuously.</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">gap</span><span class="p">().</span><span class="n">setScanParams</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">gap</span><span class="p">().</span><span class="n">startScan</span><span class="p">(</span><span class="n">advertisementCallback</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">scheduleBleEventsProcessing</span><span class="p">(</span><span class="n">BLE</span><span class="o">::</span><span class="n">OnEventsToProcessCallbackContext</span><span class="o">*</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">BLE</span> <span class="o">&amp;</span><span class="n">ble</span> <span class="o">=</span> <span class="n">BLE</span><span class="o">::</span><span class="n">Instance</span><span class="p">();</span>
+    <span class="n">eventQueue</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="n">Callback</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ble</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">BLE</span><span class="o">::</span><span class="n">processEvents</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">triggerLedCharacteristic</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">eventQueue</span><span class="p">.</span><span class="n">call_every</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">periodicCallback</span><span class="p">);</span>
+
+    <span class="n">BLE</span> <span class="o">&amp;</span><span class="n">ble</span> <span class="o">=</span> <span class="n">BLE</span><span class="o">::</span><span class="n">Instance</span><span class="p">();</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">onEventsToProcess</span><span class="p">(</span><span class="n">scheduleBleEventsProcessing</span><span class="p">);</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">bleInitComplete</span><span class="p">);</span>
+
+    <span class="n">eventQueue</span><span class="p">.</span><span class="n">dispatch_forever</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="_3">编译<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ./BLE_LEDBlinker
+
+<span class="c1"># 添加已经克隆到本地的 mbed-os 库。若有疑问，请参考 Blinky 示例。</span>
+$ mbed add &lt;your-mbed-os-path&gt;
+
+<span class="c1"># 编译</span>
+$ mbed compile -m NRF52832_MDK -t GCC_ARM
+
+<span class="c1"># 若编译成功，将输出以下信息：</span>
+
+...
+
+Link: BLE_LEDBlinker
+Elf2Bin: BLE_LEDBlinker
++-----------------------+-------+-------+------+
+<span class="p">|</span> Module                <span class="p">|</span> .text <span class="p">|</span> .data <span class="p">|</span> .bss <span class="p">|</span>
++-----------------------+-------+-------+------+
+<span class="p">|</span> Fill                  <span class="p">|</span>   <span class="m">154</span> <span class="p">|</span>     <span class="m">3</span> <span class="p">|</span>   <span class="m">42</span> <span class="p">|</span>
+<span class="p">|</span> Misc                  <span class="p">|</span> <span class="m">34551</span> <span class="p">|</span>  <span class="m">2488</span> <span class="p">|</span>  <span class="m">263</span> <span class="p">|</span>
+<span class="p">|</span> drivers               <span class="p">|</span>   <span class="m">732</span> <span class="p">|</span>     <span class="m">0</span> <span class="p">|</span>    <span class="m">0</span> <span class="p">|</span>
+<span class="p">|</span> events                <span class="p">|</span>    <span class="m">48</span> <span class="p">|</span>     <span class="m">0</span> <span class="p">|</span>    <span class="m">0</span> <span class="p">|</span>
+<span class="p">|</span> events/equeue         <span class="p">|</span>  <span class="m">1250</span> <span class="p">|</span>     <span class="m">0</span> <span class="p">|</span>   <span class="m">61</span> <span class="p">|</span>
+<span class="p">|</span> features/FEATURE_BLE  <span class="p">|</span> <span class="m">16574</span> <span class="p">|</span>     <span class="m">5</span> <span class="p">|</span>  <span class="m">540</span> <span class="p">|</span>
+<span class="p">|</span> hal                   <span class="p">|</span>   <span class="m">506</span> <span class="p">|</span>     <span class="m">0</span> <span class="p">|</span>   <span class="m">16</span> <span class="p">|</span>
+<span class="p">|</span> platform              <span class="p">|</span>  <span class="m">1526</span> <span class="p">|</span>     <span class="m">4</span> <span class="p">|</span>  <span class="m">264</span> <span class="p">|</span>
+<span class="p">|</span> rtos                  <span class="p">|</span>   <span class="m">102</span> <span class="p">|</span>     <span class="m">4</span> <span class="p">|</span>    <span class="m">4</span> <span class="p">|</span>
+<span class="p">|</span> rtos/rtx              <span class="p">|</span>  <span class="m">6425</span> <span class="p">|</span>    <span class="m">20</span> <span class="p">|</span> <span class="m">4278</span> <span class="p">|</span>
+<span class="p">|</span> targets/TARGET_NORDIC <span class="p">|</span> <span class="m">23679</span> <span class="p">|</span>   <span class="m">140</span> <span class="p">|</span> <span class="m">2200</span> <span class="p">|</span>
+<span class="p">|</span> Subtotals             <span class="p">|</span> <span class="m">85547</span> <span class="p">|</span>  <span class="m">2664</span> <span class="p">|</span> <span class="m">7668</span> <span class="p">|</span>
++-----------------------+-------+-------+------+
+Allocated Heap: <span class="m">40916</span> bytes
+Allocated Stack: <span class="m">2048</span> bytes
+Total Static RAM memory <span class="o">(</span>data + bss<span class="o">)</span>: <span class="m">10332</span> bytes
+Total RAM memory <span class="o">(</span>data + bss + heap + stack<span class="o">)</span>: <span class="m">53296</span> bytes
+Total Flash memory <span class="o">(</span>text + data + misc<span class="o">)</span>: <span class="m">88211</span> bytes
+
+Image: ./BUILD/NRF52832_MDK/GCC_ARM/BLE_LEDBlinker.hex
+</pre></div>
+
+
+<h2 id="_4">下载运行<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>将 nRF52832-MDK 连接到 PC，拷贝 <code>BLE_LEDBlinker.hex</code> 到 <strong>DAPLINK</strong> 可移动磁盘，按下复位键运行。</p>
+<p>或直接运行以下命令下载运行：</p>
+<div class="codehilite"><pre><span></span>$ pyocd-flashtool -d debug -t nrf52 -ce ./BUILD/NRF52832_MDK/GCC_ARM/BLE_LEDBlinker.hex
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>另外一块 nRF52832-MDK 当做从机，运行 <a href="../../mbedos5/example-ble-led/">BLE LED</a> 固件。</p>
+</div>
+<p>正常运行后，可发现从机的 红色 LED 由主机控制闪烁，打开主机串口，可查看输出信息：</p>
+<div class="codehilite"><pre><span></span>$ screen /dev/cu.usbmodem1412 <span class="m">9600</span>
+</pre></div>
+
+
+<p><img alt="" src="https://img.makerdiary.co/wiki/nrf52832mdk/mbed-ble-blinker.png" /> </p>
+<p>Enjoy !</p>
+<h2 id="_5">推荐资源<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://docs.mbed.com/docs/mbed-os-api-reference/en/latest/APIs/communication/ble/">mbed BLE API 文档</a></p>
+</li>
+<li>
+<p><a href="https://github.com/makerdiary/mbed-os-example-ble/tree/master/BLE_LEDBlinker">mbed-os-example-ble/BLE_LEDBlinker</a></p>
+</li>
+</ul>
+<h2 id="_6">问题反馈<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 反馈。</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="green">New Issue</button></a></p>
+              
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../example-ble-led/" title="BLE LED" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                BLE LED
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../example-ble-thermometer/" title="BLE Thermometer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                BLE Thermometer
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 <a href="http://wiki.makerdiary.co">wiki.makerdiary.co</a><br>This site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-30ac6a1727.js"></script>
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>
