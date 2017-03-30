@@ -23,7 +23,7 @@
 
 这里为了能够快速使用，我为 nRF52832-MDK 预编译了最新版的固件：
 
-<a href="/espruino/espruino_1v91.2835_nrf52832_mdk.hex"><button data-md-color-primary="indigo">获取最新固件</button></a>
+<a href="/nrf52832-mdk/espruino/espruino_1v91.2835_nrf52832_mdk.hex"><button data-md-color-primary="indigo">获取最新固件</button></a>
 
 nRF52832-MDK 连接到 PC，将下载好的 `hex` 文件拷贝到 **DAPLINK** 可移动磁盘，按下复位键运行。
 
