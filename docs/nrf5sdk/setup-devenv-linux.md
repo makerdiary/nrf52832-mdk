@@ -73,7 +73,7 @@ $ make
 或者直接运行以下命令：
 
 !!! note "提醒"
-    可以参考前面章节：[如何下载固件？](getting-started/how-to-upload/)
+    可以参考前面章节：[如何下载固件？](/getting-started/how-to-upload/)
 
 ``` sh
 $ sudo make flash
