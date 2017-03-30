@@ -1141,7 +1141,7 @@
               
                 
                 <h1 id="_1">低功耗蓝牙示例：心率检测<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p><a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/mbedos5/mbed-os-example-ble/BLE_HeartRate"><button data-md-color-primary="indigo">查看本例源码</button></a></p>
+<p><a href="https://github.com/makerdiary/mbed-os-example-ble/tree/master/BLE_HeartRate"><button data-md-color-primary="indigo">查看本例源码</button></a></p>
 <h2 id="_2">功能介绍<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>本例会创建一个心率检测的首要服务，根据 <a href="https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml">Bluetooth SIG</a> 对心率服务的定义，该服务会包含 3 个 Characteristic：Heart Rate Measurement, Body Sensor Location 和 Heart Rate Control Point, 分别用于获取心率测量值、传感器位置以及控制其行为。</p>
 <p>连接成功后每隔 500ms 更新一次心率数值。作为示例，我们用软件模拟心率传感器，让其数值从 100 逐渐递增，超过 175 再回到 100 重新计数。</p>
