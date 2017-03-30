@@ -8,7 +8,7 @@
 ## 下载固件
 在 [janjongboom/mbed-js-repl-example](https://github.com/janjongboom/mbed-js-repl-example) 的基础上，我为 nRF52832-MDK 预编译了这个基于 mbed OS 5 的 JavaScript REPL 应用：
 
-<a href="/jerryscript/mbedos5-js-repl-example.hex"><button data-md-color-primary="indigo">获取最新固件</button></a>
+<a href="/nrf52832-mdk/jerryscript/mbedos5-js-repl-example.hex"><button data-md-color-primary="indigo">获取最新固件</button></a>
 
 nRF52832-MDK 连接到 PC，将下载好的 `hex` 文件拷贝到 **DAPLINK** 可移动磁盘，按下复位键运行。
 
