@@ -1,0 +1,13 @@
+nrf_sdks/*
+.DS_Store/*
+_build/
+
+BUILD/
+mbed-os/
+
+site
+
+.build
+.mbed
+projectfiles
+*.py*
