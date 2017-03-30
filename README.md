@@ -1,6 +1,8 @@
-# nRF52832-MDK <br><small>Open Source Hardware for IoT Embedded Applications</small>
+# nRF52832-MDK 
 
-项目文档：[https://wiki.makerdiary.co/nrf52832-mdk](https://wiki.makerdiary.co/nrf52832-mdk)
+*An Open Source, Micro Development Kit for IoT Embedded Applications*
+
+[开发文档](https://wiki.makerdiary.co/nrf52832-mdk)
 
 **nRF52832-MDK** 是一款完全开源、基于 [Nordic](http://www.nordicsemi.com/eng) 新一代高性能低功耗蓝牙系统级芯片 [nRF52832](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832)、面向物联网嵌入式应用的开发套件，集成多功能调试器，支持多种开源软件，支持跨平台开发，并且提供丰富的在线文档，希望给你带来不同于以往的开发体验。
 
@@ -20,10 +22,7 @@ nRF52832-MDK 是一个开源项目，所有硬件设计资料、源代码、开�
 
 ## 集成调试器
 
-nRF52832-MDK 集成了多功能调试器 DAPLink，即插即用，可实现 U 盘直接“拖放”下载固件、串口调试、CMSIS-DAP 仿真调试。
-
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/mbedmicro/DAPLink/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/mbedmicro/DAPLink/network" data-count-api="/repos/mbedmicro/DAPLink#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork mbedmicro/DAPLink on GitHub">Fork</a>
+nRF52832-MDK 集成了多功能调试器 [DAPLink](https://github.com/mbedmicro/DAPLink/)，即插即用，可实现 U 盘直接“拖放”下载固件、串口调试、CMSIS-DAP 仿真调试。
 
 ![](https://img.makerdiary.co/wiki/nrf52832mdk/cp-hex-to-daplink.png)
 
@@ -55,9 +54,6 @@ nRF52832-MDK 提供丰富的在线文档，使用 [MkDocs](http://www.mkdocs.org
 
 如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
 
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/makerdiary/nrf52832-mdk/issues" data-icon="octicon-issue-opened" data-style="mega" data-count-api="/repos/makerdiary/nrf52832-mdk#open_issues_count" data-count-aria-label="# issues on GitHub" aria-label="Issue makerdiary/nrf52832-mdk on GitHub">Issue</a>
-
 ## License
 
 **MIT License**
@@ -81,6 +77,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
