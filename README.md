@@ -28,11 +28,11 @@ nRF52832-MDK 集成了多功能调试器 [DAPLink](https://github.com/mbedmicro/
 
 ![](https://img.makerdiary.co/wiki/nrf52832mdk/daplink-block.png)
 
-## 多种开源软件
+## 玩转多种开源软件
 
-nRF52832-MDK 可以支持多种开源软件，包括 [nRF5 SDK](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK), [mbed OS 5](https://developer.mbed.org/), [Zephyr](https://www.zephyrproject.org/), [Contiki](http://www.contiki-os.org/), [JerryScript](http://jerryscript.net/), [Espruino](http://www.espruino.com/), [Arduino](https://github.com/sandeepmistry/arduino-nRF5), [Eddystone](https://github.com/google/eddystone), [Physical Web](https://google.github.io/physical-web/) 等。
+nRF52832-MDK 可以用来玩转多种开源软件，包括 [nRF5 SDK](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK), [mbed OS 5](https://developer.mbed.org/), [Zephyr](https://www.zephyrproject.org/), [JerryScript](http://jerryscript.net/), [Espruino](http://www.espruino.com/), [Web Bluetooth](https://webbluetoothcg.github.io/web-bluetooth/), [Eddystone](https://github.com/google/eddystone), [Physical Web](https://google.github.io/physical-web/) 等等....
 
-![](https://img.makerdiary.co/wiki/nrf52832mdk/multi-sw-supported.png)
+![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-mdk-multisw.png)
 
 ## 跨平台开发
 
@@ -42,9 +42,9 @@ nRF52832-MDK 可以支持多种开源软件，包括 [nRF5 SDK](https://www.nord
 
 ## 提供在线文档
 
-nRF52832-MDK 提供丰富的在线文档，使用 [MkDocs](http://www.mkdocs.org/) 生成文档，由 [GitHub Pages](https://pages.github.com/) 提供支持，方便开源爱好者一起维护。
+nRF52832-MDK 提供丰富的在线文档，使用 [MkDocs](http://www.mkdocs.org/) 生成文档，托管在 [GitHub](https://github.com/makerdiary/nrf52832-mdk/)，方便开源爱好者一起维护，同时提供 CDN 加速，实现快速访问。
 
-![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-mdk-docs-available.png)
+![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-mdk-online-docs-available.png)
 
 ## 支持一下
 
