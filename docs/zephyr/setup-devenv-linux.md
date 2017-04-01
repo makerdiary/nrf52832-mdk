@@ -89,9 +89,6 @@ Zephyr 源码托管在 [https://gerrit.zephyrproject.org/r/zephyr](https://gerri
 $ git clone https://github.com/makerdiary/zephyr.git zephyr-project
 $ cd zephyr-project/
 
-# 建立 nrf52832-mdk 分支
-$ git checkout -b nrf52832-mdk
-
 # 拉取 nrf52832-mdk 分支的最新代码
 $ git pull origin nrf52832-mdk
 ```
