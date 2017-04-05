@@ -44,10 +44,6 @@ nRF52832-MDK 提供丰富的在线文档，使用 [MkDocs](http://www.mkdocs.org
 
 ![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-mdk-online-docs-available.png)
 
-## 支持一下
-
-如果你对这个开源项目感兴趣同时也想支持我一下，戳一下呗：[获取硬件](https://h5.youzan.com/v2/goods/1y40hlmc51wro?showsku=true)。
-
 ## 问题反馈
 
 如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
