@@ -109,7 +109,7 @@ pages:
   - Espruino: 
     - 简介: espruino/index.md
     - 快速入门: espruino/getting-started.md
-  - 购买硬件: ordering.md
+  - 获取硬件: ordering.md
   - 反馈与贡献: CONTRIBUTING.md
   - 关于作者: about-me.md
 

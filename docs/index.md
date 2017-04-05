@@ -46,7 +46,7 @@ nRF52832-MDK 提供丰富的在线文档，使用 [MkDocs](http://www.mkdocs.org
 
 ## 支持一下
 
-如果你对这个开源项目感兴趣同时也想支持我一下，戳一下呗：[购买链接](https://h5.youzan.com/v2/goods/1y40hlmc51wro?showsku=true)。
+如果你对这个开源项目感兴趣同时也想支持我一下，戳一下呗：[获取硬件](https://h5.youzan.com/v2/goods/1y40hlmc51wro?showsku=true)。
 
 ## 问题反馈
 
