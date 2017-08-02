@@ -7,6 +7,7 @@ mbed-os/
 
 site
 
+.idea
 .build
 .mbed
 projectfiles
