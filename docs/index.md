@@ -1,11 +1,8 @@
 # nRF52832-MDK <br><small>Open Source Hardware for IoT Embedded Applications</small>
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="CTFAMGTNSZGGC">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/zh_XC/i/scr/pixel.gif" width="1" height="1">
-</form>
+## Get our boards from Seeed Studio
+[![](/img/seeed_logo_20170815.png)](https://www.seeedstudio.com/nRF52832-Micro-Development-Board-p-2992.html)
+
 
 **nRF52832-MDK** 是一款完全开源、基于 [Nordic](http://www.nordicsemi.com/eng) 新一代高性能低功耗蓝牙系统级芯片 [nRF52832](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832)、面向物联网嵌入式应用的开发套件，集成多功能调试器，支持多种开源软件，支持跨平台开发，并且提供丰富的在线文档，希望给你带来不同于以往的开发体验。
 

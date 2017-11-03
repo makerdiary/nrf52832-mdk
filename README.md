@@ -4,7 +4,9 @@
 
 [中文文档](https://wiki.makerdiary.co/nrf52832-mdk)
 
-[Buy Now!](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CTFAMGTNSZGGC)
+## Get our boards from Seeed Studio
+
+[![](/docs/img/seeed_logo_20170815.png)](https://www.seeedstudio.com/nRF52832-Micro-Development-Board-p-2992.html)
 
 **nRF52832-MDK** is a fully open-source development kit based on [Nordic nRF52832](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832) for IoT embedded applications. 
 
