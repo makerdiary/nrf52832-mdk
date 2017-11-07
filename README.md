@@ -128,6 +128,10 @@ And finally connect GDB to the GDB Server:
    (gdb) target remote localhost:3333
 ```
 
+## DAPLINK Firmware Update
+
+To update the firmware on a device hold the reset button while attaching USB. The device will boot into bootloader mode. From there copy [the appropriate firmware](/bin/) onto the drive. If successful the device will leave bootloader mode and start running the new firmware. Otherwise the bootloader will display FAIL.TXT with an explanation of what went wrong.
+
 ## Resource
 
 * [nRF52832-MDK Schematic](/docs/hardware/nRF52832-MDK_SCH_V1.0.pdf)

@@ -1,0 +1,3 @@
+## How to Update DAPLINK Firmware
+
+To update the firmware on a device hold the reset button while attaching USB. The device will boot into bootloader mode. From there copy `lpc11u35_nrf52832mdk_if_crc_latest.bin` onto the drive. If successful the device will leave bootloader mode and start running the new firmware. Otherwise the bootloader will display FAIL.TXT with an explanation of what went wrong.
