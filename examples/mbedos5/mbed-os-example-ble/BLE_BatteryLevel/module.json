@@ -1,0 +1,16 @@
+{
+  "name": "ble-batterylevel",
+  "version": "0.0.1",
+  "description": "An example of creating and updating a simple GATT Service using the BLE_API",
+  "licenses": [
+    {
+      "url": "https://spdx.org/licenses/Apache-2.0",
+      "type": "Apache-2.0"
+    }
+  ],
+  "dependencies": {
+    "ble": "^2.0.0"
+  },
+  "targetDependencies": {},
+  "bin": "./"
+}
