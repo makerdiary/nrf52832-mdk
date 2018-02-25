@@ -1,0 +1,16 @@
+{
+  "name": "ble-heartrate",
+  "version": "0.0.1",
+  "description": "BLE Heartreate example, building with mbed-cli",
+  "licenses": [
+    {
+      "url": "https://spdx.org/licenses/Apache-2.0",
+      "type": "Apache-2.0"
+    }
+  ],
+  "dependencies": {
+    "ble": "^2.0.0"
+  },
+  "targetDependencies": {},
+  "bin": "./"
+}
