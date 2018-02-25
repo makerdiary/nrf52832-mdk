@@ -1,0 +1,15 @@
+{
+  "name": "ble-thermometer",
+  "version": "0.0.1",
+  "description": "This example demonstrates how to use the Health Thermometer Service. The Health Thermometer service reports two pieces of information, Temperature and Sensor Location.",
+  "licenses": [
+    {
+      "url": "https://spdx.org/licenses/Apache-2.0",
+      "type": "Apache-2.0"
+    }
+  ],
+  "dependencies": {
+    "ble": "^2.0.0"
+  },
+  "bin": "./"
+}
