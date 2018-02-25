@@ -1,6 +1,6 @@
-# Getting started with Blinky on mbed OS
+# Getting started with mbed OS examples
 
-This guide reviews the steps required to get Blinky working on an mbed OS platform.
+This guide reviews the steps required to get the examples working on nRF52832-MDK.
 
 ## Using Arm Mbed CLI
 
@@ -163,7 +163,9 @@ $ git commit -m "add support for nRF52832-MDK"
 
 ## Compile and program the board
 
-Now you can try to compile this example. Open terminal and change directory to:
+Now you can try to compile one of the examples. Will use the `mbed-os-example-blinky` example here to keep it simple.
+
+Open terminal and change directory to:
 
 ``` sh
 $ cd ./nrf52832-mdk/examples/mbedos5/mbed-os-example-blinky/
