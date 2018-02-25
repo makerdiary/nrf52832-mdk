@@ -1,0 +1,16 @@
+{
+  "name": "ble-led",
+  "version": "0.0.1",
+  "description": "A simple service that demonstrates the use of a read-write characteristic to control a LED",
+  "licenses": [
+    {
+      "url": "https://spdx.org/licenses/Apache-2.0",
+      "type": "Apache-2.0"
+    }
+  ],
+  "dependencies": {
+    "ble": "^2.0.0"
+  },
+  "targetDependencies": {},
+  "bin": "./"
+}
