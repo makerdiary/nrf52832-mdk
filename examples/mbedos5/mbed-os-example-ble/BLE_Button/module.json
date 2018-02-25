@@ -1,0 +1,15 @@
+{
+  "name": "ble-button",
+  "version": "0.0.1",
+  "description": "The *input service template* demonstrates the use of a simple input (boolean values) from a read-only characteristic.",
+  "licenses": [
+    {
+      "url": "https://spdx.org/licenses/Apache-2.0",
+      "type": "Apache-2.0"
+    }
+  ],
+  "bin": "./",
+  "dependencies": {
+    "ble": "^2.0.0"
+  }
+}
