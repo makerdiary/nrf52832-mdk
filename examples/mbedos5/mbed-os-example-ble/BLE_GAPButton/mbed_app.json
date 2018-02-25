@@ -1,0 +1,14 @@
+{
+    "config": {
+        "ble_button_pin_name": {
+            "help": "The pin name used as button in this application",
+            "macro_name": "BLE_BUTTON_PIN_NAME",
+            "required": true
+        }
+    },
+    "target_overrides": {
+        "NRF52832_MDK": {
+            "ble_button_pin_name": "BUTTON1"
+        }
+    }
+}

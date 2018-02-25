@@ -1,0 +1,12 @@
+{
+  "name": "ble-gapbutton",
+  "version": "0.0.1",
+  "bin": "./",
+  "description": "BLE button that uses gap advertisement to broadcast its state.",
+  "author": "Liyou Zhou",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "mbed-drivers": "*",
+    "ble": "^2.0.0"
+  }
+}
