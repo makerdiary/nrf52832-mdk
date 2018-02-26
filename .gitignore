@@ -1,6 +1,7 @@
 nrf_sdks/*
 .DS_Store/*
 _build/
+build/
 
 BUILD/
 mbed-os/
