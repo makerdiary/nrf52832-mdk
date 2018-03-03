@@ -1,0 +1,7 @@
+### Package: targets/nrf52_blinky
+pkg.name: "targets/nrf52_blinky"
+pkg.type: "target"
+pkg.description: 
+pkg.author: 
+pkg.homepage: 
+
