@@ -1,56 +1,129 @@
-# nRF52832-MDK <br><small>Open Source Hardware for IoT Embedded Applications</small>
+# nRF52832-MDK <br><small>An Open Source, Micro Development Kit for IoT Embedded Applications.</small>
 
-## Get our boards from Seeed Studio
-[![](/img/seeed_logo_20170815.png)](https://www.seeedstudio.com/nRF52832-Micro-Development-Board-p-2992.html)
+!!! note
+    There are two versions of nRF52832-MDK available:
+
+    * **V1**: with Micro USB socket and headers soldered in
+    
+    * **V2**: without headers soldered in and can be connected to PC without any cable
+
+    Just choose one that's right for you!
+
+## Description
+
+The nRF52832-MDK is a fully open-source, versatile single board development kit for *Bluetooth*® low energy, ANT and 2.4GHz proprietary applications using the [nRF52832](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832) SoC.
+
+The kit gives access to 24 I/Os and interfaces via headers and has a RGB LED which is user-programmable. It also has a 2.4GHz chip antenna onboard which is quite convenient to develop IoT wireless applications. 
+
+It supports the Nordic offical SDK using GCC, Keil and IAR. Program/Debug options on the kit is [DAPLink](https://github.com/ARMmbed/DAPLink).
+
+The nRF52832-MDK can also be used to play with multi-frameworks such as: nRF5 SDK, nRF5 SDK for Mesh, Mbed OS 5, Zephyr, Mynewt, JerryScript, Espruino, MicroPython, Web Bluetooth, Eddystone, etc.
+
+![product image](images/nrf52832_mdk_v1_image.jpg)
+
+![product image](images/nrf52832_mdk_v2_image.jpg)
+
+## Hardware Specification
+
+nRF52832-MDK provides the following hardware features:
+
+* Nordic Semiconductor nRF52832 
+
+	* ARM® Cortex™-M4F
+	* 512kB Flash Memory + 64kB RAM
+	* Bluetooth low energy, ANT and 2.4GHz
+	* NFC™-A tag
+
+* Program/Debug options with DAPLink
+
+	* MSC - drag-n-drop programming flash memory
+	* CDC - virtual com port for log, trace and terminal emulation
+	* HID - CMSIS-DAP compliant debug channel
+
+* Up to 24 GPIOs at headers
+
+* Reset Button
+
+* RGB LED
+
+* 2.4GHz chip antenna
+
+* 3.3V regulator with 1A peak current output
+
+* VBUS & VIN Power-Path Management
+
+* Breadboard-friendly
+
+* Two dimensions available:
+
+	* V1: 48mm x 18mm x 13mm with headers soldered in
+	* V2: 63mm x 18mm x 4mm without headers soldered in
+
+## Pinout
+
+![](images/nrf52832_mdk_v1_pinout.jpeg)
+
+![](images/nrf52832_mdk_v2_pinout.jpeg)
+
+## Powered by nRF52832 SoC
+
+The nRF52832 SoC is a powerful, highly flexible ultra-low power multiprotocol SoC ideally suited for Bluetooth® low energy, ANT and 2.4GHz ultra low-power wireless applications. The nRF52832 SoC is built around a 32-bit ARM® Cortex™-M4F CPU with 512kB + 64kB RAM. The embedded 2.4GHz transceiver supports Bluetooth low energy, ANT and proprietary 2.4 GHz protocol stack. It is on air compatible with the nRF51 Series, nRF24L and nRF24AP Series products from Nordic Semiconductor.
+
+<a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832"><button data-md-color-primary="indigo">More infomation</button></a>
+
+![](images/nrf52832_soc.png)
+
+## DAPLink Integrated
+
+Arm Mbed DAPLink is an open-source software project that enables programming and debugging application software on running on Arm Cortex CPUs. Commonly referred to as interface firmware, DAPLink runs on a secondary MCU that is attached to the SWD port of the application MCU. Enumerating as a USB composite device, it creates a bridge between your development computer and the CPU debug access port. DAPLink enables developers with:
+
+* MSC - drag-n-drop programming flash memory
+* CDC - virtual com port for log, trace and terminal emulation
+* HID - CMSIS-DAP compliant debug channel
+
+<a href="https://github.com/ARMmbed/DAPLink"><button data-md-color-primary="indigo">ARMmbed/DAPLink</button></a>
+
+![](images/daplink_diagram.png)
+
+## Multi-Frameworks Supported
+
+The nRF52832-MDK can be used to play with multi-frameworks such as: *nRF5 SDK*, *nRF5 SDK for Mesh*, *Mbed OS 5*, *Zephyr*, *Mynewt*, *JerryScript*, *Espruino*, *MicroPython*, *Web Bluetooth*, *Eddystone* ....
+
+| Framework  | Brief Description |
+| ---------- | ----- |
+| [nRF5 SDK](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK) | Software Development Kit for nRF51 and nRF52 Series |
+| [nRF5 SDK for Mesh](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK-for-Mesh) | Software Development Kit for Bluetooth mesh solutions using nRF51 Series and nRF52 Series |
+| [Mbed OS 5](https://os.mbed.com/) | An Open Source Embedded Operating System designed specifically for the "things" in the Internet of Things. |
+| [Zephyr](https://www.zephyrproject.org/) | A Small, Scalable Open Source RTOS for IoT Embedded Devices. |
+| [Mynewt](https://mynewt.apache.org/) | An OS to build, deploy and securely manage billions of devices. |
+| [JerryScript](https://github.com/jerryscript-project/jerryscript) | A Ultra-lightweight JavaScript engine for the Internet of Things. |
+| [Espruino](https://github.com/espruino/Espruino) | A JavaScript interpreter for microcontrollers. It is designed for devices with as little as 128kB Flash and 8kB RAM. |
+| [MicroPython](https://github.com/micropython/micropython) | A lean and efficient Python implementation for microcontrollers and constrained systems. |
+| [Web Bluetooth](https://github.com/WebBluetoothCG/web-bluetooth) | Bluetooth support for the Web. |
+| [Eddystone](https://github.com/google/eddystone) | A protocol specification that defines a Bluetooth low energy (BLE) message format for proximity beacon messages. |
+| .... | |
+
+## Online Document
+
+The excellent project document is provided with nRF52832-MDK. It's generated by [MkDocs](http://www.mkdocs.org/) and hosted on [GitHub](https://github.com/makerdiary/nrf52832-mdk/).
+
+![document image](images/nrf52832_mdk_docs.png)
+
+## Resource
+
+| Releases | Design Files                   |
+| -------- | ------------------------------ |
+| V2.0     | [nRF52832-MDK V2.0 Schematic](hardware/nRF52832-MDK_SCH_V2.0.pdf)<br/>[nRF52832-MDK V2.0 PCB](hardware/nRF52832-MDK_PCB_V2.0.pdf)<br/>[nRF52832-MDK V2.0 3D STEP](hardware/nRF52832-MDK_3D_STEP_V2.0.step)|
+| V1.1     | [nRF52832-MDK V1.1 Schematic](hardware/nRF52832-MDK_SCH_V1.1.pdf)<br/>[nRF52832-MDK V1.1 PCB](hardware/nRF52832-MDK_PCB_V1.1.pdf)<br/>[nRF52832-MDK V1.1 3D STEP](hardware/nRF52832-MDK_3D_STEP_V1.1.step)|
+| V1.0     | [nRF52832-MDK V1.0 Schematic](hardware/nRF52832-MDK_SCH_V1.0.pdf)<br/>[nRF52832-MDK V1.0 PCB](hardware/nRF52832-MDK_PCB_V1.0.pdf)<br/>[nRF52832-MDK V1.0 3D STEP](hardware/nRF52832-MDK_3D_STEP_V1.0.step)|
 
 
-**nRF52832-MDK** 是一款完全开源、基于 [Nordic](http://www.nordicsemi.com/eng) 新一代高性能低功耗蓝牙系统级芯片 [nRF52832](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832)、面向物联网嵌入式应用的开发套件，集成多功能调试器，支持多种开源软件，支持跨平台开发，并且提供丰富的在线文档，希望给你带来不同于以往的开发体验。
+## Any Issue ?
 
-![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-mdk-boardbox.jpg)
+Interested in contributing to this project? Want to report a bug? Feel free and click here:
 
-## 完全开源
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
 
-nRF52832-MDK 是一个开源项目，所有硬件设计资料、源代码、开发文档完全开源，项目托管在 [GitHub](https://github.com/makerdiary/nrf52832-mdk) 上，由社区共同维护，点击页面右上角按钮可前往源码仓库。
+<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
 
-![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-mdk-oshw-1280x976.png)
-
-## nRF52832 SoC
-
-[nRF52832](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832) 是 Nordic Semiconductor 新一代高性能的低功耗蓝牙系统级芯片，ARM® Cortex™-M4F 内核，512kB Flash + 64kB RAM，支持 BLE, ANT, 2.4GHz 协议栈。
-
-![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-chip.png)
-
-## 集成调试器
-
-nRF52832-MDK 集成了多功能调试器 DAPLink，即插即用，可实现 U 盘直接“拖放”下载固件、串口调试、CMSIS-DAP 仿真调试。
-
-<a href="https://github.com/mbedmicro/DAPLink/"><button data-md-color-primary="cyan">前往 GitHub 查看</button></a>
-
-![](https://img.makerdiary.co/wiki/nrf52832mdk/cp-hex-to-daplink.png)
-
-![](https://img.makerdiary.co/wiki/nrf52832mdk/daplink-block.png)
-
-## 玩转多种开源软件
-
-nRF52832-MDK 可以用来玩转多种开源软件，包括 [nRF5 SDK](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK), [mbed OS 5](https://developer.mbed.org/), [Zephyr](https://www.zephyrproject.org/), [JerryScript](http://jerryscript.net/), [Espruino](http://www.espruino.com/), [Web Bluetooth](https://webbluetoothcg.github.io/web-bluetooth/), [Eddystone](https://github.com/google/eddystone), [Physical Web](https://google.github.io/physical-web/) 等等....
-
-![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-mdk-multisw.png)
-
-## 跨平台开发
-
-使用开源工具链，nRF52832-MDK 可实现跨平台开发，满足 Mac OSX, Linux, Windows 开发者的开发需求。
-
-![](https://img.makerdiary.co/wiki/nrf52832mdk/multi-platform.png)
-
-## 提供在线文档
-
-nRF52832-MDK 提供丰富的在线文档，使用 [MkDocs](http://www.mkdocs.org/) 生成文档，托管在 [GitHub](https://github.com/makerdiary/nrf52832-mdk/)，方便开源爱好者一起维护，同时提供 CDN 加速，实现快速访问。
-
-![](https://img.makerdiary.co/wiki/nrf52832mdk/nrf52832-mdk-online-docs-available.png)
-
-## 问题反馈
-
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
-
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="green">New Issue</button></a>
 

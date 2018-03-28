@@ -1,31 +1,60 @@
 
 # Project information
-site_name: 'nRF52832 Micro Development Kit'
+site_name: 'nRF52832-MDK Documentation'
 site_description: 'An Open Source, Micro Development Kit for IoT Applications'
 site_author: 'Zelin'
 site_url: 'https://makerdiary.github.io/nrf52832-mdk'
-site_favicon: img/favicon.ico
+
 
 # Repository
 repo_name: 'makerdiary/nrf52832-mdk'
 repo_url: 'https://github.com/makerdiary/nrf52832-mdk'
+edit_uri: ""
+
 
 # Copyright
-copyright: 'Copyright &copy; 2017 <a href="http://wiki.makerdiary.co">wiki.makerdiary.co</a><br>This site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>'
+copyright: 'Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>'
 
 # Documentation and theme
-theme: 'material'
+theme:
+  name: null
+  custom_dir: 'mkdocs-material/material'
 
+  # 404 page
+  static_templates:
+    - 404.html
 
-# Options
-extra:
-  logo: 'img/logo.svg'
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  feature:
+    tabs: true
   palette:
-    primary: 'indigo'
-    accent: 'cyan'
+    primary: indigo
+    accent: indigo
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
+    text: Roboto
+    code: Roboto Mono
+  favicon: 'images/favicon.ico'
+  logo: 'images/logo.svg'
+
+# Customization
+extra:
+  social:
+
+    - type: slack
+      link: https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk
+    - type: github-alt
+      link: https://github.com/makerdiary
+    - type: twitter
+      link: https://twitter.com/makerdiary
+    - type: facebook
+      link: https://www.facebook.com/makerdiary
+    - type: globe
+      link: https://makerdiary.co
 
 # Google Analytics
 google_analytics:
@@ -34,82 +63,62 @@ google_analytics:
 
 # Extensions
 markdown_extensions:
-  - admonition
-  - codehilite(guess_lang=false)
-  - def_list
-  - footnotes
-  - meta
-  - toc(permalink=true)
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
   - pymdownx.arithmatex
-  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
+  - pymdownx.keys
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.tilde
 
 
 pages:
-  - 首页: index.md
-  - 硬件介绍: hardware/index.md
-  - 快速入门:
-    - 首次使用: getting-started/hello-world.md
-    - 如何下载固件？: getting-started/how-to-upload.md
-  - nRF5 SDK:
-    - 简介: nrf5sdk/index.md
-    - 搭建开发环境: 
-      - Mac OSX: nrf5sdk/setup-devenv-osx.md
-      - Linux: nrf5sdk/setup-devenv-linux.md
-      - Windows: nrf5sdk/setup-devenv-win.md
-    - 示例项目:
-      - Blinky: nrf5sdk/example-blinky.md
-      - 串口调试: nrf5sdk/example-uart-logger.md
-      - 摇一摇周边: nrf5sdk/example-weixin-shake.md
-      - Physical Web: nrf5sdk/example-physical-web.md
-      - 更多示例: nrf5sdk/example-more.md
-  - mbed OS 5: 
-    - 简介: mbedos5/index.md
-    - 快速入门: mbedos5/getting-started.md
-    - 示例项目:
-      - Blinky: mbedos5/example-blinky.md
-      - 低功耗蓝牙示例: 
-        - 简介: mbedos5/example-ble-index.md
-        - BLE Battery Level: mbedos5/example-ble-batterylevel.md
-        - BLE Beacon: mbedos5/example-ble-beacon.md
-        - BLE Button: mbedos5/example-ble-button.md
-        - BLE Eddystone Observer: mbedos5/example-ble-eddystoneobserver.md
-        - BLE Eddystone Service: mbedos5/example-ble-eddystoneservice.md
-        - BLE GAP Button: mbedos5/example-ble-gapbutton.md
-        - BLE Heart Rate: mbedos5/example-ble-heartrate.md
-        - BLE LED: mbedos5/example-ble-led.md
-        - BLE LED Blinker: mbedos5/example-ble-ledblinker.md
-        - BLE Thermometer: mbedos5/example-ble-thermometer.md
-      - 更多示例: mbedos5/example-more.md
-  - Zephyr: 
-    - 简介: zephyr/index.md
-    - 搭建开发环境:
-      - Mac OSX: zephyr/setup-devenv-osx.md
-      - Linux: zephyr/setup-devenv-linux.md
-      - Windows: zephyr/setup-devenv-win.md
-    - 入门示例: 
-      - Blinky: zephyr/example-blinky.md
-      - Button: zephyr/example-button.md
-      - 低功耗蓝牙 Beacon: zephyr/example-beacon.md
-      - 低功耗蓝牙心率计: zephyr/example-ble-heartrate.md
-      - 更多示例: zephyr/example-more.md
-  - JerryScript:
-    - 简介: jerryscript/index.md
-    - 体验 JerryScript: jerryscript/getting-started.md
-  - Espruino: 
-    - 简介: espruino/index.md
-    - 快速入门: espruino/getting-started.md
-  - 获取硬件: ordering.md
-  - 反馈与贡献: CONTRIBUTING.md
-  - 关于作者: about-me.md
+  - Overview: index.md
+  - Getting Started: getting-started/index.md
+  - nRF5 SDK: nrf5sdk/index.md
+  - nRF5 SDK for Mesh: mesh/index.md
+  - Arm Mbed OS: mbedos/index.md
+  - Zephyr: zephyr/index.md
+  - Mynewt: mynewt/index.md
+  - Espruino: espruino/index.md
+  - JerryScript: jerryscript/index.md
+  - MicroPython: micropython/index.md
+  - DAPLink: daplink/index.md
+  - How to Buy: how-to-buy.md
+  - Contributing: CONTRIBUTING.md
+  - License: LICENSE.md
+  - 中文文档:
+    - 简介: cn/index.md
+    - 快速入门: cn/getting-started/index.md
+    - nRF5 SDK: cn/nrf5sdk/index.md
+    - nRF5 SDK for Mesh: cn/mesh/index.md
+    - Arm Mbed OS: cn/mbedos/index.md
+    - Zephyr: cn/zephyr/index.md
+    - Mynewt: cn/mynewt/index.md
+    - Espruino: cn/espruino/index.md
+    - JerryScript: cn/jerryscript/index.md
+    - MicroPython: cn/micropython/index.md
+    - DAPLink: cn/daplink/index.md
+    - 如何购买: cn/how-to-buy.md
+    - 反馈&贡献: cn/CONTRIBUTING.md
+    - 订阅: cn/about.md
+    - License: cn/LICENSE.md
 

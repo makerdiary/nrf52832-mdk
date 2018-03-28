@@ -1,30 +1,185 @@
-# nRF5 SDK <br><small>The official Software Development Kit for nRF5x Series</small>
+# nRF5 SDK <br><small>Software Development Kit for nRF51 and nRF52 Series</small>
 
-<a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK"><button data-md-color-primary="indigo">前往 nRF5 SDK 官网</button></a>
+## Introduction
+
+The nRF5 SDK provides a rich developing environment for nRF5 Series devices by including a broad selection of drivers, libraries, examples for peripherals, SoftDevices, and proprietary radio protocols.
+
+The SDK is delivered as a plain .zip-archive, which makes it easy to install as well as giving you the freedom to choose the IDE and compiler of your choice.
+
+We provide example applications that you can run on your nRF52832-MDK to ensure that everything is set up correctly. After these tests, you can use the examples as starting point to develop your own applications.
+
+Before we begin, we need to install some software components to build our example applications. Here we recommend GNU Arm Embedded Toolchains as they are free and open-source.
+
+## Installing GNU Arm Embedded Toolchain
+
+The GNU Arm Embedded toolchains are integrated and validated packages featuring the Arm Embedded GCC compiler, libraries and other GNU tools necessary for bare-metal software development on devices based on the Arm Cortex-M and Cortex-R processors. The toolchains are available for cross-compilation on Microsoft Windows, Linux and macOS host operating systems.
+
+These toolchains are based on [Free Software Foundation](https://www.gnu.org/home.en.html)'s (FSF) GNU Open source tools and newlib.
+
+The pre-built GNU Arm Embedded Toolchain can be downloaded using the following link: 
+
+<a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads"><button data-md-color-primary="indigo">Download</button></a>
+
+Download and install the latest version. Then make sure to add the path to your toolchain to your OS PATH environment variable:
 
 
+``` sh
+<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major/bin
+```
+
+Adding the path makes it possible to run the toolchain executables from any directory using the terminal. To verify that the path is set correctly, type the following in your terminal:
+
+``` sh
+$ arm-none-eabi-gcc --version
+```
+
+![](images/arm-none-eabi-gcc_version.png)
+
+## Installing GNU make
+
+Now with the toolchain installed we can build object files from source code, but to build projects based on makefiles, which can be seen as a recipes for the builds, we need to have [GNU make](https://www.gnu.org/software/make/) installed on the system.
+
+On Windows the easiest way to install the dependencies is to use the [MSYS2](http://www.msys2.org/). You can do so by performing the following steps:
+
+<a href="http://www.msys2.org/"><button data-md-color-primary="indigo">Download</button></a>
+
+1. Download and run the installer - "x86_64" for 64-bit, "i686" for 32-bit Windows.
+
+2. Update the package database and core system packages with:
+
+	``` sh
+	$ pacman -Syu
+	```
+
+3. If needed, close MSYS2, run it again from Start menu. Update the rest with:
+
+	``` sh
+	$ pacman -Su
+	```
+
+4. Install dependencies:
+
+	``` sh
+	$ pacman -S git make python2
+	```
 
 
-## 简介
-nRF5 SDK 是 Nordic 针对 nRF5x 系列芯片提供的软件开发环境，包含各种外设驱动、代码库、应用示例、低功耗蓝牙协议栈以及其他具有专利的无线协议栈。
+Linux and macOS already have the necessary shell commands, but GNU make may not be a part of the standard distro. Call `make -v` from the terminal to check whether it is installed or not. GNU make would need to be installed if it's not recognized as a command.
 
-该 SDK 以 `zip` 压缩包的形式发布，这样可以便于开发者自由选择开发环境。
+GNU make is bundled with Xcode tools if working on macOS.
 
-nRF5 SDK 自带的应用示例主要运行在 Nordic 官方的开发板上，这些示例只要稍作修改均可在 nRF52832-MDK 上顺利运行。
+On Linux it may be different ways to obtain GNU make depending on your distro, if not installed already. On Ubuntu you can get by entering this command:
 
-本文档主要基于官方发布的 SDK 以及 [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm) 撰写，内容会随着 SDK 及相关工具版本升级而不断更新完善。
+``` sh
+$ sudo apt-get install build-essential checkinstall
+```
 
-!!! tip "提示"
-    Nordic 最近已经发布了 nRF5 SDK 13.0.0 正式版，本文档发布之际将会支持最新版本。
+![](images/gnu-make_version.png)
 
-## 相关资源
+## Installing the nRF5 SDK
 
-* [下载 nRF5 SDK](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK)
-* [查阅官方开发文档](https://developer.nordicsemi.com/nRF5_SDK/doc/)
+Download the SDK file `nRF5_SDK_x.x.x_xxxxxxx.zip` (for example, `nRF5_SDK_v14.2.0_17b948a.zip`) from [developer.nordicsemi.com](https://developer.nordicsemi.com/).
 
-## 问题反馈
+The latest version is `14.2.0`, it can be downloaded directly here:
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
+<a href="http://www.nordicsemi.com/eng/nordic/download_resource/59011/68/55131978/116085"><button data-md-color-primary="indigo">Download</button></a>
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="green">New Issue</button></a>
+Extract the zip file to the `nrf52832-mdk` repository. This should give you the following folder structure:
+
+``` sh
+./nrf52832-mdk/
+├── LICENSE
+├── README.md
+├── README_CN.md
+├── bin
+├── docs
+├── examples
+├── mkdocs.yml
+├── nrf_sdks
+│   └── nRF5_SDK_14.2.0_17b948a
+└── tools
+```
+
+To build an example application you first need to set the toolchain path in `makefile.windows` or `makefile.posix` depending on platform you are using. That is, the `.posix` should be edited if your are working on either Linux or macOS. These files are located in:
+
+``` sh
+<SDK>/components/toolchain/gcc
+```
+
+Open the file in a text editor ([Sublime](https://www.sublimetext.com/) is recommended), and make sure that the `GNU_INSTALL_ROOT` variable is pointing to your GNU Arm Embedded Toolchain install directory.
+
+``` sh
+GNU_INSTALL_ROOT := $(HOME)/gcc-arm-none-eabi/gcc-arm-none-eabi-7-2017-q4-major/bin/
+GNU_VERSION := 7.2.1
+GNU_PREFIX := arm-none-eabi
+```
+
+## Compiling and running blinky example
+
+Now you can try to build one of the examples. Will use the `blinky` example here to keep it simple.
+
+Open terminal and change directory to:
+
+``` sh
+$ cd ./nrf52832-mdk/examples/nrf5-sdk/blinky/armgcc/
+```
+
+Connect the nRF52832-MDK to one of your PC's USB host ports. Compile and program the example:
+
+``` sh
+$ make flash
+```
+
+Observe that the LEDs are blinking:
+
+![](images/blinky_example.gif)
+
+
+## Running examples that use a SoftDevice
+
+Before you can run more advanced examples that use *Bluetooth* or *ANT*, you must program the SoftDevice on the board.
+
+The SoftDevice binary is located in folder `components/softdevice/SoftDevice/hex` in the SDK, where SoftDevice is the name of the SoftDevice. You can also download SoftDevices from [nordicsemi.com](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832).
+
+The easiest way to program the SoftDevice is using the GCC makefile of an example:
+
+1. Open a command prompt in the folder that contains the makefile of an example. The example must require a SoftDevice. For example, the `ble_app_blinky` example.
+
+2. Run the following command:
+
+	``` sh
+	# this will program SoftDevice alone
+	$ make flash_softdevice
+	```
+
+	Or 
+
+	``` sh
+	# this will program the application with SoftDevice
+	$ make flash_all
+	```
+
+
+## More examples
+
+Over time, more example applications will be added to the repository. You can star or watch the [nrf52832-mdk](https://github.com/makerdiary/nrf52832-mdk) repository to stay up to date.
+
+## Reference
+
+* [Nordic nRF5 SDK](http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk/dita/sdk/nrf5_sdk.html)
+
+* [Nordic Semiconductor Infocenter](http://infocenter.nordicsemi.com/index.jsp)
+
+* [makerdiary/nrf52832-mdk](https://github.com/makerdiary/nrf52832-mdk)
+
+* [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm)
+
+## Any Issue ?
+
+Interested in contributing to this project? Want to report a bug? Feel free and click here:
+
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
+
+<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
+
 

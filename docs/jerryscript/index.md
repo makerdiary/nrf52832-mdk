@@ -1,47 +1,125 @@
-# JerryScript<br><small>A JavaScript engine for <strong>Internet of Things</strong></small>
-![](https://img.makerdiary.co/wiki/nrf52832mdk/jerryscript-logo.png)
+# JerryScript<br><small>A Ultra-lightweight JavaScript engine for <strong>Internet of Things</strong></small>
 
-<a href="http://jerryscript.net/"><button data-md-color-primary="indigo">JerryScript 官方网站</button></a>
+## Introduction
 
-## 简介
-JerryScript 是三星开源的一个非常轻量的 JavaScript 引擎，主要面向资源受限的物联网设备，可在 RAM<64KB/ROM<200KB 的微控制器上运行。
+JerryScript is a lightweight JavaScript engine for resource-constrained devices such as microcontrollers. It can run on devices with less than 64 KB of RAM and less than 200 KB of flash memory.
 
-## 优势
+Key characteristics of JerryScript:
 
-JavaScript 是现在非常流行的编程语言之一，大量前端开发者对它非常熟悉，将物联网设备和 web 生态系统（web ecosystem）相互配合，对于构建物联网生态系统来说是个明智的选择，这也正是三星开发 JerryScript 的初衷。
+* Full ECMAScript 5.1 standard compliance
+* 160K binary size when compiled for ARM Thumb-2
+* Heavily optimized for low memory consumption
+* Written in C99 for maximum portability
+* Snapshot support for precompiling JavaScript source code to byte code
+* Mature C API, easy to embed in applications
 
-> 另一方面，JavaScript 在嵌入式设备开发中是非常便利的。它支持异步函数回调和异步 I/O，这对基于事件驱动的硬件编程是非常有用的。
+For more information, please visit [JerryScript Official Repo](https://github.com/jerryscript-project/jerryscript).
 
-## 关键特性
+## Getting Started
 
-从官方提供的文档，可以了解到，JerryScript 具备以下关键特性：
+### Setting up prerequisites
 
-* 完全兼容 ECMAScript 5.1
-* 若采用 ARM Thumb-2 指令集编译，仅需 160KB 空间
-* 注重内存优化，减少内存消耗
-* 使用 C99 编写，可移植性强
-* 为预编译 JavaScript 源码提供快照支持
-* 提供成熟的 C API，调用方便
+There are several dependencies, that should be installed manually. The following list is the absolute minimum for building:
 
-更多内容可查阅：[JerryScript Wiki](https://github.com/jerryscript-project/jerryscript/wiki).
+* `gcc` or any C99-compliant compiler (native or cross, e.g., arm-none-eabi)
+* `cmake` >= `2.8.12.2`
 
-## 硬件支持
+Several scripts and tools help the building and development process, thus it is recommended to have the following installed as well:
 
-在广大社区开发者的努力下，JerryScript 支持的平台逐渐多了起来，能够支持的硬件也将越来越多。
+* `bash` >= `4.3.11`
+* `cppcheck` >= `1.61`
+* `vera++` >= `1.2.1`
+* `python` >= `2.7.6`
 
-这里要特别提到的是 JerryScript 已经可以支持 mbed OS 5 和 Zephyr，因此只要在硬件资源满足的条件下，理论上这两个 RTOS 支持的硬件是可以跑 JerryScript 的，这也充分体现了 JerryScript 的可移植性。
+To make the scripts run correctly, several shell utilities should be available on the system:
 
-接下来的文章，我计划把 JerryScript 带到 nRF52832-MDK 上来，让 JS 开发者体验一下物联网开发，也让嵌入式开发者玩一玩 JavaScript。
+* `awk`
+* `bc`
+* `find`
+* `sed`
+
+Clone the [jerryscript](https://github.com/jerryscript-project/jerryscript) repository on GitHub or download it as a zip package and put its contents to your working directory.
+
+``` sh
+$ git clone https://github.com/jerryscript-project/jerryscript.git
+```
+
+### Building JerryScript for Zephyr
+
+Before buiding JerryScript for Zephyr, you need to prepare the Zephyr development environment. 
+
+Follow [this](../zephyr) page to get the Zephyr source and configure the environment.
+
+Remember to source the Zephyr environment as explained in the Zephyr documenation:
+
+``` sh
+$ cd zephyr
+$ source zephyr-env.sh
+```
+
+Build the firmware and program your nRF52832-MDK by running:
+
+``` sh
+$ cd jerryscript
+$ make -f ./targets/zephyr/Makefile.zephyr BOARD=nrf52832_mdk flash
+```
+
+When the programming operation completes, test command line in a serial terminal.
+
+You should see something similar to this:
+
+``` sh
+***** BOOTING ZEPHYR OS v1.10.99 - BUILD: Mar  2 2018 22:19:04 *****
+JerryScript build: Mar  2 2018 22:19:03
+JerryScript API 1.0
+Zephyr version 1.10.99
+js>
+```
+
+Run the example javascript command test function:
+
+``` js
+js> var test=0; for (t=100; t<1000; t++) test+=t; print ('Hi JS World! '+test);
+Hi JS World! 494550
+undefined
+```
+
+Try a more complex function:
+
+``` js
+js> function hello(t) {t=t*10;return t}; print("result"+hello(10.5));
+result105
+undefined
+```
+
+![](images/jerryscript_for_zephyr_repl.png)
+
+!!! tip
+	This firmware is available in the directory `./nrf52832-mdk/firmware/jerryscript/` with the name `jerryscript_v1.0_for_zephyr.hex`.
 
 
-## 推荐资源
+## More examples
 
-* [JerryScript 官网](http://jerryscript.net)
-* [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
+The implement of JerryScript for nRF5x SoC is **NOT** complete and many hardware APIs need to be added. 
 
-## 问题反馈
+There is an open source project called [Zephyr.js](https://github.com/intel/zephyr.js)(ZJS for short). It provides an IoT web runtime environment with JavaScript APIs for the Zephyr operating system, based on the JerryScript engine.
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
+There is only partial support for modules on nRF52 compared to Zephyr. Many hardware specific module (I2C, GPIO, ADC etc.) is not supported on nRF52.
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="green">New Issue</button></a>
+Over time, more features may be added to ZJS. You can keep watching it for updates.
+
+## Reference
+
+* [JerryScript repo](https://github.com/jerryscript-project/jerryscript)
+* [zephyr.js repo](https://github.com/intel/zephyr.js)
+
+
+## Any Issue ?
+
+Interested in contributing to this project? Want to report a bug? Feel free and click here:
+
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
+
+<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
+
 

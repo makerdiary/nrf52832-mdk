@@ -1,29 +1,227 @@
-# Zephyr <br><small>A Small, Scalable, Open Source RTOS for IoT Embedded Devices</small>
+# Zephyr <br><small>A scalable RTOS supporting multiple hardware architectures, optimized for resource constrained devices, and built with security in mind</small>
 
-<a href="https://www.zephyrproject.org/"><button data-md-color-primary="indigo">前往 Zephyr 官网</button></a>
+## Introduction
 
-## 简介
+The Zephyr OS is based on a small-footprint kernel designed for use on resource-constrained systems: from simple embedded environmental sensors and LED wearables to sophisticated smart watches and IoT wireless gateways.
 
-Zephyr 是 Linux 基金会发布的开源物联网操作系统，主要面向资源受限的物联网设备。目前 Zephyr 项目已经获得了 Intel, Linaro, NXP, Synopsys, Nordic 等合作伙伴的支持。Wind River 也向 Zephyr 贡献了已经商业化的 VxWorks Microkernel，该内核已经演化超过 20 年。
+The Zephyr kernel supports multiple architectures, including ARM Cortex-M, Intel x86, ARC, NIOS II, Tensilica Xtensa, and RISC-V. 
 
-Zephyr 继承了 Linux 的很多做法，又没有 Linux 那么复杂，无论是出于学习的目的还是为你的物联网设备选择 RTOS，Zephyr 都将是一个不错的选择。
+## Distinguishing Features
 
+The Zephyr kernel offers a number of features that distinguish it from other small-footprint OSes:
 
-本文档主要以 nRF52832-MDK 作为硬件平台，对 Zephyr 开发做一些介绍，也期待更多朋友一起来完善这个项目。
+* Single address-space
+* Highly configurable / Modular for flexibility
+* Cross Architecture
+* Compile-time resource definition
+* Minimal and Configurable error checking
+* Memory Protection
+* Native Networking Stack supporting multiple protocols
+* Native Linux, macOS, and Windows Development
+* Extensive suite of services
 
-!!! note "提示"
-    nRF52832-MDK 目前已经支持 Zephyr 最新发布的 1.7.0 版本。
+For more details, please visit [Zephyr Project](https://www.zephyrproject.org/) site.
 
+## Getting Started
 
-## 推荐资源
+### Checking out the repository
 
-* [Zephyr 官方文档](https://www.zephyrproject.org/doc/index.html)
-* [关于 Zephyr 的一些认识](https://makerdiary.co/introducing-zephyr-os/)
-* [Zephyr Project 文档 - 中文版](http://iot-fans.xyz/zephyr/doc/v1.6.0/index.html) (由国内爱好者翻译)
+Clone the [Zephyr Project](https://github.com/zephyrproject-rtos/zephyr) repository on GitHub or download it as a zip package and put its contents to your working directory.
 
-## 问题反馈
+``` sh
+$ git clone https://github.com/zephyrproject-rtos/zephyr.git
+```
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
+### Setting up the development environment
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="green">New Issue</button></a>
+The Zephyr project uses [CMake](https://cmake.org/) as a tool for managing the building of the project. CMake is able to generate build files in different formats (also known as “generators”), and the following ones are currently supported by Zephyr:
+
+* `make`: Supported on UNIX-like platforms (Linux, macOS).
+* `ninja`: Supported on all platforms.
+
+The setup process for the development environment depends on your operating system. Please choose your host operating system. The setup instructions for each operating system walk you through how to set up the development environment.
+
+#### Windows
+
+The easiest way to install the dependencies natively on Microsoft Windows is to use the Chocolatey package manager ([Chocolatey website](https://chocolatey.org/)). 
+
+1. Install Chocolatey by following the instructions on the [Chocolatey install](https://chocolatey.org/install) website.
+
+2. Open a Command Prompt (cmd.exe) as an **Administrator**.
+
+3. Optionally disable global confirmation to avoid having to add -y to all commands:
+
+	``` sh
+	$ choco feature enable -n allowGlobalConfirmation
+	```
+
+4. Install CMake:
+
+	``` sh
+	$ choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+	```
+
+5. Install the rest of the tools:
+
+	``` sh
+	$ choco install git python ninja dtc-msys2 gperf
+	```
+
+6. Close the Command Prompt window.
+
+7. Open a Command Prompt (cmd.exe) as a regular user.
+
+8. Install the required Python modules:
+
+	``` sh
+	$ cd ./zephyr
+	$ pip install --user -r scripts/requirements.txt
+	$ pip2 install --user -r scripts/py2-requirements.txt
+	```
+
+9. Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) (install to `c:\gccarmemb`).
+
+10. Within the Command Prompt, set up environment variables for the installed tools and for the Zephyr environment:
+
+	``` sh
+	$ set ZEPHYR_TOOLCHAIN_VARIANT=gccarmemb
+	$ set GCCARMEMB_TOOLCHAIN_PATH=c:\gccarmemb
+	```
+
+#### macOS
+
+First, install the *Homebrew* (The missing package manager for macOS). Homebrew is a free and open-source software package management system that simplifies the installation of software on Apple’s macOS operating system.
+
+To install Homebrew, visit the [Homebrew site](http://brew.sh/) and follow the installation instructions on the site.
+
+After Homebrew was successfully installed, install the following tools using the brew command line:
+
+``` sh
+$ brew install cmake ninja dfu-util doxygen qemu dtc python3 gperf
+$ curl -O 'https://bootstrap.pypa.io/get-pip.py'
+$ ./get-pip.py
+$ rm get-pip.py
+$ cd ~/zephyr   # or to the folder where you cloned the zephyr repo
+$ pip3 install --user -r scripts/requirements.txt
+$ pip2 install --user -r scripts/py2-requirements.txt
+```
+
+Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads). Then make sure to add the path to your toolchain to your OS PATH environment variable:
+
+``` sh
+# add the following scripts to ~/.bash_profile 
+export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major"
+export ZEPHYR_GCC_VARIANT=gccarmemb
+```
+
+#### Linux
+
+Before proceeding with the build, ensure your OS is up to date. On Ubuntu, you’ll first need to update the local database list of available packages before upgrading:
+
+``` sh
+$ sudo apt-get update
+$ sudo apt-get upgrade
+```
+
+Install the required packages in a Ubuntu host system with:
+
+``` sh
+$ sudo apt-get install --no-install-recommends git cmake ninja-build gperf \
+  ccache doxygen dfu-util device-tree-compiler \
+  python3-ply python3-pip python3-setuptools xz-utils file make gcc-multilib \
+  autoconf automake libtool
+```
+
+Install additional packages required for development with Zephyr:
+
+``` sh
+$ cd ~/zephyr  # or to your directory where zephyr is cloned
+$ pip3 install --user -r scripts/requirements.txt
+$ pip2 install --user -r scripts/py2-requirements.txt
+```
+
+Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads). Then make sure to add the path to your toolchain to your OS PATH environment variable:
+
+``` sh
+# add the following scripts to ~/.bash_profile 
+export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major"
+export ZEPHYR_GCC_VARIANT=gccarmemb
+```
+
+### Adding support for nRF52832-MDK
+
+To add support for nRF52832-MDK, you must add the board support files. This should give you the following folder structure:
+
+``` sh
+.zephyr/boards/arm/nrf52832_mdk
+├── Kconfig
+├── Kconfig.board
+├── Kconfig.defconfig
+├── board.cmake
+├── board.h
+├── nrf52832_mdk.dts
+├── nrf52832_mdk.yaml
+└── nrf52832_mdk_defconfig
+```
+
+You can checkout the patch from [makerdiary/zephyr](https://github.com/makerdiary/zephyr):
+
+``` sh
+$ cd <zephyr git clone location>
+$ git remote add makerdiary https://github.com/makerdiary/zephyr.git
+$ git pull makerdiary master
+```
+
+### Compiling and running an example
+
+Now you can try to build one of the examples. Will use the `hello_world` example here to keep it simple.
+
+Source `zephyr-env.sh` wherever you have cloned the Zephyr Git repository:
+
+``` sh
+$ unset ZEPHYR_SDK_INSTALL_DIR
+$ cd <zephyr git clone location>
+$ source zephyr-env.sh
+```
+
+Create a `build` folder in the example directory, where all artifacts generated by the Ninja build system are stored, such as:
+
+``` sh
+$ cd nrf52832-mdk/examples/zephyr/hello_world/
+$ mkdir build && cd build
+
+build$ cmake -GNinja -DBOARD=nrf52832_mdk ..
+build$ ninja
+build$ ninja flash
+```
+
+![](images/hello_world_ninja_building.png)
+
+Check the board output from serial port, you will see the following messages:
+
+``` sh
+***** BOOTING ZEPHYR OS v1.10.99 - BUILD: Feb 26 2018 12:44:01 *****
+Hello World! arm
+```
+
+That's it! You can also try other examples in the path `nrf52832-mdk/examples/zephyr/`.
+
+## More examples
+
+Over time, more example applications will be added to the repository. You can star or watch the [nrf52832-mdk](https://github.com/makerdiary/nrf52832-mdk) repository to stay up to date.
+
+## Reference
+
+* [Zephyr Project site](https://www.zephyrproject.org/)
+* [Zephyr Project Documentation](http://docs.zephyrproject.org/index.html)
+* [zephyrproject-rtos/zephyr repository](https://github.com/zephyrproject-rtos/zephyr)
+
+## Any Issue ?
+
+Interested in contributing to this project? Want to report a bug? Feel free and click here:
+
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
+
+<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
+
 

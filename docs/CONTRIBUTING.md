@@ -1,21 +1,18 @@
 
-!!! tip "提示"
-    建议在反馈问题或 Pull Requests 时，先搜索查看该问题是否已经有人提交或者已经解决了，避免浪费时间。
+Interested in contributing to the nRF52832-MDK project? Want to report a bug? Before you do, please read the following guidelines.
 
-## 问题反馈
+## Got a question or problem?
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
+For quick questions there's no need to open an issue as you can reach us on [Slack](https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk).
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="green">New Issue</button></a>
+<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
 
-## 贡献
-由于个人技术水平以及精力有限，这个项目需要更多开源爱好者的推进，非常期待你的参与！
+## Found a bug?
 
-<a href="hhttps://github.com/makerdiary/nrf52832-mdk/pulls"><button data-md-color-primary="indigo">Pull Requests</button></a>
+If you found a bug in the source code, you can help us by submitting an issue to the [issue tracker](https://github.com/makerdiary/nrf52832-mdk/issues) in our GitHub repository. Even better, you can submit a Pull Request with a fix.
 
+## Missing a feature?
 
+You can request a new feature by submitting an issue to our GitHub Repository. Be sure that it is of use for everyone.
 
-
-
-
-    
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
