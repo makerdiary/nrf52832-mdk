@@ -1,0 +1,1168 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
+      
+      
+        <link rel="canonical" href="https://makerdiary.github.io/nrf52832-mdk/getting-started/">
+      
+      
+        <meta name="author" content="Zelin">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+    
+    
+      
+        <title>Getting Started - nRF52832-MDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.9b572555.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#getting-started-with-the-nrf52832-mdk-board" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                nRF52832-MDK Documentation
+              </span>
+              <span class="md-header-nav__topic">
+                Getting Started
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="Overview" class="md-tabs__link md-tabs__link--active">
+        Overview
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../cn/" title="中文文档" class="md-tabs__link">
+          中文文档
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../images/logo.svg" width="24" height="24">
+      
+    </span>
+    nRF52832-MDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Getting Started
+      </label>
+    
+    <a href="./" title="Getting Started" class="md-nav__link md-nav__link--active">
+      Getting Started
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-the-board" title="Connecting the board" class="md-nav__link">
+    Connecting the board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-terminal-applications" title="Using terminal applications" class="md-nav__link">
+    Using terminal applications
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-windows" title="On Windows" class="md-nav__link">
+    On Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-macos" title="On macOS" class="md-nav__link">
+    On macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-linux" title="On Linux" class="md-nav__link">
+    On Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-nrf-connect" title="Using nRF Connect" class="md-nav__link">
+    Using nRF Connect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-program-nrf52832-mdk" title="How to program nRF52832-MDK" class="md-nav__link">
+    How to program nRF52832-MDK
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drag-n-drop-programming" title="Drag-n-drop Programming" class="md-nav__link">
+    Drag-n-drop Programming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-pyocd" title="Using pyOCD" class="md-nav__link">
+    Using pyOCD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-the-repository" title="Clone the repository" class="md-nav__link">
+    Clone the repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
+    Any Issue ?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-buy/" title="How to Buy" class="md-nav__link">
+      How to Buy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      中文文档
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        中文文档
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/getting-started/" title="快速入门" class="md-nav__link">
+      快速入门
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/how-to-buy/" title="如何购买" class="md-nav__link">
+      如何购买
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
+      反馈&贡献
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/about/" title="订阅" class="md-nav__link">
+      订阅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-the-board" title="Connecting the board" class="md-nav__link">
+    Connecting the board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-terminal-applications" title="Using terminal applications" class="md-nav__link">
+    Using terminal applications
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-windows" title="On Windows" class="md-nav__link">
+    On Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-macos" title="On macOS" class="md-nav__link">
+    On macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-linux" title="On Linux" class="md-nav__link">
+    On Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-nrf-connect" title="Using nRF Connect" class="md-nav__link">
+    Using nRF Connect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-program-nrf52832-mdk" title="How to program nRF52832-MDK" class="md-nav__link">
+    How to program nRF52832-MDK
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drag-n-drop-programming" title="Drag-n-drop Programming" class="md-nav__link">
+    Drag-n-drop Programming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-pyocd" title="Using pyOCD" class="md-nav__link">
+    Using pyOCD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-the-repository" title="Clone the repository" class="md-nav__link">
+    Clone the repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
+    Any Issue ?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="getting-started-with-the-nrf52832-mdk-board">Getting started with the nRF52832-MDK Board<a class="headerlink" href="#getting-started-with-the-nrf52832-mdk-board" title="Permanent link">&para;</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Congratulations on getting the nRF52832-MDK!</p>
+<p>On this page we'll show you how to connect and power up your nRF52832-MDK, and what to expect when you do so. This will take about 20 minutes.</p>
+</div>
+<h2 id="connecting-the-board">Connecting the board<a class="headerlink" href="#connecting-the-board" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need a reasonably current Mac/Linux/Windows PC and a mobile phone to perform the following.</p>
+</div>
+<p>You can connect the board by performing the following steps:</p>
+<ol>
+<li>
+<p>Connect the nRF52832-MDK to one of your PC's USB host ports. This provides power to the board. Observe that two GREEN LEDs are on. One indicates that 3.3V power is good, and another indicates that the application is advertising.</p>
+</li>
+<li>
+<p>Open a file explorer. Confirm that the nRF52832-MDK has appeared as a removable drive named <strong>DAPLINK</strong>. This allows you to program the onboard chip. You'll do this under "<a href="#how-to-program-nrf52832-mdk">how to program nRF52832-MDK</a>" below.</p>
+</li>
+</ol>
+<p><img alt="" src="./images/connecting_nrf52832-mdk.jpg" /></p>
+<h2 id="using-terminal-applications">Using terminal applications<a class="headerlink" href="#using-terminal-applications" title="Permanent link">&para;</a></h2>
+<p>Terminal applications (for example <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a> or <a href="https://www.gnu.org/software/screen/manual/screen.html">screen</a>) run on your host PC. They provide a window where your board can print messages.</p>
+<p>You can connect your board to your computer over USB. This should work out of the box on Linux and macOS, but for Windows earlier than Windows 10, you will probably need to install a serial port driver:</p>
+<ol>
+<li>
+<p>Download the <a href="http://os.mbed.com/media/downloads/drivers/mbedWinSerial_16466.exe">Arm Mbed Windows serial port driver</a>.</p>
+</li>
+<li>
+<p>Plug in your board over USB. It mounts as a drive.</p>
+</li>
+<li>
+<p>Close all Explorer windows showing the drive.</p>
+</li>
+<li>
+<p>Run the installer. This may take some time or display a few "unsigned driver" warnings.</p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Serial configuration</p>
+<p>The default setup for the USB serial port is 115200 baud, 8 bits, 1 stop bit, no parity (115200-8-N-1)</p>
+</div>
+<h3 id="on-windows">On Windows<a class="headerlink" href="#on-windows" title="Permanent link">&para;</a></h3>
+<p>There are many terminal applications for Windows, <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a> is recommended.</p>
+<p>Start PuTTY and open the used COM port with the following configuration. If there is nothing printed, just press RESET button on the board.</p>
+<p><img alt="" src="./images/putty_configuration.png" /></p>
+<p><img alt="" src="./images/putty_messages.png" /></p>
+<h3 id="on-macos">On macOS<a class="headerlink" href="#on-macos" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.gnu.org/software/screen/manual/screen.html">screen</a> should work on macOS. In Terminal, run:</p>
+<div class="codehilite"><pre><span></span>$ screen /dev/cu.usbmodem1412 <span class="m">115200</span>
+</pre></div>
+
+<p>If there is nothing printed, just press RESET button on the board.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can type <code>screen /dev/cu.usb</code> first, and then press <kbd>tab</kbd>. The device name will autocomplete.</p>
+<p>To end a screen session, type <kbd>Ctrl</kbd> + <kbd>A</kbd>, and then <kbd>Ctrl</kbd> + <kbd>K</kbd>. At the bottom of the Terminal window, you should see a <code>[y/n]</code> prompt. Type <kbd>y</kbd>.</p>
+</div>
+<p><img alt="" src="./images/screen_messages_macos.png" /></p>
+<h3 id="on-linux">On Linux<a class="headerlink" href="#on-linux" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.gnu.org/software/screen/manual/screen.html">screen</a> should work on Linux. If for some reason it doesn't, you can try one of the following:</p>
+<ul>
+<li>
+<p><a href="http://freeware.the-meiers.org/">CoolTerm</a></p>
+</li>
+<li>
+<p><a href="https://help.ubuntu.com/community/Minicom">Minicom</a></p>
+</li>
+</ul>
+<p>Here we will use screen on Ubuntu 16.04 for example. If there is nothing printed, just press RESET button on the board.</p>
+<div class="codehilite"><pre><span></span>$ sudo apt-get install screen
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ sudo screen /dev/ttyACM0 <span class="m">115200</span>
+</pre></div>
+
+<p><img alt="" src="./images/screen_messages_ubuntu.png" /></p>
+<h2 id="using-nrf-connect">Using nRF Connect<a class="headerlink" href="#using-nrf-connect" title="Permanent link">&para;</a></h2>
+<p>You can also test the application with nRF Connect by performing the following steps:</p>
+<ol>
+<li>
+<p>Get the <strong>nRF Connect</strong> app from App Store or Google Play.</p>
+</li>
+<li>
+<p>Connect to the device from nRF Connect (the device is advertising as <strong>nRF52832-MDK</strong>).</p>
+</li>
+<li>
+<p>Observe that BLUE LED is on and GREEN LED is off. This indicates that the connections is established.</p>
+</li>
+<li>
+<p>Observe that the services are shown in the connected device.</p>
+</li>
+<li>
+<p>Write <code>01</code> to the <em>Nordic Blinky LED</em> Characteristic (0x1525) and observe that RED LED is turned on.</p>
+</li>
+<li>
+<p>Write <code>00</code> to the <em>Nordic Blinky LED</em> Characteristic (0x1525) and observe that RED LED is turned off.</p>
+</li>
+</ol>
+<p><img alt="" src="./images/nrf_connect_blinky.jpg" /></p>
+<h2 id="how-to-program-nrf52832-mdk">How to program nRF52832-MDK<a class="headerlink" href="#how-to-program-nrf52832-mdk" title="Permanent link">&para;</a></h2>
+<p>You have the following two options to program your nRF52832-MDK: </p>
+<ul>
+<li>
+<p><a href="#drag-n-drop-programming">Drag-n-drop Programming</a></p>
+</li>
+<li>
+<p><a href="#using-pyocd">Using pyOCD</a>.</p>
+</li>
+</ul>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/nrf5-sdk/ble_app_blinky/hex"><button data-md-color-primary="indigo">Get the firmware</button></a></p>
+<h3 id="drag-n-drop-programming">Drag-n-drop Programming<a class="headerlink" href="#drag-n-drop-programming" title="Permanent link">&para;</a></h3>
+<p>Drag and drop the hex file into the <strong>DAPLINK</strong> removable drive mentioned above. The file contains firmware which will be automatically programmed onto the nRF52832 SoC. This happens immediately. The explorer window may close when programming starts. When programming is completed, the unit will be re-detected by the computer. The application will run after pressing the RESET button.</p>
+<p>It's so easy, right?</p>
+<p><img alt="" src="./images/drag-n-drop_programming.png" /></p>
+<h3 id="using-pyocd">Using pyOCD<a class="headerlink" href="#using-pyocd" title="Permanent link">&para;</a></h3>
+<p>pyOCD is an Open Source python 2.7 based library for programming and debugging ARM Cortex-M microcontrollers using CMSIS-DAP. Linux, OSX and Windows are supported.</p>
+<p>The latest stable version of pyOCD may be done via <a href="https://pip.pypa.io/en/stable/index.html">pip</a> as follows:</p>
+<div class="codehilite"><pre><span></span>$ pip install --pre -U pyocd
+</pre></div>
+
+<p>Alternatively, to install the latest development version (master branch), you can do the following:</p>
+<div class="codehilite"><pre><span></span>$ pip install --pre -U https://github.com/mbedmicro/pyOCD/archive/master.zip
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may run into permissions issues running these commands. You have a few options here:</p>
+<ul>
+<li>Run with <code>sudo -H</code> to install pyOCD and dependencies globally</li>
+<li>Specify the <code>--user</code> option to install local to your user</li>
+<li>Run the command in a <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> local to a specific project working set.</li>
+</ul>
+</div>
+<p>You can verify that your board is detected by pyOCD by running:</p>
+<div class="codehilite"><pre><span></span>$ pyocd-flashtool -l
+</pre></div>
+
+<p>and then flash the board by running:</p>
+<div class="codehilite"><pre><span></span>$ pyocd-flashtool -d debug -t nrf52 -se your-hex-file.hex
+</pre></div>
+
+<p><img alt="" src="./images/programming_using_pyocd.png" /></p>
+<h2 id="clone-the-repository">Clone the repository<a class="headerlink" href="#clone-the-repository" title="Permanent link">&para;</a></h2>
+<p>Clone the <code>makerdiary/nrf52832-mdk</code> repository or download it as a zip package and put its contents to your working directory.</p>
+<div class="codehilite"><pre><span></span>$ git clone https://github.com/makerdiary/nrf52832-mdk.git
+</pre></div>
+
+<p>This repository provides documents and example applications that you can run on your nRF52832-MDK to ensure that everything is set up correctly.</p>
+<p>Enjoy!</p>
+<h2 id="any-issue">Any Issue ?<a class="headerlink" href="#any-issue" title="Permanent link">&para;</a></h2>
+<p>Interested in contributing to this project? Want to report a bug? Feel free and click here:</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a></p>
+<p><a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Overview
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../nrf5sdk/" title="nRF5 SDK" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                nRF5 SDK
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/makerdiary" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a46cbbdf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

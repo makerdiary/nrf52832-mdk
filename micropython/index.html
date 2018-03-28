@@ -1,0 +1,1159 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
+      
+      
+        <link rel="canonical" href="https://makerdiary.github.io/nrf52832-mdk/micropython/">
+      
+      
+        <meta name="author" content="Zelin">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+    
+    
+      
+        <title>MicroPython - nRF52832-MDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.9b572555.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#micopython-a-lean-and-efficient-python-implementation-for-microcontrollers-and-constrained-systems" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                nRF52832-MDK Documentation
+              </span>
+              <span class="md-header-nav__topic">
+                MicroPython
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="Overview" class="md-tabs__link md-tabs__link--active">
+        Overview
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../cn/" title="中文文档" class="md-tabs__link">
+          中文文档
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../images/logo.svg" width="24" height="24">
+      
+    </span>
+    nRF52832-MDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        MicroPython
+      </label>
+    
+    <a href="./" title="MicroPython" class="md-nav__link md-nav__link--active">
+      MicroPython
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" title="Getting Started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flashing-micropython" title="Flashing MicroPython" class="md-nav__link">
+    Flashing MicroPython
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-your-first-script" title="Running your first script" class="md-nav__link">
+    Running your first script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blinking-an-led" title="Blinking an LED" class="md-nav__link">
+    Blinking an LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-build-micropython" title="How to build MicroPython" class="md-nav__link">
+    How to build MicroPython
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-development-environment" title="Setting up the development environment" class="md-nav__link">
+    Setting up the development environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiling-and-flashing-micropython" title="Compiling and flashing MicroPython" class="md-nav__link">
+    Compiling and flashing MicroPython
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-le-repl" title="Bluetooth LE REPL" class="md-nav__link">
+    Bluetooth LE REPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" title="Status" class="md-nav__link">
+    Status
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
+    Any Issue ?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-buy/" title="How to Buy" class="md-nav__link">
+      How to Buy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      中文文档
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        中文文档
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/getting-started/" title="快速入门" class="md-nav__link">
+      快速入门
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/how-to-buy/" title="如何购买" class="md-nav__link">
+      如何购买
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
+      反馈&贡献
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/about/" title="订阅" class="md-nav__link">
+      订阅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" title="Getting Started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flashing-micropython" title="Flashing MicroPython" class="md-nav__link">
+    Flashing MicroPython
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-your-first-script" title="Running your first script" class="md-nav__link">
+    Running your first script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blinking-an-led" title="Blinking an LED" class="md-nav__link">
+    Blinking an LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-build-micropython" title="How to build MicroPython" class="md-nav__link">
+    How to build MicroPython
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-development-environment" title="Setting up the development environment" class="md-nav__link">
+    Setting up the development environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiling-and-flashing-micropython" title="Compiling and flashing MicroPython" class="md-nav__link">
+    Compiling and flashing MicroPython
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-le-repl" title="Bluetooth LE REPL" class="md-nav__link">
+    Bluetooth LE REPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" title="Status" class="md-nav__link">
+    Status
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
+    Any Issue ?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="micopython-a-lean-and-efficient-python-implementation-for-microcontrollers-and-constrained-systems">MicoPython <br><small>A lean and efficient Python implementation for microcontrollers and constrained systems</small><a class="headerlink" href="#micopython-a-lean-and-efficient-python-implementation-for-microcontrollers-and-constrained-systems" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>MicroPython is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimised to run on microcontrollers and in constrained environments.</p>
+<p>MicroPython is packed full of advanced features such as an interactive prompt, arbitrary precision integers, closures, list comprehension, generators, exception handling and more. Yet it is compact enough to fit and run within just 256k of code space and 16k of RAM.</p>
+<p>MicroPython aims to be as compatible with normal Python as possible to allow you to transfer code with ease from the desktop to a microcontroller or embedded system.</p>
+<p>If in doubt, remember the Zen of MicroPython:</p>
+<div class="codehilite"><pre><span></span>Code,
+Hack it,
+Less is more,
+Keep it simple,
+Small is beautiful,
+Be brave! Break things! Learn and have fun!
+Express yourself with MicroPython.
+Happy hacking! :-)
+</pre></div>
+
+<p>For more information, please visit the <a href="http://micropython.org/">MicroPython Official Site</a>.</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>Follow this tutorial to get started with MicroPython on nRF52832-MDK.</p>
+<h3 id="flashing-micropython">Flashing MicroPython<a class="headerlink" href="#flashing-micropython" title="Permanent link">&para;</a></h3>
+<p>Before starting coding, you will need to program nRF52832-MDK with the MicroPython firmware. The MicroPython firmware for nRF52832-MDK is available in the directory <code>./nrf52832-mdk/firmware/micropython/</code>.</p>
+<p>Connect the nRF52832-MDK to one of your PC's USB host ports. Then drag and drop the hex file into the <strong>DAPLINK</strong> removable drive.</p>
+<p>When programming is completed, the unit will be re-detected by the computer. Espruino will run after pressing the RESET button.</p>
+<p><img alt="" src="./images/flashing_micropython_using_daplink.png" /></p>
+<h3 id="running-your-first-script">Running your first script<a class="headerlink" href="#running-your-first-script" title="Permanent link">&para;</a></h3>
+<p>Connect the nRF52832-MDK to your PC and then start a terminal application (for example <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a> or <a href="https://www.gnu.org/software/screen/manual/screen.html">screen</a>). Will use the <code>screen</code> application here, you will get a MicroPython REPL prompt:</p>
+<div class="codehilite"><pre><span></span>$ screen /dev/cu.usbmodem1412 <span class="m">115200</span>
+</pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>REPL stands for Read Evaluate Print Loop. Using the REPL is by far the easiest way to test out your code and run commands.</p>
+</div>
+<p>Once you have a prompt you can start experimenting! Anything you type at the prompt will be executed after you press the Enter key. MicroPython will run the code that you enter and print the result (if there is one). If there is an error with the text that you enter then an error message is printed.</p>
+<p>Try typing the following at the prompt:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;hello micropython!&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>Try typing <code>help()</code> at the prompt to get more helpful information:</p>
+<p><img alt="" src="./images/micropython_repl_help.png" /></p>
+<h3 id="blinking-an-led">Blinking an LED<a class="headerlink" href="#blinking-an-led" title="Permanent link">&para;</a></h3>
+<p>Now you can try to make a real LED blink using the following Python code:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="s1">&#39;PA22&#39;</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>Observe that the GREEN LED is blinking. That's it. Now you've got an idea of how to use MicroPython.</p>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
+<p>There are many features that were not covered in this tutorial. The best way to learn about them is to read the full documentation of the modules, and to experiment!</p>
+<p>Good luck creating your Internet of Things devices!</p>
+<h2 id="how-to-build-micropython">How to build MicroPython<a class="headerlink" href="#how-to-build-micropython" title="Permanent link">&para;</a></h2>
+<p>This section will show you how to build your own MicroPython firmware.</p>
+<h3 id="setting-up-the-development-environment">Setting up the development environment<a class="headerlink" href="#setting-up-the-development-environment" title="Permanent link">&para;</a></h3>
+<p>The GNU Arm Embedded toolchains is needed to build Espruino.</p>
+<p>Download and install the GNU Arm Embedded toolchains. Then make sure to add the path to your toolchain to your OS PATH environment variable:</p>
+<div class="codehilite"><pre><span></span>&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q1-update/bin
+</pre></div>
+
+<p>Adding the path makes it possible to run the toolchain executables from any directory using the terminal. To verify that the path is set correctly, type the following in your terminal:</p>
+<div class="codehilite"><pre><span></span>$ arm-none-eabi-gcc --version
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The latest version of GNU Arm Embedded toolchain maybe not work fine, but you can just have a try.</p>
+</div>
+<h3 id="compiling-and-flashing-micropython">Compiling and flashing MicroPython<a class="headerlink" href="#compiling-and-flashing-micropython" title="Permanent link">&para;</a></h3>
+<p>Prerequisite steps for building the nrf port:</p>
+<div class="codehilite"><pre><span></span>$ git clone https://github.com/makerdiary/micropython.git
+$ <span class="nb">cd</span> micropython
+$ git submodule update --init
+$ make -C mpy-cross
+</pre></div>
+
+<p>Change directory to <code>nrf</code> and prepare the bluetooth folder by downloading Bluetooth LE stacks and headers:</p>
+<div class="codehilite"><pre><span></span>micropython$ <span class="nb">cd</span> nrf
+nrf$ ./drivers/bluetooth/download_ble_stack.sh
+</pre></div>
+
+<p>After the Bluetooth stacks has been downloaded, connect nRF52832-MDK to your current PC. Now you can compile the target with the following command:</p>
+<div class="codehilite"><pre><span></span>$ make <span class="nv">BOARD</span><span class="o">=</span>nrf52832_mdk <span class="nv">SD</span><span class="o">=</span>s132 sd <span class="nv">FLASHER</span><span class="o">=</span>pyocd
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>make sd</code> will trigger a flash of the bluetooth stack before that application is flashed. Set <code>FLASHER</code> to <code>pyocd</code> if DAPLink is available.</p>
+</div>
+<h3 id="bluetooth-le-repl">Bluetooth LE REPL<a class="headerlink" href="#bluetooth-le-repl" title="Permanent link">&para;</a></h3>
+<p>The nrf port also implements a BLE REPL driver. This feature is disabled by default, as it will deactivate the UART REPL when activated. As nRF52832 only have one UART, using the BLE REPL free's the UART instance such that it can be used as a general UART peripheral not bound to REPL.</p>
+<p>The configuration can be enabled by editing the <code>bluetooth_conf.h</code> and set <code>MICROPY_PY_BLE_NUS</code> to <code>1</code>.</p>
+<p>WebBluetooth mode can also be configured by editing <code>bluetooth_conf.h</code> and set <code>BLUETOOTH_WEBBLUETOOTH_REPL</code> to <code>1</code>. This will alternate advertisement between Eddystone URL and regular connectable advertisement. The Eddystone URL will point the phone or PC to download <a href="https://glennrub.github.io/webbluetooth/micropython/repl/">WebBluetooth REPL</a> (experimental), which subsequently can be used to connect to the Bluetooth REPL from the PC or Phone browser.</p>
+<p><img alt="" src="./images/micropython_ble_repl.png" /></p>
+<h3 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h3>
+<p>The nrf port is <strong>NOT</strong> stable and some APIs may be changed over time. So, be brave! Break things! Learn and have fun! </p>
+<p>Happy hacking! :-)</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://micropython.org/">MicroPython Official site</a></li>
+<li><a href="http://docs.micropython.org/en/latest/pyboard/index.html">MicroPython Documentation</a></li>
+<li><a href="https://github.com/micropython/micropython">MicroPython Official Repo</a></li>
+<li><a href="https://github.com/makerdiary/micropython">MicroPython forked by makerdiary</a></li>
+</ul>
+<h2 id="any-issue">Any Issue ?<a class="headerlink" href="#any-issue" title="Permanent link">&para;</a></h2>
+<p>Interested in contributing to this project? Want to report a bug? Feel free and click here:</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a></p>
+<p><a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../jerryscript/" title="JerryScript" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                JerryScript
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../daplink/" title="DAPLink" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                DAPLink
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/makerdiary" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a46cbbdf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

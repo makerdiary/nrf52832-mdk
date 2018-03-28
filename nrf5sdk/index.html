@@ -1,10 +1,14 @@
 
+
+
+
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
       
@@ -15,29 +19,43 @@
         <meta name="author" content="Zelin">
       
       
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
     
     
       
-        <title>简介 - nRF52832 Micro Development Kit</title>
+        <title>nRF5 SDK - nRF52832-MDK Documentation</title>
       
     
     
-      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application-e17eeafcbc.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.9b572555.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-892b79c5c5.palette.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
       
     
     
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
       
-        
-        
-        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -47,16 +65,32 @@
     
   </head>
   
-  
-  
-  
-    <body data-md-color-primary="indigo" data-md-color-accent="cyan">
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     <svg class="md-svg">
       <defs>
         
         
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
         
       </defs>
     </svg>
@@ -64,56 +98,71 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header">
+      <a href="#nrf5-sdk-software-development-kit-for-nrf51-and-nrf52-series" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <a href=".." title="nRF52832 Micro Development Kit" class="md-logo md-header-nav__button">
-            <img src="../img/logo.svg" width="24" height="24">
-          </a>
-        
+        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../images/logo.svg" width="24" height="24">
+          
+        </a>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             
-              
-                <span class="md-header-nav__parent">
-                  nRF5 SDK
-                </span>
-              
+              <span class="md-header-nav__topic">
+                nRF52832-MDK Documentation
+              </span>
+              <span class="md-header-nav__topic">
+                nRF5 SDK
+              </span>
             
-            简介
           
-        </span>
+        </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
-<div class="md-search" data-md-component="search">
-  <div class="md-search__overlay"></div>
-  <div class="md-search__inner">
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result"></div>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
     </div>
   </div>
 </div>
+          
         
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
             
 
 
@@ -133,15 +182,76 @@
     </div>
   </a>
 
-          
+          </div>
         </div>
-      </div>
+      
     </div>
   </nav>
 </header>
     
     <div class="md-container">
       
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="Overview" class="md-tabs__link md-tabs__link--active">
+        Overview
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../cn/" title="中文文档" class="md-tabs__link">
+          中文文档
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
       
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -152,12 +262,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-logo md-nav__button">
-        <img src="../img/logo.svg">
-      </i>
-    
-    nRF52832 Micro Development Kit
+    <span class="md-nav__button md-logo">
+      
+        <img src="../images/logo.svg" width="24" height="24">
+      
+    </span>
+    nRF52832-MDK Documentation
   </label>
   
     <div class="md-nav__source">
@@ -190,8 +300,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="首页" class="md-nav__link">
-      首页
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
     </a>
   </li>
 
@@ -202,8 +312,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../hardware/" title="硬件介绍" class="md-nav__link">
-      硬件介绍
+    <a href="../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
     </a>
   </li>
 
@@ -211,75 +321,6 @@
       
       
       
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      快速入门
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        快速入门
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../getting-started/hello-world/" title="首次使用" class="md-nav__link">
-      首次使用
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../getting-started/how-to-upload/" title="如何下载固件？" class="md-nav__link">
-      如何下载固件？
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
-    
-    <label class="md-nav__link" for="nav-4">
-      nRF5 SDK
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        nRF5 SDK
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
 
   
 
@@ -292,11 +333,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        简介
+        nRF5 SDK
       </label>
     
-    <a href="./" title="简介" class="md-nav__link md-nav__link--active">
-      简介
+    <a href="./" title="nRF5 SDK" class="md-nav__link md-nav__link--active">
+      nRF5 SDK
     </a>
     
       
@@ -310,25 +351,71 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="简介" class="md-nav__link">
-    简介
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="相关资源" class="md-nav__link">
-    相关资源
+  <a href="#installing-gnu-arm-embedded-toolchain" title="Installing GNU Arm Embedded Toolchain" class="md-nav__link">
+    Installing GNU Arm Embedded Toolchain
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="问题反馈" class="md-nav__link">
-    问题反馈
+  <a href="#installing-gnu-make" title="Installing GNU make" class="md-nav__link">
+    Installing GNU make
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-nrf5-sdk" title="Installing the nRF5 SDK" class="md-nav__link">
+    Installing the nRF5 SDK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling-and-running-blinky-example" title="Compiling and running blinky example" class="md-nav__link">
+    Compiling and running blinky example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-examples-that-use-a-softdevice" title="Running examples that use a SoftDevice" class="md-nav__link">
+    Running examples that use a SoftDevice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-examples" title="More examples" class="md-nav__link">
+    More examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
+    Any Issue ?
+  </a>
+  
+</li>
+      
+      
+      
+      
       
     </ul>
   
@@ -336,153 +423,16 @@
     
   </li>
 
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
-    
-    <label class="md-nav__link" for="nav-4-2">
-      搭建开发环境
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-2">
-        搭建开发环境
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
+      
+      
+      
 
 
   <li class="md-nav__item">
-    <a href="setup-devenv-osx/" title="Mac OSX" class="md-nav__link">
-      Mac OSX
+    <a href="../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="setup-devenv-linux/" title="Linux" class="md-nav__link">
-      Linux
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="setup-devenv-win/" title="Windows" class="md-nav__link">
-      Windows
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
-    
-    <label class="md-nav__link" for="nav-4-3">
-      示例项目
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-3">
-        示例项目
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-blinky/" title="Blinky" class="md-nav__link">
-      Blinky
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-uart-logger/" title="串口调试" class="md-nav__link">
-      串口调试
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-weixin-shake/" title="摇一摇周边" class="md-nav__link">
-      摇一摇周边
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-physical-web/" title="Physical Web" class="md-nav__link">
-      Physical Web
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-more/" title="更多示例" class="md-nav__link">
-      更多示例
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -491,250 +441,10 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      mbed OS 5
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        mbed OS 5
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
-    <a href="../mbedos5/" title="简介" class="md-nav__link">
-      简介
+    <a href="../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/getting-started/" title="快速入门" class="md-nav__link">
-      快速入门
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
-    
-    <label class="md-nav__link" for="nav-5-3">
-      示例项目
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
-        示例项目
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-blinky/" title="Blinky" class="md-nav__link">
-      Blinky
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-2" type="checkbox" id="nav-5-3-2">
-    
-    <label class="md-nav__link" for="nav-5-3-2">
-      低功耗蓝牙示例
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-5-3-2">
-        低功耗蓝牙示例
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-index/" title="简介" class="md-nav__link">
-      简介
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-batterylevel/" title="BLE Battery Level" class="md-nav__link">
-      BLE Battery Level
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-beacon/" title="BLE Beacon" class="md-nav__link">
-      BLE Beacon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-button/" title="BLE Button" class="md-nav__link">
-      BLE Button
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-eddystoneobserver/" title="BLE Eddystone Observer" class="md-nav__link">
-      BLE Eddystone Observer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-eddystoneservice/" title="BLE Eddystone Service" class="md-nav__link">
-      BLE Eddystone Service
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-gapbutton/" title="BLE GAP Button" class="md-nav__link">
-      BLE GAP Button
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-heartrate/" title="BLE Heart Rate" class="md-nav__link">
-      BLE Heart Rate
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-led/" title="BLE LED" class="md-nav__link">
-      BLE LED
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-ledblinker/" title="BLE LED Blinker" class="md-nav__link">
-      BLE LED Blinker
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-thermometer/" title="BLE Thermometer" class="md-nav__link">
-      BLE Thermometer
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-more/" title="更多示例" class="md-nav__link">
-      更多示例
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -743,178 +453,10 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
+  <li class="md-nav__item">
+    <a href="../zephyr/" title="Zephyr" class="md-nav__link">
       Zephyr
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        Zephyr
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/" title="简介" class="md-nav__link">
-      简介
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
-    
-    <label class="md-nav__link" for="nav-6-2">
-      搭建开发环境
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-2">
-        搭建开发环境
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/setup-devenv-osx/" title="Mac OSX" class="md-nav__link">
-      Mac OSX
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/setup-devenv-linux/" title="Linux" class="md-nav__link">
-      Linux
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/setup-devenv-win/" title="Windows" class="md-nav__link">
-      Windows
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
-    
-    <label class="md-nav__link" for="nav-6-3">
-      入门示例
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-3">
-        入门示例
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/example-blinky/" title="Blinky" class="md-nav__link">
-      Blinky
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/example-button/" title="Button" class="md-nav__link">
-      Button
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/example-beacon/" title="低功耗蓝牙 Beacon" class="md-nav__link">
-      低功耗蓝牙 Beacon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/example-ble-heartrate/" title="低功耗蓝牙心率计" class="md-nav__link">
-      低功耗蓝牙心率计
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../zephyr/example-more/" title="更多示例" class="md-nav__link">
-      更多示例
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -923,64 +465,112 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      JerryScript
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        JerryScript
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
-    <a href="../jerryscript/" title="简介" class="md-nav__link">
-      简介
+    <a href="../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
     </a>
   </li>
 
-        
-          
-          
-          
+    
+      
+      
+      
 
 
   <li class="md-nav__item">
-    <a href="../jerryscript/getting-started/" title="体验 JerryScript" class="md-nav__link">
-      体验 JerryScript
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
+    <a href="../espruino/" title="Espruino" class="md-nav__link">
       Espruino
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-buy/" title="How to Buy" class="md-nav__link">
+      How to Buy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      中文文档
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Espruino
+      <label class="md-nav__title" for="nav-15">
+        中文文档
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -991,7 +581,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../espruino/" title="简介" class="md-nav__link">
+    <a href="../cn/" title="简介" class="md-nav__link">
       简介
     </a>
   </li>
@@ -1003,50 +593,170 @@
 
 
   <li class="md-nav__item">
-    <a href="../espruino/getting-started/" title="快速入门" class="md-nav__link">
+    <a href="../cn/getting-started/" title="快速入门" class="md-nav__link">
       快速入门
     </a>
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/how-to-buy/" title="如何购买" class="md-nav__link">
+      如何购买
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
+      反馈&贡献
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/about/" title="订阅" class="md-nav__link">
+      订阅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../ordering/" title="获取硬件" class="md-nav__link">
-      获取硬件
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../CONTRIBUTING/" title="反馈与贡献" class="md-nav__link">
-      反馈与贡献
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../about-me/" title="关于作者" class="md-nav__link">
-      关于作者
-    </a>
   </li>
 
     
@@ -1071,25 +781,71 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="简介" class="md-nav__link">
-    简介
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="相关资源" class="md-nav__link">
-    相关资源
+  <a href="#installing-gnu-arm-embedded-toolchain" title="Installing GNU Arm Embedded Toolchain" class="md-nav__link">
+    Installing GNU Arm Embedded Toolchain
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="问题反馈" class="md-nav__link">
-    问题反馈
+  <a href="#installing-gnu-make" title="Installing GNU make" class="md-nav__link">
+    Installing GNU make
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-nrf5-sdk" title="Installing the nRF5 SDK" class="md-nav__link">
+    Installing the nRF5 SDK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling-and-running-blinky-example" title="Compiling and running blinky example" class="md-nav__link">
+    Compiling and running blinky example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-examples-that-use-a-softdevice" title="Running examples that use a SoftDevice" class="md-nav__link">
+    Running examples that use a SoftDevice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-examples" title="More examples" class="md-nav__link">
+    More examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
+    Any Issue ?
+  </a>
+  
+</li>
+      
+      
+      
+      
       
     </ul>
   
@@ -1101,29 +857,151 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
-               
               
                 
-                <h1 id="nrf5-sdk-the-official-software-development-kit-for-nrf5x-series">nRF5 SDK <br><small>The official Software Development Kit for nRF5x Series</small><a class="headerlink" href="#nrf5-sdk-the-official-software-development-kit-for-nrf5x-series" title="Permanent link">&para;</a></h1>
-<p><a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK"><button data-md-color-primary="indigo">前往 nRF5 SDK 官网</button></a></p>
-<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>nRF5 SDK 是 Nordic 针对 nRF5x 系列芯片提供的软件开发环境，包含各种外设驱动、代码库、应用示例、低功耗蓝牙协议栈以及其他具有专利的无线协议栈。</p>
-<p>该 SDK 以 <code>zip</code> 压缩包的形式发布，这样可以便于开发者自由选择开发环境。</p>
-<p>nRF5 SDK 自带的应用示例主要运行在 Nordic 官方的开发板上，这些示例只要稍作修改均可在 nRF52832-MDK 上顺利运行。</p>
-<p>本文档主要基于官方发布的 SDK 以及 <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm">GNU ARM Embedded Toolchain</a> 撰写，内容会随着 SDK 及相关工具版本升级而不断更新完善。</p>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>Nordic 最近已经发布了 nRF5 SDK 13.0.0 正式版，本文档发布之际将会支持最新版本。</p>
-</div>
-<h2 id="_2">相关资源<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+                
+                <h1 id="nrf5-sdk-software-development-kit-for-nrf51-and-nrf52-series">nRF5 SDK <br><small>Software Development Kit for nRF51 and nRF52 Series</small><a class="headerlink" href="#nrf5-sdk-software-development-kit-for-nrf51-and-nrf52-series" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The nRF5 SDK provides a rich developing environment for nRF5 Series devices by including a broad selection of drivers, libraries, examples for peripherals, SoftDevices, and proprietary radio protocols.</p>
+<p>The SDK is delivered as a plain .zip-archive, which makes it easy to install as well as giving you the freedom to choose the IDE and compiler of your choice.</p>
+<p>We provide example applications that you can run on your nRF52832-MDK to ensure that everything is set up correctly. After these tests, you can use the examples as starting point to develop your own applications.</p>
+<p>Before we begin, we need to install some software components to build our example applications. Here we recommend GNU Arm Embedded Toolchains as they are free and open-source.</p>
+<h2 id="installing-gnu-arm-embedded-toolchain">Installing GNU Arm Embedded Toolchain<a class="headerlink" href="#installing-gnu-arm-embedded-toolchain" title="Permanent link">&para;</a></h2>
+<p>The GNU Arm Embedded toolchains are integrated and validated packages featuring the Arm Embedded GCC compiler, libraries and other GNU tools necessary for bare-metal software development on devices based on the Arm Cortex-M and Cortex-R processors. The toolchains are available for cross-compilation on Microsoft Windows, Linux and macOS host operating systems.</p>
+<p>These toolchains are based on <a href="https://www.gnu.org/home.en.html">Free Software Foundation</a>'s (FSF) GNU Open source tools and newlib.</p>
+<p>The pre-built GNU Arm Embedded Toolchain can be downloaded using the following link: </p>
+<p><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads"><button data-md-color-primary="indigo">Download</button></a></p>
+<p>Download and install the latest version. Then make sure to add the path to your toolchain to your OS PATH environment variable:</p>
+<div class="codehilite"><pre><span></span>&lt;path to install directory&gt;/gcc-arm-none-eabi-7-2017-q4-major/bin
+</pre></div>
+
+<p>Adding the path makes it possible to run the toolchain executables from any directory using the terminal. To verify that the path is set correctly, type the following in your terminal:</p>
+<div class="codehilite"><pre><span></span>$ arm-none-eabi-gcc --version
+</pre></div>
+
+<p><img alt="" src="./images/arm-none-eabi-gcc_version.png" /></p>
+<h2 id="installing-gnu-make">Installing GNU make<a class="headerlink" href="#installing-gnu-make" title="Permanent link">&para;</a></h2>
+<p>Now with the toolchain installed we can build object files from source code, but to build projects based on makefiles, which can be seen as a recipes for the builds, we need to have <a href="https://www.gnu.org/software/make/">GNU make</a> installed on the system.</p>
+<p>On Windows the easiest way to install the dependencies is to use the <a href="http://www.msys2.org/">MSYS2</a>. You can do so by performing the following steps:</p>
+<p><a href="http://www.msys2.org/"><button data-md-color-primary="indigo">Download</button></a></p>
+<ol>
+<li>
+<p>Download and run the installer - "x86_64" for 64-bit, "i686" for 32-bit Windows.</p>
+</li>
+<li>
+<p>Update the package database and core system packages with:</p>
+<div class="codehilite"><pre><span></span>$ pacman -Syu
+</pre></div>
+
+</li>
+<li>
+<p>If needed, close MSYS2, run it again from Start menu. Update the rest with:</p>
+<div class="codehilite"><pre><span></span>$ pacman -Su
+</pre></div>
+
+</li>
+<li>
+<p>Install dependencies:</p>
+<div class="codehilite"><pre><span></span>$ pacman -S git make python2
+</pre></div>
+
+</li>
+</ol>
+<p>Linux and macOS already have the necessary shell commands, but GNU make may not be a part of the standard distro. Call <code>make -v</code> from the terminal to check whether it is installed or not. GNU make would need to be installed if it's not recognized as a command.</p>
+<p>GNU make is bundled with Xcode tools if working on macOS.</p>
+<p>On Linux it may be different ways to obtain GNU make depending on your distro, if not installed already. On Ubuntu you can get by entering this command:</p>
+<div class="codehilite"><pre><span></span>$ sudo apt-get install build-essential checkinstall
+</pre></div>
+
+<p><img alt="" src="./images/gnu-make_version.png" /></p>
+<h2 id="installing-the-nrf5-sdk">Installing the nRF5 SDK<a class="headerlink" href="#installing-the-nrf5-sdk" title="Permanent link">&para;</a></h2>
+<p>Download the SDK file <code>nRF5_SDK_x.x.x_xxxxxxx.zip</code> (for example, <code>nRF5_SDK_v14.2.0_17b948a.zip</code>) from <a href="https://developer.nordicsemi.com/">developer.nordicsemi.com</a>.</p>
+<p>The latest version is <code>14.2.0</code>, it can be downloaded directly here:</p>
+<p><a href="http://www.nordicsemi.com/eng/nordic/download_resource/59011/68/55131978/116085"><button data-md-color-primary="indigo">Download</button></a></p>
+<p>Extract the zip file to the <code>nrf52832-mdk</code> repository. This should give you the following folder structure:</p>
+<div class="codehilite"><pre><span></span>./nrf52832-mdk/
+├── LICENSE
+├── README.md
+├── README_CN.md
+├── bin
+├── docs
+├── examples
+├── mkdocs.yml
+├── nrf_sdks
+│   └── nRF5_SDK_14.2.0_17b948a
+└── tools
+</pre></div>
+
+<p>To build an example application you first need to set the toolchain path in <code>makefile.windows</code> or <code>makefile.posix</code> depending on platform you are using. That is, the <code>.posix</code> should be edited if your are working on either Linux or macOS. These files are located in:</p>
+<div class="codehilite"><pre><span></span>&lt;SDK&gt;/components/toolchain/gcc
+</pre></div>
+
+<p>Open the file in a text editor (<a href="https://www.sublimetext.com/">Sublime</a> is recommended), and make sure that the <code>GNU_INSTALL_ROOT</code> variable is pointing to your GNU Arm Embedded Toolchain install directory.</p>
+<div class="codehilite"><pre><span></span>GNU_INSTALL_ROOT :<span class="o">=</span> <span class="k">$(</span>HOME<span class="k">)</span>/gcc-arm-none-eabi/gcc-arm-none-eabi-7-2017-q4-major/bin/
+GNU_VERSION :<span class="o">=</span> <span class="m">7</span>.2.1
+GNU_PREFIX :<span class="o">=</span> arm-none-eabi
+</pre></div>
+
+<h2 id="compiling-and-running-blinky-example">Compiling and running blinky example<a class="headerlink" href="#compiling-and-running-blinky-example" title="Permanent link">&para;</a></h2>
+<p>Now you can try to build one of the examples. Will use the <code>blinky</code> example here to keep it simple.</p>
+<p>Open terminal and change directory to:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ./nrf52832-mdk/examples/nrf5-sdk/blinky/armgcc/
+</pre></div>
+
+<p>Connect the nRF52832-MDK to one of your PC's USB host ports. Compile and program the example:</p>
+<div class="codehilite"><pre><span></span>$ make flash
+</pre></div>
+
+<p>Observe that the LEDs are blinking:</p>
+<p><img alt="" src="./images/blinky_example.gif" /></p>
+<h2 id="running-examples-that-use-a-softdevice">Running examples that use a SoftDevice<a class="headerlink" href="#running-examples-that-use-a-softdevice" title="Permanent link">&para;</a></h2>
+<p>Before you can run more advanced examples that use <em>Bluetooth</em> or <em>ANT</em>, you must program the SoftDevice on the board.</p>
+<p>The SoftDevice binary is located in folder <code>components/softdevice/SoftDevice/hex</code> in the SDK, where SoftDevice is the name of the SoftDevice. You can also download SoftDevices from <a href="https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832">nordicsemi.com</a>.</p>
+<p>The easiest way to program the SoftDevice is using the GCC makefile of an example:</p>
+<ol>
+<li>
+<p>Open a command prompt in the folder that contains the makefile of an example. The example must require a SoftDevice. For example, the <code>ble_app_blinky</code> example.</p>
+</li>
+<li>
+<p>Run the following command:</p>
+<div class="codehilite"><pre><span></span><span class="c1"># this will program SoftDevice alone</span>
+$ make flash_softdevice
+</pre></div>
+
+<p>Or </p>
+<div class="codehilite"><pre><span></span><span class="c1"># this will program the application with SoftDevice</span>
+$ make flash_all
+</pre></div>
+
+</li>
+</ol>
+<h2 id="more-examples">More examples<a class="headerlink" href="#more-examples" title="Permanent link">&para;</a></h2>
+<p>Over time, more example applications will be added to the repository. You can star or watch the <a href="https://github.com/makerdiary/nrf52832-mdk">nrf52832-mdk</a> repository to stay up to date.</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK">下载 nRF5 SDK</a></li>
-<li><a href="https://developer.nordicsemi.com/nRF5_SDK/doc/">查阅官方开发文档</a></li>
+<li>
+<p><a href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk/dita/sdk/nrf5_sdk.html">Nordic nRF5 SDK</a></p>
+</li>
+<li>
+<p><a href="http://infocenter.nordicsemi.com/index.jsp">Nordic Semiconductor Infocenter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk">makerdiary/nrf52832-mdk</a></p>
+</li>
+<li>
+<p><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm">GNU Arm Embedded Toolchain</a></p>
+</li>
 </ul>
-<h2 id="_3">问题反馈<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 反馈。</p>
-<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="green">New Issue</button></a></p>
+<h2 id="any-issue">Any Issue ?<a class="headerlink" href="#any-issue" title="Permanent link">&para;</a></h2>
+<p>Interested in contributing to this project? Want to report a bug? Feel free and click here:</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a></p>
+<p><a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a></p>
+                
+                  
+                
               
+              
+                
               
             </article>
           </div>
@@ -1136,7 +1014,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../getting-started/how-to-upload/" title="如何下载固件？" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../getting-started/" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1145,19 +1023,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                如何下载固件？
+                Getting Started
               </span>
             </div>
           </a>
         
         
-          <a href="setup-devenv-osx/" title="Mac OSX" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mesh/" title="nRF5 SDK for Mesh" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Mac OSX
+                nRF5 SDK for Mesh
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1173,17 +1051,33 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 <a href="http://wiki.makerdiary.co">wiki.makerdiary.co</a><br>This site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>
+            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
           </div>
         
         powered by
-        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        <a href="http://www.mkdocs.org">MkDocs</a>
         and
-        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+        <a href="https://squidfunk.github.io/mkdocs-material/">
           Material for MkDocs</a>
       </div>
       
         
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/makerdiary" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
       
     </div>
   </div>
@@ -1191,13 +1085,14 @@
       
     </div>
     
-      <script src="../assets/javascripts/application-30ac6a1727.js"></script>
-      <script>app.initialize({url:{base:".."}})</script>
+      <script src="../assets/javascripts/application.a46cbbdf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
       
     
     
       
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>

@@ -1,10 +1,14 @@
 
+
+
+
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
       
@@ -15,29 +19,43 @@
         <meta name="author" content="Zelin">
       
       
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
     
     
       
-        <title>简介 - nRF52832 Micro Development Kit</title>
+        <title>Zephyr - nRF52832-MDK Documentation</title>
       
     
     
-      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application-e17eeafcbc.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.9b572555.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-892b79c5c5.palette.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
       
     
     
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
       
-        
-        
-        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -47,16 +65,32 @@
     
   </head>
   
-  
-  
-  
-    <body data-md-color-primary="indigo" data-md-color-accent="cyan">
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     <svg class="md-svg">
       <defs>
         
         
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
         
       </defs>
     </svg>
@@ -64,56 +98,71 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header">
+      <a href="#zephyr-a-scalable-rtos-supporting-multiple-hardware-architectures-optimized-for-resource-constrained-devices-and-built-with-security-in-mind" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <a href=".." title="nRF52832 Micro Development Kit" class="md-logo md-header-nav__button">
-            <img src="../img/logo.svg" width="24" height="24">
-          </a>
-        
+        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../images/logo.svg" width="24" height="24">
+          
+        </a>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             
-              
-                <span class="md-header-nav__parent">
-                  Zephyr
-                </span>
-              
+              <span class="md-header-nav__topic">
+                nRF52832-MDK Documentation
+              </span>
+              <span class="md-header-nav__topic">
+                Zephyr
+              </span>
             
-            简介
           
-        </span>
+        </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
-<div class="md-search" data-md-component="search">
-  <div class="md-search__overlay"></div>
-  <div class="md-search__inner">
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result"></div>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
     </div>
   </div>
 </div>
+          
         
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
             
 
 
@@ -133,15 +182,76 @@
     </div>
   </a>
 
-          
+          </div>
         </div>
-      </div>
+      
     </div>
   </nav>
 </header>
     
     <div class="md-container">
       
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="Overview" class="md-tabs__link md-tabs__link--active">
+        Overview
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../cn/" title="中文文档" class="md-tabs__link">
+          中文文档
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
       
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -152,12 +262,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-logo md-nav__button">
-        <img src="../img/logo.svg">
-      </i>
-    
-    nRF52832 Micro Development Kit
+    <span class="md-nav__button md-logo">
+      
+        <img src="../images/logo.svg" width="24" height="24">
+      
+    </span>
+    nRF52832-MDK Documentation
   </label>
   
     <div class="md-nav__source">
@@ -190,8 +300,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="首页" class="md-nav__link">
-      首页
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
     </a>
   </li>
 
@@ -202,8 +312,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../hardware/" title="硬件介绍" class="md-nav__link">
-      硬件介绍
+    <a href="../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
     </a>
   </li>
 
@@ -211,228 +321,12 @@
       
       
       
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      快速入门
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        快速入门
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
 
 
   <li class="md-nav__item">
-    <a href="../getting-started/hello-world/" title="首次使用" class="md-nav__link">
-      首次使用
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../getting-started/how-to-upload/" title="如何下载固件？" class="md-nav__link">
-      如何下载固件？
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
+    <a href="../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
       nRF5 SDK
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        nRF5 SDK
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/" title="简介" class="md-nav__link">
-      简介
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
-    
-    <label class="md-nav__link" for="nav-4-2">
-      搭建开发环境
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-2">
-        搭建开发环境
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/setup-devenv-osx/" title="Mac OSX" class="md-nav__link">
-      Mac OSX
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/setup-devenv-linux/" title="Linux" class="md-nav__link">
-      Linux
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/setup-devenv-win/" title="Windows" class="md-nav__link">
-      Windows
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
-    
-    <label class="md-nav__link" for="nav-4-3">
-      示例项目
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-3">
-        示例项目
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/example-blinky/" title="Blinky" class="md-nav__link">
-      Blinky
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/example-uart-logger/" title="串口调试" class="md-nav__link">
-      串口调试
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/example-weixin-shake/" title="摇一摇周边" class="md-nav__link">
-      摇一摇周边
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/example-physical-web/" title="Physical Web" class="md-nav__link">
-      Physical Web
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nrf5sdk/example-more/" title="更多示例" class="md-nav__link">
-      更多示例
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -441,250 +335,10 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      mbed OS 5
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        mbed OS 5
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
-    <a href="../mbedos5/" title="简介" class="md-nav__link">
-      简介
+    <a href="../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/getting-started/" title="快速入门" class="md-nav__link">
-      快速入门
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
-    
-    <label class="md-nav__link" for="nav-5-3">
-      示例项目
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
-        示例项目
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-blinky/" title="Blinky" class="md-nav__link">
-      Blinky
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-2" type="checkbox" id="nav-5-3-2">
-    
-    <label class="md-nav__link" for="nav-5-3-2">
-      低功耗蓝牙示例
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-5-3-2">
-        低功耗蓝牙示例
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-index/" title="简介" class="md-nav__link">
-      简介
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-batterylevel/" title="BLE Battery Level" class="md-nav__link">
-      BLE Battery Level
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-beacon/" title="BLE Beacon" class="md-nav__link">
-      BLE Beacon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-button/" title="BLE Button" class="md-nav__link">
-      BLE Button
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-eddystoneobserver/" title="BLE Eddystone Observer" class="md-nav__link">
-      BLE Eddystone Observer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-eddystoneservice/" title="BLE Eddystone Service" class="md-nav__link">
-      BLE Eddystone Service
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-gapbutton/" title="BLE GAP Button" class="md-nav__link">
-      BLE GAP Button
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-heartrate/" title="BLE Heart Rate" class="md-nav__link">
-      BLE Heart Rate
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-led/" title="BLE LED" class="md-nav__link">
-      BLE LED
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-ledblinker/" title="BLE LED Blinker" class="md-nav__link">
-      BLE LED Blinker
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-ble-thermometer/" title="BLE Thermometer" class="md-nav__link">
-      BLE Thermometer
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mbedos5/example-more/" title="更多示例" class="md-nav__link">
-      更多示例
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -692,26 +346,17 @@
       
       
 
-  
 
+  <li class="md-nav__item">
+    <a href="../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
-    
-    <label class="md-nav__link" for="nav-6">
-      Zephyr
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        Zephyr
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
+      
+      
+      
 
   
 
@@ -724,11 +369,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        简介
+        Zephyr
       </label>
     
-    <a href="./" title="简介" class="md-nav__link md-nav__link--active">
-      简介
+    <a href="./" title="Zephyr" class="md-nav__link md-nav__link--active">
+      Zephyr
     </a>
     
       
@@ -742,25 +387,111 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="简介" class="md-nav__link">
-    简介
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="推荐资源" class="md-nav__link">
-    推荐资源
+  <a href="#distinguishing-features" title="Distinguishing Features" class="md-nav__link">
+    Distinguishing Features
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="问题反馈" class="md-nav__link">
-    问题反馈
+  <a href="#getting-started" title="Getting Started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-out-the-repository" title="Checking out the repository" class="md-nav__link">
+    Checking out the repository
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-development-environment" title="Setting up the development environment" class="md-nav__link">
+    Setting up the development environment
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" title="Windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" title="macOS" class="md-nav__link">
+    macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" title="Linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-support-for-nrf52832-mdk" title="Adding support for nRF52832-MDK" class="md-nav__link">
+    Adding support for nRF52832-MDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiling-and-running-an-example" title="Compiling and running an example" class="md-nav__link">
+    Compiling and running an example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-examples" title="More examples" class="md-nav__link">
+    More examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
+    Any Issue ?
+  </a>
+  
+</li>
+      
+      
+      
+      
       
     </ul>
   
@@ -768,153 +499,16 @@
     
   </li>
 
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
-    
-    <label class="md-nav__link" for="nav-6-2">
-      搭建开发环境
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-2">
-        搭建开发环境
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
+      
+      
+      
 
 
   <li class="md-nav__item">
-    <a href="setup-devenv-osx/" title="Mac OSX" class="md-nav__link">
-      Mac OSX
+    <a href="../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="setup-devenv-linux/" title="Linux" class="md-nav__link">
-      Linux
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="setup-devenv-win/" title="Windows" class="md-nav__link">
-      Windows
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
-    
-    <label class="md-nav__link" for="nav-6-3">
-      入门示例
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-3">
-        入门示例
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-blinky/" title="Blinky" class="md-nav__link">
-      Blinky
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-button/" title="Button" class="md-nav__link">
-      Button
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-beacon/" title="低功耗蓝牙 Beacon" class="md-nav__link">
-      低功耗蓝牙 Beacon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-ble-heartrate/" title="低功耗蓝牙心率计" class="md-nav__link">
-      低功耗蓝牙心率计
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="example-more/" title="更多示例" class="md-nav__link">
-      更多示例
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -923,64 +517,100 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      JerryScript
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        JerryScript
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
-    <a href="../jerryscript/" title="简介" class="md-nav__link">
-      简介
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../jerryscript/getting-started/" title="体验 JerryScript" class="md-nav__link">
-      体验 JerryScript
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
+    <a href="../espruino/" title="Espruino" class="md-nav__link">
       Espruino
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-buy/" title="How to Buy" class="md-nav__link">
+      How to Buy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      中文文档
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Espruino
+      <label class="md-nav__title" for="nav-15">
+        中文文档
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -991,7 +621,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../espruino/" title="简介" class="md-nav__link">
+    <a href="../cn/" title="简介" class="md-nav__link">
       简介
     </a>
   </li>
@@ -1003,50 +633,170 @@
 
 
   <li class="md-nav__item">
-    <a href="../espruino/getting-started/" title="快速入门" class="md-nav__link">
+    <a href="../cn/getting-started/" title="快速入门" class="md-nav__link">
       快速入门
     </a>
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/how-to-buy/" title="如何购买" class="md-nav__link">
+      如何购买
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
+      反馈&贡献
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/about/" title="订阅" class="md-nav__link">
+      订阅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn/LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../ordering/" title="获取硬件" class="md-nav__link">
-      获取硬件
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../CONTRIBUTING/" title="反馈与贡献" class="md-nav__link">
-      反馈与贡献
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../about-me/" title="关于作者" class="md-nav__link">
-      关于作者
-    </a>
   </li>
 
     
@@ -1071,25 +821,111 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="简介" class="md-nav__link">
-    简介
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="推荐资源" class="md-nav__link">
-    推荐资源
+  <a href="#distinguishing-features" title="Distinguishing Features" class="md-nav__link">
+    Distinguishing Features
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="问题反馈" class="md-nav__link">
-    问题反馈
+  <a href="#getting-started" title="Getting Started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-out-the-repository" title="Checking out the repository" class="md-nav__link">
+    Checking out the repository
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-development-environment" title="Setting up the development environment" class="md-nav__link">
+    Setting up the development environment
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" title="Windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" title="macOS" class="md-nav__link">
+    macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" title="Linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-support-for-nrf52832-mdk" title="Adding support for nRF52832-MDK" class="md-nav__link">
+    Adding support for nRF52832-MDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiling-and-running-an-example" title="Compiling and running an example" class="md-nav__link">
+    Compiling and running an example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-examples" title="More examples" class="md-nav__link">
+    More examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
+    Any Issue ?
+  </a>
+  
+</li>
+      
+      
+      
+      
       
     </ul>
   
@@ -1101,29 +937,197 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
-               
               
                 
-                <h1 id="zephyr-a-small-scalable-open-source-rtos-for-iot-embedded-devices">Zephyr <br><small>A Small, Scalable, Open Source RTOS for IoT Embedded Devices</small><a class="headerlink" href="#zephyr-a-small-scalable-open-source-rtos-for-iot-embedded-devices" title="Permanent link">&para;</a></h1>
-<p><a href="https://www.zephyrproject.org/"><button data-md-color-primary="indigo">前往 Zephyr 官网</button></a></p>
-<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Zephyr 是 Linux 基金会发布的开源物联网操作系统，主要面向资源受限的物联网设备。目前 Zephyr 项目已经获得了 Intel, Linaro, NXP, Synopsys, Nordic 等合作伙伴的支持。Wind River 也向 Zephyr 贡献了已经商业化的 VxWorks Microkernel，该内核已经演化超过 20 年。</p>
-<p>Zephyr 继承了 Linux 的很多做法，又没有 Linux 那么复杂，无论是出于学习的目的还是为你的物联网设备选择 RTOS，Zephyr 都将是一个不错的选择。</p>
-<p>本文档主要以 nRF52832-MDK 作为硬件平台，对 Zephyr 开发做一些介绍，也期待更多朋友一起来完善这个项目。</p>
-<div class="admonition note">
-<p class="admonition-title">提示</p>
-<p>nRF52832-MDK 目前已经支持 Zephyr 最新发布的 1.7.0 版本。</p>
-</div>
-<h2 id="_2">推荐资源<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+                
+                <h1 id="zephyr-a-scalable-rtos-supporting-multiple-hardware-architectures-optimized-for-resource-constrained-devices-and-built-with-security-in-mind">Zephyr <br><small>A scalable RTOS supporting multiple hardware architectures, optimized for resource constrained devices, and built with security in mind</small><a class="headerlink" href="#zephyr-a-scalable-rtos-supporting-multiple-hardware-architectures-optimized-for-resource-constrained-devices-and-built-with-security-in-mind" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The Zephyr OS is based on a small-footprint kernel designed for use on resource-constrained systems: from simple embedded environmental sensors and LED wearables to sophisticated smart watches and IoT wireless gateways.</p>
+<p>The Zephyr kernel supports multiple architectures, including ARM Cortex-M, Intel x86, ARC, NIOS II, Tensilica Xtensa, and RISC-V. </p>
+<h2 id="distinguishing-features">Distinguishing Features<a class="headerlink" href="#distinguishing-features" title="Permanent link">&para;</a></h2>
+<p>The Zephyr kernel offers a number of features that distinguish it from other small-footprint OSes:</p>
 <ul>
-<li><a href="https://www.zephyrproject.org/doc/index.html">Zephyr 官方文档</a></li>
-<li><a href="https://makerdiary.co/introducing-zephyr-os/">关于 Zephyr 的一些认识</a></li>
-<li><a href="http://iot-fans.xyz/zephyr/doc/v1.6.0/index.html">Zephyr Project 文档 - 中文版</a> (由国内爱好者翻译)</li>
+<li>Single address-space</li>
+<li>Highly configurable / Modular for flexibility</li>
+<li>Cross Architecture</li>
+<li>Compile-time resource definition</li>
+<li>Minimal and Configurable error checking</li>
+<li>Memory Protection</li>
+<li>Native Networking Stack supporting multiple protocols</li>
+<li>Native Linux, macOS, and Windows Development</li>
+<li>Extensive suite of services</li>
 </ul>
-<h2 id="_3">问题反馈<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 反馈。</p>
-<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="green">New Issue</button></a></p>
+<p>For more details, please visit <a href="https://www.zephyrproject.org/">Zephyr Project</a> site.</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<h3 id="checking-out-the-repository">Checking out the repository<a class="headerlink" href="#checking-out-the-repository" title="Permanent link">&para;</a></h3>
+<p>Clone the <a href="https://github.com/zephyrproject-rtos/zephyr">Zephyr Project</a> repository on GitHub or download it as a zip package and put its contents to your working directory.</p>
+<div class="codehilite"><pre><span></span>$ git clone https://github.com/zephyrproject-rtos/zephyr.git
+</pre></div>
+
+<h3 id="setting-up-the-development-environment">Setting up the development environment<a class="headerlink" href="#setting-up-the-development-environment" title="Permanent link">&para;</a></h3>
+<p>The Zephyr project uses <a href="https://cmake.org/">CMake</a> as a tool for managing the building of the project. CMake is able to generate build files in different formats (also known as “generators”), and the following ones are currently supported by Zephyr:</p>
+<ul>
+<li><code>make</code>: Supported on UNIX-like platforms (Linux, macOS).</li>
+<li><code>ninja</code>: Supported on all platforms.</li>
+</ul>
+<p>The setup process for the development environment depends on your operating system. Please choose your host operating system. The setup instructions for each operating system walk you through how to set up the development environment.</p>
+<h4 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h4>
+<p>The easiest way to install the dependencies natively on Microsoft Windows is to use the Chocolatey package manager (<a href="https://chocolatey.org/">Chocolatey website</a>). </p>
+<ol>
+<li>
+<p>Install Chocolatey by following the instructions on the <a href="https://chocolatey.org/install">Chocolatey install</a> website.</p>
+</li>
+<li>
+<p>Open a Command Prompt (cmd.exe) as an <strong>Administrator</strong>.</p>
+</li>
+<li>
+<p>Optionally disable global confirmation to avoid having to add -y to all commands:</p>
+<div class="codehilite"><pre><span></span>$ choco feature <span class="nb">enable</span> -n allowGlobalConfirmation
+</pre></div>
+
+</li>
+<li>
+<p>Install CMake:</p>
+<div class="codehilite"><pre><span></span>$ choco install cmake --installargs <span class="s1">&#39;ADD_CMAKE_TO_PATH=System&#39;</span>
+</pre></div>
+
+</li>
+<li>
+<p>Install the rest of the tools:</p>
+<div class="codehilite"><pre><span></span>$ choco install git python ninja dtc-msys2 gperf
+</pre></div>
+
+</li>
+<li>
+<p>Close the Command Prompt window.</p>
+</li>
+<li>
+<p>Open a Command Prompt (cmd.exe) as a regular user.</p>
+</li>
+<li>
+<p>Install the required Python modules:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ./zephyr
+$ pip install --user -r scripts/requirements.txt
+$ pip2 install --user -r scripts/py2-requirements.txt
+</pre></div>
+
+</li>
+<li>
+<p>Download and install the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a> (install to <code>c:\gccarmemb</code>).</p>
+</li>
+<li>
+<p>Within the Command Prompt, set up environment variables for the installed tools and for the Zephyr environment:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">set</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gccarmemb
+$ <span class="nb">set</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span>c:<span class="se">\g</span>ccarmemb
+</pre></div>
+
+</li>
+</ol>
+<h4 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h4>
+<p>First, install the <em>Homebrew</em> (The missing package manager for macOS). Homebrew is a free and open-source software package management system that simplifies the installation of software on Apple’s macOS operating system.</p>
+<p>To install Homebrew, visit the <a href="http://brew.sh/">Homebrew site</a> and follow the installation instructions on the site.</p>
+<p>After Homebrew was successfully installed, install the following tools using the brew command line:</p>
+<div class="codehilite"><pre><span></span>$ brew install cmake ninja dfu-util doxygen qemu dtc python3 gperf
+$ curl -O <span class="s1">&#39;https://bootstrap.pypa.io/get-pip.py&#39;</span>
+$ ./get-pip.py
+$ rm get-pip.py
+$ <span class="nb">cd</span> ~/zephyr   <span class="c1"># or to the folder where you cloned the zephyr repo</span>
+$ pip3 install --user -r scripts/requirements.txt
+$ pip2 install --user -r scripts/py2-requirements.txt
+</pre></div>
+
+<p>Download and install the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a>. Then make sure to add the path to your toolchain to your OS PATH environment variable:</p>
+<div class="codehilite"><pre><span></span><span class="c1"># add the following scripts to ~/.bash_profile </span>
+<span class="nb">export</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-7-2017-q4-major&quot;</span>
+<span class="nb">export</span> <span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>gccarmemb
+</pre></div>
+
+<h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h4>
+<p>Before proceeding with the build, ensure your OS is up to date. On Ubuntu, you’ll first need to update the local database list of available packages before upgrading:</p>
+<div class="codehilite"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get upgrade
+</pre></div>
+
+<p>Install the required packages in a Ubuntu host system with:</p>
+<div class="codehilite"><pre><span></span>$ sudo apt-get install --no-install-recommends git cmake ninja-build gperf <span class="se">\</span>
+  ccache doxygen dfu-util device-tree-compiler <span class="se">\</span>
+  python3-ply python3-pip python3-setuptools xz-utils file make gcc-multilib <span class="se">\</span>
+  autoconf automake libtool
+</pre></div>
+
+<p>Install additional packages required for development with Zephyr:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ~/zephyr  <span class="c1"># or to your directory where zephyr is cloned</span>
+$ pip3 install --user -r scripts/requirements.txt
+$ pip2 install --user -r scripts/py2-requirements.txt
+</pre></div>
+
+<p>Download and install the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a>. Then make sure to add the path to your toolchain to your OS PATH environment variable:</p>
+<div class="codehilite"><pre><span></span><span class="c1"># add the following scripts to ~/.bash_profile </span>
+<span class="nb">export</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-7-2017-q4-major&quot;</span>
+<span class="nb">export</span> <span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>gccarmemb
+</pre></div>
+
+<h3 id="adding-support-for-nrf52832-mdk">Adding support for nRF52832-MDK<a class="headerlink" href="#adding-support-for-nrf52832-mdk" title="Permanent link">&para;</a></h3>
+<p>To add support for nRF52832-MDK, you must add the board support files. This should give you the following folder structure:</p>
+<div class="codehilite"><pre><span></span>.zephyr/boards/arm/nrf52832_mdk
+├── Kconfig
+├── Kconfig.board
+├── Kconfig.defconfig
+├── board.cmake
+├── board.h
+├── nrf52832_mdk.dts
+├── nrf52832_mdk.yaml
+└── nrf52832_mdk_defconfig
+</pre></div>
+
+<p>You can checkout the patch from <a href="https://github.com/makerdiary/zephyr">makerdiary/zephyr</a>:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> &lt;zephyr git clone location&gt;
+$ git remote add makerdiary https://github.com/makerdiary/zephyr.git
+$ git pull makerdiary master
+</pre></div>
+
+<h3 id="compiling-and-running-an-example">Compiling and running an example<a class="headerlink" href="#compiling-and-running-an-example" title="Permanent link">&para;</a></h3>
+<p>Now you can try to build one of the examples. Will use the <code>hello_world</code> example here to keep it simple.</p>
+<p>Source <code>zephyr-env.sh</code> wherever you have cloned the Zephyr Git repository:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">unset</span> ZEPHYR_SDK_INSTALL_DIR
+$ <span class="nb">cd</span> &lt;zephyr git clone location&gt;
+$ <span class="nb">source</span> zephyr-env.sh
+</pre></div>
+
+<p>Create a <code>build</code> folder in the example directory, where all artifacts generated by the Ninja build system are stored, such as:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> nrf52832-mdk/examples/zephyr/hello_world/
+$ mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+
+build$ cmake -GNinja -DBOARD<span class="o">=</span>nrf52832_mdk ..
+build$ ninja
+build$ ninja flash
+</pre></div>
+
+<p><img alt="" src="./images/hello_world_ninja_building.png" /></p>
+<p>Check the board output from serial port, you will see the following messages:</p>
+<div class="codehilite"><pre><span></span>***** BOOTING ZEPHYR OS v1.10.99 - BUILD: Feb <span class="m">26</span> <span class="m">2018</span> <span class="m">12</span>:44:01 *****
+Hello World! arm
+</pre></div>
+
+<p>That's it! You can also try other examples in the path <code>nrf52832-mdk/examples/zephyr/</code>.</p>
+<h2 id="more-examples">More examples<a class="headerlink" href="#more-examples" title="Permanent link">&para;</a></h2>
+<p>Over time, more example applications will be added to the repository. You can star or watch the <a href="https://github.com/makerdiary/nrf52832-mdk">nrf52832-mdk</a> repository to stay up to date.</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.zephyrproject.org/">Zephyr Project site</a></li>
+<li><a href="http://docs.zephyrproject.org/index.html">Zephyr Project Documentation</a></li>
+<li><a href="https://github.com/zephyrproject-rtos/zephyr">zephyrproject-rtos/zephyr repository</a></li>
+</ul>
+<h2 id="any-issue">Any Issue ?<a class="headerlink" href="#any-issue" title="Permanent link">&para;</a></h2>
+<p>Interested in contributing to this project? Want to report a bug? Feel free and click here:</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a></p>
+<p><a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a></p>
+                
+                  
+                
               
+              
+                
               
             </article>
           </div>
@@ -1136,7 +1140,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../mbedos5/example-more/" title="更多示例" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../mbedos/" title="Arm Mbed OS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1145,19 +1149,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                更多示例
+                Arm Mbed OS
               </span>
             </div>
           </a>
         
         
-          <a href="setup-devenv-osx/" title="Mac OSX" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mynewt/" title="Mynewt" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Mac OSX
+                Mynewt
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1173,17 +1177,33 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 <a href="http://wiki.makerdiary.co">wiki.makerdiary.co</a><br>This site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>
+            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
           </div>
         
         powered by
-        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        <a href="http://www.mkdocs.org">MkDocs</a>
         and
-        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+        <a href="https://squidfunk.github.io/mkdocs-material/">
           Material for MkDocs</a>
       </div>
       
         
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/makerdiary" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
       
     </div>
   </div>
@@ -1191,13 +1211,14 @@
       
     </div>
     
-      <script src="../assets/javascripts/application-30ac6a1727.js"></script>
-      <script>app.initialize({url:{base:".."}})</script>
+      <script src="../assets/javascripts/application.a46cbbdf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
       
     
     
       
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>

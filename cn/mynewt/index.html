@@ -1,0 +1,1288 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
+      
+      
+        <link rel="canonical" href="https://makerdiary.github.io/nrf52832-mdk/cn/mynewt/">
+      
+      
+        <meta name="author" content="Zelin">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+    
+    
+      
+        <title>Mynewt - nRF52832-MDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.9b572555.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#mynewt-apache" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                nRF52832-MDK Documentation
+              </span>
+              <span class="md-header-nav__topic">
+                Mynewt
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Overview" class="md-tabs__link">
+        Overview
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="中文文档" class="md-tabs__link md-tabs__link--active">
+          中文文档
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="24" height="24">
+      
+    </span>
+    nRF52832-MDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../how-to-buy/" title="How to Buy" class="md-nav__link">
+      How to Buy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" checked>
+    
+    <label class="md-nav__link" for="nav-15">
+      中文文档
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        中文文档
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-started/" title="快速入门" class="md-nav__link">
+      快速入门
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Mynewt
+      </label>
+    
+    <a href="./" title="Mynewt" class="md-nav__link md-nav__link--active">
+      Mynewt
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="简介" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newt" title="安装 Newt" class="md-nav__link">
+    安装 Newt
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" title="Windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" title="macOS" class="md-nav__link">
+    macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" title="Linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="运行第一个示例" class="md-nav__link">
+    运行第一个示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="创建新工程" class="md-nav__link">
+    创建新工程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="更多示例" class="md-nav__link">
+    更多示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="参考资源" class="md-nav__link">
+    参考资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="问题反馈" class="md-nav__link">
+    问题反馈
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-buy/" title="如何购买" class="md-nav__link">
+      如何购买
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
+      反馈&贡献
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="订阅" class="md-nav__link">
+      订阅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="简介" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newt" title="安装 Newt" class="md-nav__link">
+    安装 Newt
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" title="Windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" title="macOS" class="md-nav__link">
+    macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" title="Linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="运行第一个示例" class="md-nav__link">
+    运行第一个示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="创建新工程" class="md-nav__link">
+    创建新工程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="更多示例" class="md-nav__link">
+    更多示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="参考资源" class="md-nav__link">
+    参考资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="问题反馈" class="md-nav__link">
+    问题反馈
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="mynewt-apache">Mynewt <br><small>Apache 开源、适用于微型嵌入式设备的组件化实时操作系统</small><a class="headerlink" href="#mynewt-apache" title="Permanent link">&para;</a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Mynewt 是一款适用于微型嵌入式设备的组件化开源操作系统。Apache Mynewt 使用 Newt 构建和包管理系统，它允许开发者仅选择所需的组件来构建操作系统。其目标是使功耗和成本成为驱动因素的微控制器环境的应用开发变得容易。</p>
+<p>Mynewt 提供开源蓝牙 5.0 协议栈和嵌入式中间件、闪存文件系统、网络堆栈、引导程序、FATFS、引导程序、统计和记录基础设施等的支持。</p>
+<h2 id="newt">安装 Newt<a class="headerlink" href="#newt" title="Permanent link">&para;</a></h2>
+<p>为了是开发者能够更好地使用 Mynewt 提供的组件来开发应用，Mynewt 引入了一个名为 <code>newt</code> 的构建工具和包管理器。该工具支持跨平台，可以运行在 Windows，Linux 和 macOS 平台上。</p>
+<p>下面将介绍在不同平台上如何安装 <code>newt</code>：</p>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p>在 Windows 平台，最简单的方式是安装一个 Unix 开发环境，例如 <a href="http://www.msys2.org/">MSYS2</a>。你可以按照以下步骤进行配置：</p>
+<ol>
+<li>
+<p>前往 <a href="http://www.msys2.org/">MSYS2</a> 官网下载软件并安装（64 位系统选择 "x86_64"，32 位系统选择 "i686"）；</p>
+</li>
+<li>
+<p>打开 MSYS2，更新系统软件包：</p>
+<div class="codehilite"><pre><span></span>$ pacman -Syu
+</pre></div>
+
+</li>
+<li>
+<p>如果需要的话，关闭 MSYS2，重新运行以完成更新：</p>
+<div class="codehilite"><pre><span></span>$ pacman -Su
+</pre></div>
+
+</li>
+<li>
+<p>安装 <code>git</code> 和 <code>tar</code> 工具:</p>
+<div class="codehilite"><pre><span></span>$ pacman -S git tar
+</pre></div>
+
+</li>
+<li>
+<p>下载并解压 newt 源码：</p>
+<div class="codehilite"><pre><span></span>$ wget -P /tmp https://github.com/apache/mynewt-newt/archive/mynewt_1_3_0_tag.tar.gz
+$ tar -xzf /tmp/mynewt_1_3_0_tag.tar.gz
+</pre></div>
+
+</li>
+<li>
+<p>运行 <code>build.sh</code> 来编译 <code>newt</code> 工具：</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> mynewt-newt-mynewt_1_3_0_tag   
+$ ./build.sh
+$ rm /tmp/mynewt_1_3_0_tag.tar.gz
+</pre></div>
+
+</li>
+<li>
+<p>编译成功后将生成 <code>newt/newt.exe</code> 可执行文件，将其移动到系统目录：</p>
+<div class="codehilite"><pre><span></span>$ mv newt/newt.exe /usr/bin
+</pre></div>
+
+</li>
+</ol>
+<h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
+<p>在 macOS 上可以直接使用 <a href="http://brew.sh/">Homebrew</a> 来安装 newt。如果是第一次安装，需要先运行以下命令：</p>
+<div class="codehilite"><pre><span></span>$ brew tap runtimeco/homebrew-mynewt
+$ brew update
+</pre></div>
+
+<p>然后安装最新版 <code>newt</code> 工具：</p>
+<div class="codehilite"><pre><span></span>$ brew update
+$ brew install mynewt-newt
+</pre></div>
+
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<p>在 Linux 系统（比如 Ubuntu），直接运行以下命令即可安装 newt：</p>
+<div class="codehilite"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get install newt
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果遇到错误 (比如丢失 <code>sys/mman.h</code> 文件), 需要先确认已经安装了 32位 <code>glibc</code>:
+<div class="codehilite"><pre><span></span>$ sudo apt-get install gcc-multilib
+</pre></div></p>
+</div>
+<h2 id="_2">运行第一个示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>安装好 newt 之后就可以尝试编译第一个示例了，我们提供了 <code>blinky</code> 示例，你可以按照以下步骤进行验证：</p>
+<p>打开命令行终端并切换到 <code>blinky</code> 示例目录：</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ./nrf52832-mdk/examples/mynewt/blinky
+</pre></div>
+
+<p>使用 <code>newt install</code> 命令安装示例依赖项：</p>
+<div class="codehilite"><pre><span></span>blinky$ newt install
+apache-mynewt-core successfully installed version <span class="m">1</span>.3.0-none
+mynewt_nrf52832_mdk successfully installed version <span class="m">0</span>.0.0-none
+</pre></div>
+
+<p>该示例已经提供了几个可用的 target，其中 <code>nrf52_blinky</code> 为应用程序、<code>nrf52_boot</code> 为 Bootloader，可以使用 <code>newt target show</code> 命令查看：</p>
+<div class="codehilite"><pre><span></span>blinky$ newt target show
+targets/my_blinky_sim
+    <span class="nv">app</span><span class="o">=</span>apps/blinky
+    <span class="nv">bsp</span><span class="o">=</span>@apache-mynewt-core/hw/bsp/native
+    <span class="nv">build_profile</span><span class="o">=</span>debug
+targets/nrf52_blinky
+    <span class="nv">app</span><span class="o">=</span>apps/blinky
+    <span class="nv">bsp</span><span class="o">=</span>@mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk
+    <span class="nv">build_profile</span><span class="o">=</span>debug
+targets/nrf52_boot
+    <span class="nv">app</span><span class="o">=</span>@apache-mynewt-core/apps/boot
+    <span class="nv">bsp</span><span class="o">=</span>@mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk
+    <span class="nv">build_profile</span><span class="o">=</span>optimized
+</pre></div>
+
+<p>运行 <code>newt build nrf52_boot</code> 命令编译 Bootloader：</p>
+<div class="codehilite"><pre><span></span>blinky$ newt build nrf52_boot
+Building target targets/nrf52_boot
+Compiling repos/apache-mynewt-core/boot/bootutil/src/image_ec.c
+Compiling repos/apache-mynewt-core/boot/bootutil/src/image_ec256.c
+Compiling repos/apache-mynewt-core/apps/boot/src/boot.c
+Compiling repos/apache-mynewt-core/boot/bootutil/src/bootutil_misc.c
+Compiling repos/apache-mynewt-core/boot/bootutil/src/image_rsa.c
+Compiling repos/apache-mynewt-core/boot/bootutil/src/image_validate.c
+Compiling repos/apache-mynewt-core/boot/bootutil/src/loader.c
+Compiling repos/apache-mynewt-core/crypto/mbedtls/src/aes.c
+Compiling repos/apache-mynewt-core/crypto/mbedtls/src/aesni.c
+Compiling repos/apache-mynewt-core/crypto/mbedtls/src/arc4.c
+Compiling repos/apache-mynewt-core/crypto/mbedtls/src/asn1parse.c
+Compiling repos/apache-mynewt-core/crypto/mbedtls/src/asn1write.c
+Compiling repos/apache-mynewt-core/crypto/mbedtls/src/base64.c
+...
+Archiving nrf52_boot-sysinit-app.a
+Archiving sys_flash_map.a
+Archiving sys_mfg.a
+Archiving sys_sysinit.a
+Archiving util_mem.a
+Linking ~/makerdiary/nrf52832-mdk/examples/mynewt/blinky/bin/targets/nrf52_boot/app/apps/boot/boot.elf
+Target successfully built: targets/nrf52_boot
+</pre></div>
+
+<p>运行 <code>newt build nrf52_blinky</code> 命令编译 blinky 应用：</p>
+<div class="codehilite"><pre><span></span>blinky$ newt build nrf52_blinky
+Building target targets/nrf52_blinky
+Assembling repos/mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk/src/arch/cortex_m4/gcc_startup_nrf52.s
+Compiling repos/mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk/src/sbrk.c
+Compiling apps/blinky/src/main.c
+Compiling repos/mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk/src/hal_bsp.c
+Assembling repos/mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk/src/arch/cortex_m4/gcc_startup_nrf52_split.s
+Compiling repos/apache-mynewt-core/hw/cmsis-core/src/cmsis_nvic.c
+Compiling repos/apache-mynewt-core/hw/drivers/uart/src/uart.c
+Compiling repos/apache-mynewt-core/hw/drivers/uart/uart_hal/src/uart_hal.c
+Compiling repos/apache-mynewt-core/hw/hal/src/hal_common.c
+Compiling repos/apache-mynewt-core/hw/hal/src/hal_flash.c
+Compiling repos/apache-mynewt-core/hw/mcu/nordic/nrf52xxx/src/hal_flash.c
+Compiling repos/apache-mynewt-core/hw/mcu/nordic/nrf52xxx/src/hal_gpio.c
+Compiling repos/apache-mynewt-core/hw/mcu/nordic/nrf52xxx/src/hal_i2c.c
+...
+Archiving nrf52_blinky-sysinit-app.a
+Archiving sys_flash_map.a
+Archiving sys_mfg.a
+Archiving sys_sysinit.a
+Archiving util_mem.a
+Linking ~/makerdiary/nrf52832-mdk/examples/mynewt/blinky/bin/targets/nrf52_blinky/app/apps/blinky/blinky.elf
+Target successfully built: targets/nrf52_blinky
+</pre></div>
+
+<p>编译成功后，可以使用 <code>newt create-image nrf52_blinky 1.0.0</code> 命令创建镜像，你可以自己指定版本号，这里以 <code>1.0.0</code> 作为示例：</p>
+<div class="codehilite"><pre><span></span>blinky$ newt create-image nrf52_blinky <span class="m">1</span>.0.0
+App image succesfully generated: ~/makerdiary/nrf52832-mdk/examples/mynewt/blinky/bin/targets/nrf52_blinky/app/apps/blinky/blinky.img
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>nRF52832-MDK 硬件支持 OpenOCD 调试器，Mynewt 使用 OpenOCD 来下载固件和调试，可以按照以下链接指引完成安装：<a href="https://mynewt.apache.org/latest/os/get_started/cross_tools/#installing-openocd-on-mac-os">OpenOCD 安装指引</a>。</p>
+</div>
+<p>运行 <code>newt load nrf52_boot</code> 命令下载 Bootloader：</p>
+<div class="codehilite"><pre><span></span>blinky$ newt load nrf52_boot
+Loading bootloader
+</pre></div>
+
+<p>运行 <code>newt load nrf52_blinky</code> 命令下载 blinky 应用：</p>
+<div class="codehilite"><pre><span></span>blinky$ newt load nrf52_blinky
+Loading app image into slot <span class="m">1</span>
+</pre></div>
+
+<p><img alt="" src="./../../mynewt/images/loading_mynewt_image.png" /></p>
+<p>观察 nRF52832-MDK 是否正常运行：</p>
+<p><img alt="" src="./../../mynewt/images/mynewt_example_blinky.gif" /></p>
+<h2 id="_3">创建新工程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>你也可以从头创建自己的新工程，按照以下步骤即可快速完成。</p>
+<p>在你的工作目录（这里假设为 <code>dev</code>）运行 <code>newt new myproj</code> 创建名为 <code>myproj</code> 的新工程：</p>
+<div class="codehilite"><pre><span></span><span class="nv">$cd</span> ~/dev
+$ newt new myproj
+Downloading project skeleton from apache/mynewt-blinky...
+Installing skeleton in myproj...
+Project myproj successfully created.
+</pre></div>
+
+<p>完成后 newt 会自动创建一个基本项目模板，大致的目录结构如下：</p>
+<div class="codehilite"><pre><span></span>.
+├── LICENSE
+├── NOTICE
+├── README.md
+├── apps
+│   └── blinky
+│       ├── pkg.yml
+│       └── src
+│           └── main.c
+├── project.yml
+└── targets
+    ├── my_blinky_sim
+    │   ├── pkg.yml
+    │   └── target.yml
+    └── unittest
+        ├── pkg.yml
+        └── target.yml
+
+<span class="m">6</span> directories, <span class="m">10</span> files
+</pre></div>
+
+<p>我们已经为 nRF52832-MDK 提供 Mynewt 板级支持包 <code>mynewt_nrf52832_mdk</code>，可以在 <code>project.yml</code> 项目配置文件中进行配置：</p>
+<div class="codehilite"><pre><span></span>project.name: <span class="s2">&quot;myproj&quot;</span>
+
+project.repositories:
+    - apache-mynewt-core
+    - mynewt_nrf52832_mdk
+
+<span class="c1"># Use github&#39;s distribution mechanism for core ASF libraries.</span>
+<span class="c1"># This provides mirroring automatically for us.</span>
+<span class="c1">#</span>
+repository.apache-mynewt-core:
+    type: github
+    vers: <span class="m">1</span>-latest
+    user: apache
+    repo: mynewt-core
+
+<span class="c1"># a special repo to hold hardware specific stuff for nRF52832-MDK</span>
+repository.mynewt_nrf52832_mdk:
+    type: github
+    vers: <span class="m">0</span>-dev
+    user: makerdiary
+    repo: mynewt_nrf52832_mdk
+</pre></div>
+
+<p>运行 <code>newt install</code> 安装所有依赖项：</p>
+<div class="codehilite"><pre><span></span>myproj$ newt install
+apache-mynewt-core successfully installed version <span class="m">1</span>.3.0-none
+mynewt_nrf52832_mdk successfully installed version <span class="m">0</span>.0.0-none
+</pre></div>
+
+<p>接下来，你需要为 nRF52832-MDK 创建两个 target，一个是 Bootloader，一个是应用程序：</p>
+<div class="codehilite"><pre><span></span>myproj$ newt target create nrf52_boot
+myproj$ newt target <span class="nb">set</span> nrf52_boot <span class="nv">app</span><span class="o">=</span>@apache-mynewt-core/apps/boot
+myproj$ newt target <span class="nb">set</span> nrf52_boot <span class="nv">bsp</span><span class="o">=</span>@mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk
+myproj$ newt target <span class="nb">set</span> nrf52_boot <span class="nv">build_profile</span><span class="o">=</span>optimized
+
+myproj$ newt target create nrf52_blinky
+myproj$ newt target <span class="nb">set</span> nrf52_blinky <span class="nv">app</span><span class="o">=</span>apps/blinky
+myproj$ newt target <span class="nb">set</span> nrf52_blinky <span class="nv">bsp</span><span class="o">=</span>@mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk
+myproj$ newt target <span class="nb">set</span> nrf52_blinky <span class="nv">build_profile</span><span class="o">=</span>debug
+</pre></div>
+
+<p>运行 <code>newt target show</code> 查看目标设置：</p>
+<div class="codehilite"><pre><span></span>myproj$ newt target show
+targets/nrf52_blinky
+    <span class="nv">app</span><span class="o">=</span>apps/blinky
+    <span class="nv">bsp</span><span class="o">=</span>@mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk
+    <span class="nv">build_profile</span><span class="o">=</span>debug
+targets/nrf52_boot
+    <span class="nv">app</span><span class="o">=</span>@apache-mynewt-core/apps/boot
+    <span class="nv">bsp</span><span class="o">=</span>@mynewt_nrf52832_mdk/hw/bsp/nrf52832_mdk
+    <span class="nv">build_profile</span><span class="o">=</span>optimized
+</pre></div>
+
+<p>这时可以开始编译目标代码：</p>
+<div class="codehilite"><pre><span></span>myproj$ newt build nrf52_boot
+myproj$ newt build nrf52_blinky
+</pre></div>
+
+<p>编译完成后，创建镜像：</p>
+<div class="codehilite"><pre><span></span>myproj$ newt create-image nrf52_blinky <span class="m">1</span>.0.0
+</pre></div>
+
+<p>最后，使用 <code>newt load</code> 加载固件：</p>
+<div class="codehilite"><pre><span></span>myproj$ newt load nrf52_boot
+Loading bootloader
+
+myproj$ newt load nrf52_blinky
+Loading app image into slot <span class="m">1</span>
+</pre></div>
+
+<p>整个过程就是这样，你已成功完成新工程创建。</p>
+<h2 id="_4">更多示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>我们会不断增加一些新示例，以便你更好地开发 Mynewt 应用。你可以关注 <a href="https://github.com/makerdiary/nrf52832-mdk">nrf52832-mdk</a> 仓库及时获得更新。</p>
+<h2 id="_5">参考资源<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://mynewt.apache.org/">Apache Mynewt 官网</a></li>
+<li><a href="https://mynewt.apache.org/documentation/">Apache Mynewt 文档中心</a></li>
+<li><a href="https://github.com/apache/mynewt-core">Apache/mynewt-core 仓库</a></li>
+<li><a href="https://github.com/makerdiary/mynewt_nrf52832_mdk">nRF52832-MDK Mynewt 板级支持包</a></li>
+</ul>
+<h2 id="_6">问题反馈<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 或 <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk">Slack</a> 反馈。</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a></p>
+<p><a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../zephyr/" title="Zephyr" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Zephyr
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../espruino/" title="Espruino" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Espruino
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/makerdiary" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a46cbbdf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

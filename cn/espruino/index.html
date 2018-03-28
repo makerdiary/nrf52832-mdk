@@ -1,0 +1,1275 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
+      
+      
+        <link rel="canonical" href="https://makerdiary.github.io/nrf52832-mdk/cn/espruino/">
+      
+      
+        <meta name="author" content="Zelin">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+    
+    
+      
+        <title>Espruino - nRF52832-MDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.9b572555.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#espruino-mcu-javascrupt" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                nRF52832-MDK Documentation
+              </span>
+              <span class="md-header-nav__topic">
+                Espruino
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Overview" class="md-tabs__link">
+        Overview
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="中文文档" class="md-tabs__link md-tabs__link--active">
+          中文文档
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="24" height="24">
+      
+    </span>
+    nRF52832-MDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../how-to-buy/" title="How to Buy" class="md-nav__link">
+      How to Buy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" checked>
+    
+    <label class="md-nav__link" for="nav-15">
+      中文文档
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        中文文档
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-started/" title="快速入门" class="md-nav__link">
+      快速入门
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Espruino
+      </label>
+    
+    <a href="./" title="Espruino" class="md-nav__link md-nav__link--active">
+      Espruino
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="简介" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="快速入门" class="md-nav__link">
+    快速入门
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#espruino" title="下载 Espruino 固件" class="md-nav__link">
+    下载 Espruino 固件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#espruino-web-ide" title="安装 Espruino Web IDE" class="md-nav__link">
+    安装 Espruino Web IDE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nrf52832-mdk" title="连接 nRF52832-MDK" class="md-nav__link">
+    连接 nRF52832-MDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="运行你的代码" class="md-nav__link">
+    运行你的代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#espruino_1" title="无线更新 Espruino 固件" class="md-nav__link">
+    无线更新 Espruino 固件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#espruino_2" title="如何编译 Espruino？" class="md-nav__link">
+    如何编译 Espruino？
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="搭建编译环境" class="md-nav__link">
+    搭建编译环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nrf52832-mdk_1" title="支持 nRF52832-MDK" class="md-nav__link">
+    支持 nRF52832-MDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#espruino_3" title="编译 Espruino 固件" class="md-nav__link">
+    编译 Espruino 固件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="参考资源" class="md-nav__link">
+    参考资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="问题反馈" class="md-nav__link">
+    问题反馈
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-buy/" title="如何购买" class="md-nav__link">
+      如何购买
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
+      反馈&贡献
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="订阅" class="md-nav__link">
+      订阅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="简介" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="快速入门" class="md-nav__link">
+    快速入门
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#espruino" title="下载 Espruino 固件" class="md-nav__link">
+    下载 Espruino 固件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#espruino-web-ide" title="安装 Espruino Web IDE" class="md-nav__link">
+    安装 Espruino Web IDE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nrf52832-mdk" title="连接 nRF52832-MDK" class="md-nav__link">
+    连接 nRF52832-MDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="运行你的代码" class="md-nav__link">
+    运行你的代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#espruino_1" title="无线更新 Espruino 固件" class="md-nav__link">
+    无线更新 Espruino 固件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#espruino_2" title="如何编译 Espruino？" class="md-nav__link">
+    如何编译 Espruino？
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="搭建编译环境" class="md-nav__link">
+    搭建编译环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nrf52832-mdk_1" title="支持 nRF52832-MDK" class="md-nav__link">
+    支持 nRF52832-MDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#espruino_3" title="编译 Espruino 固件" class="md-nav__link">
+    编译 Espruino 固件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="参考资源" class="md-nav__link">
+    参考资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="问题反馈" class="md-nav__link">
+    问题反馈
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="espruino-mcu-javascrupt">Espruino<br><small>运行在内存和存储都极其有限的 MCU 上的 JavaScrupt 引擎</small><a class="headerlink" href="#espruino-mcu-javascrupt" title="Permanent link">&para;</a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Espruino 是一个非常轻量的 JavaScript 引擎，可以运行在 128KB Flash &amp; 8KB RAM 的微控制器 (MCU) 上。</p>
+<p>相比于其他 JavaScript 引擎，Espruino 具有以下特点：</p>
+<ul>
+<li>轻量级 —— 可以运行在 128KB Flash &amp; 8KB RAM 的微控制器 (MCU) 上；</li>
+<li>事件驱动 —— 与 node.js 类似，Espruino 采用事件驱动机制，支持异步函数回调和异步 I/O；</li>
+<li>简单易用 —— Espruino 提供丰富的外设库，对硬件层做了很好的抽象，只要会写 JavaScript 就能用它来控制硬件；</li>
+<li>跨平台开发 —— Espruino 提供一个基于 Chrome 浏览的 Web IDE，可以进行跨平台开发；</li>
+<li>无线调试 —— Espruino Web IDE 使用 Web Bluetooth API，可以提供无线下载调试 JavaScript 代码功能。</li>
+</ul>
+<p><img alt="" src="./../../espruino/images/espruino_web_ide_ui.png" /></p>
+<p>了解更多内容，可以访问 <a href="http://www.espruino.com/">Espruino 官网</a>。</p>
+<h2 id="_2">快速入门<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>下面内容将介绍如何在 nRF52832-MDK 上运行使用 Espruino。</p>
+<h3 id="espruino">下载 Espruino 固件<a class="headerlink" href="#espruino" title="Permanent link">&para;</a></h3>
+<p>我们已经为 nRF52832-MDK 提供了 Espruino 固件，固件以 <code>espruino_x.x_nrf52832_mdk.hex</code> 方式命名，位于 <code>./nrf52832-mdk/firmware/espruino/</code> 目录。</p>
+<p>连接 nRF52832-MDK，直接将该固件拖动到 <strong>DAPLINK</strong> 可移动磁盘即可完成下载：</p>
+<p><img alt="" src="./../../espruino/images/flashing_espruino_using_daplink.png" /></p>
+<h3 id="espruino-web-ide">安装 Espruino Web IDE<a class="headerlink" href="#espruino-web-ide" title="Permanent link">&para;</a></h3>
+<p>Espruino 官方提供了 IDE，开发起来非常方便，这里推荐使用 Chrome Web App，安装步骤如下：</p>
+<ol>
+<li>安装 <a href="https://www.google.com/intl/en/chrome/">Chrome 浏览器</a>；</li>
+<li>安装 <a href="https://chrome.google.com/webstore/detail/espruino-web-ide/bleoifhkdalbjfbobjackfdifdneehpo">Espruino Web IDE</a> 应用；</li>
+<li>在浏览器标签栏打开 <kbd>应用</kbd> 图标可发现 Espruino Web IDE 应用</li>
+</ol>
+<h3 id="nrf52832-mdk">连接 nRF52832-MDK<a class="headerlink" href="#nrf52832-mdk" title="Permanent link">&para;</a></h3>
+<p>现在，你可以开始在 Espruino Web IDE 上连接 nRF52832-MDK，点击 IDE 左上角<kbd>连接</kbd>图标，选择 <em>Web Bluetooth</em> 或串口进行连接：</p>
+<p><img alt="" src="./../../espruino/images/espruino_web_ide_connecting.png" /></p>
+<p>对于 <em>Web Bluetooth</em> 连接，需要先配对：</p>
+<p><img alt="" src="./../../espruino/images/espruino_web_ide_pairing.png" /></p>
+<p>成功连接，IDE 会有状态提示：</p>
+<p><img alt="" src="./../../espruino/images/espruino_web_ide_connected.png" /> </p>
+<h3 id="_3">运行你的代码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>连接成功后，设备即进入 REPL 模式，可以在左边窗口输入一些 JavaScript 代码：</p>
+<div class="codehilite"><pre><span></span>&gt; <span class="m">1</span>+1
+
+&gt; digitalWrite<span class="o">(</span>LED1,1<span class="o">)</span>
+
+&gt; digitalWrite<span class="o">(</span>LED1,0<span class="o">)</span>
+</pre></div>
+
+<p>也可以在右边代码编辑器窗口输入 JavaScript 代码，点击<kbd>上传</kbd>即可自动加载脚本：</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>  <span class="nx">on</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">on</span> <span class="o">=</span> <span class="o">!</span><span class="nx">on</span><span class="p">;</span>
+  <span class="nx">LED1</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">on</span><span class="p">);</span>
+<span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+</pre></div>
+
+<p><img alt="" src="./../../espruino/images/espruino_example_blinky.png" /></p>
+<p>整个过程就是这样，接下来你可以查阅 Espruino 的相关 API，编写更有趣的应用。</p>
+<h2 id="espruino_1">无线更新 Espruino 固件<a class="headerlink" href="#espruino_1" title="Permanent link">&para;</a></h2>
+<p>除了前面介绍的“拖放”下载 Espruino 固件，我们还可以通过无线 DFU 的方式进行固件更新，具体步骤如下：</p>
+<ol>
+<li>
+<p>打开 Chrome 浏览器，前往 <a href="https://thegecko.github.io/web-bluetooth-dfu/examples/web.html">Web Bluetooth Secure DFU</a> 页面；</p>
+</li>
+<li>
+<p>先将 nRF52832-MDK 上的 <code>P18</code> 与 <code>3V3</code> 引脚短接，再上电，红蓝灯一起亮，断开 <code>P18</code> 与 <code>3V3</code>，蓝色灯亮，此时设备即进入 DFU 模式；</p>
+</li>
+<li>
+<p>在浏览器页面选择相关固件包，固件位于 <a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/firmware/espruino">nrf52832-mdk/firmware/espruino/</a>，以 <code>espruino_x.x_nrf52832_mdk.zip</code> 方式命名；</p>
+</li>
+<li>
+<p>连接名为 <code>DfuTarg</code> 的设备，等待更新完成即可，如果中途不慎中断，重复以上步骤即可。</p>
+</li>
+</ol>
+<p><img alt="" src="./../../espruino/images/web_bluetooth_secure_dfu.png" /></p>
+<h2 id="espruino_2">如何编译 Espruino？<a class="headerlink" href="#espruino_2" title="Permanent link">&para;</a></h2>
+<p>这部分内容将介绍如何自己动手编译 Espruino，以 macOS 系统为例，其他平台大同小异，可以自行摸索。</p>
+<h3 id="_4">搭建编译环境<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>下载安装 GNU Arm Embedded toolchains，并确保添加到系统环境变量：</p>
+<div class="codehilite"><pre><span></span>&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q1-update/bin
+</pre></div>
+
+<p>验证是否正确安装：</p>
+<div class="codehilite"><pre><span></span>$ arm-none-eabi-gcc --version
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>最新版 GNU Arm Embedded toolchains 可能无法正常工作，可以自行尝试。</p>
+</div>
+<h3 id="nrf52832-mdk_1">支持 nRF52832-MDK<a class="headerlink" href="#nrf52832-mdk_1" title="Permanent link">&para;</a></h3>
+<p>首先，克隆 Espruino 源码到本地：</p>
+<div class="codehilite"><pre><span></span>$ git clone https://github.com/espruino/Espruino.git
+</pre></div>
+
+<p>为了支持 nRF52832-MDK 硬件，需要在 <code>./Espruino/boards/</code> 目录添加 <code>NRF52832_MDK.py</code> 文件，内容如下：</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pinutils</span><span class="p">;</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s2">&quot;nRF52832-MDK&quot;</span><span class="p">,</span>
+ <span class="s1">&#39;link&#39;</span> <span class="p">:</span>  <span class="p">[</span> <span class="s2">&quot;https://wiki.makerdiary.co/nrf52832-mdk/&quot;</span> <span class="p">],</span>
+  <span class="c1"># This is the nRF52832-MDK</span>
+ <span class="s1">&#39;default_console&#39;</span> <span class="p">:</span> <span class="s2">&quot;EV_SERIAL1&quot;</span><span class="p">,</span>
+ <span class="s1">&#39;default_console_tx&#39;</span> <span class="p">:</span> <span class="s2">&quot;D20&quot;</span><span class="p">,</span>
+ <span class="s1">&#39;default_console_rx&#39;</span> <span class="p">:</span> <span class="s2">&quot;D19&quot;</span><span class="p">,</span>
+ <span class="s1">&#39;default_console_baudrate&#39;</span> <span class="p">:</span> <span class="s2">&quot;9600&quot;</span><span class="p">,</span>
+ <span class="s1">&#39;variables&#39;</span> <span class="p">:</span> <span class="mi">2250</span><span class="p">,</span> <span class="c1"># How many variables are allocated for Espruino to use. RAM will be overflowed if this number is too high and code won&#39;t compile.</span>
+ <span class="s1">&#39;bootloader&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="s1">&#39;binary_name&#39;</span> <span class="p">:</span> <span class="s1">&#39;espruino_%v_nrf52832_mdk.hex&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;build&#39;</span> <span class="p">:</span> <span class="p">{</span>
+   <span class="s1">&#39;optimizeflags&#39;</span> <span class="p">:</span> <span class="s1">&#39;-Os&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;libraries&#39;</span> <span class="p">:</span> <span class="p">[</span>
+     <span class="s1">&#39;BLUETOOTH&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;NET&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;GRAPHICS&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;CRYPTO&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;NFC&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;NEOPIXEL&#39;</span>
+   <span class="p">],</span>
+   <span class="s1">&#39;makefile&#39;</span> <span class="p">:</span> <span class="p">[</span>
+     <span class="s1">&#39;DEFINES+=-DHAL_NFC_ENGINEERING_BC_FTPAN_WORKAROUND=1&#39;</span><span class="p">,</span> <span class="c1"># Looks like proper production nRF52s had this issue</span>
+     <span class="s1">&#39;DEFINES+=-DCONFIG_GPIO_AS_PINRESET&#39;</span><span class="p">,</span> <span class="c1"># Allow the reset pin to work</span>
+     <span class="s1">&#39;DEFINES+=-DBLUETOOTH_NAME_PREFIX=</span><span class="se">\&#39;</span><span class="s1">&quot;nRF52832-MDK&quot;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;DFU_PRIVATE_KEY=targets/nrf5x_dfu/dfu_private_key.pem&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;DFU_SETTINGS=--application-version 0xff --hw-version 52 --sd-req 0x8C&#39;</span>
+   <span class="p">]</span>
+ <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">chip</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;part&#39;</span> <span class="p">:</span> <span class="s2">&quot;NRF52832&quot;</span><span class="p">,</span>
+  <span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s2">&quot;NRF52&quot;</span><span class="p">,</span>
+  <span class="s1">&#39;package&#39;</span> <span class="p">:</span> <span class="s2">&quot;QFN48&quot;</span><span class="p">,</span>
+  <span class="s1">&#39;ram&#39;</span> <span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
+  <span class="s1">&#39;flash&#39;</span> <span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+  <span class="s1">&#39;speed&#39;</span> <span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
+  <span class="s1">&#39;usart&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">&#39;spi&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="s1">&#39;i2c&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;adc&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">&#39;dac&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s1">&#39;saved_code&#39;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;address&#39;</span> <span class="p">:</span> <span class="p">((</span><span class="mi">118</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4096</span><span class="p">),</span> <span class="c1"># Bootloader takes pages 120-127, FS takes 118-119</span>
+    <span class="s1">&#39;page_size&#39;</span> <span class="p">:</span> <span class="mi">4096</span><span class="p">,</span>
+    <span class="s1">&#39;pages&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;flash_available&#39;</span> <span class="p">:</span> <span class="mi">512</span> <span class="o">-</span> <span class="p">((</span><span class="mi">31</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># Softdevice uses 31 pages of flash, bootloader 8, FS 2, code 10. Each page is 4 kb.</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="n">devices</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;BTN1&#39;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;pin&#39;</span> <span class="p">:</span> <span class="s1">&#39;D18&#39;</span><span class="p">,</span> <span class="s1">&#39;pinstate&#39;</span> <span class="p">:</span> <span class="s1">&#39;IN_PULLDOWN&#39;</span> <span class="p">},</span> <span class="c1"># Pin negated in software</span>
+  <span class="s1">&#39;LED1&#39;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;pin&#39;</span> <span class="p">:</span> <span class="s1">&#39;D22&#39;</span><span class="p">,</span> <span class="s1">&#39;inverted&#39;</span> <span class="p">:</span> <span class="bp">False</span> <span class="p">},</span> <span class="c1"># Pin negated in software</span>
+  <span class="s1">&#39;LED2&#39;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;pin&#39;</span> <span class="p">:</span> <span class="s1">&#39;D23&#39;</span><span class="p">,</span> <span class="s1">&#39;inverted&#39;</span> <span class="p">:</span> <span class="bp">False</span> <span class="p">},</span> <span class="c1"># Pin negated in software</span>
+  <span class="s1">&#39;LED3&#39;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;pin&#39;</span> <span class="p">:</span> <span class="s1">&#39;D24&#39;</span><span class="p">,</span> <span class="s1">&#39;inverted&#39;</span> <span class="p">:</span> <span class="bp">False</span> <span class="p">},</span> <span class="c1"># Pin negated in software</span>
+  <span class="s1">&#39;RX_PIN_NUMBER&#39;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;pin&#39;</span> <span class="p">:</span> <span class="s1">&#39;D19&#39;</span><span class="p">},</span>
+  <span class="s1">&#39;TX_PIN_NUMBER&#39;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;pin&#39;</span> <span class="p">:</span> <span class="s1">&#39;D20&#39;</span><span class="p">},</span>
+  <span class="s1">&#39;CTS_PIN_NUMBER&#39;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;pin&#39;</span> <span class="p">:</span> <span class="s1">&#39;D7&#39;</span><span class="p">},</span>
+  <span class="s1">&#39;RTS_PIN_NUMBER&#39;</span> <span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;pin&#39;</span> <span class="p">:</span> <span class="s1">&#39;D5&#39;</span><span class="p">},</span>
+  <span class="c1"># Pin D22 is used for clock when driving neopixels - as not specifying a pin seems to break things</span>
+<span class="p">};</span>
+
+<span class="c1"># left-right, or top-bottom order</span>
+<span class="n">board</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;left&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;VIN&#39;</span><span class="p">,</span> <span class="s1">&#39;5V&#39;</span><span class="p">,</span> <span class="s1">&#39;GND&#39;</span><span class="p">,</span> <span class="s1">&#39;PD4&#39;</span><span class="p">,</span><span class="s1">&#39;PD5&#39;</span><span class="p">,</span><span class="s1">&#39;PD6&#39;</span><span class="p">,</span><span class="s1">&#39;PD7&#39;</span><span class="p">,</span><span class="s1">&#39;PD8&#39;</span><span class="p">,</span><span class="s1">&#39;PD9&#39;</span><span class="p">,</span><span class="s1">&#39;PD10&#39;</span><span class="p">,</span><span class="s1">&#39;PD11&#39;</span><span class="p">,</span><span class="s1">&#39;PD12&#39;</span><span class="p">,</span><span class="s1">&#39;PD13&#39;</span><span class="p">,</span><span class="s1">&#39;PD14&#39;</span><span class="p">,</span><span class="s1">&#39;PD15&#39;</span><span class="p">,</span><span class="s1">&#39;PD16&#39;</span><span class="p">,</span><span class="s1">&#39;PD17&#39;</span><span class="p">,</span><span class="s1">&#39;PD18&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;right&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;3V3&#39;</span><span class="p">,</span> <span class="s1">&#39;GND&#39;</span><span class="p">,</span> <span class="s1">&#39;RST&#39;</span><span class="p">,</span> <span class="s1">&#39;CLK&#39;</span><span class="p">,</span> <span class="s1">&#39;DIO&#39;</span><span class="p">,</span><span class="s1">&#39;TDO&#39;</span><span class="p">,</span><span class="s1">&#39;TDI&#39;</span><span class="p">,</span> <span class="s1">&#39;TXD&#39;</span><span class="p">,</span><span class="s1">&#39;RXD&#39;</span><span class="p">,</span><span class="s1">&#39;PD3&#39;</span><span class="p">,</span><span class="s1">&#39;PD2&#39;</span><span class="p">,</span><span class="s1">&#39;PD31&#39;</span><span class="p">,</span><span class="s1">&#39;PD30&#39;</span><span class="p">,</span><span class="s1">&#39;PD29&#39;</span><span class="p">,</span><span class="s1">&#39;PD28&#39;</span><span class="p">,</span><span class="s1">&#39;PD27&#39;</span><span class="p">,</span><span class="s1">&#39;PD26&#39;</span><span class="p">,</span><span class="s1">&#39;PD25&#39;</span><span class="p">],</span>
+<span class="p">};</span>
+<span class="n">board</span><span class="p">[</span><span class="s2">&quot;_css&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">;</span>
+
+<span class="k">def</span> <span class="nf">get_pins</span><span class="p">():</span>
+  <span class="n">pins</span> <span class="o">=</span> <span class="n">pinutils</span><span class="o">.</span><span class="n">generate_pins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span> <span class="c1"># 32 General Purpose I/O Pins.</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD0&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;XL1&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD1&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;XL2&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD5&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD6&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD7&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD8&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD9&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;NFC1&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD10&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;NFC2&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD13&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD14&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD15&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD16&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD17&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD18&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD19&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;RXD&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD20&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;TXD&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD22&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;LED_1&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD23&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;LED_2&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD24&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;LED_3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD2&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;ADC1_IN0&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD3&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;ADC1_IN1&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD4&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;ADC1_IN2&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD5&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;ADC1_IN3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD28&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;ADC1_IN4&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD29&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;ADC1_IN5&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD30&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;ADC1_IN6&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">pinutils</span><span class="o">.</span><span class="n">findpin</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span> <span class="s2">&quot;PD31&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;ADC1_IN7&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="c1"># everything is non-5v tolerant</span>
+  <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">pins</span><span class="p">:</span>
+    <span class="n">pin</span><span class="p">[</span><span class="s2">&quot;functions&quot;</span><span class="p">][</span><span class="s2">&quot;3.3&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="c1">#The boot/reset button will function as a reset button in normal operation. Pin reset on PD21 needs to be enabled on the nRF52832 device for this to work.</span>
+  <span class="k">return</span> <span class="n">pins</span>
+</pre></div>
+
+<p>你也可以直接克隆我们修改好的仓库：</p>
+<div class="codehilite"><pre><span></span>$ git clone https://github.com/makerdiary/Espruino.git
+</pre></div>
+
+<h3 id="espruino_3">编译 Espruino 固件<a class="headerlink" href="#espruino_3" title="Permanent link">&para;</a></h3>
+<p>现在可以开始编译 Espruino，打开命令行终端，切换到 Espruino 目录：</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> &lt;Espruino git clone location&gt;/Espruino
+</pre></div>
+
+<p>直接运行以下命令，可以编译完整固件，将生成 <code>.hex</code> 文件：</p>
+<div class="codehilite"><pre><span></span>$ make clean <span class="o">&amp;&amp;</span> <span class="nv">BOARD</span><span class="o">=</span>NRF52832_MDK <span class="nv">RELEASE</span><span class="o">=</span><span class="m">1</span> make
+</pre></div>
+
+<p>运行以下命令，可以编译 DFU 固件，将生成 <code>.zip</code> 文件：</p>
+<div class="codehilite"><pre><span></span>$ make clean <span class="o">&amp;&amp;</span> <span class="nv">DFU_UPDATE_BUILD</span><span class="o">=</span><span class="m">1</span> <span class="nv">BOARD</span><span class="o">=</span>NRF52832_MDK <span class="nv">RELEASE</span><span class="o">=</span><span class="m">1</span> make
+</pre></div>
+
+<h2 id="_5">参考资源<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://www.espruino.com/">Espruino 官网</a></li>
+<li><a href="http://www.espruino.com/Reference#software">Espruino API 文档</a></li>
+<li><a href="http://www.espruino.com/Modules">Espruino 模块</a></li>
+<li><a href="https://github.com/espruino/Espruino">Espruino 官方仓库</a></li>
+<li><a href="https://github.com/makerdiary/Espruino">makerdiary/Espruino</a></li>
+</ul>
+<h2 id="_6">问题反馈<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 或 <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk">Slack</a> 反馈。</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a></p>
+<p><a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../mynewt/" title="Mynewt" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Mynewt
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../jerryscript/" title="JerryScript" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                JerryScript
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/makerdiary" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a46cbbdf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

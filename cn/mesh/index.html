@@ -1,0 +1,1092 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
+      
+      
+        <link rel="canonical" href="https://makerdiary.github.io/nrf52832-mdk/cn/mesh/">
+      
+      
+        <meta name="author" content="Zelin">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+    
+    
+      
+        <title>nRF5 SDK for Mesh - nRF52832-MDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.9b572555.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#nrf5-sdk-for-mesh-nordic-bluetooth-mesh" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                nRF52832-MDK Documentation
+              </span>
+              <span class="md-header-nav__topic">
+                nRF5 SDK for Mesh
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Overview" class="md-tabs__link">
+        Overview
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="中文文档" class="md-tabs__link md-tabs__link--active">
+          中文文档
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="24" height="24">
+      
+    </span>
+    nRF52832-MDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/makerdiary/nrf52832-mdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      makerdiary/nrf52832-mdk
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+      nRF5 SDK for Mesh
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../how-to-buy/" title="How to Buy" class="md-nav__link">
+      How to Buy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" checked>
+    
+    <label class="md-nav__link" for="nav-15">
+      中文文档
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        中文文档
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-started/" title="快速入门" class="md-nav__link">
+      快速入门
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+      nRF5 SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        nRF5 SDK for Mesh
+      </label>
+    
+    <a href="./" title="nRF5 SDK for Mesh" class="md-nav__link md-nav__link--active">
+      nRF5 SDK for Mesh
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="简介" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="快速入门" class="md-nav__link">
+    快速入门
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nrf5-sdk-for-mesh" title="下载 nRF5 SDK for Mesh" class="md-nav__link">
+    下载 nRF5 SDK for Mesh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nrf52832-mdk" title="支持 nRF52832-MDK" class="md-nav__link">
+    支持 nRF52832-MDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh" title="安装 mesh 开发工具链" class="md-nav__link">
+    安装 mesh 开发工具链
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh_1" title="编译 mesh 示例" class="md-nav__link">
+    编译 mesh 示例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh_2" title="下载运行 mesh 示例" class="md-nav__link">
+    下载运行 mesh 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="问题反馈" class="md-nav__link">
+    问题反馈
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mbedos/" title="Arm Mbed OS" class="md-nav__link">
+      Arm Mbed OS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zephyr/" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mynewt/" title="Mynewt" class="md-nav__link">
+      Mynewt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../espruino/" title="Espruino" class="md-nav__link">
+      Espruino
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jerryscript/" title="JerryScript" class="md-nav__link">
+      JerryScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../micropython/" title="MicroPython" class="md-nav__link">
+      MicroPython
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../daplink/" title="DAPLink" class="md-nav__link">
+      DAPLink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-buy/" title="如何购买" class="md-nav__link">
+      如何购买
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
+      反馈&贡献
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="订阅" class="md-nav__link">
+      订阅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="简介" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="快速入门" class="md-nav__link">
+    快速入门
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nrf5-sdk-for-mesh" title="下载 nRF5 SDK for Mesh" class="md-nav__link">
+    下载 nRF5 SDK for Mesh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nrf52832-mdk" title="支持 nRF52832-MDK" class="md-nav__link">
+    支持 nRF52832-MDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh" title="安装 mesh 开发工具链" class="md-nav__link">
+    安装 mesh 开发工具链
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh_1" title="编译 mesh 示例" class="md-nav__link">
+    编译 mesh 示例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh_2" title="下载运行 mesh 示例" class="md-nav__link">
+    下载运行 mesh 示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="问题反馈" class="md-nav__link">
+    问题反馈
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="nrf5-sdk-for-mesh-nordic-bluetooth-mesh">nRF5 SDK for Mesh <br><small>Nordic 官方的 Bluetooth Mesh 软件开发包</small><a class="headerlink" href="#nrf5-sdk-for-mesh-nordic-bluetooth-mesh" title="Permanent link">&para;</a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>The nRF5 SDK for Mesh 是 Nordic 为在 nRF5 系列芯片上运行标准 <a href="https://www.bluetooth.com/bluetooth-technology/topology-options/le-mesh">Bluetooth Mesh</a> 协议而推出的软件开发包。利用该软件开发包，开发者可以很方便地构建 Bluetooth Mesh 应用。</p>
+<p>mesh 是低功耗蓝牙的一种全新网络拓扑结构选择，于2017年夏季推出。它代表蓝牙技术的一项重要进展，将蓝牙定位为包括智能楼宇和工业物联网在内的各大新领域和新用例的主流低功耗无线通信技术。</p>
+<p>在 mesh 网络中，中继节点（RN）会将接收到的数据包不断广播下去，直到目标节点（N）收到该数据包为止，这是一种称为‘泛洪（flooding）’的网络结构。</p>
+<p><img alt="" src="./../../mesh/images/mesh-network_topology.png" /></p>
+<p>了解更多信息, 可以前往 <a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK-for-Mesh">nordicsemi.com</a>。</p>
+<h2 id="_2">快速入门<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>你可以按照以下步骤快速搭建开发环境、编译运行简单的 mesh 示例。</p>
+<h3 id="nrf5-sdk-for-mesh">下载 nRF5 SDK for Mesh<a class="headerlink" href="#nrf5-sdk-for-mesh" title="Permanent link">&para;</a></h3>
+<p>nRF5 SDK for Mesh 以 <code>.zip</code> 压缩包的方式发布，你可以直接前往 <a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK-for-Mesh">nordicsemi.com</a> 网站下载。</p>
+<p>下载完成后，将压缩包解压到你的工作目录。为了简单起见，我们以 <em>Light switch</em> demo 为例。</p>
+<h3 id="nrf52832-mdk">支持 nRF52832-MDK<a class="headerlink" href="#nrf52832-mdk" title="Permanent link">&para;</a></h3>
+<p>为了支持 nRF52832-MDK 硬件，你需要在 <code>&lt;SDK&gt;/external/nRF5_SDK_14.2.0_17b948a/components/boards/</code> 目录创建一个名为 <code>custom_board.h</code> 的配置文件，具体配置如下（可以使用 <code>pca10040.h</code> 作为模板）：</p>
+<div class="codehilite"><pre><span></span><span class="c1">// custom_board.h</span>
+
+<span class="cp">#ifndef CUSTOM_BOARD_H</span>
+<span class="cp">#define CUSTOM_BOARD_H</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;nrf_gpio.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// LEDs definitions for nRF52832-MDK</span>
+<span class="cp">#define LEDS_NUMBER    3</span>
+
+<span class="cp">#define LED_START      22</span>
+<span class="cp">#define LED_1          22</span>
+<span class="cp">#define LED_2          23</span>
+<span class="cp">#define LED_3          24</span>
+<span class="cp">#define LED_4          25</span>
+<span class="cp">#define LED_STOP       24</span>
+
+<span class="cp">#define LEDS_ACTIVE_STATE 0</span>
+
+<span class="cp">#define LEDS_INV_MASK  LEDS_MASK</span>
+
+<span class="cp">#define LEDS_LIST { LED_1, LED_2, LED_3 }</span>
+
+<span class="cp">#define BSP_LED_0      LED_1</span>
+<span class="cp">#define BSP_LED_1      LED_2</span>
+<span class="cp">#define BSP_LED_2      LED_3</span>
+<span class="cp">#define BSP_LED_3      LED_4</span>
+
+<span class="cp">#define BUTTONS_NUMBER 1</span>
+<span class="cp">#define BUTTON_START   18</span>
+<span class="cp">#define BUTTON_1       18</span>
+<span class="cp">#define BUTTON_STOP    18</span>
+<span class="cp">#define BUTTON_PULL    NRF_GPIO_PIN_PULLUP</span>
+
+<span class="cp">#define BUTTONS_ACTIVE_STATE 0</span>
+
+<span class="cp">#define BUTTONS_LIST { BUTTON_1}</span>
+
+<span class="cp">#define BSP_BUTTON_0   BUTTON_1</span>
+
+<span class="cp">#define RX_PIN_NUMBER  19</span>
+<span class="cp">#define TX_PIN_NUMBER  20</span>
+<span class="cp">#define CTS_PIN_NUMBER 7    </span><span class="c1">// not available</span>
+<span class="cp">#define RTS_PIN_NUMBER 5    </span><span class="c1">// not available</span>
+<span class="cp">#define HWFC           false</span>
+
+<span class="c1">// Low frequency clock source to be used by the SoftDevice</span>
+<span class="cp">#define NRF_CLOCK_LFCLKSRC      {.source        = NRF_CLOCK_LF_SRC_XTAL,            \</span>
+<span class="cp">                                 .rc_ctiv       = 0,                                \</span>
+<span class="cp">                                 .rc_temp_ctiv  = 0,                                \</span>
+<span class="cp">                                 .xtal_accuracy = NRF_CLOCK_LF_XTAL_ACCURACY_20_PPM}</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="p">}</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#endif </span><span class="c1">// CUSTOM_BOARD_H</span>
+</pre></div>
+
+<p>还需要创建一个 CMake 文件 <code>nrf52832_mdk.cmake</code>，该文件位于 <code>&lt;SDK&gt;/CMake/board/</code>，具体内容如下：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># nrf52832_mdk.cmake</span>
+
+set<span class="o">(</span>nrf52832_mdk_DEFINES
+    -DBOARD_CUSTOM
+    -DCONFIG_GPIO_AS_PINRESET<span class="o">)</span>
+set<span class="o">(</span>nrf52832_mdk_INCLUDE_DIRS
+    <span class="s2">&quot;</span><span class="si">${</span><span class="nv">SDK_ROOT</span><span class="si">}</span><span class="s2">/components/boards&quot;</span>
+    <span class="s2">&quot;</span><span class="si">${</span><span class="nv">SDK_ROOT</span><span class="si">}</span><span class="s2">/components/drivers_nrf/hal&quot;</span>
+    <span class="s2">&quot;</span><span class="si">${</span><span class="nv">SDK_ROOT</span><span class="si">}</span><span class="s2">/components/libraries/util&quot;</span><span class="o">)</span>
+</pre></div>
+
+<p>然后修改 <code>&lt;SDK&gt;/CMake/Board.cmake</code> 文件，指定 nRF52832-MDK 为 <code>nrf52832_xxAA</code> 平台默认的板子：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># </span>
+...
+
+elseif <span class="o">(</span>PLATFORM STREQUAL <span class="s2">&quot;nrf52832_xxAA&quot;</span><span class="o">)</span>
+    set<span class="o">(</span>BOARD <span class="s2">&quot;nrf52832_mdk&quot;</span> CACHE STRING <span class="s2">&quot;Board to build examples for.&quot;</span><span class="o">)</span>
+    set_property<span class="o">(</span>CACHE BOARD PROPERTY STRINGS <span class="s2">&quot;nrf52832_mdk&quot;</span><span class="o">)</span>
+...
+</pre></div>
+
+<h3 id="mesh">安装 mesh 开发工具链<a class="headerlink" href="#mesh" title="Permanent link">&para;</a></h3>
+<p>在开始编译之前，需要安装 <code>CMake</code> 和 <code>ninja</code> 工具。这里以 macOS 系统为例，其他系统方法大同小异，可以自行摸索：</p>
+<div class="codehilite"><pre><span></span>$ brew install cmake ninja
+</pre></div>
+
+<h3 id="mesh_1">编译 mesh 示例<a class="headerlink" href="#mesh_1" title="Permanent link">&para;</a></h3>
+<p>这里最简单的方法是在 SDK 根目录创建 <code>build</code> 文件夹，用来存放 ninja 生成的文件：</p>
+<div class="codehilite"><pre><span></span>$ mkdir build
+$ <span class="nb">cd</span> build
+</pre></div>
+
+<p>接着使用 <code>cmake</code> 工具来编译，你需要指定 <code>TOOLCHAIN</code>、<code>PLATFORM</code>、<code>BOARD</code> 参数，系统会自动确定可用的 <code>SOFTDEVICE</code>：</p>
+<div class="codehilite"><pre><span></span>build$ cmake -G Ninja -DTOOLCHAIN<span class="o">=</span>gccarmemb -DPLATFORM<span class="o">=</span>nrf52832_xxAA -DBOARD<span class="o">=</span>nrf52832_mdk ..
+</pre></div>
+
+<h3 id="mesh_2">下载运行 mesh 示例<a class="headerlink" href="#mesh_2" title="Permanent link">&para;</a></h3>
+<p>Cmake 生成的固件不包含 SoftDevice，因此需要先下载对应的 SoftDevice。SoftDevice 的版本可以从前面生成的 <code>.hex</code> 文件中获得，例如：<code>light_switch_client_nrf52832_xxAA_s132_5.0.0.hex</code> 对应的 SoftDevice 是 <code>s132_nrf52_5.0.0_softdevice.hex</code>。 运行以下命令下载：</p>
+<div class="codehilite"><pre><span></span>$ pyocd-flashtool -d debug -t nrf52 -ce ./external/softdevice/s132_5.0.0/s132_nrf52_5.0.0_softdevice.hex
+</pre></div>
+
+<p>接着便可下载应用程序：</p>
+<div class="codehilite"><pre><span></span>$ pyocd-flashtool -d debug -t nrf52 -se ./build/examples/light_switch/client/light_switch_client_nrf52832_xxAA_s132_5.0.0.hex
+</pre></div>
+
+<h2 id="_3">问题反馈<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 或 <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk">Slack</a> 反馈。</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a></p>
+<p><a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../nrf5sdk/" title="nRF5 SDK" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                nRF5 SDK
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../mbedos/" title="Arm Mbed OS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Arm Mbed OS
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/makerdiary" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a46cbbdf.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-54344624-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>
