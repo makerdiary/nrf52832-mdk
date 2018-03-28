@@ -8,6 +8,8 @@ mbed-os/
 
 site
 
+mkdocs-material/*
+
 .idea
 .build
 .mbed
