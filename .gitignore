@@ -9,6 +9,7 @@ mbed-os/
 site
 
 mkdocs-material/*
+material/*
 
 .idea
 .build
