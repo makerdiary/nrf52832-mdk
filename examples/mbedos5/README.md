@@ -8,7 +8,7 @@ In the Arm Mbed ecosystem, you have a choice in how you want to develop, Online 
 
 The setup process for Arm Mbed CLI depends on your operating system. Please choose your host operating system. The setup instructions for each operating system walk you through how to install Mbed CLI locally.
 
-On Windows the easiest way to install Mbed CLI to run the [Mbed CLI Windows .exe installer](https://mbed-media.mbed.com/filer_public/7f/46/7f46e205-52f5-48e2-be64-8f30d52f6d75/mbed_installer_v041.exe).
+On Windows the easiest way to install Mbed CLI to run the [Mbed CLI Windows .exe installer](https://mbed-media.mbed.com/filer_public/50/38/5038849b-16a8-42f3-be7a-43d98c7a3af3/mbed_installer_v043.exe).
 
 On Linux and macOS, you can use Python and Pip:
 
@@ -43,19 +43,17 @@ $ git clone https://github.com/ARMmbed/mbed-os.git
 Add the target description to `mbed-os\targets\targets.json` using the following keys:
 
 ``` json
-	"NRF52832_MDK": {
-	    "inherits": ["MCU_NRF52"],
-	    "macros_add": ["BOARD_PCA10040", "NRF52_PAN_12", "NRF52_PAN_15", "NRF52_PAN_58", "NRF52_PAN_55", "NRF52_PAN_54", "NRF52_PAN_31", "NRF52_PAN_30", "NRF52_PAN_51", "NRF52_PAN_36", "NRF52_PAN_53", "S132", "CONFIG_GPIO_AS_PINRESET", "BLE_STACK_SUPPORT_REQD", "SWI_DISABLE0", "NRF52_PAN_20", "NRF52_PAN_64", "NRF52_PAN_62", "NRF52_PAN_63"],
-	    "device_has_add": ["ANALOGIN", "I2C", "I2C_ASYNCH", "INTERRUPTIN", "LOWPOWERTIMER", "PORTIN", "PORTINOUT", "PORTOUT", "PWMOUT", "RTC", "SERIAL", "SERIAL_ASYNCH", "SERIAL_FC", "SLEEP", "SPI", "SPI_ASYNCH", "SPISLAVE", "FLASH"],
-	    "release_versions": ["2", "5"],
-	    "device_name": "nRF52832_xxAA"
-	},
+    "NRF52832_MDK": {
+        "inherits": ["MCU_NRF52832"],
+        "release_versions": ["5"],
+        "device_name": "nRF52832_xxAA"
+    },
 ```
 
 !!! tip
-	Arm Mbed uses JSON as a description language for its build targets. You can view the [Adding and configuring targets section](https://os.mbed.com/docs/v5.7/tools/adding-and-configuring-targets.html) describes for more details. 
+	Arm Mbed uses JSON as a description language for its build targets. You can view the [Adding and configuring targets section](https://os.mbed.com/docs/v5.8/tools/adding-and-configuring-targets.html) describes for more details. 
 
-To add support for the nRF52832-MDK board, you must create board files: `PinNames.h` and `device.h`. These files must be located in a directory in the `mbed-os/targets/TARGET_NORDIC/TARGET_NRF5/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/` path.
+To add support for the nRF52832-MDK board, you must create board files: `PinNames.h` and `device.h`. These files must be located in a directory in the `mbed-os/targets/TARGET_NORDIC/TARGET_NRF5x/TARGET_NRF52/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/` path.
 
 ``` c
 // PinNames.h
@@ -125,7 +123,11 @@ typedef enum {
 
     // mBed interface Pins
     USBTX = TX_PIN_NUMBER,
-    USBRX = RX_PIN_NUMBER
+    USBRX = RX_PIN_NUMBER,
+    STDIO_UART_TX = TX_PIN_NUMBER,
+    STDIO_UART_RX = RX_PIN_NUMBER,
+    STDIO_UART_CTS = CTS_PIN_NUMBER,
+    STDIO_UART_RTS = RTS_PIN_NUMBER
 
 } PinName;
 
