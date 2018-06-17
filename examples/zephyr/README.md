@@ -86,7 +86,7 @@ Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/
 
 ```
 # add the following scripts to ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major"
+export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
 export ZEPHYR_GCC_VARIANT=gccarmemb
 ```
 
@@ -120,7 +120,7 @@ Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/
 
 ```
 # add the following scripts to ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major"
+export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
 export ZEPHYR_GCC_VARIANT=gccarmemb
 ```
 
@@ -176,7 +176,7 @@ build$ ninja flash
 Check the board output from serial port, you will see the following messages:
 
 ```
-***** BOOTING ZEPHYR OS v1.10.99 - BUILD: Feb 26 2018 12:44:01 *****
+***** Booting Zephyr OS 1.12.0-rc3 *****
 Hello World! arm
 ```
 
