@@ -1,5 +1,7 @@
 # MicoPython <br><small>面向嵌入式设备的轻量级 Python</small>
 
+[![](../../micropython/images/micropython-logo.jpeg)](https://github.com/micropython/micropython)
+
 ## 简介
 
 MicroPython 是⼀个 Python 3 的精简、⾼效实现，包含 Python 标准库的⼀⼩部分，并经过优化，可以运⾏在微控制器和受限环境中运⾏。
@@ -87,7 +89,7 @@ print('Done!')
 首先，下载安装 GNU Arm Embedded toolchains，并确保添加到系统环境变量：
 
 ``` sh
-<path to install directory>/gcc-arm-none-eabi-6-2017-q1-update/bin
+<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update/bin
 ```
 
 验证是否正确安装：
@@ -136,9 +138,7 @@ $ make BOARD=nrf52832_mdk SD=s132 sd FLASHER=pyocd
 
 ## 问题反馈
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 或 [Slack](https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk) 反馈。
+如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a>
 

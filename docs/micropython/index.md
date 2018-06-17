@@ -1,5 +1,7 @@
 # MicoPython <br><small>A lean and efficient Python implementation for microcontrollers and constrained systems</small>
 
+[![](images/micropython-logo.jpeg)](http://micropython.org/)
+
 ## Introduction
 
 MicroPython is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimised to run on microcontrollers and in constrained environments.
@@ -99,7 +101,7 @@ The GNU Arm Embedded toolchains is needed to build Espruino.
 Download and install the GNU Arm Embedded toolchains. Then make sure to add the path to your toolchain to your OS PATH environment variable:
 
 ``` sh
-<path to install directory>/gcc-arm-none-eabi-6-2017-q1-update/bin
+<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update/bin
 ```
 
 Adding the path makes it possible to run the toolchain executables from any directory using the terminal. To verify that the path is set correctly, type the following in your terminal:
@@ -162,10 +164,9 @@ Happy hacking! :-)
 * [MicroPython Official Repo](https://github.com/micropython/micropython)
 * [MicroPython forked by makerdiary](https://github.com/makerdiary/micropython)
 
-## Any Issue ?
+## Create an Issue
 
 Interested in contributing to this project? Want to report a bug? Feel free and click here:
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a>
 
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>

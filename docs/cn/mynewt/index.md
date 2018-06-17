@@ -1,5 +1,7 @@
 # Mynewt <br><small>Apache 开源、适用于微型嵌入式设备的组件化实时操作系统</small>
 
+[![](../../mynewt/images/mynewt-logo.png)](https://mynewt.apache.org/)
+
 ## 简介
 
 Mynewt 是一款适用于微型嵌入式设备的组件化开源操作系统。Apache Mynewt 使用 Newt 构建和包管理系统，它允许开发者仅选择所需的组件来构建操作系统。其目标是使功耗和成本成为驱动因素的微控制器环境的应用开发变得容易。
@@ -350,8 +352,7 @@ Loading app image into slot 1
 
 ## 问题反馈
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 或 [Slack](https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk) 反馈。
+如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a>
 
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a>

@@ -39,7 +39,7 @@ $ screen /dev/cu.usbmodem1412 115200
 !!! tip "小技巧"
     可以在终端先输入 `screen /dev/cu.usb`，然后按下 <kbd>tab</kbd>，设备名称将自动补齐。
 
-    按下 <kbd>Ctrl</kbd> + <kbd>A</kbd>，在按下 <kbd>Ctrl</kbd> + <kbd>K</kbd>，在窗口底部会出现提示符 `[y/n]`，输入 <kbd>y</kbd> 即可退出串口终端。
+    按下 <kbd>Ctrl</kbd> + <kbd>A</kbd>，再按下 <kbd>K</kbd>，在窗口底部会出现提示符 `[y/n]`，输入 <kbd>y</kbd> 即可退出串口终端。
 
 ![](../../getting-started/images/screen_messages_macos.png)
 
@@ -65,7 +65,7 @@ $ sudo screen /dev/ttyACM0 115200
 3. 蓝色 LED 亮、绿色 LED 灭，表明设备从广播态进入连接态，同时可以观察到该设备能够提供的服务；
 4. 先后对 *Nordic Blinky LED* 属性 (0x1525) 写入 `01` 、`00`，可观察到 LED 的状态变化。
 
-![](../../getting-started/images/nrf_connect_blinky.jpg)
+[![](../../getting-started/images/nrf_connect_blinky.jpg)](../../getting-started/images/nrf_connect_blinky.jpg)
 
 !!! tip "提示"
     该演示 demo 源码位于 `./nrf52832-mdk/examples/nrf5-sdk/ble_app_blinky`。
@@ -129,9 +129,7 @@ $ git clone https://github.com/makerdiary/nrf52832-mdk.git
 
 ## 问题反馈
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 或 [Slack](https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk) 反馈。
+如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a>
 

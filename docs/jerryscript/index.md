@@ -1,5 +1,7 @@
 # JerryScript<br><small>A Ultra-lightweight JavaScript engine for <strong>Internet of Things</strong></small>
 
+[![](images/jerryscript-logo.png)](https://github.com/jerryscript-project/jerryscript)
+
 ## Introduction
 
 JerryScript is a lightweight JavaScript engine for resource-constrained devices such as microcontrollers. It can run on devices with less than 64 KB of RAM and less than 200 KB of flash memory.
@@ -114,12 +116,8 @@ Over time, more features may be added to ZJS. You can keep watching it for updat
 * [zephyr.js repo](https://github.com/intel/zephyr.js)
 
 
-## Any Issue ?
+## Create an Issue
 
 Interested in contributing to this project? Want to report a bug? Feel free and click here:
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
-
-
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a>

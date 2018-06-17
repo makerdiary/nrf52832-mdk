@@ -1,5 +1,7 @@
 # Zephyr <br><small>Linux 基金会开源、面向物联网应用的实时操作系统</small>
 
+[![](../../zephyr/images/zephyr-logo.png)](https://www.zephyrproject.org/)
+
 ## 简介
 
 Zephyr OS 是专门为资源受限设备构建、针对低功耗、小型内存微处理器设备而进行优化的物联网嵌入式小型、可扩展的实时操作系统（RTOS），支持多种硬件架构及多种开发板（包括 ARM Cortex-M, Intel x86, ARC, NIOS II, Tensilica Xtensa, 以及 RISC-V），甚至可以在小至 8kB 内存的系统上运行。
@@ -14,8 +16,9 @@ Zephyr 内核相比其他实时操作系统内核具有许多优势：
 
 了解更多细节，可以访问 [Zephyr Project](https://www.zephyrproject.org/) 官网。
 
+## 快速入门
 
-## 搭建开发环境
+### 克隆 Zephyr 源码
 
 Zephyr OS 源码已经托管在 GitHub 上，可以直接克隆使用：
 
@@ -23,9 +26,16 @@ Zephyr OS 源码已经托管在 GitHub 上，可以直接克隆使用：
 $ git clone https://github.com/zephyrproject-rtos/zephyr.git
 ```
 
-为了编译 Zephyr，需要先按照相关构建工具，如：`cmake`、`ninja`，下面将针对不同系统做简单介绍。
 
-### Windows
+### 搭建开发环境
+
+Zephyr 项目使用 [CMake](https://cmake.org/) 工具管理和编译项目。 CMake 可以用来生成编译文件，然后使用 `make` 或 `ninja` 进行编译，这是比较常规的做法。下面会针对不同操作系统进行介绍：
+
+* [Windows](#windows)
+* [macOS](#macos)
+* [Linux](#linux)
+
+#### Windows
 
 在 Windows 上最简单的方法是使用 [Chocolatey](https://chocolatey.org/) 包管理器来安装构建工具：
 
@@ -68,7 +78,7 @@ $ git clone https://github.com/zephyrproject-rtos/zephyr.git
 	$ set GCCARMEMB_TOOLCHAIN_PATH=c:\gccarmemb
 	```
 
-### macOS
+#### macOS
 
 在 macOS，使用 [Homebrew](http://brew.sh/) 包管理器可以非常方便的安装所有依赖工具，按照官方最新指引即可完成安装。
 
@@ -88,11 +98,11 @@ $ pip2 install --user -r scripts/py2-requirements.txt
 
 ``` sh
 # 将以下脚本添加到 ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major"
+export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
 export ZEPHYR_GCC_VARIANT=gccarmemb
 ```
 
-### Linux
+#### Linux
 
 对于 Linux 系统，这里 Ubuntu 16.04 为例，先更新系统：
 
@@ -122,11 +132,12 @@ $ pip2 install --user -r scripts/py2-requirements.txt
 
 ``` sh
 # 将以下脚本添加到 ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major"
+export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
 export ZEPHYR_GCC_VARIANT=gccarmemb
 ```
 
-## 支持 nRF52832-MDK
+
+### 添加 nRF52832-MDK 支持
 
 为了让 Zephyr OS 支持 nRF52832-MDK 板子，需要添加一些配置文件，目录结构如下：
 
@@ -142,7 +153,8 @@ export ZEPHYR_GCC_VARIANT=gccarmemb
 └── nrf52832_mdk_defconfig
 ```
 
-你可以直接从 [makerdiary/zephyr](https://github.com/makerdiary/zephyr) 拉取这些配置文件：
+如果不想手动创建，你也可以直接从 [makerdiary/zephyr](https://github.com/makerdiary/zephyr) 拉取这些配置文件：
+
 
 ``` sh
 $ cd <zephyr git clone location>
@@ -178,13 +190,15 @@ build$ ninja flash
 打开串口工具，可以看到以下信息输出：
 
 ``` sh
-***** BOOTING ZEPHYR OS v1.10.99 - BUILD: Feb 26 2018 12:44:01 *****
+***** Booting Zephyr OS 1.12.0-rc3 *****
 Hello World! arm
 ```
 
+完成以上示例后，你也可以尝试 `nrf52832-mdk/examples/zephyr/` 目录下的其他例子。
+
 ## 更多示例
 
-随着 Zephyr 功能不断丰富，我们会不断增加一些新的应用示例到 [nrf52832-mdk](https://github.com/makerdiary/nrf52832-mdk) 仓库，你可以在 `nrf52832-mdk/examples/zephyr/` 目录找到这些示例代码。
+随着 Zephyr 功能不断丰富，我们会不断增加一些新的应用示例到 [nrf52832-mdk](https://github.com/makerdiary/nrf52832-mdk) 仓库，敬请关注！
 
 ## 参考资源
 
@@ -194,9 +208,7 @@ Hello World! arm
 
 ## 问题反馈
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 或 [Slack](https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk) 反馈。
+如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a>
 

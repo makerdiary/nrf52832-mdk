@@ -1,8 +1,10 @@
 # Espruino<br><small>A JavaScript interpreter for microcontrollers. It is designed for devices with as little as 128kB Flash and 8kB RAM.</small>
 
+[![](images/espruino-logo.png)](https://github.com/espruino/Espruino)
+
 ## Introduction
 
-[Espruino](http://www.espruino.com/) is a JavaScript interpreter for microcontrollers. It is designed for devices with as little as 128kB Flash and 8kB RAM.
+[Espruino](https://github.com/espruino/Espruino) is a JavaScript interpreter for microcontrollers. It is designed for devices with as little as 128kB Flash and 8kB RAM.
 
 Unlike other boards that run JavaScript, Espruino fits everything it needs into single chip. This makes it affordable, reliable, and power efficient - allowing it to run for years on a battery.
 
@@ -301,17 +303,9 @@ Now you can program your board by following the section: [How to update Espruino
 * [Espruino Official Repo](https://github.com/espruino/Espruino)
 * [Espruino forked by makerdiary](https://github.com/makerdiary/Espruino)
 
-## Any Issue ?
+## Create an Issue
 
 Interested in contributing to this project? Want to report a bug? Feel free and click here:
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
-
-
-
-
-
-
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a>
 

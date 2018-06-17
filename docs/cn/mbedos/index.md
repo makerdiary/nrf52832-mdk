@@ -1,5 +1,7 @@
 # Arm Mbed OS <br><small>Arm 开源、面向物联网小型设备的实时操作系统</small>
 
+[![](../../mbedos/images/mbedos-logo.png)](https://os.mbed.com/)
+
 ## 简介
 
 Arm Mbed OS 是 Arm 专门为物联网设备而设计的开源嵌入式操作系统，主要面向 ARM Cortex-M 系列微控制器，非常适合涉及智能城市、智能家庭和穿戴式设备等领域的应用程序。
@@ -11,11 +13,15 @@ Arm Mbed OS 是 Arm 专门为物联网设备而设计的开源嵌入式操作系
 * 完整的工具链支持：提供在线 IDE, mbed CLI 以及 第三方 IDE
 * 良好的社区生态
 
+了解更多内容，可以直接访问 [Mbed OS 开发者网站](https://os.mbed.com/).
+
 ## 使用 Arm Mbed CLI
 
 Arm 为 Mbed OS 提供了离线开发工具 Mbed CLI，该工具支持跨平台，可以运行在 Windows，Linux 和 macOS 平台上。
 
-在 Windows 上，最简单的方法是使用 [Mbed CLI Windows .exe 安装包](https://mbed-media.mbed.com/filer_public/7f/46/7f46e205-52f5-48e2-be64-8f30d52f6d75/mbed_installer_v041.exe)。
+### 安装 Mbed CLI
+
+在 Windows 上，最简单的方法是使用 [Mbed CLI Windows .exe 安装包](https://mbed-media.mbed.com/filer_public/50/38/5038849b-16a8-42f3-be7a-43d98c7a3af3/mbed_installer_v043.exe)。
 
 在 Linux 和 macOS系统，可以使用 `pip` 进行安装：
 
@@ -24,6 +30,8 @@ $ pip install mbed-cli
 ```
 
 安装完成后，可以使用 `mbed help` 验证是否正确安装。
+
+### 设置开发环境
 
 接着，需要添加工具链路径配置：
 
@@ -36,7 +44,7 @@ $ mbed config --list
 GCC_ARM_PATH=<path to GNU Arm bin>
 ```
 
-## 支持 nRF52832-MDK
+## 添加 nRF52832-MDK 支持
 
 首先，从 Arm Mbed 官方仓库克隆 Mbed OS 源码：
 
@@ -47,16 +55,14 @@ $ git clone https://github.com/ARMmbed/mbed-os.git
 在 `mbed-os\targets\targets.json` 文件中添加以下目标描述：
 
 ``` json
-	"NRF52832_MDK": {
-	    "inherits": ["MCU_NRF52"],
-	    "macros_add": ["BOARD_PCA10040", "NRF52_PAN_12", "NRF52_PAN_15", "NRF52_PAN_58", "NRF52_PAN_55", "NRF52_PAN_54", "NRF52_PAN_31", "NRF52_PAN_30", "NRF52_PAN_51", "NRF52_PAN_36", "NRF52_PAN_53", "S132", "CONFIG_GPIO_AS_PINRESET", "BLE_STACK_SUPPORT_REQD", "SWI_DISABLE0", "NRF52_PAN_20", "NRF52_PAN_64", "NRF52_PAN_62", "NRF52_PAN_63"],
-	    "device_has_add": ["ANALOGIN", "I2C", "I2C_ASYNCH", "INTERRUPTIN", "LOWPOWERTIMER", "PORTIN", "PORTINOUT", "PORTOUT", "PWMOUT", "RTC", "SERIAL", "SERIAL_ASYNCH", "SERIAL_FC", "SLEEP", "SPI", "SPI_ASYNCH", "SPISLAVE", "FLASH"],
-	    "release_versions": ["2", "5"],
-	    "device_name": "nRF52832_xxAA"
-	},
+    "NRF52832_MDK": {
+        "inherits": ["MCU_NRF52832"],
+        "release_versions": ["5"],
+        "device_name": "nRF52832_xxAA"
+    },
 ```
 
-另外需要在 `mbed-os/targets/TARGET_NORDIC/TARGET_NRF5/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/` 增加 `PinNames.h` 和 `device.h` 文件：
+另外需要在 `mbed-os/targets/TARGET_NORDIC/TARGET_NRF5x/TARGET_NRF52/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/` 增加 `PinNames.h` 和 `device.h` 文件：
 
 ``` c
 // PinNames.h
@@ -126,7 +132,11 @@ typedef enum {
 
     // mBed interface Pins
     USBTX = TX_PIN_NUMBER,
-    USBRX = RX_PIN_NUMBER
+    USBRX = RX_PIN_NUMBER,
+    STDIO_UART_TX = TX_PIN_NUMBER,
+    STDIO_UART_RX = RX_PIN_NUMBER,
+    STDIO_UART_CTS = CTS_PIN_NUMBER,
+    STDIO_UART_RTS = RTS_PIN_NUMBER
 
 } PinName;
 
@@ -175,6 +185,7 @@ $ cd ./nrf52832-mdk/examples/mbedos5/mbed-os-example-blinky/
 为该示例添加 Mbed OS 库：
 
 ``` sh
+mbed-os-example-blinky$ mbed config root .
 mbed-os-example-blinky$ mbed add <path to mbed-os repository>
 ```
 
@@ -184,13 +195,20 @@ mbed-os-example-blinky$ mbed add <path to mbed-os repository>
 mbed-os-example-blinky$ mbed compile --target NRF52832_MDK --toolchain GCC_ARM --flash
 ```
 
-如果增加 `--flash` 参数，将会在编译完成后自动将固件下载到 nRF52832-MDK 硬件上。如果 `mbed detect` 无法检测到板子，可以运行以下命令添加：
+增加 `--flash` 参数，将会在编译完成后自动将固件下载到 nRF52832-MDK 硬件上。
+
+如果 `mbed detect` 无法检测到板子，可以运行以下命令添加：
 
 ``` sh
 $ mbedls --mock=1024:nRF52832-MDK
 ```
 
+!!! tip "提示"
+    你也可以参考前面的内容 “[如何下载固件？](../getting-started/#_2)” 下载固件。
+
 ![](../../mbedos/images/mbed-os-example-blinky-bash.png)
+
+观察运行结果：
 
 ![](../../mbedos/images/mbed-os-example-blinky-demo.gif)
 
@@ -234,7 +252,7 @@ BLE_BatteryLevel$ mbed compile --target NRF52832_MDK --toolchain GCC_ARM --flash
 
 打开 **nRF Connect** app，找到名为 `BATTERY` 的设备，连接设备，可发现 UUID 为 `0x180F` 的电池服务，该服务包含 UUID 为 `0x2A19` 的 `Battery level` 属性。
 
-![](../../mbedos/images/mbed-os-example-ble-battery.jpg)
+[![](../../mbedos/images/mbed-os-example-ble-battery.jpg)](../../mbedos/images/mbed-os-example-ble-battery.jpg)
 
 其他低功耗蓝牙示例使用方法类似，你可以自行验证。
 
@@ -250,9 +268,7 @@ BLE_BatteryLevel$ mbed compile --target NRF52832_MDK --toolchain GCC_ARM --flash
 
 ## 问题反馈
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 或 [Slack](https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk) 反馈。
+如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a>
 

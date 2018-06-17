@@ -1,5 +1,7 @@
 # Arm Mbed DAPLink<br><small>An open-source software project that enables programming and debugging application running on Arm Cortex CPUs.</small>
 
+[![](images/daplink-website-logo-link.png)](https://github.com/ARMmbed/DAPLink)
+
 ## Introduction
 
 Arm Mbed DAPLink is an open-source software project that enables programming and debugging application software on running on Arm Cortex CPUs.  
@@ -17,6 +19,9 @@ DAPLink enables developers with:
 * MSC - drag-n-drop programming flash memory
 * CDC - virtual com port for log, trace and terminal emulation
 * HID - CMSIS-DAP compliant debug channel
+* WEBUSB HID - CMSIS-DAP compliant debug channel
+
+More features are planned and will show up gradually over time. The project is constantly under heavy development by Arm, its partners, numerous hardware vendors and the open-source community around the world. DAPLink has superseded the mbed CMSIS-DAP interface firmware project. You are free to use and contribute. Enjoy!
 
 ## Block diagram
 
@@ -52,6 +57,8 @@ You can update DAPLink interface firmware by performing the following steps:
 	    ```
 
 5. When the file copy operation completes, unplug and replug the board into your computer normally (without holding down the RESET button). Your device now has the new firmware installed and mounts a drive named **DAPLINK**.
+
+6. Check the `DETAILS.TXT` file in **DAPLINK** to verify the `Interface Version`.
 
 
 ## How to build DAPLink?
@@ -98,11 +105,9 @@ Change to the `projectfiles/uvision/<your-project>` directory, and open your pro
 
 * [Arm Mbed DAPLink Repo](https://github.com/ARMmbed/DAPLink)
 
-## Any Issue ?
+## Create an Issue
 
 Interested in contributing to this project? Want to report a bug? Feel free and click here:
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a>
 

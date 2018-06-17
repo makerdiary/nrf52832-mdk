@@ -49,15 +49,15 @@ nRF52832-MDK 支持跨平台开发，并且提供丰富的在线文档及示例�
 
 ## 引脚位置图
 
-![](../images/nrf52832_mdk_v1_pinout.jpeg)
+[![](../images/nrf52832_mdk_v1_pinout.jpeg)](../images/nrf52832_mdk_v1_pinout.jpeg)
 
-![](../images/nrf52832_mdk_v2_pinout.jpeg)
+[![](../images/nrf52832_mdk_v2_pinout.jpeg)](../images/nrf52832_mdk_v2_pinout.jpeg)
 
 ## nRF52832 SoC
 
 nRF52832 SoC 是 Nordic Semiconductor 新一代高性能的低功耗蓝牙系统级芯片，ARM® Cortex™-M4F 内核，512kB Flash + 64kB RAM，支持 BLE, ANT, 2.4GHz 协议栈。
 
-<a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832"><button data-md-color-primary="indigo">更多信息</button></a>
+<a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832"><button data-md-color-primary="marsala">了解更多</button></a>
 
 ![](../images/nrf52832_soc.png)
 
@@ -65,7 +65,7 @@ nRF52832 SoC 是 Nordic Semiconductor 新一代高性能的低功耗蓝牙系统
 
 nRF52832-MDK 集成了多功能调试器 DAPLink，即插即用，支持“拖放”方式下载固件、串口调试、CMSIS-DAP 仿真调试。
 
-<a href="https://github.com/ARMmbed/DAPLink"><button data-md-color-primary="indigo">ARMmbed/DAPLink</button></a>
+<a href="https://github.com/ARMmbed/DAPLink"><button data-md-color-primary="marsala">DAPLink repo</button></a>
 
 ![](../images/daplink_diagram.png)
 
@@ -104,9 +104,7 @@ nRF52832-MDK 提供优秀的在线文档，使用 [MkDocs](http://www.mkdocs.org
 
 ## 问题反馈
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 或 [Slack](https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk) 反馈。
+如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a>
 

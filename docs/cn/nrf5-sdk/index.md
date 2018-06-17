@@ -1,5 +1,7 @@
 # nRF5 SDK <br><small>Nordic 官方针对 nRF5x 系列 SoC 的软件开发包</small>
 
+[![](../../nrf5-sdk/images/SDK-icon_small.png)](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK)
+
 ## 简介
 
 nRF5 SDK 是 Nordic 针对 nRF5x 系列芯片提供的软件开发环境，包含各种外设驱动、代码库、应用示例、低功耗蓝牙协议栈以及其他具有专利的无线协议栈。
@@ -20,12 +22,13 @@ GNU Arm Embedded Toolchain 是 Arm 公司提供的 GNU 开源工具链，集成 
 
 你可以通过以下链接下载该工具链：
 
-<a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads"><button data-md-color-primary="indigo">点击下载</button></a>
+<a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads"><button data-md-color-primary="marsala">点击下载</button></a>
 
-下载、安装最新版本，并将工具链的目录添加到系统环境变量中：
+下载、安装 `6-2017-q2-update` 版本，并将工具链的目录添加到系统环境变量中：
 
 ``` sh
-<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major/bin
+# in ~/.bash_profile, add the following script
+export PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update/bin:${PATH}"
 ```
 
 可通过以下命令验证是否安装成功：
@@ -34,7 +37,7 @@ GNU Arm Embedded Toolchain 是 Arm 公司提供的 GNU 开源工具链，集成 
 $ arm-none-eabi-gcc --version
 ```
 
-![](../../nrf5sdk/images/arm-none-eabi-gcc_version.png)
+![](../../nrf5-sdk/images/arm-none-eabi-gcc_version.png)
 
 ### 安装 GNU make
 
@@ -68,13 +71,13 @@ Linux 和 macOS 系统一般自带 `make` 工具，可以通过 `make -v` 命令
 $ sudo apt-get install build-essential checkinstall
 ```
 
-![](../../nrf5sdk/images/gnu-make_version.png)
+![](../../nrf5-sdk/images/gnu-make_version.png)
 
 ### 安装 nRF5 SDK
 
-你可以直接从 Nordic 官网下载 nRF5 SDK，该软件包以 `.zip` 压缩包的方式发布，例如 `nRF5_SDK_v14.2.0_17b948a.zip`。
+你可以直接从 Nordic 官网下载 nRF5 SDK，该软件包以 `.zip` 压缩包的方式发布，例如 `nRF5_SDK_15.0.0_a53641a.zip`。
 
-<a href="http://www.nordicsemi.com/eng/nordic/download_resource/59011/68/55131978/116085"><button data-md-color-primary="indigo">下载 nRF5 SDK</button></a>
+<a href="http://www.nordicsemi.com/eng/nordic/Products/nRF5-SDK/nRF5-SDK-zip/59011"><button data-md-color-primary="marsala">下载 nRF5 SDK</button></a>
 
 你需要将该软件包解压到 `nrf52832-mdk` 仓库，一般目录结构如下：
 
@@ -82,13 +85,13 @@ $ sudo apt-get install build-essential checkinstall
 ./nrf52832-mdk/
 ├── LICENSE
 ├── README.md
-├── README_CN.md
 ├── bin
 ├── docs
 ├── examples
 ├── mkdocs.yml
 ├── nrf_sdks
 │   └── nRF5_SDK_14.2.0_17b948a
+│   └── nRF5_SDK_15.0.0_a53641a
 └── tools
 ```
 
@@ -101,8 +104,8 @@ $ sudo apt-get install build-essential checkinstall
 使用文本编辑器（例如：[Sublime](https://www.sublimetext.com/)）打开该文件，将 `GNU_INSTALL_ROOT` 设置为前面安装的 GNU Arm Embedded Toolchain 的目录，参考设置如下：
 
 ``` sh
-GNU_INSTALL_ROOT := $(HOME)/gcc-arm-none-eabi/gcc-arm-none-eabi-7-2017-q4-major/bin/
-GNU_VERSION := 7.2.1
+GNU_INSTALL_ROOT := $(HOME)/gcc-arm-none-eabi/gcc-arm-none-eabi-6-2017-q2-update/bin/
+GNU_VERSION := 6.3.1
 GNU_PREFIX := arm-none-eabi
 ```
 
@@ -124,7 +127,7 @@ $ make flash
 
 观察 RGB LED 是否开始闪烁：
 
-![](../../nrf5sdk/images/blinky_example.gif)
+![](../../nrf5-sdk/images/blinky_example.gif)
 
 ## 运行带 SoftDevice 的示例
 
@@ -162,10 +165,7 @@ $ make flash_all
 
 ## 问题反馈
 
-如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 或 [Slack](https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk) 反馈。
+如果在开发过程遇到任何问题，可以通过 [GitHub Issue](https://github.com/makerdiary/nrf52832-mdk/issues) 反馈。
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> 加入 Slack</button></a>
-
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a>
 

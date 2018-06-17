@@ -1,5 +1,7 @@
 # nRF5 SDK <br><small>Software Development Kit for nRF51 and nRF52 Series</small>
 
+[![](images/SDK-icon_small.png)](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK)
+
 ## Introduction
 
 The nRF5 SDK provides a rich developing environment for nRF5 Series devices by including a broad selection of drivers, libraries, examples for peripherals, SoftDevices, and proprietary radio protocols.
@@ -18,13 +20,13 @@ These toolchains are based on [Free Software Foundation](https://www.gnu.org/hom
 
 The pre-built GNU Arm Embedded Toolchain can be downloaded using the following link: 
 
-<a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads"><button data-md-color-primary="indigo">Download</button></a>
+<a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads"><button data-md-color-primary="marsala">Download</button></a>
 
 Download and install the latest version. Then make sure to add the path to your toolchain to your OS PATH environment variable:
 
 
 ``` sh
-<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major/bin
+<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update/bin
 ```
 
 Adding the path makes it possible to run the toolchain executables from any directory using the terminal. To verify that the path is set correctly, type the following in your terminal:
@@ -41,7 +43,7 @@ Now with the toolchain installed we can build object files from source code, but
 
 On Windows the easiest way to install the dependencies is to use the [MSYS2](http://www.msys2.org/). You can do so by performing the following steps:
 
-<a href="http://www.msys2.org/"><button data-md-color-primary="indigo">Download</button></a>
+<a href="http://www.msys2.org/"><button data-md-color-primary="marsala">Download</button></a>
 
 1. Download and run the installer - "x86_64" for 64-bit, "i686" for 32-bit Windows.
 
@@ -78,11 +80,11 @@ $ sudo apt-get install build-essential checkinstall
 
 ## Installing the nRF5 SDK
 
-Download the SDK file `nRF5_SDK_x.x.x_xxxxxxx.zip` (for example, `nRF5_SDK_v14.2.0_17b948a.zip`) from [developer.nordicsemi.com](https://developer.nordicsemi.com/).
+Download the SDK file `nRF5_SDK_x.x.x_xxxxxxx.zip` (for example, `nRF5_SDK_15.0.0_a53641a.zip`) from [developer.nordicsemi.com](https://developer.nordicsemi.com/).
 
-The latest version is `14.2.0`, it can be downloaded directly here:
+The latest version is `15.0.0`, it can be downloaded directly here:
 
-<a href="http://www.nordicsemi.com/eng/nordic/download_resource/59011/68/55131978/116085"><button data-md-color-primary="indigo">Download</button></a>
+<a href="http://www.nordicsemi.com/eng/nordic/Products/nRF5-SDK/nRF5-SDK-zip/59011"><button data-md-color-primary="marsala">Download</button></a>
 
 Extract the zip file to the `nrf52832-mdk` repository. This should give you the following folder structure:
 
@@ -90,13 +92,13 @@ Extract the zip file to the `nrf52832-mdk` repository. This should give you the 
 ./nrf52832-mdk/
 ├── LICENSE
 ├── README.md
-├── README_CN.md
 ├── bin
 ├── docs
 ├── examples
 ├── mkdocs.yml
 ├── nrf_sdks
 │   └── nRF5_SDK_14.2.0_17b948a
+│   └── nRF5_SDK_15.0.0_a53641a
 └── tools
 ```
 
@@ -109,8 +111,8 @@ To build an example application you first need to set the toolchain path in `mak
 Open the file in a text editor ([Sublime](https://www.sublimetext.com/) is recommended), and make sure that the `GNU_INSTALL_ROOT` variable is pointing to your GNU Arm Embedded Toolchain install directory.
 
 ``` sh
-GNU_INSTALL_ROOT := $(HOME)/gcc-arm-none-eabi/gcc-arm-none-eabi-7-2017-q4-major/bin/
-GNU_VERSION := 7.2.1
+GNU_INSTALL_ROOT := $(HOME)/gcc-arm-none-eabi/gcc-arm-none-eabi-6-2017-q2-update/bin/
+GNU_VERSION := 6.3.1
 GNU_PREFIX := arm-none-eabi
 ```
 
@@ -159,7 +161,6 @@ The easiest way to program the SoftDevice is using the GCC makefile of an exampl
 	$ make flash_all
 	```
 
-
 ## More examples
 
 Over time, more example applications will be added to the repository. You can star or watch the [nrf52832-mdk](https://github.com/makerdiary/nrf52832-mdk) repository to stay up to date.
@@ -174,12 +175,10 @@ Over time, more example applications will be added to the repository. You can st
 
 * [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm)
 
-## Any Issue ?
+## Create an Issue
 
 Interested in contributing to this project? Want to report a bug? Feel free and click here:
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a>
 
 

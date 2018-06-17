@@ -56,7 +56,7 @@ If there is nothing printed, just press RESET button on the board.
 !!! tip
     You can type `screen /dev/cu.usb` first, and then press <kbd>tab</kbd>. The device name will autocomplete.
 
-    To end a screen session, type <kbd>Ctrl</kbd> + <kbd>A</kbd>, and then <kbd>Ctrl</kbd> + <kbd>K</kbd>. At the bottom of the Terminal window, you should see a `[y/n]` prompt. Type <kbd>y</kbd>.
+    To end a screen session, type <kbd>Ctrl</kbd> + <kbd>A</kbd>, and then <kbd>K</kbd>. At the bottom of the Terminal window, you should see a `[y/n]` prompt. Type <kbd>y</kbd>.
 
 ![](images/screen_messages_macos.png)
 
@@ -97,7 +97,7 @@ You can also test the application with nRF Connect by performing the following s
 
 6. Write `00` to the *Nordic Blinky LED* Characteristic (0x1525) and observe that RED LED is turned off.
 
-![](images/nrf_connect_blinky.jpg)
+[![](images/nrf_connect_blinky.jpg)](images/nrf_connect_blinky.jpg)
 
 
 ## How to program nRF52832-MDK
@@ -108,7 +108,7 @@ You have the following two options to program your nRF52832-MDK:
 
 * [Using pyOCD](#using-pyocd).
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/nrf5-sdk/ble_app_blinky/hex"><button data-md-color-primary="indigo">Get the firmware</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/tree/master/examples/nrf5-sdk/ble_app_blinky/hex"><button data-md-color-primary="marsala">Get the firmware</button></a>
 
 ### Drag-n-drop Programming
 
@@ -169,12 +169,10 @@ This repository provides documents and example applications that you can run on 
 
 Enjoy!
 
-## Any Issue ?
+## Create an Issue
 
 Interested in contributing to this project? Want to report a bug? Feel free and click here:
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
-
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a>
 
 

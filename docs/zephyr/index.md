@@ -1,5 +1,7 @@
 # Zephyr <br><small>A scalable RTOS supporting multiple hardware architectures, optimized for resource constrained devices, and built with security in mind</small>
 
+[![](images/zephyr-logo.png)](https://www.zephyrproject.org/)
+
 ## Introduction
 
 The Zephyr OS is based on a small-footprint kernel designed for use on resource-constrained systems: from simple embedded environmental sensors and LED wearables to sophisticated smart watches and IoT wireless gateways.
@@ -110,7 +112,7 @@ Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/
 
 ``` sh
 # add the following scripts to ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major"
+export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
 export ZEPHYR_GCC_VARIANT=gccarmemb
 ```
 
@@ -144,7 +146,7 @@ Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/
 
 ``` sh
 # add the following scripts to ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-7-2017-q4-major"
+export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
 export ZEPHYR_GCC_VARIANT=gccarmemb
 ```
 
@@ -200,7 +202,7 @@ build$ ninja flash
 Check the board output from serial port, you will see the following messages:
 
 ``` sh
-***** BOOTING ZEPHYR OS v1.10.99 - BUILD: Feb 26 2018 12:44:01 *****
+***** Booting Zephyr OS 1.12.0-rc3 *****
 Hello World! arm
 ```
 
@@ -216,12 +218,11 @@ Over time, more example applications will be added to the repository. You can st
 * [Zephyr Project Documentation](http://docs.zephyrproject.org/index.html)
 * [zephyrproject-rtos/zephyr repository](https://github.com/zephyrproject-rtos/zephyr)
 
-## Any Issue ?
+## Create an Issue
 
 Interested in contributing to this project? Want to report a bug? Feel free and click here:
 
-<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a>
+<a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a>
 
-<a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk"><button data-md-color-primary="red"><i class="fa fa-slack"></i> Add to Slack</button></a>
 
 

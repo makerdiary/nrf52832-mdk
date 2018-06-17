@@ -8,9 +8,8 @@
 
 <a href="https://zaowubang.taobao.com"><button data-md-color-primary="deep-orange"><i class="fa fa-shopping-cart"></i> 淘宝-造物小店</button></a>
 
-<a href="https://www.seeedstudio.com/nRF52832-Micro-Development-Board-p-2992.html"><button data-md-color-primary="light-green"><i class="fa fa-shopping-cart"></i> Seeed Studio</button></a>
 
 ## 批量&定制化
 如果你有批量或者定制化需求，可以直接联系我们！
 
-<a href="mailto:zelin@makerdiary.com"><button data-md-color-primary="indigo"><i class="fa fa-envelope"></i> Email Us</button></a>
+<a href="mailto:zelin@makerdiary.com"><button data-md-color-primary="marsala"><i class="fa fa-envelope"></i> Email Us</button></a>
