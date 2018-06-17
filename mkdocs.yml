@@ -3,7 +3,7 @@
 site_name: 'nRF52832-MDK Documentation'
 site_description: 'An Open Source, Micro Development Kit for IoT Applications'
 site_author: 'Zelin'
-site_url: 'https://makerdiary.github.io/nrf52832-mdk'
+site_url: 'https://wiki.makerdiary.co/nrf52832-mdk'
 
 
 # Repository
@@ -13,12 +13,12 @@ edit_uri: ""
 
 
 # Copyright
-copyright: 'Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>'
+copyright: 'Copyright &copy; 2018 <a href="https://makerdiary.com">makerdiary.com</a>'
 
 # Documentation and theme
 theme:
   name: null
-  custom_dir: 'mkdocs-material/material'
+  custom_dir: 'material'
 
   # 404 page
   static_templates:
@@ -33,20 +33,19 @@ theme:
   feature:
     tabs: true
   palette:
-    primary: indigo
-    accent: indigo
+    primary: marsala
+    accent: marsala
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: 'images/favicon.ico'
+  favicon: 'images/favicon.png'
   logo: 'images/logo.svg'
 
 # Customization
 extra:
   social:
-
-    - type: slack
-      link: https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk
+    - type: comments
+      link: https://community.makerdiary.co
     - type: github-alt
       link: https://github.com/makerdiary
     - type: twitter
@@ -54,7 +53,8 @@ extra:
     - type: facebook
       link: https://www.facebook.com/makerdiary
     - type: globe
-      link: https://makerdiary.co
+      link: https://makerdiary.com
+  discourse: 'community.makerdiary.co'
 
 # Google Analytics
 google_analytics:
@@ -91,9 +91,9 @@ markdown_extensions:
 
 
 pages:
-  - Overview: index.md
+  - Introduction: index.md
   - Getting Started: getting-started/index.md
-  - nRF5 SDK: nrf5sdk/index.md
+  - nRF5 SDK: nrf5-sdk/index.md
   - nRF5 SDK for Mesh: mesh/index.md
   - Arm Mbed OS: mbedos/index.md
   - Zephyr: zephyr/index.md
@@ -108,7 +108,7 @@ pages:
   - 中文文档:
     - 简介: cn/index.md
     - 快速入门: cn/getting-started/index.md
-    - nRF5 SDK: cn/nrf5sdk/index.md
+    - nRF5 SDK: cn/nrf5-sdk/index.md
     - nRF5 SDK for Mesh: cn/mesh/index.md
     - Arm Mbed OS: cn/mbedos/index.md
     - Zephyr: cn/zephyr/index.md
