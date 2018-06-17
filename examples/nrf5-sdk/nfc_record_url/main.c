@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014 - 2017, Nordic Semiconductor ASA
+ * Copyright (c) 2014 - 2018, Nordic Semiconductor ASA
  * 
  * All rights reserved.
  * 
@@ -51,12 +51,14 @@
 #include "boards.h"
 #include "app_error.h"
 #include "hardfault.h"
+
+#include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
 /** @snippet [NFC URI usage_0] */
 static const uint8_t m_url[] =
-    {'m', 'a', 'k', 'e', 'r', 'd', 'i', 'a', 'r', 'y', '.', 'c', 'o'}; //URL "makerdiary.co"
+    {'n', 'o', 'r', 'd', 'i', 'c', 's', 'e', 'm', 'i', '.', 'c', 'o', 'm'}; //URL "nordicsemi.com"
 
 uint8_t m_ndef_msg_buf[256];
 /** @snippet [NFC URI usage_0] */
@@ -84,19 +86,28 @@ static void nfc_callback(void * p_context, nfc_t2t_event_t event, const uint8_t 
 
 
 /**
+ *@brief Function for initializing logging.
+ */
+static void log_init(void)
+{
+    ret_code_t err_code = NRF_LOG_INIT(NULL);
+    APP_ERROR_CHECK(err_code);
+
+    NRF_LOG_DEFAULT_BACKENDS_INIT();
+}
+
+
+/**
  * @brief Function for application main entry.
  */
 int main(void)
 {
     uint32_t  err_code;
 
-    err_code = NRF_LOG_INIT(NULL);
-    APP_ERROR_CHECK(err_code);
-
-    NRF_LOG_DEFAULT_BACKENDS_INIT();
+    log_init();
 
     /* Configure LED-pins as outputs */
-    bsp_board_leds_init();
+    bsp_board_init(BSP_INIT_LEDS);
 
     /* Set up NFC */
     err_code = nfc_t2t_setup(nfc_callback, NULL);
@@ -107,7 +118,7 @@ int main(void)
     uint32_t len = sizeof(m_ndef_msg_buf);
 
     /* Encode URI message into buffer */
-    err_code = nfc_uri_msg_encode( NFC_URI_HTTPS,
+    err_code = nfc_uri_msg_encode( NFC_URI_HTTP_WWW,
                                    m_url,
                                    sizeof(m_url),
                                    m_ndef_msg_buf,

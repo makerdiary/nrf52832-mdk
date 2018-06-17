@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 - 2017, Nordic Semiconductor ASA
+ * Copyright (c) 2016 - 2018, Nordic Semiconductor ASA
  * 
  * All rights reserved.
  * 
@@ -108,7 +108,7 @@
 
 #define APP_CFG_NON_CONN_ADV_TIMEOUT                        0                           //!< Time for which the device must be advertising in non-connectable mode (in seconds). 0 disables the time-out.
 #define APP_CFG_NON_CONN_ADV_INTERVAL_MS                    1000                        //!< The advertising interval for non-connectable advertisement (in milliseconds). This value can vary between 100 ms and 10.24 s.
-#define APP_CFG_CONNECTABLE_ADV_TIMEOUT                     60                          //!< Time for which the device must be advertising in connectable mode (in seconds). 0 disables the time-out.
+#define APP_CFG_CONNECTABLE_ADV_TIMEOUT                     6000                        //!< Time for which the device must be advertising in connectable mode (in milliseconds). 0 disables the time-out.
 #define APP_CFG_CONNECTABLE_ADV_INTERVAL_MS                 100                         //!< The advertising interval for connectable advertisement (in milliseconds). This value can vary between 20 ms and 10.24 s.
 
 #define APP_CFG_DEFAULT_RADIO_TX_POWER                      0x00                        //!< Default TX power of the radio.
@@ -156,9 +156,9 @@
 // Eddystone URL data
 #define APP_ES_URL_FRAME_TYPE               ES_FRAME_TYPE_URL                           //!< URL Frame type (fixed at 0x10).
 #define APP_ES_URL_SCHEME                   0x01                                        //!< URL prefix scheme according to specification (0x01 = "https://www").
-#define APP_ES_URL_URL                      0x6e, 0x6f, 0x72, 0x64, \
-                                            0x69, 0x63, 0x73, 0x65, \
-                                            0x6d,0x69, 0x00                             //!< "nordicsemi.com". Last byte suffix 0x00 = ".com" according to specification.
+#define APP_ES_URL_URL                      'm', 'a', 'k', 'e', \
+                                            'r', 'd', 'i', 'a', \
+                                            'r','y', 0x00                             //!< "nordicsemi.com". Last byte suffix 0x00 = ".com" according to specification.
 
 #define DEFAULT_FRAME_TYPE                  APP_ES_URL_FRAME_TYPE                       //!< Frame type of default frame.
 #define DEFAULT_FRAME_TX_POWER              0x00                                        //!< Default frame TX power.
