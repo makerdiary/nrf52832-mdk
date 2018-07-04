@@ -234,11 +234,13 @@ $ pyocd-flashtool -d debug -t nrf52 -se your-hex-file.hex
 
 ## How to get an nRF52832-MDK
 
-nRF52832-MDK is available from the following distributors (click to go directly to the product):
+nRF52832-MDK is available on the following channels (click to go directly to the product):
 
-* [Seeed Studio](https://www.seeedstudio.com/nRF52832-Micro-Development-Board-p-2992.html)
+[![makerdiary store](docs/images/makerdiary-store-logo.png)](https://store.makerdiary.com)
 
-* [Elecrow](https://www.elecrow.com/nrf52832-mdk-v1-0.html)
+[![SeeedStudio](docs/images/seeed_logo_2018_horizontal.png)](https://www.seeedstudio.com/nRF52832-Micro-Development-Board-p-2992.html)
+
+[![Tindie](docs/images/tindie-logo.png)](https://www.tindie.com/stores/Zelin/)
 
 ## License
 
