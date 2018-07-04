@@ -6,4 +6,4 @@
 
 <a href="https://zhuanlan.zhihu.com/makerdiary" target="_blank"><button data-md-color-primary="marsala"><i class="fa fa-bookmark"> 知乎专栏</i></button></a>
 
-<button data-md-color-primary="green"><i class="fa fa-wechat"></i> 微信 - 造物邦 <p></p> <img src="https://img.makerdiary.co/zaowubang/qrcode_for_zaowubang.jpg"></button>
+<button data-md-color-primary="green"><i class="fa fa-wechat"></i> 微信 - 造物邦 <p></p> <img src="https://img.makerdiary.co/common/qrcode_for_zwb.jpg"></button>
