@@ -13,7 +13,7 @@
         <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
       
       
-        <link rel="canonical" href="https://wiki.makerdiary.co/nrf52832-mdk/cn/">
+        <link rel="canonical" href="https://wiki.makerdiary.co/nrf52832-mdk/nrf5-sdk/">
       
       
         <meta name="author" content="Zelin">
@@ -42,7 +42,7 @@
     
     
       
-        <title>简介 - nRF52832-MDK Documentation</title>
+        <title>nRF5 SDK - nRF52832-MDK Documentation</title>
       
     
     
@@ -99,7 +99,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#nrf52832-mdk" tabindex="1" class="md-skip">
+      <a href="#nrf5-sdk-software-development-kit-for-nrf51-and-nrf52-series" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -125,7 +125,7 @@
                 nRF52832-MDK Documentation
               </span>
               <span class="md-header-nav__topic">
-                简介
+                nRF5 SDK
               </span>
             
           
@@ -197,16 +197,14 @@
       
         
 
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav class="md-tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href=".." title="Introduction" class="md-tabs__link">
+      <a href=".." title="Introduction" class="md-tabs__link md-tabs__link--active">
         Introduction
       </a>
     
@@ -244,7 +242,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" title="中文文档" class="md-tabs__link md-tabs__link--active">
+        <a href="../cn/" title="中文文档" class="md-tabs__link">
           中文文档
         </a>
       
@@ -325,11 +323,114 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../nrf5-sdk/" title="nRF5 SDK" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        nRF5 SDK
+      </label>
+    
+    <a href="./" title="nRF5 SDK" class="md-nav__link md-nav__link--active">
       nRF5 SDK
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-gnu-arm-embedded-toolchain" title="Installing GNU Arm Embedded Toolchain" class="md-nav__link">
+    Installing GNU Arm Embedded Toolchain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-gnu-make" title="Installing GNU make" class="md-nav__link">
+    Installing GNU make
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-nrf5-sdk" title="Installing the nRF5 SDK" class="md-nav__link">
+    Installing the nRF5 SDK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling-and-running-blinky-example" title="Compiling and running blinky example" class="md-nav__link">
+    Compiling and running blinky example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-examples-that-use-a-softdevice" title="Running examples that use a SoftDevice" class="md-nav__link">
+    Running examples that use a SoftDevice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-examples" title="More examples" class="md-nav__link">
+    More examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-issue" title="Create an Issue" class="md-nav__link">
+    Create an Issue
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -469,12 +570,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
     <label class="md-nav__link" for="nav-15">
       中文文档
@@ -490,107 +589,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        简介
-      </label>
-    
-    <a href="./" title="简介" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../cn/" title="简介" class="md-nav__link">
       简介
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="硬件规格" class="md-nav__link">
-    硬件规格
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="引脚位置图" class="md-nav__link">
-    引脚位置图
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nrf52832-soc" title="nRF52832 SoC" class="md-nav__link">
-    nRF52832 SoC
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="多功能调试器" class="md-nav__link">
-    多功能调试器
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="开源软件框架" class="md-nav__link">
-    开源软件框架
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="在线文档" class="md-nav__link">
-    在线文档
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" title="相关资源" class="md-nav__link">
-    相关资源
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" title="问题反馈" class="md-nav__link">
-    问题反馈
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-      
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -600,7 +603,7 @@
 
 
   <li class="md-nav__item">
-    <a href="getting-started/" title="快速入门" class="md-nav__link">
+    <a href="../cn/getting-started/" title="快速入门" class="md-nav__link">
       快速入门
     </a>
   </li>
@@ -612,7 +615,7 @@
 
 
   <li class="md-nav__item">
-    <a href="nrf5-sdk/" title="nRF5 SDK" class="md-nav__link">
+    <a href="../cn/nrf5-sdk/" title="nRF5 SDK" class="md-nav__link">
       nRF5 SDK
     </a>
   </li>
@@ -624,7 +627,7 @@
 
 
   <li class="md-nav__item">
-    <a href="mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
+    <a href="../cn/mesh/" title="nRF5 SDK for Mesh" class="md-nav__link">
       nRF5 SDK for Mesh
     </a>
   </li>
@@ -636,7 +639,7 @@
 
 
   <li class="md-nav__item">
-    <a href="mbedos/" title="Arm Mbed OS" class="md-nav__link">
+    <a href="../cn/mbedos/" title="Arm Mbed OS" class="md-nav__link">
       Arm Mbed OS
     </a>
   </li>
@@ -648,7 +651,7 @@
 
 
   <li class="md-nav__item">
-    <a href="zephyr/" title="Zephyr" class="md-nav__link">
+    <a href="../cn/zephyr/" title="Zephyr" class="md-nav__link">
       Zephyr
     </a>
   </li>
@@ -660,7 +663,7 @@
 
 
   <li class="md-nav__item">
-    <a href="mynewt/" title="Mynewt" class="md-nav__link">
+    <a href="../cn/mynewt/" title="Mynewt" class="md-nav__link">
       Mynewt
     </a>
   </li>
@@ -672,7 +675,7 @@
 
 
   <li class="md-nav__item">
-    <a href="espruino/" title="Espruino" class="md-nav__link">
+    <a href="../cn/espruino/" title="Espruino" class="md-nav__link">
       Espruino
     </a>
   </li>
@@ -684,7 +687,7 @@
 
 
   <li class="md-nav__item">
-    <a href="jerryscript/" title="JerryScript" class="md-nav__link">
+    <a href="../cn/jerryscript/" title="JerryScript" class="md-nav__link">
       JerryScript
     </a>
   </li>
@@ -696,7 +699,7 @@
 
 
   <li class="md-nav__item">
-    <a href="micropython/" title="MicroPython" class="md-nav__link">
+    <a href="../cn/micropython/" title="MicroPython" class="md-nav__link">
       MicroPython
     </a>
   </li>
@@ -708,7 +711,7 @@
 
 
   <li class="md-nav__item">
-    <a href="daplink/" title="DAPLink" class="md-nav__link">
+    <a href="../cn/daplink/" title="DAPLink" class="md-nav__link">
       DAPLink
     </a>
   </li>
@@ -720,7 +723,7 @@
 
 
   <li class="md-nav__item">
-    <a href="how-to-buy/" title="如何购买" class="md-nav__link">
+    <a href="../cn/how-to-buy/" title="如何购买" class="md-nav__link">
       如何购买
     </a>
   </li>
@@ -732,7 +735,7 @@
 
 
   <li class="md-nav__item">
-    <a href="CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
+    <a href="../cn/CONTRIBUTING/" title="反馈&贡献" class="md-nav__link">
       反馈&贡献
     </a>
   </li>
@@ -744,7 +747,7 @@
 
 
   <li class="md-nav__item">
-    <a href="about/" title="订阅" class="md-nav__link">
+    <a href="../cn/about/" title="订阅" class="md-nav__link">
       订阅
     </a>
   </li>
@@ -756,7 +759,7 @@
 
 
   <li class="md-nav__item">
-    <a href="LICENSE/" title="License" class="md-nav__link">
+    <a href="../cn/LICENSE/" title="License" class="md-nav__link">
       License
     </a>
   </li>
@@ -788,57 +791,64 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="硬件规格" class="md-nav__link">
-    硬件规格
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="引脚位置图" class="md-nav__link">
-    引脚位置图
+  <a href="#installing-gnu-arm-embedded-toolchain" title="Installing GNU Arm Embedded Toolchain" class="md-nav__link">
+    Installing GNU Arm Embedded Toolchain
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#nrf52832-soc" title="nRF52832 SoC" class="md-nav__link">
-    nRF52832 SoC
+  <a href="#installing-gnu-make" title="Installing GNU make" class="md-nav__link">
+    Installing GNU make
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="多功能调试器" class="md-nav__link">
-    多功能调试器
+  <a href="#installing-the-nrf5-sdk" title="Installing the nRF5 SDK" class="md-nav__link">
+    Installing the nRF5 SDK
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="开源软件框架" class="md-nav__link">
-    开源软件框架
+  <a href="#compiling-and-running-blinky-example" title="Compiling and running blinky example" class="md-nav__link">
+    Compiling and running blinky example
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="在线文档" class="md-nav__link">
-    在线文档
+  <a href="#running-examples-that-use-a-softdevice" title="Running examples that use a SoftDevice" class="md-nav__link">
+    Running examples that use a SoftDevice
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="相关资源" class="md-nav__link">
-    相关资源
+  <a href="#more-examples" title="More examples" class="md-nav__link">
+    More examples
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" title="问题反馈" class="md-nav__link">
-    问题反馈
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-issue" title="Create an Issue" class="md-nav__link">
+    Create an Issue
   </a>
   
 </li>
@@ -869,160 +879,142 @@
               
                 
                 
-                <h1 id="nrf52832-mdk">nRF52832-MDK <br><small>开源、面向物联网应用的开发套件</small><a class="headerlink" href="#nrf52832-mdk" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">提示</p>
-<p>目前 nRF52832-MDK 有两个硬件版本可用：</p>
+                <h1 id="nrf5-sdk-software-development-kit-for-nrf51-and-nrf52-series">nRF5 SDK <br><small>Software Development Kit for nRF51 and nRF52 Series</small><a class="headerlink" href="#nrf5-sdk-software-development-kit-for-nrf51-and-nrf52-series" title="Permanent link">&para;</a></h1>
+<p><a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK"><img alt="" src="./images/SDK-icon_small.png" /></a></p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The nRF5 SDK provides a rich developing environment for nRF5 Series devices by including a broad selection of drivers, libraries, examples for peripherals, SoftDevices, and proprietary radio protocols.</p>
+<p>The SDK is delivered as a plain .zip-archive, which makes it easy to install as well as giving you the freedom to choose the IDE and compiler of your choice.</p>
+<p>We provide example applications that you can run on your nRF52832-MDK to ensure that everything is set up correctly. After these tests, you can use the examples as starting point to develop your own applications.</p>
+<p>Before we begin, we need to install some software components to build our example applications. Here we recommend GNU Arm Embedded Toolchains as they are free and open-source.</p>
+<h2 id="installing-gnu-arm-embedded-toolchain">Installing GNU Arm Embedded Toolchain<a class="headerlink" href="#installing-gnu-arm-embedded-toolchain" title="Permanent link">&para;</a></h2>
+<p>The GNU Arm Embedded toolchains are integrated and validated packages featuring the Arm Embedded GCC compiler, libraries and other GNU tools necessary for bare-metal software development on devices based on the Arm Cortex-M and Cortex-R processors. The toolchains are available for cross-compilation on Microsoft Windows, Linux and macOS host operating systems.</p>
+<p>These toolchains are based on <a href="https://www.gnu.org/home.en.html">Free Software Foundation</a>'s (FSF) GNU Open source tools and newlib.</p>
+<p>The pre-built GNU Arm Embedded Toolchain can be downloaded using the following link: </p>
+<p><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads"><button data-md-color-primary="marsala">Download</button></a></p>
+<p>Download and install the latest version. Then make sure to add the path to your toolchain to your OS PATH environment variable:</p>
+<div class="codehilite"><pre><span></span>&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update/bin
+</pre></div>
+
+<p>Adding the path makes it possible to run the toolchain executables from any directory using the terminal. To verify that the path is set correctly, type the following in your terminal:</p>
+<div class="codehilite"><pre><span></span>$ arm-none-eabi-gcc --version
+</pre></div>
+
+<p><img alt="" src="./images/arm-none-eabi-gcc_version.png" /></p>
+<h2 id="installing-gnu-make">Installing GNU make<a class="headerlink" href="#installing-gnu-make" title="Permanent link">&para;</a></h2>
+<p>Now with the toolchain installed we can build object files from source code, but to build projects based on makefiles, which can be seen as a recipes for the builds, we need to have <a href="https://www.gnu.org/software/make/">GNU make</a> installed on the system.</p>
+<p>On Windows the easiest way to install the dependencies is to use the <a href="http://www.msys2.org/">MSYS2</a>. You can do so by performing the following steps:</p>
+<p><a href="http://www.msys2.org/"><button data-md-color-primary="marsala">Download</button></a></p>
+<ol>
+<li>
+<p>Download and run the installer - "x86_64" for 64-bit, "i686" for 32-bit Windows.</p>
+</li>
+<li>
+<p>Update the package database and core system packages with:</p>
+<div class="codehilite"><pre><span></span>$ pacman -Syu
+</pre></div>
+
+</li>
+<li>
+<p>If needed, close MSYS2, run it again from Start menu. Update the rest with:</p>
+<div class="codehilite"><pre><span></span>$ pacman -Su
+</pre></div>
+
+</li>
+<li>
+<p>Install dependencies:</p>
+<div class="codehilite"><pre><span></span>$ pacman -S git make python2
+</pre></div>
+
+</li>
+</ol>
+<p>Linux and macOS already have the necessary shell commands, but GNU make may not be a part of the standard distro. Call <code>make -v</code> from the terminal to check whether it is installed or not. GNU make would need to be installed if it's not recognized as a command.</p>
+<p>GNU make is bundled with Xcode tools if working on macOS.</p>
+<p>On Linux it may be different ways to obtain GNU make depending on your distro, if not installed already. On Ubuntu you can get by entering this command:</p>
+<div class="codehilite"><pre><span></span>$ sudo apt-get install build-essential checkinstall
+</pre></div>
+
+<p><img alt="" src="./images/gnu-make_version.png" /></p>
+<h2 id="installing-the-nrf5-sdk">Installing the nRF5 SDK<a class="headerlink" href="#installing-the-nrf5-sdk" title="Permanent link">&para;</a></h2>
+<p>Download the SDK file <code>nRF5_SDK_x.x.x_xxxxxxx.zip</code> (for example, <code>nRF5_SDK_15.0.0_a53641a.zip</code>) from <a href="https://developer.nordicsemi.com/">developer.nordicsemi.com</a>.</p>
+<p>The latest version is <code>15.0.0</code>, it can be downloaded directly here:</p>
+<p><a href="http://www.nordicsemi.com/eng/nordic/Products/nRF5-SDK/nRF5-SDK-zip/59011"><button data-md-color-primary="marsala">Download</button></a></p>
+<p>Extract the zip file to the <code>nrf52832-mdk</code> repository. This should give you the following folder structure:</p>
+<div class="codehilite"><pre><span></span>./nrf52832-mdk/
+├── LICENSE
+├── README.md
+├── bin
+├── docs
+├── examples
+├── mkdocs.yml
+├── nrf_sdks
+│   └── nRF5_SDK_14.2.0_17b948a
+│   └── nRF5_SDK_15.0.0_a53641a
+└── tools
+</pre></div>
+
+<p>To build an example application you first need to set the toolchain path in <code>makefile.windows</code> or <code>makefile.posix</code> depending on platform you are using. That is, the <code>.posix</code> should be edited if your are working on either Linux or macOS. These files are located in:</p>
+<div class="codehilite"><pre><span></span>&lt;SDK&gt;/components/toolchain/gcc
+</pre></div>
+
+<p>Open the file in a text editor (<a href="https://www.sublimetext.com/">Sublime</a> is recommended), and make sure that the <code>GNU_INSTALL_ROOT</code> variable is pointing to your GNU Arm Embedded Toolchain install directory.</p>
+<div class="codehilite"><pre><span></span>GNU_INSTALL_ROOT :<span class="o">=</span> <span class="k">$(</span>HOME<span class="k">)</span>/gcc-arm-none-eabi/gcc-arm-none-eabi-6-2017-q2-update/bin/
+GNU_VERSION :<span class="o">=</span> <span class="m">6</span>.3.1
+GNU_PREFIX :<span class="o">=</span> arm-none-eabi
+</pre></div>
+
+<h2 id="compiling-and-running-blinky-example">Compiling and running blinky example<a class="headerlink" href="#compiling-and-running-blinky-example" title="Permanent link">&para;</a></h2>
+<p>Now you can try to build one of the examples. Will use the <code>blinky</code> example here to keep it simple.</p>
+<p>Open terminal and change directory to:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ./nrf52832-mdk/examples/nrf5-sdk/blinky/armgcc/
+</pre></div>
+
+<p>Connect the nRF52832-MDK to one of your PC's USB host ports. Compile and program the example:</p>
+<div class="codehilite"><pre><span></span>$ make flash
+</pre></div>
+
+<p>Observe that the LEDs are blinking:</p>
+<p><img alt="" src="./images/blinky_example.gif" /></p>
+<h2 id="running-examples-that-use-a-softdevice">Running examples that use a SoftDevice<a class="headerlink" href="#running-examples-that-use-a-softdevice" title="Permanent link">&para;</a></h2>
+<p>Before you can run more advanced examples that use <em>Bluetooth</em> or <em>ANT</em>, you must program the SoftDevice on the board.</p>
+<p>The SoftDevice binary is located in folder <code>components/softdevice/SoftDevice/hex</code> in the SDK, where SoftDevice is the name of the SoftDevice. You can also download SoftDevices from <a href="https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832">nordicsemi.com</a>.</p>
+<p>The easiest way to program the SoftDevice is using the GCC makefile of an example:</p>
+<ol>
+<li>
+<p>Open a command prompt in the folder that contains the makefile of an example. The example must require a SoftDevice. For example, the <code>ble_app_blinky</code> example.</p>
+</li>
+<li>
+<p>Run the following command:</p>
+<div class="codehilite"><pre><span></span><span class="c1"># this will program SoftDevice alone</span>
+$ make flash_softdevice
+</pre></div>
+
+<p>Or </p>
+<div class="codehilite"><pre><span></span><span class="c1"># this will program the application with SoftDevice</span>
+$ make flash_all
+</pre></div>
+
+</li>
+</ol>
+<h2 id="more-examples">More examples<a class="headerlink" href="#more-examples" title="Permanent link">&para;</a></h2>
+<p>Over time, more example applications will be added to the repository. You can star or watch the <a href="https://github.com/makerdiary/nrf52832-mdk">nrf52832-mdk</a> repository to stay up to date.</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>V1</strong>: 带有 Micro USB 接口且排针焊接在板上</li>
-<li><strong>V2</strong>: 配排针但不焊在板上、无需数据线即可与 PC 连接</li>
-</ul>
-</div>
-<p>nRF52832-MDK 是一款完全开源、基于 Nordic 新一代高性能低功耗蓝牙系统级芯片 <a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832">nRF52832</a>、面向物联网嵌入式应用的开发套件。</p>
-<p>nRF52832-MDK 提供丰富的硬件资源，集成多功能调试工具，可以玩转多种开源软件框架（如：nRF5 SDK, Mesh, Mbed OS 5, Zephyr, Mynewt, JerryScript, Espruino, MicroPython 等等）。</p>
-<p>nRF52832-MDK 支持跨平台开发，并且提供丰富的在线文档及示例，希望带来全新的开发体验。</p>
-<p><img alt="产品图片" src="./../images/nrf52832_mdk_v1_image.jpg" /></p>
-<p><img alt="产品图片" src="./../images/nrf52832_mdk_v2_image.jpg" /></p>
-<h2 id="_1">硬件规格<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
 <li>
-<p>Nordic 高性能低功耗蓝牙 SoC nRF52832 </p>
-<ul>
-<li>ARM® Cortex™-M4F 内核</li>
-<li>512kB Flash + 64kB RAM</li>
-<li>支持低功耗蓝牙(BLE), ANT, 2.4GHz</li>
-<li>支持 NFC™-A 标签</li>
-</ul>
+<p><a href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk/dita/sdk/nrf5_sdk.html">Nordic nRF5 SDK</a></p>
 </li>
 <li>
-<p>板载 DAPLink 多功能调试工具：</p>
-<ul>
-<li>MSC - 支持“拖放”方式下载固件</li>
-<li>CDC - 提供虚拟串口工具</li>
-<li>HID - 兼容 CMSIS-DAP 仿真功能</li>
-</ul>
+<p><a href="http://infocenter.nordicsemi.com/index.jsp">Nordic Semiconductor Infocenter</a></p>
 </li>
 <li>
-<p>拥有多达 24 个可编程 GPIO</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk">makerdiary/nrf52832-mdk</a></p>
 </li>
 <li>
-<p>提供复位按钮，可更新 DAPLink 固件</p>
-</li>
-<li>
-<p>可编程 RGB LED</p>
-</li>
-<li>
-<p>2.4GHz 晶片天线，在有限的空间内提供出色的 RF 性能</p>
-</li>
-<li>
-<p>3.3V 稳压器，高效率、低静态电流、可输出 1A 峰值电流</p>
-</li>
-<li>
-<p>VBUS &amp; VIN 电源路径管理</p>
-</li>
-<li>
-<p>标准引脚间距，可直接安装在面包板上</p>
-</li>
-<li>
-<p>尺寸小巧 48mm x 18mm x 13mm (已焊排针)、63mm x 18mm x 4mm（不焊排针）</p>
+<p><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm">GNU Arm Embedded Toolchain</a></p>
 </li>
 </ul>
-<h2 id="_2">引脚位置图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><a href="./../images/nrf52832_mdk_v1_pinout.jpeg"><img alt="" src="./../images/nrf52832_mdk_v1_pinout.jpeg" /></a></p>
-<p><a href="./../images/nrf52832_mdk_v2_pinout.jpeg"><img alt="" src="./../images/nrf52832_mdk_v2_pinout.jpeg" /></a></p>
-<h2 id="nrf52832-soc">nRF52832 SoC<a class="headerlink" href="#nrf52832-soc" title="Permanent link">&para;</a></h2>
-<p>nRF52832 SoC 是 Nordic Semiconductor 新一代高性能的低功耗蓝牙系统级芯片，ARM® Cortex™-M4F 内核，512kB Flash + 64kB RAM，支持 BLE, ANT, 2.4GHz 协议栈。</p>
-<p><a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832"><button data-md-color-primary="marsala">了解更多</button></a></p>
-<p><img alt="" src="./../images/nrf52832_soc.png" /></p>
-<h2 id="_3">多功能调试器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>nRF52832-MDK 集成了多功能调试器 DAPLink，即插即用，支持“拖放”方式下载固件、串口调试、CMSIS-DAP 仿真调试。</p>
-<p><a href="https://github.com/ARMmbed/DAPLink"><button data-md-color-primary="marsala">DAPLink repo</button></a></p>
-<p><img alt="" src="./../images/daplink_diagram.png" /></p>
-<h2 id="_4">开源软件框架<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>nRF52832-MDK 可以用来玩转多种开源软件框架：</p>
-<table>
-<thead>
-<tr>
-<th>开源框架</th>
-<th>简介</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK">nRF5 SDK</a></td>
-<td>Nordic 官方提供的 SDK</td>
-</tr>
-<tr>
-<td><a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK-for-Mesh">nRF5 SDK for Mesh</a></td>
-<td>Nordic 官方提供的低功耗蓝牙 Mesh 网络 SDK</td>
-</tr>
-<tr>
-<td><a href="https://os.mbed.com/">Mbed OS 5</a></td>
-<td>Arm 开源的物联网实时操作系统</td>
-</tr>
-<tr>
-<td><a href="https://www.zephyrproject.org/">Zephyr</a></td>
-<td>Linux 基金会开源的物联网实时操作系统</td>
-</tr>
-<tr>
-<td><a href="https://mynewt.apache.org/">Mynewt</a></td>
-<td>Apache 开源模块化的实时操作系统，专门为内存和存储都极其有限而又要以极低功耗运行非常长时间的物联网设备设计</td>
-</tr>
-<tr>
-<td><a href="https://github.com/jerryscript-project/jerryscript">JerryScript</a></td>
-<td>三星开源的面向物联网的轻量级 JavaScript 引擎</td>
-</tr>
-<tr>
-<td><a href="https://github.com/espruino/Espruino">Espruino</a></td>
-<td>运行在内存和存储都极其有限的 MCU 上的 JavaScrupt 引擎</td>
-</tr>
-<tr>
-<td><a href="https://github.com/micropython/micropython">MicroPython</a></td>
-<td>面向嵌入式设备的轻量级 Python</td>
-</tr>
-<tr>
-<td><a href="https://github.com/WebBluetoothCG/web-bluetooth">Web Bluetooth</a></td>
-<td>基于 Web 的低功耗蓝牙 API</td>
-</tr>
-<tr>
-<td><a href="https://github.com/google/eddystone">Eddystone</a></td>
-<td>Google 开源的 Beacon 协议</td>
-</tr>
-<tr>
-<td>....</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="_5">在线文档<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>nRF52832-MDK 提供优秀的在线文档，使用 <a href="http://www.mkdocs.org/">MkDocs</a> 生成文档，并托管在 <a href="https://github.com/makerdiary/nrf52832-mdk/">GitHub</a> 上。</p>
-<p><img alt="文档图片" src="./../images/nrf52832_mdk_docs.png" /></p>
-<h2 id="_6">相关资源<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>版本</th>
-<th>设计文档</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>V2.0</td>
-<td><a href="./../hardware/nRF52832-MDK_SCH_V2.0.pdf">nRF52832-MDK V2.0 Schematic</a><br/><a href="./../hardware/nRF52832-MDK_PCB_V2.0.pdf">nRF52832-MDK V2.0 PCB</a><br/><a href="./../hardware/nRF52832-MDK_3D_STEP_V2.0.step">nRF52832-MDK V2.0 3D STEP</a></td>
-</tr>
-<tr>
-<td>V1.1</td>
-<td><a href="./../hardware/nRF52832-MDK_SCH_V1.1.pdf">nRF52832-MDK V1.1 Schematic</a><br/><a href="">nRF52832-MDK V1.1 PCB</a><br/><a href="./../hardware/nRF52832-MDK_3D_STEP_V1.1.step">nRF52832-MDK V1.1 3D STEP</a></td>
-</tr>
-<tr>
-<td>V1.0</td>
-<td><a href="./../hardware/nRF52832-MDK_SCH_V1.0.pdf">nRF52832-MDK V1.0 Schematic</a><br/><a href="./../hardware/nRF52832-MDK_PCB_V1.0.pdf">nRF52832-MDK V1.0 PCB</a><br/><a href="./../hardware/nRF52832-MDK_3D_STEP_V1.0.step">nRF52832-MDK V1.0 3D STEP</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="_7">问题反馈<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 反馈。</p>
-<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a></p>
+<h2 id="create-an-issue">Create an Issue<a class="headerlink" href="#create-an-issue" title="Permanent link">&para;</a></h2>
+<p>Interested in contributing to this project? Want to report a bug? Feel free and click here:</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a></p>
                 
                   
                 
@@ -1038,7 +1030,7 @@
 
   <h2 id="__comments">Comments</h2>
   <div id="discourse-comments"></div>
-  <script>DiscourseEmbed={discourseUrl:"https://community.makerdiary.co/",discourseEmbedUrl:"https://wiki.makerdiary.co/nrf52832-mdk/cn/"},function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=DiscourseEmbed.discourseUrl+"javascripts/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script>
+  <script>DiscourseEmbed={discourseUrl:"https://community.makerdiary.co/",discourseEmbedUrl:"https://wiki.makerdiary.co/nrf52832-mdk/nrf5-sdk/"},function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=DiscourseEmbed.discourseUrl+"javascripts/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script>
 
               
             </article>
@@ -1052,7 +1044,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../LICENSE/" title="License" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../getting-started/" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1061,19 +1053,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                License
+                Getting Started
               </span>
             </div>
           </a>
         
         
-          <a href="getting-started/" title="快速入门" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mesh/" title="nRF5 SDK for Mesh" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                快速入门
+                nRF5 SDK for Mesh
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

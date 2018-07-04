@@ -13,7 +13,7 @@
         <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
       
       
-        <link rel="canonical" href="https://makerdiary.github.io/nrf52832-mdk/cn/mbedos/">
+        <link rel="canonical" href="https://wiki.makerdiary.co/nrf52832-mdk/cn/mbedos/">
       
       
         <meta name="author" content="Zelin">
@@ -37,8 +37,8 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+      <link rel="shortcut icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.7.3">
     
     
       
@@ -46,15 +46,16 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.9b572555.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.c61db26e.css">
       
     
     
-      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
     
     
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
@@ -67,7 +68,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-primary="marsala" data-md-color-accent="marsala">
   
     <svg class="md-svg">
       <defs>
@@ -94,8 +95,8 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
       <a href="#arm-mbed-os-arm" tabindex="1" class="md-skip">
@@ -107,7 +108,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+        <a href="https://wiki.makerdiary.co/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
           
             <img src="../../images/logo.svg" width="24" height="24">
           
@@ -205,8 +206,8 @@
         
   <li class="md-tabs__item">
     
-      <a href="../.." title="Overview" class="md-tabs__link">
-        Overview
+      <a href="../.." title="Introduction" class="md-tabs__link">
+        Introduction
       </a>
     
   </li>
@@ -266,7 +267,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <img src="../../images/logo.svg" width="24" height="24">
+        <img src="../../images/logo.svg" width="48" height="48">
       
     </span>
     nRF52832-MDK Documentation
@@ -302,8 +303,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Overview" class="md-nav__link">
-      Overview
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
@@ -326,7 +327,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+    <a href="../../nrf5-sdk/" title="nRF5 SDK" class="md-nav__link">
       nRF5 SDK
     </a>
   </li>
@@ -515,7 +516,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+    <a href="../nrf5-sdk/" title="nRF5 SDK" class="md-nav__link">
       nRF5 SDK
     </a>
   </li>
@@ -577,45 +578,65 @@
     使用 Arm Mbed CLI
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mbed-cli" title="安装 Mbed CLI" class="md-nav__link">
+    安装 Mbed CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="设置开发环境" class="md-nav__link">
+    设置开发环境
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#nrf52832-mdk" title="支持 nRF52832-MDK" class="md-nav__link">
-    支持 nRF52832-MDK
+  <a href="#nrf52832-mdk" title="添加 nRF52832-MDK 支持" class="md-nav__link">
+    添加 nRF52832-MDK 支持
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="编译运行第一个示例" class="md-nav__link">
+  <a href="#_3" title="编译运行第一个示例" class="md-nav__link">
     编译运行第一个示例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="低功耗蓝牙示例" class="md-nav__link">
+  <a href="#_4" title="低功耗蓝牙示例" class="md-nav__link">
     低功耗蓝牙示例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="更多示例" class="md-nav__link">
+  <a href="#_5" title="更多示例" class="md-nav__link">
     更多示例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="参考资源" class="md-nav__link">
+  <a href="#_6" title="参考资源" class="md-nav__link">
     参考资源
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="问题反馈" class="md-nav__link">
+  <a href="#_7" title="问题反馈" class="md-nav__link">
     问题反馈
   </a>
   
@@ -624,6 +645,15 @@
       
       
       
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
       
     </ul>
   
@@ -789,45 +819,65 @@
     使用 Arm Mbed CLI
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mbed-cli" title="安装 Mbed CLI" class="md-nav__link">
+    安装 Mbed CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="设置开发环境" class="md-nav__link">
+    设置开发环境
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#nrf52832-mdk" title="支持 nRF52832-MDK" class="md-nav__link">
-    支持 nRF52832-MDK
+  <a href="#nrf52832-mdk" title="添加 nRF52832-MDK 支持" class="md-nav__link">
+    添加 nRF52832-MDK 支持
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="编译运行第一个示例" class="md-nav__link">
+  <a href="#_3" title="编译运行第一个示例" class="md-nav__link">
     编译运行第一个示例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="低功耗蓝牙示例" class="md-nav__link">
+  <a href="#_4" title="低功耗蓝牙示例" class="md-nav__link">
     低功耗蓝牙示例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="更多示例" class="md-nav__link">
+  <a href="#_5" title="更多示例" class="md-nav__link">
     更多示例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="参考资源" class="md-nav__link">
+  <a href="#_6" title="参考资源" class="md-nav__link">
     参考资源
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="问题反馈" class="md-nav__link">
+  <a href="#_7" title="问题反馈" class="md-nav__link">
     问题反馈
   </a>
   
@@ -836,6 +886,15 @@
       
       
       
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
       
     </ul>
   
@@ -851,6 +910,7 @@
                 
                 
                 <h1 id="arm-mbed-os-arm">Arm Mbed OS <br><small>Arm 开源、面向物联网小型设备的实时操作系统</small><a class="headerlink" href="#arm-mbed-os-arm" title="Permanent link">&para;</a></h1>
+<p><a href="https://os.mbed.com/"><img alt="" src="./../../mbedos/images/mbedos-logo.png" /></a></p>
 <h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Arm Mbed OS 是 Arm 专门为物联网设备而设计的开源嵌入式操作系统，主要面向 ARM Cortex-M 系列微控制器，非常适合涉及智能城市、智能家庭和穿戴式设备等领域的应用程序。</p>
 <p>相比于其他嵌入式操作系统，Arm Mbed OS 的主要优势在于：</p>
@@ -860,14 +920,17 @@
 <li>完整的工具链支持：提供在线 IDE, mbed CLI 以及 第三方 IDE</li>
 <li>良好的社区生态</li>
 </ul>
+<p>了解更多内容，可以直接访问 <a href="https://os.mbed.com/">Mbed OS 开发者网站</a>.</p>
 <h2 id="arm-mbed-cli">使用 Arm Mbed CLI<a class="headerlink" href="#arm-mbed-cli" title="Permanent link">&para;</a></h2>
 <p>Arm 为 Mbed OS 提供了离线开发工具 Mbed CLI，该工具支持跨平台，可以运行在 Windows，Linux 和 macOS 平台上。</p>
-<p>在 Windows 上，最简单的方法是使用 <a href="https://mbed-media.mbed.com/filer_public/7f/46/7f46e205-52f5-48e2-be64-8f30d52f6d75/mbed_installer_v041.exe">Mbed CLI Windows .exe 安装包</a>。</p>
+<h3 id="mbed-cli">安装 Mbed CLI<a class="headerlink" href="#mbed-cli" title="Permanent link">&para;</a></h3>
+<p>在 Windows 上，最简单的方法是使用 <a href="https://mbed-media.mbed.com/filer_public/50/38/5038849b-16a8-42f3-be7a-43d98c7a3af3/mbed_installer_v043.exe">Mbed CLI Windows .exe 安装包</a>。</p>
 <p>在 Linux 和 macOS系统，可以使用 <code>pip</code> 进行安装：</p>
 <div class="codehilite"><pre><span></span>$ pip install mbed-cli
 </pre></div>
 
 <p>安装完成后，可以使用 <code>mbed help</code> 验证是否正确安装。</p>
+<h3 id="_2">设置开发环境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>接着，需要添加工具链路径配置：</p>
 <div class="codehilite"><pre><span></span>$ mbed config -G GCC_ARM_PATH <span class="s2">&quot;&lt;path to GNU Arm bin&gt;&quot;</span>
 <span class="o">[</span>mbed<span class="o">]</span> &lt;path to GNU Arm bin&gt; now <span class="nb">set</span> as global GCC_ARM_PATH
@@ -877,22 +940,20 @@ $ mbed config --list
 <span class="nv">GCC_ARM_PATH</span><span class="o">=</span>&lt;path to GNU Arm bin&gt;
 </pre></div>
 
-<h2 id="nrf52832-mdk">支持 nRF52832-MDK<a class="headerlink" href="#nrf52832-mdk" title="Permanent link">&para;</a></h2>
+<h2 id="nrf52832-mdk">添加 nRF52832-MDK 支持<a class="headerlink" href="#nrf52832-mdk" title="Permanent link">&para;</a></h2>
 <p>首先，从 Arm Mbed 官方仓库克隆 Mbed OS 源码：</p>
 <div class="codehilite"><pre><span></span>$ git clone https://github.com/ARMmbed/mbed-os.git
 </pre></div>
 
 <p>在 <code>mbed-os\targets\targets.json</code> 文件中添加以下目标描述：</p>
 <div class="codehilite"><pre><span></span>    <span class="s2">&quot;NRF52832_MDK&quot;</span><span class="err">:</span> <span class="p">{</span>
-        <span class="nt">&quot;inherits&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MCU_NRF52&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;macros_add&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;BOARD_PCA10040&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_12&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_15&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_58&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_55&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_54&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_31&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_30&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_51&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_36&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_53&quot;</span><span class="p">,</span> <span class="s2">&quot;S132&quot;</span><span class="p">,</span> <span class="s2">&quot;CONFIG_GPIO_AS_PINRESET&quot;</span><span class="p">,</span> <span class="s2">&quot;BLE_STACK_SUPPORT_REQD&quot;</span><span class="p">,</span> <span class="s2">&quot;SWI_DISABLE0&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_20&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_64&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_62&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_63&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;device_has_add&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ANALOGIN&quot;</span><span class="p">,</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;I2C_ASYNCH&quot;</span><span class="p">,</span> <span class="s2">&quot;INTERRUPTIN&quot;</span><span class="p">,</span> <span class="s2">&quot;LOWPOWERTIMER&quot;</span><span class="p">,</span> <span class="s2">&quot;PORTIN&quot;</span><span class="p">,</span> <span class="s2">&quot;PORTINOUT&quot;</span><span class="p">,</span> <span class="s2">&quot;PORTOUT&quot;</span><span class="p">,</span> <span class="s2">&quot;PWMOUT&quot;</span><span class="p">,</span> <span class="s2">&quot;RTC&quot;</span><span class="p">,</span> <span class="s2">&quot;SERIAL&quot;</span><span class="p">,</span> <span class="s2">&quot;SERIAL_ASYNCH&quot;</span><span class="p">,</span> <span class="s2">&quot;SERIAL_FC&quot;</span><span class="p">,</span> <span class="s2">&quot;SLEEP&quot;</span><span class="p">,</span> <span class="s2">&quot;SPI&quot;</span><span class="p">,</span> <span class="s2">&quot;SPI_ASYNCH&quot;</span><span class="p">,</span> <span class="s2">&quot;SPISLAVE&quot;</span><span class="p">,</span> <span class="s2">&quot;FLASH&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;release_versions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;inherits&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MCU_NRF52832&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;release_versions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;5&quot;</span><span class="p">],</span>
         <span class="nt">&quot;device_name&quot;</span><span class="p">:</span> <span class="s2">&quot;nRF52832_xxAA&quot;</span>
     <span class="p">}</span><span class="err">,</span>
 </pre></div>
 
-<p>另外需要在 <code>mbed-os/targets/TARGET_NORDIC/TARGET_NRF5/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/</code> 增加 <code>PinNames.h</code> 和 <code>device.h</code> 文件：</p>
+<p>另外需要在 <code>mbed-os/targets/TARGET_NORDIC/TARGET_NRF5x/TARGET_NRF52/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/</code> 增加 <code>PinNames.h</code> 和 <code>device.h</code> 文件：</p>
 <div class="codehilite"><pre><span></span><span class="c1">// PinNames.h</span>
 
 <span class="cp">#ifndef MBED_PINNAMES_H</span>
@@ -960,7 +1021,11 @@ $ mbed config --list
 
     <span class="c1">// mBed interface Pins</span>
     <span class="n">USBTX</span> <span class="o">=</span> <span class="n">TX_PIN_NUMBER</span><span class="p">,</span>
-    <span class="n">USBRX</span> <span class="o">=</span> <span class="n">RX_PIN_NUMBER</span>
+    <span class="n">USBRX</span> <span class="o">=</span> <span class="n">RX_PIN_NUMBER</span><span class="p">,</span>
+    <span class="n">STDIO_UART_TX</span> <span class="o">=</span> <span class="n">TX_PIN_NUMBER</span><span class="p">,</span>
+    <span class="n">STDIO_UART_RX</span> <span class="o">=</span> <span class="n">RX_PIN_NUMBER</span><span class="p">,</span>
+    <span class="n">STDIO_UART_CTS</span> <span class="o">=</span> <span class="n">CTS_PIN_NUMBER</span><span class="p">,</span>
+    <span class="n">STDIO_UART_RTS</span> <span class="o">=</span> <span class="n">RTS_PIN_NUMBER</span>
 
 <span class="p">}</span> <span class="n">PinName</span><span class="p">;</span>
 
@@ -993,27 +1058,34 @@ $ mbed config --list
 $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
 </pre></div>
 
-<h2 id="_2">编译运行第一个示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">编译运行第一个示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>现在可以开始尝试编译第一个示例，这里以 <code>mbed-os-example-blinky</code> 为例：</p>
 <p>打开命令行终端，切换到示例目录：</p>
 <div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ./nrf52832-mdk/examples/mbedos5/mbed-os-example-blinky/
 </pre></div>
 
 <p>为该示例添加 Mbed OS 库：</p>
-<div class="codehilite"><pre><span></span>mbed-os-example-blinky$ mbed add &lt;path to mbed-os repository&gt;
+<div class="codehilite"><pre><span></span>mbed-os-example-blinky$ mbed config root .
+mbed-os-example-blinky$ mbed add &lt;path to mbed-os repository&gt;
 </pre></div>
 
 <p>使用 <code>mbed compile</code> 进行编译：</p>
 <div class="codehilite"><pre><span></span>mbed-os-example-blinky$ mbed compile --target NRF52832_MDK --toolchain GCC_ARM --flash
 </pre></div>
 
-<p>如果增加 <code>--flash</code> 参数，将会在编译完成后自动将固件下载到 nRF52832-MDK 硬件上。如果 <code>mbed detect</code> 无法检测到板子，可以运行以下命令添加：</p>
+<p>增加 <code>--flash</code> 参数，将会在编译完成后自动将固件下载到 nRF52832-MDK 硬件上。</p>
+<p>如果 <code>mbed detect</code> 无法检测到板子，可以运行以下命令添加：</p>
 <div class="codehilite"><pre><span></span>$ mbedls --mock<span class="o">=</span><span class="m">1024</span>:nRF52832-MDK
 </pre></div>
 
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>你也可以参考前面的内容 “<a href="./../getting-started/#_2">如何下载固件？</a>” 下载固件。</p>
+</div>
 <p><img alt="" src="./../../mbedos/images/mbed-os-example-blinky-bash.png" /></p>
+<p>观察运行结果：</p>
 <p><img alt="" src="./../../mbedos/images/mbed-os-example-blinky-demo.gif" /></p>
-<h2 id="_3">低功耗蓝牙示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">低功耗蓝牙示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Mbed OS 对低功耗蓝牙支持非常友好，这里提供一些低功耗蓝牙示例：</p>
 <div class="codehilite"><pre><span></span>./nrf52832-mdk/examples/mbedos5/mbed-os-example-ble
 ├── BLE_BatteryLevel
@@ -1042,25 +1114,36 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
 </pre></div>
 
 <p>打开 <strong>nRF Connect</strong> app，找到名为 <code>BATTERY</code> 的设备，连接设备，可发现 UUID 为 <code>0x180F</code> 的电池服务，该服务包含 UUID 为 <code>0x2A19</code> 的 <code>Battery level</code> 属性。</p>
-<p><img alt="" src="./../../mbedos/images/mbed-os-example-ble-battery.jpg" /></p>
+<p><a href="./../../mbedos/images/mbed-os-example-ble-battery.jpg"><img alt="" src="./../../mbedos/images/mbed-os-example-ble-battery.jpg" /></a></p>
 <p>其他低功耗蓝牙示例使用方法类似，你可以自行验证。</p>
-<h2 id="_4">更多示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">更多示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>我们会不定期增加更多有趣的示例到 <a href="https://github.com/makerdiary/nrf52832-mdk">nrf52832-mdk</a> 仓库中，敬请关注！</p>
-<h2 id="_5">参考资源<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">参考资源<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://os.mbed.com/">Arm Mbed OS 开发者网站</a></li>
 <li><a href="https://os.mbed.com/docs/">Mbed OS 文档中心</a></li>
 <li><a href="https://github.com/ARMmbed/mbed-os">ARMmbed/mbed-os 仓库</a></li>
 </ul>
-<h2 id="_6">问题反馈<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 或 <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk">Slack</a> 反馈。</p>
-<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> 创建 Issue</button></a></p>
+<h2 id="_7">问题反馈<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>如果在开发过程遇到任何问题，可以通过 <a href="https://github.com/makerdiary/nrf52832-mdk/issues">GitHub Issue</a> 反馈。</p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> 创建 Issue</button></a></p>
                 
                   
                 
               
               
                 
+
+
+              
+              
+                
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="discourse-comments"></div>
+  <script>DiscourseEmbed={discourseUrl:"https://community.makerdiary.co/",discourseEmbedUrl:"https://wiki.makerdiary.co/nrf52832-mdk/cn/mbedos/"},function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=DiscourseEmbed.discourseUrl+"javascripts/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script>
+
               
             </article>
           </div>
@@ -1110,7 +1193,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
+            Copyright &copy; 2018 <a href="https://makerdiary.com">makerdiary.com</a>
           </div>
         
         powered by
@@ -1125,7 +1208,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://community.makerdiary.co" class="md-footer-social__link fa fa-comments"></a>
     
       <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
     
@@ -1133,7 +1216,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
     
       <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
     
-      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+      <a href="https://makerdiary.com" class="md-footer-social__link fa fa-globe"></a>
     
   </div>
 
@@ -1144,7 +1227,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
       
     </div>
     
-      <script src="../../assets/javascripts/application.a46cbbdf.js"></script>
+      <script src="../../assets/javascripts/application.edf82dcc.js"></script>
       
       <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
       

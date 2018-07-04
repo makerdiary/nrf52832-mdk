@@ -13,7 +13,7 @@
         <meta name="description" content="An Open Source, Micro Development Kit for IoT Applications">
       
       
-        <link rel="canonical" href="https://makerdiary.github.io/nrf52832-mdk/mbedos/">
+        <link rel="canonical" href="https://wiki.makerdiary.co/nrf52832-mdk/mbedos/">
       
       
         <meta name="author" content="Zelin">
@@ -37,8 +37,8 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+      <link rel="shortcut icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.7.3">
     
     
       
@@ -46,15 +46,16 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.9b572555.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.8d40d89b.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.c61db26e.css">
       
     
     
-      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
     
     
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
@@ -67,7 +68,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-primary="marsala" data-md-color-accent="marsala">
   
     <svg class="md-svg">
       <defs>
@@ -94,8 +95,8 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
       <a href="#arm-mbed-os-an-open-source-embedded-operating-system-designed-specifically-for-the-things-in-the-internet-of-things" tabindex="1" class="md-skip">
@@ -107,7 +108,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://makerdiary.github.io/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
+        <a href="https://wiki.makerdiary.co/nrf52832-mdk" title="nRF52832-MDK Documentation" class="md-header-nav__button md-logo">
           
             <img src="../images/logo.svg" width="24" height="24">
           
@@ -203,8 +204,8 @@
         
   <li class="md-tabs__item">
     
-      <a href=".." title="Overview" class="md-tabs__link md-tabs__link--active">
-        Overview
+      <a href=".." title="Introduction" class="md-tabs__link md-tabs__link--active">
+        Introduction
       </a>
     
   </li>
@@ -264,7 +265,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <img src="../images/logo.svg" width="24" height="24">
+        <img src="../images/logo.svg" width="48" height="48">
       
     </span>
     nRF52832-MDK Documentation
@@ -300,8 +301,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Overview" class="md-nav__link">
-      Overview
+    <a href=".." title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
@@ -324,7 +325,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+    <a href="../nrf5-sdk/" title="nRF5 SDK" class="md-nav__link">
       nRF5 SDK
     </a>
   </li>
@@ -386,6 +387,26 @@
     Using Arm Mbed CLI
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-mbed-cli" title="Install Mbed CLI" class="md-nav__link">
+    Install Mbed CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-environment" title="Setup environment" class="md-nav__link">
+    Setup environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -424,8 +445,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
-    Any Issue ?
+  <a href="#create-an-issue" title="Create an Issue" class="md-nav__link">
+    Create an Issue
   </a>
   
 </li>
@@ -433,6 +454,15 @@
       
       
       
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
       
     </ul>
   
@@ -598,7 +628,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cn/nrf5sdk/" title="nRF5 SDK" class="md-nav__link">
+    <a href="../cn/nrf5-sdk/" title="nRF5 SDK" class="md-nav__link">
       nRF5 SDK
     </a>
   </li>
@@ -785,6 +815,26 @@
     Using Arm Mbed CLI
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-mbed-cli" title="Install Mbed CLI" class="md-nav__link">
+    Install Mbed CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-environment" title="Setup environment" class="md-nav__link">
+    Setup environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -823,8 +873,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#any-issue" title="Any Issue ?" class="md-nav__link">
-    Any Issue ?
+  <a href="#create-an-issue" title="Create an Issue" class="md-nav__link">
+    Create an Issue
   </a>
   
 </li>
@@ -832,6 +882,15 @@
       
       
       
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
       
     </ul>
   
@@ -847,8 +906,9 @@
                 
                 
                 <h1 id="arm-mbed-os-an-open-source-embedded-operating-system-designed-specifically-for-the-things-in-the-internet-of-things">Arm Mbed OS <br><small>An Open Source Embedded Operating System designed specifically for the "things" in the Internet of Things.</small><a class="headerlink" href="#arm-mbed-os-an-open-source-embedded-operating-system-designed-specifically-for-the-things-in-the-internet-of-things" title="Permanent link">&para;</a></h1>
+<p><a href="./images/mbedos-logo.png"><img alt="" src="./images/mbedos-logo.png" /></a></p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Arm Mbed OS is an open source embedded operating system designed specifically for the "things" in the Internet of Things. It includes all the features you need to develop a connected product based on an Arm Cortex-M microcontroller, including security, connectivity, an RTOS and drivers for sensors and I/O devices.</p>
+<p><a href="https://www.mbed.com/">Arm Mbed OS</a> is an open source embedded operating system designed specifically for the "things" in the Internet of Things. It includes all the features you need to develop a connected product based on an Arm Cortex-M microcontroller, including security, connectivity, an RTOS and drivers for sensors and I/O devices.</p>
 <p>Mbed OS provides a platform that includes:</p>
 <ul>
 <li>Security foundations.</li>
@@ -857,19 +917,25 @@
 </ul>
 <p>Arm Mbed OS lets you write applications that run on embedded devices, by providing the layer that interprets your application's code in a way the hardware can understand.</p>
 <p>Your application code is written in C and C++. It uses the application programming interfaces (APIs) that Mbed OS provides. These APIs allow your code to work on different microcontrollers in a uniform way. This reduces the challenges of getting started with Arm-based microcontrollers and integrating large software projects.</p>
+<p>For more information, please visit the <a href="https://os.mbed.com/">Mbed OS developer site</a>.</p>
 <h2 id="using-arm-mbed-cli">Using Arm Mbed CLI<a class="headerlink" href="#using-arm-mbed-cli" title="Permanent link">&para;</a></h2>
 <p>In the Arm Mbed ecosystem, you have a choice in how you want to develop, Online and Offline. For offline development, Arm Mbed CLI is provided. Mbed CLI is compatible with Windows, Linux and OSX. This option provides more configuration options but also requires slightly more setup.</p>
+<h3 id="install-mbed-cli">Install Mbed CLI<a class="headerlink" href="#install-mbed-cli" title="Permanent link">&para;</a></h3>
 <p>The setup process for Arm Mbed CLI depends on your operating system. Please choose your host operating system. The setup instructions for each operating system walk you through how to install Mbed CLI locally.</p>
-<p>On Windows the easiest way to install Mbed CLI to run the <a href="https://mbed-media.mbed.com/filer_public/7f/46/7f46e205-52f5-48e2-be64-8f30d52f6d75/mbed_installer_v041.exe">Mbed CLI Windows .exe installer</a>.</p>
+<p>On Windows the easiest way to install Mbed CLI to run the <a href="https://mbed-media.mbed.com/filer_public/50/38/5038849b-16a8-42f3-be7a-43d98c7a3af3/mbed_installer_v043.exe">Mbed CLI Windows .exe installer</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Windows installer only installs the GNU Arm embedded toolchain. If you want to compile using Arm Compiler 5 or IAR, visit the <a href="https://os.mbed.com/docs/latest/tools/index.html#compiler-versions">supported compilers page</a>.</p>
+<p>The Windows installer only installs the GNU Arm embedded toolchain. If you want to compile using Arm Compiler 5 or IAR, visit the <a href="https://os.mbed.com/docs/v5.8/tools/index.html#compiler-versions">supported compilers page</a>.</p>
 </div>
 <p>On Linux and macOS, you can use Python and Pip:</p>
 <div class="codehilite"><pre><span></span>$ pip install mbed-cli
+
+<span class="c1"># if you have installed mbed-cli, you can update it with:</span>
+$ pip install mbed-cli --upgrade
 </pre></div>
 
 <p>You can ensure Mbed CLI installed correctly by running <code>mbed help</code> from your command-line.</p>
+<h3 id="setup-environment">Setup environment<a class="headerlink" href="#setup-environment" title="Permanent link">&para;</a></h3>
 <p>For any installed toolchain, be sure to add the Mbed CLI global configuration:</p>
 <div class="codehilite"><pre><span></span>$ mbed config -G GCC_ARM_PATH <span class="s2">&quot;&lt;path to GNU Arm bin&gt;&quot;</span>
 <span class="o">[</span>mbed<span class="o">]</span> &lt;path to GNU Arm bin&gt; now <span class="nb">set</span> as global GCC_ARM_PATH
@@ -890,19 +956,18 @@ $ mbed config --list
 
 <p>Add the target description to <code>mbed-os\targets\targets.json</code> using the following keys:</p>
 <div class="codehilite"><pre><span></span>    <span class="s2">&quot;NRF52832_MDK&quot;</span><span class="err">:</span> <span class="p">{</span>
-        <span class="nt">&quot;inherits&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MCU_NRF52&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;macros_add&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;BOARD_PCA10040&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_12&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_15&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_58&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_55&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_54&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_31&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_30&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_51&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_36&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_53&quot;</span><span class="p">,</span> <span class="s2">&quot;S132&quot;</span><span class="p">,</span> <span class="s2">&quot;CONFIG_GPIO_AS_PINRESET&quot;</span><span class="p">,</span> <span class="s2">&quot;BLE_STACK_SUPPORT_REQD&quot;</span><span class="p">,</span> <span class="s2">&quot;SWI_DISABLE0&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_20&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_64&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_62&quot;</span><span class="p">,</span> <span class="s2">&quot;NRF52_PAN_63&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;device_has_add&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ANALOGIN&quot;</span><span class="p">,</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;I2C_ASYNCH&quot;</span><span class="p">,</span> <span class="s2">&quot;INTERRUPTIN&quot;</span><span class="p">,</span> <span class="s2">&quot;LOWPOWERTIMER&quot;</span><span class="p">,</span> <span class="s2">&quot;PORTIN&quot;</span><span class="p">,</span> <span class="s2">&quot;PORTINOUT&quot;</span><span class="p">,</span> <span class="s2">&quot;PORTOUT&quot;</span><span class="p">,</span> <span class="s2">&quot;PWMOUT&quot;</span><span class="p">,</span> <span class="s2">&quot;RTC&quot;</span><span class="p">,</span> <span class="s2">&quot;SERIAL&quot;</span><span class="p">,</span> <span class="s2">&quot;SERIAL_ASYNCH&quot;</span><span class="p">,</span> <span class="s2">&quot;SERIAL_FC&quot;</span><span class="p">,</span> <span class="s2">&quot;SLEEP&quot;</span><span class="p">,</span> <span class="s2">&quot;SPI&quot;</span><span class="p">,</span> <span class="s2">&quot;SPI_ASYNCH&quot;</span><span class="p">,</span> <span class="s2">&quot;SPISLAVE&quot;</span><span class="p">,</span> <span class="s2">&quot;FLASH&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;release_versions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;inherits&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MCU_NRF52832&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;release_versions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;5&quot;</span><span class="p">],</span>
         <span class="nt">&quot;device_name&quot;</span><span class="p">:</span> <span class="s2">&quot;nRF52832_xxAA&quot;</span>
     <span class="p">}</span><span class="err">,</span>
 </pre></div>
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Arm Mbed uses JSON as a description language for its build targets. You can view the <a href="https://os.mbed.com/docs/v5.7/tools/adding-and-configuring-targets.html">Adding and configuring targets section</a> describes for more details. </p>
+<p>Arm Mbed uses JSON as a description language for its build targets. You can view the <a href="https://os.mbed.com/docs/v5.8/tools/adding-and-configuring-targets.html">Adding and configuring targets section</a> describes for more details. </p>
 </div>
-<p>To add support for the nRF52832-MDK board, you must create board files: <code>PinNames.h</code> and <code>device.h</code>. These files must be located in a directory in the <code>mbed-os/targets/TARGET_NORDIC/TARGET_NRF5/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/</code> path.</p>
+<p>To add support for the nRF52832-MDK board, you must create board files: <code>PinNames.h</code> and <code>device.h</code>. These files must be located in a directory in the <code>mbed-os/targets/TARGET_NORDIC/TARGET_NRF5x/TARGET_NRF52/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/</code> path.</p>
+<p>Create <code>PinNames.h</code> file and adapt it to:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// PinNames.h</span>
 
 <span class="cp">#ifndef MBED_PINNAMES_H</span>
@@ -970,7 +1035,11 @@ $ mbed config --list
 
     <span class="c1">// mBed interface Pins</span>
     <span class="n">USBTX</span> <span class="o">=</span> <span class="n">TX_PIN_NUMBER</span><span class="p">,</span>
-    <span class="n">USBRX</span> <span class="o">=</span> <span class="n">RX_PIN_NUMBER</span>
+    <span class="n">USBRX</span> <span class="o">=</span> <span class="n">RX_PIN_NUMBER</span><span class="p">,</span>
+    <span class="n">STDIO_UART_TX</span> <span class="o">=</span> <span class="n">TX_PIN_NUMBER</span><span class="p">,</span>
+    <span class="n">STDIO_UART_RX</span> <span class="o">=</span> <span class="n">RX_PIN_NUMBER</span><span class="p">,</span>
+    <span class="n">STDIO_UART_CTS</span> <span class="o">=</span> <span class="n">CTS_PIN_NUMBER</span><span class="p">,</span>
+    <span class="n">STDIO_UART_RTS</span> <span class="o">=</span> <span class="n">RTS_PIN_NUMBER</span>
 
 <span class="p">}</span> <span class="n">PinName</span><span class="p">;</span>
 
@@ -988,6 +1057,7 @@ $ mbed config --list
 <span class="cp">#endif</span>
 </pre></div>
 
+<p>Create <code>device.h</code> file and adapt it to:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// device.h</span>
 
 <span class="cp">#ifndef MBED_DEVICE_H</span>
@@ -1010,7 +1080,8 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
 </pre></div>
 
 <p>Add mbed-os library to the example directory:</p>
-<div class="codehilite"><pre><span></span>mbed-os-example-blinky$ mbed add &lt;path to mbed-os repository&gt;
+<div class="codehilite"><pre><span></span>mbed-os-example-blinky$ mbed config root .
+mbed-os-example-blinky$ mbed add &lt;path to mbed-os repository&gt;
 </pre></div>
 
 <p>Invoke <code>mbed compile</code>, and specify the name of your platform and your installed toolchain (GCC_ARM, ARM, IAR). For example, for the NRF52832_MDK platform and GNU Arm embedded toolchain:</p>
@@ -1022,7 +1093,12 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
 </pre></div>
 
 <p><img alt="" src="./images/mbed-os-example-blinky-bash.png" /></p>
+<p>Observe that the Green LED is blinking:</p>
 <p><img alt="" src="./images/mbed-os-example-blinky-demo.gif" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also follow the '<a href="./../getting-started/#how-to-program-nrf52832-mdk">How to program nRF52832-MDK</a>' section to flash the compiled program.</p>
+</div>
 <h2 id="ble-examples">BLE examples<a class="headerlink" href="#ble-examples" title="Permanent link">&para;</a></h2>
 <p>The <code>nrf52832-mdk</code> repository contains a collection of BLE example applications based on mbed OS and built with Arm Mbed CLI.</p>
 <div class="codehilite"><pre><span></span>./nrf52832-mdk/examples/mbedos5/mbed-os-example-ble
@@ -1053,7 +1129,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
 
 <p>Open the <strong>nRF Connect</strong> app on your phone. Find your device which should be named <code>BATTERY</code>.</p>
 <p>Then establish a connection with your device. Discover the services and the characteristics on the device. The <code>Battery service</code> has the UUID <code>0x180F</code> and includes the <code>Battery level characteristic</code> which has the UUID <code>0x2A19</code>.</p>
-<p><img alt="" src="./images/mbed-os-example-ble-battery.jpg" /></p>
+<p><a href="./images/mbed-os-example-ble-battery.jpg"><img alt="" src="./images/mbed-os-example-ble-battery.jpg" /></a></p>
 <p>Now you can try other BLE examples on your board. Have fun!</p>
 <h2 id="more-examples">More examples<a class="headerlink" href="#more-examples" title="Permanent link">&para;</a></h2>
 <p>Over time, more example applications will be added to the repository. You can star or watch the <a href="https://github.com/makerdiary/nrf52832-mdk">nrf52832-mdk</a> repository to stay up to date.</p>
@@ -1063,15 +1139,26 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
 <li><a href="https://os.mbed.com/docs/">Mbed OS Documentation</a></li>
 <li><a href="https://github.com/ARMmbed/mbed-os">ARMmbed/mbed-os repository</a></li>
 </ul>
-<h2 id="any-issue">Any Issue ?<a class="headerlink" href="#any-issue" title="Permanent link">&para;</a></h2>
+<h2 id="create-an-issue">Create an Issue<a class="headerlink" href="#create-an-issue" title="Permanent link">&para;</a></h2>
 <p>Interested in contributing to this project? Want to report a bug? Feel free and click here:</p>
-<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="indigo"><i class="fa fa-github"></i> New Issue</button></a></p>
+<p><a href="https://github.com/makerdiary/nrf52832-mdk/issues/new"><button data-md-color-primary="marsala"><i class="fa fa-github"></i> Create an Issue</button></a></p>
                 
                   
                 
               
               
                 
+
+
+              
+              
+                
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="discourse-comments"></div>
+  <script>DiscourseEmbed={discourseUrl:"https://community.makerdiary.co/",discourseEmbedUrl:"https://wiki.makerdiary.co/nrf52832-mdk/mbedos/"},function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=DiscourseEmbed.discourseUrl+"javascripts/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script>
+
               
             </article>
           </div>
@@ -1121,7 +1208,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2018 <a href="https://makerdiary.co">makerdiary.co</a>
+            Copyright &copy; 2018 <a href="https://makerdiary.com">makerdiary.com</a>
           </div>
         
         powered by
@@ -1136,7 +1223,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://join.slack.com/t/makerdiary/shared_invite/enQtMzIxNTA4MjkwMjc2LTM5MzcyNDhjYjI3YjEwOWE1YzM3YmE0YWEzNGNkNDU3NmE5M2M0MWYyM2QzZTFkNzQ2YjdmMWJlZjIwYmQwMDk" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://community.makerdiary.co" class="md-footer-social__link fa fa-comments"></a>
     
       <a href="https://github.com/makerdiary" class="md-footer-social__link fa fa-github-alt"></a>
     
@@ -1144,7 +1231,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
     
       <a href="https://www.facebook.com/makerdiary" class="md-footer-social__link fa fa-facebook"></a>
     
-      <a href="https://makerdiary.co" class="md-footer-social__link fa fa-globe"></a>
+      <a href="https://makerdiary.com" class="md-footer-social__link fa fa-globe"></a>
     
   </div>
 
@@ -1155,7 +1242,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
       
     </div>
     
-      <script src="../assets/javascripts/application.a46cbbdf.js"></script>
+      <script src="../assets/javascripts/application.edf82dcc.js"></script>
       
       <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
       
