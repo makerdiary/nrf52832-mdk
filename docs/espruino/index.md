@@ -159,7 +159,7 @@ import pinutils;
 
 info = {
  'name' : "nRF52832-MDK",
- 'link' :  [ "https://wiki.makerdiary.co/nrf52832-mdk/" ],
+ 'link' :  [ "https://wiki.makerdiary.com/nrf52832-mdk/" ],
   # This is the nRF52832-MDK
  'default_console' : "EV_SERIAL1",
  'default_console_tx' : "D20",

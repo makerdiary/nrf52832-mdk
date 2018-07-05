@@ -2,7 +2,7 @@
 
 *An Open Source, Micro Development Kit for IoT Embedded Applications*
 
-[中文文档](https://wiki.makerdiary.co/nrf52832-mdk/cn)
+[中文文档](https://wiki.makerdiary.com/nrf52832-mdk/cn)
 
 ## Table of Contents
 
