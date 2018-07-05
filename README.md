@@ -246,7 +246,7 @@ nRF52832-MDK is available on the following channels (click to go directly to the
 
 **MIT License**
 
-Copyright (c) 2018 [makerdiary.co](https://makerdiary.co)
+Copyright (c) 2018 [makerdiary.com](https://makerdiary.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
