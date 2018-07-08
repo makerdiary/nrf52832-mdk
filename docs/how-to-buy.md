@@ -4,7 +4,7 @@
 
 nRF52832-MDK is available on the following channels (click to go directly to the product):
 
-[![makerdiary store](images/makerdiary-store-logo.png)](https://store.makerdiary.com)
+[![makerdiary store](images/makerdiary-store-logo.png)](https://store.makerdiary.com/collections/frontpage)
 
 [![SeeedStudio](images/seeed_logo_2018_horizontal.png)](https://www.seeedstudio.com/nRF52832-Micro-Development-Board-p-2992.html)
 

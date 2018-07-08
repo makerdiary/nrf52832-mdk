@@ -236,7 +236,7 @@ $ pyocd-flashtool -d debug -t nrf52 -se your-hex-file.hex
 
 nRF52832-MDK is available on the following channels (click to go directly to the product):
 
-[![makerdiary store](docs/images/makerdiary-store-logo.png)](https://store.makerdiary.com)
+[![makerdiary store](docs/images/makerdiary-store-logo.png)](https://store.makerdiary.com/collections/frontpage)
 
 [![SeeedStudio](docs/images/seeed_logo_2018_horizontal.png)](https://www.seeedstudio.com/nRF52832-Micro-Development-Board-p-2992.html)
 
