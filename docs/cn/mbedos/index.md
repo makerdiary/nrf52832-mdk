@@ -44,134 +44,6 @@ $ mbed config --list
 GCC_ARM_PATH=<path to GNU Arm bin>
 ```
 
-## 添加 nRF52832-MDK 支持
-
-首先，从 Arm Mbed 官方仓库克隆 Mbed OS 源码：
-
-``` sh
-$ git clone https://github.com/ARMmbed/mbed-os.git
-```
-
-在 `mbed-os\targets\targets.json` 文件中添加以下目标描述：
-
-``` json
-    "NRF52832_MDK": {
-        "inherits": ["MCU_NRF52832"],
-        "release_versions": ["5"],
-        "device_name": "nRF52832_xxAA"
-    },
-```
-
-另外需要在 `mbed-os/targets/TARGET_NORDIC/TARGET_NRF5x/TARGET_NRF52/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/` 增加 `PinNames.h` 和 `device.h` 文件：
-
-``` c
-// PinNames.h
-
-#ifndef MBED_PINNAMES_H
-#define MBED_PINNAMES_H
-
-#include "cmsis.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-typedef enum {
-    PIN_INPUT,
-    PIN_OUTPUT
-} PinDirection;
-
-#define PORT_SHIFT  3
-
-typedef enum {
-    p0  = 0,
-    p1  = 1,
-    p2  = 2,
-    p3  = 3,
-    p4  = 4,
-    p5  = 5,
-    p6  = 6,
-    p7  = 7,
-    p8  = 8,
-    p9  = 9,
-    p10 = 10,
-    p11 = 11,
-    p12 = 12,
-    p13 = 13,
-    p14 = 14,
-    p15 = 15,
-    p16 = 16,
-    p17 = 17,
-    p18 = 18,
-    p19 = 19,
-    p20 = 20,
-    p21 = 21,
-    p22 = 22,
-    p23 = 23,
-    p24 = 24,
-    p25 = 25,
-    p26 = 26,
-    p27 = 27,
-    p28 = 28,
-    p29 = 29,
-    p30 = 30,
-    p31 = 31,
-    // Not connected
-    NC = (int)0xFFFFFFFF,
-
-    LED1    = p22,
-    LED2    = p23,
-    LED3    = p24,
-
-    BUTTON1 = p18,
-
-    RX_PIN_NUMBER  = p19,
-    TX_PIN_NUMBER  = p20,
-    CTS_PIN_NUMBER = NC,   // not connected
-    RTS_PIN_NUMBER = NC,   // not connected
-
-    // mBed interface Pins
-    USBTX = TX_PIN_NUMBER,
-    USBRX = RX_PIN_NUMBER,
-    STDIO_UART_TX = TX_PIN_NUMBER,
-    STDIO_UART_RX = RX_PIN_NUMBER,
-    STDIO_UART_CTS = CTS_PIN_NUMBER,
-    STDIO_UART_RTS = RTS_PIN_NUMBER
-
-} PinName;
-
-typedef enum {
-    PullNone = 0,
-    PullDown = 1,
-    PullUp = 3,
-    PullDefault = PullUp
-} PinMode;
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif
-```
-
-``` c
-// device.h
-
-#ifndef MBED_DEVICE_H
-#define MBED_DEVICE_H
-
-#include "objects.h"
-
-#endif
-```
-
-最后，需要提交修改：
-
-``` sh
-$ git add *
-$ git commit -m "add support for nRF52832-MDK"
-```
-
 ## 编译运行第一个示例
 
 现在可以开始尝试编译第一个示例，这里以 `mbed-os-example-blinky` 为例：
@@ -186,7 +58,7 @@ $ cd ./nrf52832-mdk/examples/mbedos5/mbed-os-example-blinky/
 
 ``` sh
 mbed-os-example-blinky$ mbed config root .
-mbed-os-example-blinky$ mbed add <path to mbed-os repository>
+mbed-os-example-blinky$ mbed add https://github.com/makerdiary/mbed-os.git
 ```
 
 使用 `mbed compile` 进行编译：
@@ -241,7 +113,7 @@ $ cd BLE_BatteryLevel
 添加 Mbed OS 库：
 
 ``` sh
-BLE_BatteryLevel$ mbed add <path to mbed-os repository>
+BLE_BatteryLevel$ mbed add https://github.com/makerdiary/mbed-os.git
 ```
 
 编译下载：
