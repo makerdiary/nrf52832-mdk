@@ -601,13 +601,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nrf52832-mdk" title="添加 nRF52832-MDK 支持" class="md-nav__link">
-    添加 nRF52832-MDK 支持
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_3" title="编译运行第一个示例" class="md-nav__link">
     编译运行第一个示例
   </a>
@@ -842,13 +835,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nrf52832-mdk" title="添加 nRF52832-MDK 支持" class="md-nav__link">
-    添加 nRF52832-MDK 支持
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_3" title="编译运行第一个示例" class="md-nav__link">
     编译运行第一个示例
   </a>
@@ -940,124 +926,6 @@ $ mbed config --list
 <span class="nv">GCC_ARM_PATH</span><span class="o">=</span>&lt;path to GNU Arm bin&gt;
 </pre></div>
 
-<h2 id="nrf52832-mdk">添加 nRF52832-MDK 支持<a class="headerlink" href="#nrf52832-mdk" title="Permanent link">&para;</a></h2>
-<p>首先，从 Arm Mbed 官方仓库克隆 Mbed OS 源码：</p>
-<div class="codehilite"><pre><span></span>$ git clone https://github.com/ARMmbed/mbed-os.git
-</pre></div>
-
-<p>在 <code>mbed-os\targets\targets.json</code> 文件中添加以下目标描述：</p>
-<div class="codehilite"><pre><span></span>    <span class="s2">&quot;NRF52832_MDK&quot;</span><span class="err">:</span> <span class="p">{</span>
-        <span class="nt">&quot;inherits&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MCU_NRF52832&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;release_versions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;5&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;device_name&quot;</span><span class="p">:</span> <span class="s2">&quot;nRF52832_xxAA&quot;</span>
-    <span class="p">}</span><span class="err">,</span>
-</pre></div>
-
-<p>另外需要在 <code>mbed-os/targets/TARGET_NORDIC/TARGET_NRF5x/TARGET_NRF52/TARGET_MCU_NRF52832/TARGET_NRF52832_MDK/</code> 增加 <code>PinNames.h</code> 和 <code>device.h</code> 文件：</p>
-<div class="codehilite"><pre><span></span><span class="c1">// PinNames.h</span>
-
-<span class="cp">#ifndef MBED_PINNAMES_H</span>
-<span class="cp">#define MBED_PINNAMES_H</span>
-
-<span class="cp">#include</span> <span class="cpf">&quot;cmsis.h&quot;</span><span class="cp"></span>
-
-<span class="cp">#ifdef __cplusplus</span>
-<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
-<span class="cp">#endif</span>
-
-<span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
-    <span class="n">PIN_INPUT</span><span class="p">,</span>
-    <span class="n">PIN_OUTPUT</span>
-<span class="p">}</span> <span class="n">PinDirection</span><span class="p">;</span>
-
-<span class="cp">#define PORT_SHIFT  3</span>
-
-<span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
-    <span class="n">p0</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">p1</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="n">p2</span>  <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="n">p3</span>  <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="n">p4</span>  <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="n">p5</span>  <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="n">p6</span>  <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
-    <span class="n">p7</span>  <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
-    <span class="n">p8</span>  <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
-    <span class="n">p9</span>  <span class="o">=</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="n">p10</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="n">p11</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span>
-    <span class="n">p12</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="n">p13</span> <span class="o">=</span> <span class="mi">13</span><span class="p">,</span>
-    <span class="n">p14</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span>
-    <span class="n">p15</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
-    <span class="n">p16</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
-    <span class="n">p17</span> <span class="o">=</span> <span class="mi">17</span><span class="p">,</span>
-    <span class="n">p18</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span>
-    <span class="n">p19</span> <span class="o">=</span> <span class="mi">19</span><span class="p">,</span>
-    <span class="n">p20</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="n">p21</span> <span class="o">=</span> <span class="mi">21</span><span class="p">,</span>
-    <span class="n">p22</span> <span class="o">=</span> <span class="mi">22</span><span class="p">,</span>
-    <span class="n">p23</span> <span class="o">=</span> <span class="mi">23</span><span class="p">,</span>
-    <span class="n">p24</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span>
-    <span class="n">p25</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
-    <span class="n">p26</span> <span class="o">=</span> <span class="mi">26</span><span class="p">,</span>
-    <span class="n">p27</span> <span class="o">=</span> <span class="mi">27</span><span class="p">,</span>
-    <span class="n">p28</span> <span class="o">=</span> <span class="mi">28</span><span class="p">,</span>
-    <span class="n">p29</span> <span class="o">=</span> <span class="mi">29</span><span class="p">,</span>
-    <span class="n">p30</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
-    <span class="n">p31</span> <span class="o">=</span> <span class="mi">31</span><span class="p">,</span>
-    <span class="c1">// Not connected</span>
-    <span class="n">NC</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mh">0xFFFFFFFF</span><span class="p">,</span>
-
-    <span class="n">LED1</span>    <span class="o">=</span> <span class="n">p22</span><span class="p">,</span>
-    <span class="n">LED2</span>    <span class="o">=</span> <span class="n">p23</span><span class="p">,</span>
-    <span class="n">LED3</span>    <span class="o">=</span> <span class="n">p24</span><span class="p">,</span>
-
-    <span class="n">BUTTON1</span> <span class="o">=</span> <span class="n">p18</span><span class="p">,</span>
-
-    <span class="n">RX_PIN_NUMBER</span>  <span class="o">=</span> <span class="n">p19</span><span class="p">,</span>
-    <span class="n">TX_PIN_NUMBER</span>  <span class="o">=</span> <span class="n">p20</span><span class="p">,</span>
-    <span class="n">CTS_PIN_NUMBER</span> <span class="o">=</span> <span class="n">NC</span><span class="p">,</span>   <span class="c1">// not connected</span>
-    <span class="n">RTS_PIN_NUMBER</span> <span class="o">=</span> <span class="n">NC</span><span class="p">,</span>   <span class="c1">// not connected</span>
-
-    <span class="c1">// mBed interface Pins</span>
-    <span class="n">USBTX</span> <span class="o">=</span> <span class="n">TX_PIN_NUMBER</span><span class="p">,</span>
-    <span class="n">USBRX</span> <span class="o">=</span> <span class="n">RX_PIN_NUMBER</span><span class="p">,</span>
-    <span class="n">STDIO_UART_TX</span> <span class="o">=</span> <span class="n">TX_PIN_NUMBER</span><span class="p">,</span>
-    <span class="n">STDIO_UART_RX</span> <span class="o">=</span> <span class="n">RX_PIN_NUMBER</span><span class="p">,</span>
-    <span class="n">STDIO_UART_CTS</span> <span class="o">=</span> <span class="n">CTS_PIN_NUMBER</span><span class="p">,</span>
-    <span class="n">STDIO_UART_RTS</span> <span class="o">=</span> <span class="n">RTS_PIN_NUMBER</span>
-
-<span class="p">}</span> <span class="n">PinName</span><span class="p">;</span>
-
-<span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
-    <span class="n">PullNone</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">PullDown</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="n">PullUp</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="n">PullDefault</span> <span class="o">=</span> <span class="n">PullUp</span>
-<span class="p">}</span> <span class="n">PinMode</span><span class="p">;</span>
-
-<span class="cp">#ifdef __cplusplus</span>
-<span class="p">}</span>
-<span class="cp">#endif</span>
-
-<span class="cp">#endif</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="c1">// device.h</span>
-
-<span class="cp">#ifndef MBED_DEVICE_H</span>
-<span class="cp">#define MBED_DEVICE_H</span>
-
-<span class="cp">#include</span> <span class="cpf">&quot;objects.h&quot;</span><span class="cp"></span>
-
-<span class="cp">#endif</span>
-</pre></div>
-
-<p>最后，需要提交修改：</p>
-<div class="codehilite"><pre><span></span>$ git add *
-$ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
-</pre></div>
-
 <h2 id="_3">编译运行第一个示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>现在可以开始尝试编译第一个示例，这里以 <code>mbed-os-example-blinky</code> 为例：</p>
 <p>打开命令行终端，切换到示例目录：</p>
@@ -1066,7 +934,7 @@ $ git commit -m <span class="s2">&quot;add support for nRF52832-MDK&quot;</span>
 
 <p>为该示例添加 Mbed OS 库：</p>
 <div class="codehilite"><pre><span></span>mbed-os-example-blinky$ mbed config root .
-mbed-os-example-blinky$ mbed add &lt;path to mbed-os repository&gt;
+mbed-os-example-blinky$ mbed add https://github.com/makerdiary/mbed-os.git
 </pre></div>
 
 <p>使用 <code>mbed compile</code> 进行编译：</p>
@@ -1106,7 +974,7 @@ mbed-os-example-blinky$ mbed add &lt;path to mbed-os repository&gt;
 </pre></div>
 
 <p>添加 Mbed OS 库：</p>
-<div class="codehilite"><pre><span></span>BLE_BatteryLevel$ mbed add &lt;path to mbed-os repository&gt;
+<div class="codehilite"><pre><span></span>BLE_BatteryLevel$ mbed add https://github.com/makerdiary/mbed-os.git
 </pre></div>
 
 <p>编译下载：</p>
