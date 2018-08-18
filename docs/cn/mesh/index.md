@@ -174,8 +174,8 @@ set(nrf52832_mdk_INCLUDE_DIRS
 ...
 
 elseif (PLATFORM STREQUAL "nrf52832_xxAA")
-    set(BOARD "nrf52832_mdk" CACHE STRING "Board to build examples for.")
-    set_property(CACHE BOARD PROPERTY STRINGS "nrf52832_mdk")
+    set(BOARD "pca10040" CACHE STRING "Board to build examples for.")
+    set_property(CACHE BOARD PROPERTY STRINGS "pca10040" "nrf52832_mdk")
 ...
 
 ```

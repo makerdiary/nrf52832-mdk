@@ -171,8 +171,8 @@ Specify the nRF52832-MDK board for the `nrf52832_xxAA` platform by adapting the 
 ...
 
 elseif (PLATFORM STREQUAL "nrf52832_xxAA")
-    set(BOARD "nrf52832_mdk" CACHE STRING "Board to build examples for.")
-    set_property(CACHE BOARD PROPERTY STRINGS "nrf52832_mdk")
+    set(BOARD "pca10040" CACHE STRING "Board to build examples for.")
+    set_property(CACHE BOARD PROPERTY STRINGS "pca10040" "nrf52832_mdk")
 ...
 ```
 
