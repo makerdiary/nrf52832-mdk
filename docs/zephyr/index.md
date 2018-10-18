@@ -66,28 +66,33 @@ The easiest way to install the dependencies natively on Microsoft Windows is to 
 5. Install the rest of the tools:
 
 	``` sh
-	$ choco install git python ninja dtc-msys2 gperf
+	$ choco install git python ninja dtc-msys2 gperf doxygen.install
 	```
 
-6. Close the Command Prompt window.
+6. **Optionally** install the tools required to build the documentation in `.pdf` format:
 
-7. Open a Command Prompt (cmd.exe) as a regular user.
+	``` sh
+	$ choco install strawberryperl miktex rsvg-convert
+	```
 
-8. Install the required Python modules:
+7. Close the Command Prompt window.
+
+8. Open a Command Prompt (cmd.exe) as a regular user.
+
+9. Install the required Python modules:
 
 	``` sh
 	$ cd ./zephyr
-	$ pip install --user -r scripts/requirements.txt
-	$ pip2 install --user -r scripts/py2-requirements.txt
+	$ pip3 install -r scripts/requirements.txt
 	```
 
-9. Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) (install to `c:\gccarmemb`).
+10. Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) (install to `c:\gnuarmemb`).
 
-10. Within the Command Prompt, set up environment variables for the installed tools and for the Zephyr environment:
+11. Within the Command Prompt, set up environment variables for the installed tools and for the Zephyr environment:
 
 	``` sh
-	$ set ZEPHYR_TOOLCHAIN_VARIANT=gccarmemb
-	$ set GCCARMEMB_TOOLCHAIN_PATH=c:\gccarmemb
+	$ set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+	$ set GNUARMEMB_TOOLCHAIN_PATH=c:\gnuarmemb
 	```
 
 #### macOS
@@ -100,20 +105,16 @@ After Homebrew was successfully installed, install the following tools using the
 
 ``` sh
 $ brew install cmake ninja dfu-util doxygen qemu dtc python3 gperf
-$ curl -O 'https://bootstrap.pypa.io/get-pip.py'
-$ ./get-pip.py
-$ rm get-pip.py
 $ cd ~/zephyr   # or to the folder where you cloned the zephyr repo
 $ pip3 install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
 ```
 
 Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads). Then make sure to add the path to your toolchain to your OS PATH environment variable:
 
 ``` sh
 # add the following scripts to ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
-export ZEPHYR_GCC_VARIANT=gccarmemb
+export GNUARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
+export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
 ```
 
 #### Linux
@@ -130,8 +131,9 @@ Install the required packages in a Ubuntu host system with:
 ``` sh
 $ sudo apt-get install --no-install-recommends git cmake ninja-build gperf \
   ccache doxygen dfu-util device-tree-compiler \
-  python3-ply python3-pip python3-setuptools xz-utils file make gcc-multilib \
-  autoconf automake libtool
+  python3-ply python3-pip python3-setuptools python3-wheel xz-utils file \
+  make gcc-multilib autoconf automake libtool librsvg2-bin \
+  texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended
 ```
 
 Install additional packages required for development with Zephyr:
@@ -139,51 +141,30 @@ Install additional packages required for development with Zephyr:
 ``` sh
 $ cd ~/zephyr  # or to your directory where zephyr is cloned
 $ pip3 install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
 ```
 
 Download and install the [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads). Then make sure to add the path to your toolchain to your OS PATH environment variable:
 
 ``` sh
 # add the following scripts to ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
-export ZEPHYR_GCC_VARIANT=gccarmemb
-```
-
-### Adding support for nRF52832-MDK
-
-To add support for nRF52832-MDK, you must add the board support files. This should give you the following folder structure:
-
-``` sh
-.zephyr/boards/arm/nrf52832_mdk
-├── Kconfig
-├── Kconfig.board
-├── Kconfig.defconfig
-├── board.cmake
-├── board.h
-├── nrf52832_mdk.dts
-├── nrf52832_mdk.yaml
-└── nrf52832_mdk_defconfig
-```
-
-You can checkout the patch from [makerdiary/zephyr](https://github.com/makerdiary/zephyr):
-
-``` sh
-$ cd <zephyr git clone location>
-$ git remote add makerdiary https://github.com/makerdiary/zephyr.git
-$ git pull makerdiary master
+export GNUARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
+export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
 ```
 
 ### Compiling and running an example
 
 Now you can try to build one of the examples. Will use the `hello_world` example here to keep it simple.
 
-Source `zephyr-env.sh` wherever you have cloned the Zephyr Git repository:
+Set up your build environment:
 
 ``` sh
-$ unset ZEPHYR_SDK_INSTALL_DIR
 $ cd <zephyr git clone location>
+
+# On Linux/macOS
 $ source zephyr-env.sh
+
+# On Windows
+$ source zephyr-env.cmd
 ```
 
 Create a `build` folder in the example directory, where all artifacts generated by the Ninja build system are stored, such as:
@@ -202,11 +183,11 @@ build$ ninja flash
 Check the board output from serial port, you will see the following messages:
 
 ``` sh
-***** Booting Zephyr OS 1.12.0-rc3 *****
-Hello World! arm
+***** Booting Zephyr OS zephyr-v1.13.0-1166-g8b20f9dba *****
+Hello World! nrf52832_mdk
 ```
 
-That's it! You can also try other examples in the path `nrf52832-mdk/examples/zephyr/`.
+That's it! You can also try other examples in the path `nrf52832-mdk/examples/zephyr/` or `zephyr/samples/`.
 
 ## More examples
 

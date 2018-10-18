@@ -58,24 +58,28 @@ Zephyr 项目使用 [CMake](https://cmake.org/) 工具管理和编译项目。 C
 5. 安装其他必要工具：
     
     ``` sh
-    $ choco install git python ninja dtc-msys2 gperf
+    $ choco install git python ninja dtc-msys2 gperf doxygen.install
     ```
-
-6. 关闭 cmd.exe，以普通用户重新打开，并安装 Python 模块：
-    
-    ``` sh
-	$ cd ./zephyr
-	$ pip install --user -r scripts/requirements.txt
-	$ pip2 install --user -r scripts/py2-requirements.txt
-	```
-
-7. 下载并安装 [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)，可以按照到 `c:\gccarmemb`。
-
-8. 设置 Zephyr 环境变量：
+6. **(可选)** 安装 pdf 文档生成工具：
 
 	``` sh
-	$ set ZEPHYR_TOOLCHAIN_VARIANT=gccarmemb
-	$ set GCCARMEMB_TOOLCHAIN_PATH=c:\gccarmemb
+	$ choco install strawberryperl miktex rsvg-convert
+	```
+
+7. 关闭 cmd.exe，以普通用户重新打开，并安装 Python 模块：
+    
+	``` sh
+	$ cd ./zephyr
+	$ pip3 install -r scripts/requirements.txt
+	```
+
+8. 下载并安装 [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)，可以按照到 `c:\gnuarmemb`。
+
+9. 设置 Zephyr 环境变量：
+
+	``` sh
+	$ set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+	$ set GNUARMEMB_TOOLCHAIN_PATH=c:\gnuarmemb
 	```
 
 #### macOS
@@ -86,20 +90,16 @@ Homebrew 成功安装后，运行以下命令安装所需的工具：
 
 ``` sh
 $ brew install cmake ninja dfu-util doxygen qemu dtc python3 gperf
-$ curl -O 'https://bootstrap.pypa.io/get-pip.py'
-$ ./get-pip.py
-$ rm get-pip.py
 $ cd ~/zephyr   # or to the folder where you cloned the zephyr repo
 $ pip3 install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
 ```
 
 然后，下载并安装 [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)，确保将其添加到系统变量中：
 
 ``` sh
 # 将以下脚本添加到 ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
-export ZEPHYR_GCC_VARIANT=gccarmemb
+export GNUARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
+export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
 ```
 
 #### Linux
@@ -116,8 +116,9 @@ $ sudo apt-get upgrade
 ``` sh
 $ sudo apt-get install --no-install-recommends git cmake ninja-build gperf \
   ccache doxygen dfu-util device-tree-compiler \
-  python3-ply python3-pip python3-setuptools xz-utils file make gcc-multilib \
-  autoconf automake libtool
+  python3-ply python3-pip python3-setuptools python3-wheel xz-utils file \
+  make gcc-multilib autoconf automake libtool librsvg2-bin \
+  texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended
 ```
 
 安装 Zephyr 需要的软件包：
@@ -125,41 +126,14 @@ $ sudo apt-get install --no-install-recommends git cmake ninja-build gperf \
 ``` sh
 $ cd ~/zephyr  # or to your directory where zephyr is cloned
 $ pip3 install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
 ```
 
 下载并安装 [GNU Arm Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)，确保将其添加到系统变量中：
 
 ``` sh
 # 将以下脚本添加到 ~/.bash_profile 
-export GCCARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
-export ZEPHYR_GCC_VARIANT=gccarmemb
-```
-
-
-### 添加 nRF52832-MDK 支持
-
-为了让 Zephyr OS 支持 nRF52832-MDK 板子，需要添加一些配置文件，目录结构如下：
-
-``` sh
-.zephyr/boards/arm/nrf52832_mdk
-├── Kconfig
-├── Kconfig.board
-├── Kconfig.defconfig
-├── board.cmake
-├── board.h
-├── nrf52832_mdk.dts
-├── nrf52832_mdk.yaml
-└── nrf52832_mdk_defconfig
-```
-
-如果不想手动创建，你也可以直接从 [makerdiary/zephyr](https://github.com/makerdiary/zephyr) 拉取这些配置文件：
-
-
-``` sh
-$ cd <zephyr git clone location>
-$ git remote add makerdiary https://github.com/makerdiary/zephyr.git
-$ git pull makerdiary master
+export GNUARMEMB_TOOLCHAIN_PATH="<path to install directory>/gcc-arm-none-eabi-6-2017-q2-update"
+export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
 ```
 
 ## 编译运行第一个示例
@@ -169,9 +143,13 @@ $ git pull makerdiary master
 运行以下命令设置 Zephyr 环境变量：
 
 ``` sh
-$ unset ZEPHYR_SDK_INSTALL_DIR
 $ cd <zephyr git clone location>
+
+# On Linux/macOS
 $ source zephyr-env.sh
+
+# On Windows
+$ source zephyr-env.cmd
 ```
 
 在 `hello_world` 目录创建 `build` 目录，运行以下命令编译并完成下载：
@@ -190,11 +168,11 @@ build$ ninja flash
 打开串口工具，可以看到以下信息输出：
 
 ``` sh
-***** Booting Zephyr OS 1.12.0-rc3 *****
-Hello World! arm
+***** Booting Zephyr OS zephyr-v1.13.0-1166-g8b20f9dba *****
+Hello World! nrf52832_mdk
 ```
 
-完成以上示例后，你也可以尝试 `nrf52832-mdk/examples/zephyr/` 目录下的其他例子。
+完成以上示例后，你也可以尝试 `nrf52832-mdk/examples/zephyr/` 或者 `zephyr/samples/` 目录下的其他例子。
 
 ## 更多示例
 
