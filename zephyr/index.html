@@ -451,13 +451,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#adding-support-for-nrf52832-mdk" title="Adding support for nRF52832-MDK" class="md-nav__link">
-    Adding support for nRF52832-MDK
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#compiling-and-running-an-example" title="Compiling and running an example" class="md-nav__link">
     Compiling and running an example
   </a>
@@ -894,13 +887,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#adding-support-for-nrf52832-mdk" title="Adding support for nRF52832-MDK" class="md-nav__link">
-    Adding support for nRF52832-MDK
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#compiling-and-running-an-example" title="Compiling and running an example" class="md-nav__link">
     Compiling and running an example
   </a>
@@ -1014,7 +1000,13 @@
 </li>
 <li>
 <p>Install the rest of the tools:</p>
-<div class="codehilite"><pre><span></span>$ choco install git python ninja dtc-msys2 gperf
+<div class="codehilite"><pre><span></span>$ choco install git python ninja dtc-msys2 gperf doxygen.install
+</pre></div>
+
+</li>
+<li>
+<p><strong>Optionally</strong> install the tools required to build the documentation in <code>.pdf</code> format:</p>
+<div class="codehilite"><pre><span></span>$ choco install strawberryperl miktex rsvg-convert
 </pre></div>
 
 </li>
@@ -1027,18 +1019,17 @@
 <li>
 <p>Install the required Python modules:</p>
 <div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ./zephyr
-$ pip install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
+$ pip3 install -r scripts/requirements.txt
 </pre></div>
 
 </li>
 <li>
-<p>Download and install the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a> (install to <code>c:\gccarmemb</code>).</p>
+<p>Download and install the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a> (install to <code>c:\gnuarmemb</code>).</p>
 </li>
 <li>
 <p>Within the Command Prompt, set up environment variables for the installed tools and for the Zephyr environment:</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">set</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gccarmemb
-$ <span class="nb">set</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span>c:<span class="se">\g</span>ccarmemb
+<div class="codehilite"><pre><span></span>$ <span class="nb">set</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gnuarmemb
+$ <span class="nb">set</span> <span class="nv">GNUARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span>c:<span class="se">\g</span>nuarmemb
 </pre></div>
 
 </li>
@@ -1048,18 +1039,14 @@ $ <span class="nb">set</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><s
 <p>To install Homebrew, visit the <a href="http://brew.sh/">Homebrew site</a> and follow the installation instructions on the site.</p>
 <p>After Homebrew was successfully installed, install the following tools using the brew command line:</p>
 <div class="codehilite"><pre><span></span>$ brew install cmake ninja dfu-util doxygen qemu dtc python3 gperf
-$ curl -O <span class="s1">&#39;https://bootstrap.pypa.io/get-pip.py&#39;</span>
-$ ./get-pip.py
-$ rm get-pip.py
 $ <span class="nb">cd</span> ~/zephyr   <span class="c1"># or to the folder where you cloned the zephyr repo</span>
 $ pip3 install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
 </pre></div>
 
 <p>Download and install the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a>. Then make sure to add the path to your toolchain to your OS PATH environment variable:</p>
 <div class="codehilite"><pre><span></span><span class="c1"># add the following scripts to ~/.bash_profile </span>
-<span class="nb">export</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update&quot;</span>
-<span class="nb">export</span> <span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>gccarmemb
+<span class="nb">export</span> <span class="nv">GNUARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update&quot;</span>
+<span class="nb">export</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gnuarmemb
 </pre></div>
 
 <h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h4>
@@ -1071,47 +1058,32 @@ $ sudo apt-get upgrade
 <p>Install the required packages in a Ubuntu host system with:</p>
 <div class="codehilite"><pre><span></span>$ sudo apt-get install --no-install-recommends git cmake ninja-build gperf <span class="se">\</span>
   ccache doxygen dfu-util device-tree-compiler <span class="se">\</span>
-  python3-ply python3-pip python3-setuptools xz-utils file make gcc-multilib <span class="se">\</span>
-  autoconf automake libtool
+  python3-ply python3-pip python3-setuptools python3-wheel xz-utils file <span class="se">\</span>
+  make gcc-multilib autoconf automake libtool librsvg2-bin <span class="se">\</span>
+  texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended
 </pre></div>
 
 <p>Install additional packages required for development with Zephyr:</p>
 <div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ~/zephyr  <span class="c1"># or to your directory where zephyr is cloned</span>
 $ pip3 install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
 </pre></div>
 
 <p>Download and install the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a>. Then make sure to add the path to your toolchain to your OS PATH environment variable:</p>
 <div class="codehilite"><pre><span></span><span class="c1"># add the following scripts to ~/.bash_profile </span>
-<span class="nb">export</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update&quot;</span>
-<span class="nb">export</span> <span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>gccarmemb
-</pre></div>
-
-<h3 id="adding-support-for-nrf52832-mdk">Adding support for nRF52832-MDK<a class="headerlink" href="#adding-support-for-nrf52832-mdk" title="Permanent link">&para;</a></h3>
-<p>To add support for nRF52832-MDK, you must add the board support files. This should give you the following folder structure:</p>
-<div class="codehilite"><pre><span></span>.zephyr/boards/arm/nrf52832_mdk
-├── Kconfig
-├── Kconfig.board
-├── Kconfig.defconfig
-├── board.cmake
-├── board.h
-├── nrf52832_mdk.dts
-├── nrf52832_mdk.yaml
-└── nrf52832_mdk_defconfig
-</pre></div>
-
-<p>You can checkout the patch from <a href="https://github.com/makerdiary/zephyr">makerdiary/zephyr</a>:</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> &lt;zephyr git clone location&gt;
-$ git remote add makerdiary https://github.com/makerdiary/zephyr.git
-$ git pull makerdiary master
+<span class="nb">export</span> <span class="nv">GNUARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update&quot;</span>
+<span class="nb">export</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gnuarmemb
 </pre></div>
 
 <h3 id="compiling-and-running-an-example">Compiling and running an example<a class="headerlink" href="#compiling-and-running-an-example" title="Permanent link">&para;</a></h3>
 <p>Now you can try to build one of the examples. Will use the <code>hello_world</code> example here to keep it simple.</p>
-<p>Source <code>zephyr-env.sh</code> wherever you have cloned the Zephyr Git repository:</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">unset</span> ZEPHYR_SDK_INSTALL_DIR
-$ <span class="nb">cd</span> &lt;zephyr git clone location&gt;
+<p>Set up your build environment:</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> &lt;zephyr git clone location&gt;
+
+<span class="c1"># On Linux/macOS</span>
 $ <span class="nb">source</span> zephyr-env.sh
+
+<span class="c1"># On Windows</span>
+$ <span class="nb">source</span> zephyr-env.cmd
 </pre></div>
 
 <p>Create a <code>build</code> folder in the example directory, where all artifacts generated by the Ninja build system are stored, such as:</p>
@@ -1125,11 +1097,11 @@ build$ ninja flash
 
 <p><img alt="" src="./images/hello_world_ninja_building.png" /></p>
 <p>Check the board output from serial port, you will see the following messages:</p>
-<div class="codehilite"><pre><span></span>***** Booting Zephyr OS <span class="m">1</span>.12.0-rc3 *****
-Hello World! arm
+<div class="codehilite"><pre><span></span>***** Booting Zephyr OS zephyr-v1.13.0-1166-g8b20f9dba *****
+Hello World! nrf52832_mdk
 </pre></div>
 
-<p>That's it! You can also try other examples in the path <code>nrf52832-mdk/examples/zephyr/</code>.</p>
+<p>That's it! You can also try other examples in the path <code>nrf52832-mdk/examples/zephyr/</code> or <code>zephyr/samples/</code>.</p>
 <h2 id="more-examples">More examples<a class="headerlink" href="#more-examples" title="Permanent link">&para;</a></h2>
 <p>Over time, more example applications will be added to the repository. You can star or watch the <a href="https://github.com/makerdiary/nrf52832-mdk">nrf52832-mdk</a> repository to stay up to date.</p>
 <h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>

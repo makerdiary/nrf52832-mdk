@@ -634,13 +634,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#nrf52832-mdk" title="添加 nRF52832-MDK 支持" class="md-nav__link">
-    添加 nRF52832-MDK 支持
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -883,13 +876,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#nrf52832-mdk" title="添加 nRF52832-MDK 支持" class="md-nav__link">
-    添加 nRF52832-MDK 支持
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -998,25 +984,27 @@
 </li>
 <li>
 <p>安装其他必要工具：</p>
-<div class="codehilite"><pre><span></span>$ choco install git python ninja dtc-msys2 gperf
+<p><div class="codehilite"><pre><span></span>$ choco install git python ninja dtc-msys2 gperf doxygen.install
+</pre></div>
+6. <strong>(可选)</strong> 安装 pdf 文档生成工具：</p>
+<div class="codehilite"><pre><span></span>$ choco install strawberryperl miktex rsvg-convert
 </pre></div>
 
 </li>
 <li>
 <p>关闭 cmd.exe，以普通用户重新打开，并安装 Python 模块：</p>
 <div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ./zephyr
-$ pip install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
+$ pip3 install -r scripts/requirements.txt
 </pre></div>
 
 </li>
 <li>
-<p>下载并安装 <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a>，可以按照到 <code>c:\gccarmemb</code>。</p>
+<p>下载并安装 <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a>，可以按照到 <code>c:\gnuarmemb</code>。</p>
 </li>
 <li>
 <p>设置 Zephyr 环境变量：</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">set</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gccarmemb
-$ <span class="nb">set</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span>c:<span class="se">\g</span>ccarmemb
+<div class="codehilite"><pre><span></span>$ <span class="nb">set</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gnuarmemb
+$ <span class="nb">set</span> <span class="nv">GNUARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span>c:<span class="se">\g</span>nuarmemb
 </pre></div>
 
 </li>
@@ -1025,18 +1013,14 @@ $ <span class="nb">set</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><s
 <p>在 macOS，使用 <a href="http://brew.sh/">Homebrew</a> 包管理器可以非常方便的安装所有依赖工具，按照官方最新指引即可完成安装。</p>
 <p>Homebrew 成功安装后，运行以下命令安装所需的工具：</p>
 <div class="codehilite"><pre><span></span>$ brew install cmake ninja dfu-util doxygen qemu dtc python3 gperf
-$ curl -O <span class="s1">&#39;https://bootstrap.pypa.io/get-pip.py&#39;</span>
-$ ./get-pip.py
-$ rm get-pip.py
 $ <span class="nb">cd</span> ~/zephyr   <span class="c1"># or to the folder where you cloned the zephyr repo</span>
 $ pip3 install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
 </pre></div>
 
 <p>然后，下载并安装 <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a>，确保将其添加到系统变量中：</p>
 <div class="codehilite"><pre><span></span><span class="c1"># 将以下脚本添加到 ~/.bash_profile </span>
-<span class="nb">export</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update&quot;</span>
-<span class="nb">export</span> <span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>gccarmemb
+<span class="nb">export</span> <span class="nv">GNUARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update&quot;</span>
+<span class="nb">export</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gnuarmemb
 </pre></div>
 
 <h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h4>
@@ -1048,47 +1032,32 @@ $ sudo apt-get upgrade
 <p>然后安装所需的工具：</p>
 <div class="codehilite"><pre><span></span>$ sudo apt-get install --no-install-recommends git cmake ninja-build gperf <span class="se">\</span>
   ccache doxygen dfu-util device-tree-compiler <span class="se">\</span>
-  python3-ply python3-pip python3-setuptools xz-utils file make gcc-multilib <span class="se">\</span>
-  autoconf automake libtool
+  python3-ply python3-pip python3-setuptools python3-wheel xz-utils file <span class="se">\</span>
+  make gcc-multilib autoconf automake libtool librsvg2-bin <span class="se">\</span>
+  texlive-latex-base texlive-latex-extra latexmk texlive-fonts-recommended
 </pre></div>
 
 <p>安装 Zephyr 需要的软件包：</p>
 <div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ~/zephyr  <span class="c1"># or to your directory where zephyr is cloned</span>
 $ pip3 install --user -r scripts/requirements.txt
-$ pip2 install --user -r scripts/py2-requirements.txt
 </pre></div>
 
 <p>下载并安装 <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU Arm Embedded Toolchain</a>，确保将其添加到系统变量中：</p>
 <div class="codehilite"><pre><span></span><span class="c1"># 将以下脚本添加到 ~/.bash_profile </span>
-<span class="nb">export</span> <span class="nv">GCCARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update&quot;</span>
-<span class="nb">export</span> <span class="nv">ZEPHYR_GCC_VARIANT</span><span class="o">=</span>gccarmemb
-</pre></div>
-
-<h3 id="nrf52832-mdk">添加 nRF52832-MDK 支持<a class="headerlink" href="#nrf52832-mdk" title="Permanent link">&para;</a></h3>
-<p>为了让 Zephyr OS 支持 nRF52832-MDK 板子，需要添加一些配置文件，目录结构如下：</p>
-<div class="codehilite"><pre><span></span>.zephyr/boards/arm/nrf52832_mdk
-├── Kconfig
-├── Kconfig.board
-├── Kconfig.defconfig
-├── board.cmake
-├── board.h
-├── nrf52832_mdk.dts
-├── nrf52832_mdk.yaml
-└── nrf52832_mdk_defconfig
-</pre></div>
-
-<p>如果不想手动创建，你也可以直接从 <a href="https://github.com/makerdiary/zephyr">makerdiary/zephyr</a> 拉取这些配置文件：</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> &lt;zephyr git clone location&gt;
-$ git remote add makerdiary https://github.com/makerdiary/zephyr.git
-$ git pull makerdiary master
+<span class="nb">export</span> <span class="nv">GNUARMEMB_TOOLCHAIN_PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to install directory&gt;/gcc-arm-none-eabi-6-2017-q2-update&quot;</span>
+<span class="nb">export</span> <span class="nv">ZEPHYR_TOOLCHAIN_VARIANT</span><span class="o">=</span>gnuarmemb
 </pre></div>
 
 <h2 id="_4">编译运行第一个示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>完成上述准备工作便可以开始编译第一个示例了，这里为了简单起见，以 <code>hello_world</code> 为例：</p>
 <p>运行以下命令设置 Zephyr 环境变量：</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">unset</span> ZEPHYR_SDK_INSTALL_DIR
-$ <span class="nb">cd</span> &lt;zephyr git clone location&gt;
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> &lt;zephyr git clone location&gt;
+
+<span class="c1"># On Linux/macOS</span>
 $ <span class="nb">source</span> zephyr-env.sh
+
+<span class="c1"># On Windows</span>
+$ <span class="nb">source</span> zephyr-env.cmd
 </pre></div>
 
 <p>在 <code>hello_world</code> 目录创建 <code>build</code> 目录，运行以下命令编译并完成下载：</p>
@@ -1102,11 +1071,11 @@ build$ ninja flash
 
 <p><img alt="" src="./../../zephyr/images/hello_world_ninja_building.png" /></p>
 <p>打开串口工具，可以看到以下信息输出：</p>
-<div class="codehilite"><pre><span></span>***** Booting Zephyr OS <span class="m">1</span>.12.0-rc3 *****
-Hello World! arm
+<div class="codehilite"><pre><span></span>***** Booting Zephyr OS zephyr-v1.13.0-1166-g8b20f9dba *****
+Hello World! nrf52832_mdk
 </pre></div>
 
-<p>完成以上示例后，你也可以尝试 <code>nrf52832-mdk/examples/zephyr/</code> 目录下的其他例子。</p>
+<p>完成以上示例后，你也可以尝试 <code>nrf52832-mdk/examples/zephyr/</code> 或者 <code>zephyr/samples/</code> 目录下的其他例子。</p>
 <h2 id="_5">更多示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>随着 Zephyr 功能不断丰富，我们会不断增加一些新的应用示例到 <a href="https://github.com/makerdiary/nrf52832-mdk">nrf52832-mdk</a> 仓库，敬请关注！</p>
 <h2 id="_6">参考资源<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
