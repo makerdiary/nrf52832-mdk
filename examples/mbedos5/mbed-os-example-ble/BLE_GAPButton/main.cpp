@@ -19,7 +19,7 @@
 #include "ble/BLE.h"
 
 DigitalOut  led1(LED1, 1);
-InterruptIn button(BLE_BUTTON_PIN_NAME);
+InterruptIn button(BLE_BUTTON_PIN_NAME, PullDown);
 uint8_t cnt;
 
 // Change your device name below

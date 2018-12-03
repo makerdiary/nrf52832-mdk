@@ -21,7 +21,7 @@
 #include "ButtonService.h"
 
 DigitalOut  led1(LED1, 1);
-InterruptIn button(BLE_BUTTON_PIN_NAME);
+InterruptIn button(BLE_BUTTON_PIN_NAME, PullDown);
 
 static EventQueue eventQueue(/* event count */ 10 * EVENTS_EVENT_SIZE);
 
