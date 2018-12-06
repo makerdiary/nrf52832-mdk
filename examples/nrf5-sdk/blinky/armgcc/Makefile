@@ -2,7 +2,8 @@ PROJECT_NAME     := blinky_nrf52832_mdk
 TARGETS          := nrf52832_xxaa
 OUTPUT_DIRECTORY := _build
 
-SDK_ROOT := ../../../../nrf_sdks/nRF5_SDK_15.0.0_a53641a
+MDK_ROOT := ../../../..
+SDK_ROOT := $(MDK_ROOT)/nrf_sdks/nRF5_SDK_15.2.0_9412b96
 PROJ_DIR := ..
 
 $(OUTPUT_DIRECTORY)/nrf52832_xxaa.out: \
@@ -12,36 +13,48 @@ $(OUTPUT_DIRECTORY)/nrf52832_xxaa.out: \
 SRC_FILES += \
   $(SDK_ROOT)/modules/nrfx/mdk/gcc_startup_nrf52.S \
   $(PROJ_DIR)/main.c \
+  $(SDK_ROOT)/components/libraries/log/src/nrf_log_frontend.c \
+  $(SDK_ROOT)/components/libraries/log/src/nrf_log_str_formatter.c \
   $(SDK_ROOT)/components/boards/boards.c \
   $(SDK_ROOT)/components/libraries/util/app_error.c \
   $(SDK_ROOT)/components/libraries/util/app_error_handler_gcc.c \
   $(SDK_ROOT)/components/libraries/util/app_error_weak.c \
   $(SDK_ROOT)/components/libraries/util/app_util_platform.c \
   $(SDK_ROOT)/components/libraries/util/nrf_assert.c \
+  $(SDK_ROOT)/components/libraries/atomic/nrf_atomic.c \
+  $(SDK_ROOT)/components/libraries/balloc/nrf_balloc.c \
+  $(SDK_ROOT)/external/fprintf/nrf_fprintf.c \
+  $(SDK_ROOT)/external/fprintf/nrf_fprintf_format.c \
+  $(SDK_ROOT)/components/libraries/memobj/nrf_memobj.c \
+  $(SDK_ROOT)/components/libraries/ringbuf/nrf_ringbuf.c \
   $(SDK_ROOT)/components/libraries/strerror/nrf_strerror.c \
   $(SDK_ROOT)/modules/nrfx/mdk/system_nrf52.c \
 
 # Include folders common to all targets
 INC_FOLDERS += \
   $(SDK_ROOT)/components \
-  $(SDK_ROOT)/components/libraries/experimental_memobj \
-  $(SDK_ROOT)/components/libraries/experimental_section_vars \
   $(SDK_ROOT)/modules/nrfx/mdk \
-  $(SDK_ROOT)/modules/nrfx/hal \
+  $(PROJ_DIR) \
+  $(SDK_ROOT)/components/libraries/strerror \
+  $(SDK_ROOT)/components/toolchain/cmsis/include \
+  $(SDK_ROOT)/components/libraries/util \
+  $(MDK_ROOT)/config \
+  $(PROJ_DIR)/config \
   $(SDK_ROOT)/components/libraries/balloc \
-  $(SDK_ROOT)/components/libraries/experimental_log \
-  $(SDK_ROOT)/components/libraries/experimental_log/src \
+  $(SDK_ROOT)/components/libraries/ringbuf \
+  $(SDK_ROOT)/modules/nrfx/hal \
+  $(SDK_ROOT)/components/libraries/bsp \
+  $(SDK_ROOT)/components/libraries/log \
+  $(SDK_ROOT)/modules/nrfx \
+  $(SDK_ROOT)/components/libraries/experimental_section_vars \
   $(SDK_ROOT)/components/libraries/delay \
   $(SDK_ROOT)/integration/nrfx \
-  $(SDK_ROOT)/components/libraries/bsp \
   $(SDK_ROOT)/components/drivers_nrf/nrf_soc_nosd \
-  $(PROJ_DIR)/config \
-  $(SDK_ROOT)/components/libraries/strerror \
+  $(SDK_ROOT)/components/libraries/atomic \
   $(SDK_ROOT)/components/boards \
-  $(SDK_ROOT)/components/toolchain/cmsis/include \
-  $(SDK_ROOT)/modules/nrfx \
-  $(PROJ_DIR) \
-  $(SDK_ROOT)/components/libraries/util \
+  $(SDK_ROOT)/components/libraries/memobj \
+  $(SDK_ROOT)/external/fprintf \
+  $(SDK_ROOT)/components/libraries/log/src \
 
 # Libraries common to all targets
 LIB_FILES += \
@@ -54,6 +67,7 @@ OPT = -O3 -g3
 # C flags common to all targets
 CFLAGS += $(OPT)
 CFLAGS += -DBOARD_CUSTOM
+CFLAGS += -DNRF52832_MDK
 CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -DCONFIG_GPIO_AS_PINRESET
 CFLAGS += -DFLOAT_ABI_HARD
@@ -77,6 +91,7 @@ ASMFLAGS += -mcpu=cortex-m4
 ASMFLAGS += -mthumb -mabi=aapcs
 ASMFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 ASMFLAGS += -DBOARD_CUSTOM
+ASMFLAGS += -DNRF52832_MDK
 ASMFLAGS += -DBSP_DEFINES_ONLY
 ASMFLAGS += -DCONFIG_GPIO_AS_PINRESET
 ASMFLAGS += -DFLOAT_ABI_HARD
@@ -115,6 +130,8 @@ help:
 	@echo		nrf52832_xxaa
 	@echo		sdk_config - starting external tool for editing sdk_config.h
 	@echo		flash      - flashing binary
+	@echo   erase      - erase the whole chip flash
+	@echo   release    - generate the binary
 
 TEMPLATE_PATH := $(SDK_ROOT)/components/toolchain/gcc
 
@@ -123,17 +140,22 @@ include $(TEMPLATE_PATH)/Makefile.common
 
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
-.PHONY: flash erase
+.PHONY: flash erase release
 
 # Flash the program
-flash: $(OUTPUT_DIRECTORY)/nrf52832_xxaa.hex
-	@echo Flashing: $<
-	pyocd-flashtool -d debug -t nrf52 -se $<
+flash: default
+	@echo Flashing: $(OUTPUT_DIRECTORY)/nrf52832_xxaa.hex
+	pyocd-flashtool -t nrf52 -se $(OUTPUT_DIRECTORY)/nrf52832_xxaa.hex
 
 erase:
-	pyocd-flashtool -d debug -t nrf52 -ce
+	pyocd-flashtool -t nrf52 -ce
+
+# Generate hex file
+release: default
+	@echo Generating hex file...
+	cp $(OUTPUT_DIRECTORY)/nrf52832_xxaa.hex $(PROJ_DIR)/hex/$(PROJECT_NAME).hex
 
 SDK_CONFIG_FILE := $(PROJ_DIR)/config/sdk_config.h
-CMSIS_CONFIG_TOOL := $(PROJ_DIR)/../../../tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
+CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
 sdk_config:
 	java -jar $(CMSIS_CONFIG_TOOL) $(SDK_CONFIG_FILE)

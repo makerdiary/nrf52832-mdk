@@ -1,30 +1,30 @@
 /**
  * Copyright (c) 2017 - 2018, Nordic Semiconductor ASA
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- * 
+ *
  * 1. Redistributions of source code must retain the above copyright notice, this
  *    list of conditions and the following disclaimer.
- * 
+ *
  * 2. Redistributions in binary form, except as embedded into a Nordic
  *    Semiconductor ASA integrated circuit in a product or a software update for
  *    such product, must reproduce the above copyright notice, this list of
  *    conditions and the following disclaimer in the documentation and/or other
  *    materials provided with the distribution.
- * 
+ *
  * 3. Neither the name of Nordic Semiconductor ASA nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
- * 
+ *
  * 4. This software, with or without modification, must only be used with a
  *    Nordic Semiconductor ASA integrated circuit.
- * 
+ *
  * 5. Any software provided in binary form under this license must not be reverse
  *    engineered, decompiled, modified and/or disassembled.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  * OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -35,7 +35,7 @@
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 
 
@@ -96,7 +96,7 @@
 // <i> Decrease this value to lower RAM usage.
 
 #ifndef PM_FLASH_BUFFERS
-#define PM_FLASH_BUFFERS 2
+#define PM_FLASH_BUFFERS 4
 #endif
 
 // <q> PM_CENTRAL_ENABLED  - Enable/disable central-specific Peer Manager functionality.
@@ -125,6 +125,51 @@
 
 #ifndef PM_PEER_RANKS_ENABLED
 #define PM_PEER_RANKS_ENABLED 1
+#endif
+
+// <q> PM_LESC_ENABLED  - Enable/disable LESC support in Peer Manager.
+ 
+
+// <i> If set to true, you need to call nrf_ble_lesc_request_handler() in the main loop to respond to LESC-related BLE events. If LESC support is not required, set this to false to save code space.
+
+#ifndef PM_LESC_ENABLED
+#define PM_LESC_ENABLED 0
+#endif
+
+// <e> PM_RA_PROTECTION_ENABLED - Enable/disable protection against repeated pairing attempts in Peer Manager.
+//==========================================================
+#ifndef PM_RA_PROTECTION_ENABLED
+#define PM_RA_PROTECTION_ENABLED 0
+#endif
+// <o> PM_RA_PROTECTION_TRACKED_PEERS_NUM - Maximum number of peers whose authorization status can be tracked. 
+#ifndef PM_RA_PROTECTION_TRACKED_PEERS_NUM
+#define PM_RA_PROTECTION_TRACKED_PEERS_NUM 8
+#endif
+
+// <o> PM_RA_PROTECTION_MIN_WAIT_INTERVAL - Minimum waiting interval (in ms) before a new pairing attempt can be initiated. 
+#ifndef PM_RA_PROTECTION_MIN_WAIT_INTERVAL
+#define PM_RA_PROTECTION_MIN_WAIT_INTERVAL 4000
+#endif
+
+// <o> PM_RA_PROTECTION_MAX_WAIT_INTERVAL - Maximum waiting interval (in ms) before a new pairing attempt can be initiated. 
+#ifndef PM_RA_PROTECTION_MAX_WAIT_INTERVAL
+#define PM_RA_PROTECTION_MAX_WAIT_INTERVAL 64000
+#endif
+
+// <o> PM_RA_PROTECTION_REWARD_PERIOD - Reward period (in ms). 
+// <i> The waiting interval is gradually decreased when no new failed pairing attempts are made during reward period.
+
+#ifndef PM_RA_PROTECTION_REWARD_PERIOD
+#define PM_RA_PROTECTION_REWARD_PERIOD 10000
+#endif
+
+// </e>
+
+// <o> PM_HANDLER_SEC_DELAY_MS - Delay before starting security. 
+// <i>  This might be necessary for interoperability reasons, especially as peripheral.
+
+#ifndef PM_HANDLER_SEC_DELAY_MS
+#define PM_HANDLER_SEC_DELAY_MS 0
 #endif
 
 // </e>
@@ -453,7 +498,7 @@
 #ifndef NRF_MPU_ENABLED
 #define NRF_MPU_ENABLED 0
 #endif
-// <q> NRF_MPU_CLI_CMDS  - Enable CLI commands specific to the module
+// <q> NRF_MPU_CLI_CMDS  - Enable CLI commands specific to the module.
  
 
 #ifndef NRF_MPU_CLI_CMDS
@@ -462,12 +507,12 @@
 
 // </e>
 
-// <e> NRF_STACK_GUARD_ENABLED - nrf_stack_guard - Module for Protecting Stack
+// <e> NRF_STACK_GUARD_ENABLED - nrf_stack_guard - Stack guard
 //==========================================================
 #ifndef NRF_STACK_GUARD_ENABLED
 #define NRF_STACK_GUARD_ENABLED 0
 #endif
-// <o> NRF_STACK_GUARD_CONFIG_SIZE  - Size of stack guard
+// <o> NRF_STACK_GUARD_CONFIG_SIZE  - Size of the stack guard.
  
 // <5=> 32 bytes 
 // <6=> 64 bytes 
@@ -490,7 +535,7 @@
 // <h> nRF_Crypto 
 
 //==========================================================
-// <e> NRF_CRYPTO_ENABLED - nrf_crypto - Cryptography library
+// <e> NRF_CRYPTO_ENABLED - nrf_crypto - Cryptography library.
 //==========================================================
 #ifndef NRF_CRYPTO_ENABLED
 #define NRF_CRYPTO_ENABLED 1
@@ -498,7 +543,7 @@
 // <o> NRF_CRYPTO_ALLOCATOR  - Memory allocator
  
 
-// <i> Choose memory allocator used by nrf_crypto. Default is alloca if possible or nrf_malloc otherwise. If 'User macros' are selected then user have to create 'nrf_crypto_allocator.h' file containing NRF_CRYPTO_ALLOC, NRF_CRYPTO_FREE and NRF_CRYPTO_ALLOC_ON_STACK
+// <i> Choose memory allocator used by nrf_crypto. Default is alloca if possible or nrf_malloc otherwise. If 'User macros' are selected, the user has to create 'nrf_crypto_allocator.h' file that contains NRF_CRYPTO_ALLOC, NRF_CRYPTO_FREE, and NRF_CRYPTO_ALLOC_ON_STACK.
 // <0=> Default 
 // <1=> User macros 
 // <2=> On stack (alloca) 
@@ -539,15 +584,6 @@
 #define NRF_CRYPTO_BACKEND_CC310_BL_HASH_SHA256_ENABLED 1
 #endif
 
-// <q> NRF_CRYPTO_BACKEND_CC310_BL_HASH_LITTLE_ENDIAN_DIGEST_ENABLED  - nrf_cc310_bl hash outputs digests in little endian
- 
-
-// <i> Makes the nRF SH hash functions output digests in little endian format. Only for use in nRF SDK DFU!
-
-#ifndef NRF_CRYPTO_BACKEND_CC310_BL_HASH_LITTLE_ENDIAN_DIGEST_ENABLED
-#define NRF_CRYPTO_BACKEND_CC310_BL_HASH_LITTLE_ENDIAN_DIGEST_ENABLED 0
-#endif
-
 // <q> NRF_CRYPTO_BACKEND_CC310_BL_HASH_AUTOMATIC_RAM_BUFFER_ENABLED  - nrf_cc310_bl buffers to RAM before running hash operation
  
 
@@ -562,15 +598,6 @@
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_BL_HASH_AUTOMATIC_RAM_BUFFER_SIZE
 #define NRF_CRYPTO_BACKEND_CC310_BL_HASH_AUTOMATIC_RAM_BUFFER_SIZE 4096
-#endif
-
-// <q> NRF_CRYPTO_BACKEND_CC310_BL_ECC_LITTLE_ENDIAN_ENABLED  - Enable non-standard little endian byte order in nrf_cc310_bl ECC functions.
- 
-
-// <i> This affects parameters for all nrf_cc310_bl ECC APIs (raw keys, signature, digest). Only for use in nRF SDK DFU!
-
-#ifndef NRF_CRYPTO_BACKEND_CC310_BL_ECC_LITTLE_ENDIAN_ENABLED
-#define NRF_CRYPTO_BACKEND_CC310_BL_ECC_LITTLE_ENDIAN_ENABLED 0
 #endif
 
 // </e>
@@ -713,6 +740,20 @@
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_ECC_SECP256K1_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_ECC_SECP256K1_ENABLED 1
+#endif
+
+// <q> NRF_CRYPTO_BACKEND_CC310_ECC_CURVE25519_ENABLED  - Enable the Curve25519 curve support using CC310.
+ 
+
+#ifndef NRF_CRYPTO_BACKEND_CC310_ECC_CURVE25519_ENABLED
+#define NRF_CRYPTO_BACKEND_CC310_ECC_CURVE25519_ENABLED 1
+#endif
+
+// <q> NRF_CRYPTO_BACKEND_CC310_ECC_ED25519_ENABLED  - Enable the Ed25519 curve support using CC310.
+ 
+
+#ifndef NRF_CRYPTO_BACKEND_CC310_ECC_ED25519_ENABLED
+#define NRF_CRYPTO_BACKEND_CC310_ECC_ED25519_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_HASH_SHA256_ENABLED  - CC310 SHA-256 hash functionality.
@@ -1022,24 +1063,6 @@
 #define NRF_CRYPTO_BACKEND_MICRO_ECC_ECC_SECP256K1_ENABLED 1
 #endif
 
-// <q> NRF_CRYPTO_BACKEND_MICRO_ECC_PUBLIC_KEY_TRUSTED_ENABLED  - Always trust raw public key (it will cause a security issue if the public key comes from an untrusted source)
- 
-
-// <i> Enable this setting if you want to reduce flash usage. Only for use in nRF SDK DFU! Never enable it if the raw public key comes from an untrusted source.
-
-#ifndef NRF_CRYPTO_BACKEND_MICRO_ECC_PUBLIC_KEY_TRUSTED_ENABLED
-#define NRF_CRYPTO_BACKEND_MICRO_ECC_PUBLIC_KEY_TRUSTED_ENABLED 0
-#endif
-
-// <q> NRF_CRYPTO_BACKEND_MICRO_ECC_LITTLE_ENDIAN_ENABLED  - Enable non-standard little endian byte order.
- 
-
-// <i> This affects parameters for all ECC API (raw keys, signature, digest, shared secret). Only for use in nRF SDK DFU!
-
-#ifndef NRF_CRYPTO_BACKEND_MICRO_ECC_LITTLE_ENDIAN_ENABLED
-#define NRF_CRYPTO_BACKEND_MICRO_ECC_LITTLE_ENDIAN_ENABLED 0
-#endif
-
 // </e>
 
 // <e> NRF_CRYPTO_BACKEND_NRF_HW_RNG_ENABLED - Enable the nRF HW RNG backend.
@@ -1074,15 +1097,6 @@
 
 #ifndef NRF_CRYPTO_BACKEND_NRF_SW_HASH_SHA256_ENABLED
 #define NRF_CRYPTO_BACKEND_NRF_SW_HASH_SHA256_ENABLED 1
-#endif
-
-// <q> NRF_CRYPTO_BACKEND_NRF_SW_HASH_LITTLE_ENDIAN_DIGEST_ENABLED  - nRF SW hash outputs digests in little endian
- 
-
-// <i> Makes the nRF SH hash functions output digests in little endian format. Only for use in nRF SDK DFU!
-
-#ifndef NRF_CRYPTO_BACKEND_NRF_SW_HASH_LITTLE_ENDIAN_DIGEST_ENABLED
-#define NRF_CRYPTO_BACKEND_NRF_SW_HASH_LITTLE_ENDIAN_DIGEST_ENABLED 1
 #endif
 
 // </e>
@@ -1166,6 +1180,15 @@
 
 // </e>
 
+// <q> NRF_CRYPTO_CURVE25519_BIG_ENDIAN_ENABLED  - Big-endian byte order in raw Curve25519 data
+ 
+
+// <i> Enable big-endian byte order in Curve25519 API, if set to 1. Use little-endian, if set to 0.
+
+#ifndef NRF_CRYPTO_CURVE25519_BIG_ENDIAN_ENABLED
+#define NRF_CRYPTO_CURVE25519_BIG_ENDIAN_ENABLED 0
+#endif
+
 // </e>
 
 // </h> 
@@ -1200,40 +1223,6 @@
 // <h> nRF_Drivers 
 
 //==========================================================
-// <e> CLOCK_ENABLED - nrf_drv_clock - CLOCK peripheral driver - legacy layer
-//==========================================================
-#ifndef CLOCK_ENABLED
-#define CLOCK_ENABLED 1
-#endif
-// <o> CLOCK_CONFIG_LF_SRC  - LF Clock Source
- 
-// <0=> RC 
-// <1=> XTAL 
-// <2=> Synth 
-
-#ifndef CLOCK_CONFIG_LF_SRC
-#define CLOCK_CONFIG_LF_SRC 1
-#endif
-
-// <o> CLOCK_CONFIG_IRQ_PRIORITY  - Interrupt priority
- 
-
-// <i> Priorities 0,2 (nRF51) and 0,1,4,5 (nRF52) are reserved for SoftDevice
-// <0=> 0 (highest) 
-// <1=> 1 
-// <2=> 2 
-// <3=> 3 
-// <4=> 4 
-// <5=> 5 
-// <6=> 6 
-// <7=> 7 
-
-#ifndef CLOCK_CONFIG_IRQ_PRIORITY
-#define CLOCK_CONFIG_IRQ_PRIORITY 7
-#endif
-
-// </e>
-
 // <e> COMP_ENABLED - nrf_drv_comp - COMP peripheral driver - legacy layer
 //==========================================================
 #ifndef COMP_ENABLED
@@ -1319,7 +1308,7 @@
 // <7=> 7 
 
 #ifndef COMP_CONFIG_IRQ_PRIORITY
-#define COMP_CONFIG_IRQ_PRIORITY 7
+#define COMP_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -1355,7 +1344,7 @@
 // <7=> 7 
 
 #ifndef GPIOTE_CONFIG_IRQ_PRIORITY
-#define GPIOTE_CONFIG_IRQ_PRIORITY 7
+#define GPIOTE_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -1501,7 +1490,7 @@
 // <7=> 7 
 
 #ifndef I2S_CONFIG_IRQ_PRIORITY
-#define I2S_CONFIG_IRQ_PRIORITY 7
+#define I2S_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> I2S_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -1632,7 +1621,7 @@
 // <7=> 7 
 
 #ifndef LPCOMP_CONFIG_IRQ_PRIORITY
-#define LPCOMP_CONFIG_IRQ_PRIORITY 7
+#define LPCOMP_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -1647,6 +1636,8 @@
 // <0=> RC 
 // <1=> XTAL 
 // <2=> Synth 
+// <131073=> External Low Swing 
+// <196609=> External Full Swing 
 
 #ifndef NRFX_CLOCK_CONFIG_LF_SRC
 #define NRFX_CLOCK_CONFIG_LF_SRC 1
@@ -1664,7 +1655,7 @@
 // <7=> 7 
 
 #ifndef NRFX_CLOCK_CONFIG_IRQ_PRIORITY
-#define NRFX_CLOCK_CONFIG_IRQ_PRIORITY 7
+#define NRFX_CLOCK_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_CLOCK_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -1803,7 +1794,7 @@
 // <7=> 7 
 
 #ifndef NRFX_COMP_CONFIG_IRQ_PRIORITY
-#define NRFX_COMP_CONFIG_IRQ_PRIORITY 7
+#define NRFX_COMP_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_COMP_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -1881,7 +1872,7 @@
 // <7=> 7 
 
 #ifndef NRFX_GPIOTE_CONFIG_IRQ_PRIORITY
-#define NRFX_GPIOTE_CONFIG_IRQ_PRIORITY 7
+#define NRFX_GPIOTE_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_GPIOTE_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -2076,7 +2067,7 @@
 // <7=> 7 
 
 #ifndef NRFX_I2S_CONFIG_IRQ_PRIORITY
-#define NRFX_I2S_CONFIG_IRQ_PRIORITY 7
+#define NRFX_I2S_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_I2S_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -2205,7 +2196,7 @@
 // <7=> 7 
 
 #ifndef NRFX_LPCOMP_CONFIG_IRQ_PRIORITY
-#define NRFX_LPCOMP_CONFIG_IRQ_PRIORITY 7
+#define NRFX_LPCOMP_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_LPCOMP_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -2306,7 +2297,7 @@
 // <7=> 7 
 
 #ifndef NRFX_PDM_CONFIG_IRQ_PRIORITY
-#define NRFX_PDM_CONFIG_IRQ_PRIORITY 7
+#define NRFX_PDM_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_PDM_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -2379,7 +2370,7 @@
 // <7=> 7 
 
 #ifndef NRFX_POWER_CONFIG_IRQ_PRIORITY
-#define NRFX_POWER_CONFIG_IRQ_PRIORITY 7
+#define NRFX_POWER_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <q> NRFX_POWER_CONFIG_DEFAULT_DCDCEN  - The default configuration of main DCDC regulator
@@ -2668,7 +2659,7 @@
 // <7=> 7 
 
 #ifndef NRFX_PWM_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_PWM_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_PWM_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_PWM_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -2848,7 +2839,7 @@
 // <7=> 7 
 
 #ifndef NRFX_QDEC_CONFIG_IRQ_PRIORITY
-#define NRFX_QDEC_CONFIG_IRQ_PRIORITY 7
+#define NRFX_QDEC_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_QDEC_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -2928,7 +2919,7 @@
 // <7=> 7 
 
 #ifndef NRFX_RNG_CONFIG_IRQ_PRIORITY
-#define NRFX_RNG_CONFIG_IRQ_PRIORITY 7
+#define NRFX_RNG_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_RNG_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -3041,7 +3032,7 @@
 // <7=> 7 
 
 #ifndef NRFX_RTC_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_RTC_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_RTC_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_RTC_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -3148,7 +3139,7 @@
 // <7=> 7 
 
 #ifndef NRFX_SAADC_CONFIG_IRQ_PRIORITY
-#define NRFX_SAADC_CONFIG_IRQ_PRIORITY 7
+#define NRFX_SAADC_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_SAADC_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -3252,7 +3243,7 @@
 // <7=> 7 
 
 #ifndef NRFX_SPIM_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_SPIM_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_SPIM_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_SPIM_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -3360,7 +3351,7 @@
 // <7=> 7 
 
 #ifndef NRFX_SPIS_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_SPIS_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_SPIS_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <o> NRFX_SPIS_DEFAULT_DEF - SPIS default DEF character  <0-255> 
@@ -3492,7 +3483,7 @@
 // <7=> 7 
 
 #ifndef NRFX_SPI_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_SPI_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_SPI_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_SPI_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -3744,7 +3735,7 @@
 // <7=> 7 
 
 #ifndef NRFX_TIMER_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_TIMER_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_TIMER_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_TIMER_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -3848,7 +3839,7 @@
 // <7=> 7 
 
 #ifndef NRFX_TWIM_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_TWIM_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_TWIM_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_TWIM_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -3996,7 +3987,7 @@
 // <7=> 7 
 
 #ifndef NRFX_TWIS_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_TWIS_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_TWIS_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_TWIS_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -4100,7 +4091,7 @@
 // <7=> 7 
 
 #ifndef NRFX_TWI_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_TWI_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_TWI_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_TWI_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -4221,7 +4212,7 @@
 // <7=> 7 
 
 #ifndef NRFX_UARTE_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_UARTE_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_UARTE_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_UARTE_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -4342,7 +4333,7 @@
 // <7=> 7 
 
 #ifndef NRFX_UART_DEFAULT_CONFIG_IRQ_PRIORITY
-#define NRFX_UART_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_UART_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_UART_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -4433,7 +4424,7 @@
 // <7=> 7 
 
 #ifndef NRFX_WDT_CONFIG_IRQ_PRIORITY
-#define NRFX_WDT_CONFIG_IRQ_PRIORITY 7
+#define NRFX_WDT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> NRFX_WDT_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -4489,6 +4480,42 @@
 
 // </e>
 
+// <e> NRF_CLOCK_ENABLED - nrf_drv_clock - CLOCK peripheral driver - legacy layer
+//==========================================================
+#ifndef NRF_CLOCK_ENABLED
+#define NRF_CLOCK_ENABLED 1
+#endif
+// <o> CLOCK_CONFIG_LF_SRC  - LF Clock Source
+ 
+// <0=> RC 
+// <1=> XTAL 
+// <2=> Synth 
+// <131073=> External Low Swing 
+// <196609=> External Full Swing 
+
+#ifndef CLOCK_CONFIG_LF_SRC
+#define CLOCK_CONFIG_LF_SRC 1
+#endif
+
+// <o> CLOCK_CONFIG_IRQ_PRIORITY  - Interrupt priority
+ 
+
+// <i> Priorities 0,2 (nRF51) and 0,1,4,5 (nRF52) are reserved for SoftDevice
+// <0=> 0 (highest) 
+// <1=> 1 
+// <2=> 2 
+// <3=> 3 
+// <4=> 4 
+// <5=> 5 
+// <6=> 6 
+// <7=> 7 
+
+#ifndef CLOCK_CONFIG_IRQ_PRIORITY
+#define CLOCK_CONFIG_IRQ_PRIORITY 6
+#endif
+
+// </e>
+
 // <e> PDM_ENABLED - nrf_drv_pdm - PDM peripheral driver - legacy layer
 //==========================================================
 #ifndef PDM_ENABLED
@@ -4536,7 +4563,7 @@
 // <7=> 7 
 
 #ifndef PDM_CONFIG_IRQ_PRIORITY
-#define PDM_CONFIG_IRQ_PRIORITY 7
+#define PDM_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -4560,7 +4587,7 @@
 // <7=> 7 
 
 #ifndef POWER_CONFIG_IRQ_PRIORITY
-#define POWER_CONFIG_IRQ_PRIORITY 7
+#define POWER_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <q> POWER_CONFIG_DEFAULT_DCDCEN  - The default configuration of main DCDC regulator
@@ -4686,7 +4713,7 @@
 // <7=> 7 
 
 #ifndef PWM_DEFAULT_CONFIG_IRQ_PRIORITY
-#define PWM_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define PWM_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <q> PWM0_ENABLED  - Enable PWM0 instance
@@ -4838,7 +4865,7 @@
 // <7=> 7 
 
 #ifndef QDEC_CONFIG_IRQ_PRIORITY
-#define QDEC_CONFIG_IRQ_PRIORITY 7
+#define QDEC_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -4968,7 +4995,7 @@
 // <7=> 7 
 
 #ifndef QSPI_CONFIG_IRQ_PRIORITY
-#define QSPI_CONFIG_IRQ_PRIORITY 7
+#define QSPI_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -5004,7 +5031,7 @@
 // <7=> 7 
 
 #ifndef RNG_CONFIG_IRQ_PRIORITY
-#define RNG_CONFIG_IRQ_PRIORITY 7
+#define RNG_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -5042,7 +5069,7 @@
 // <7=> 7 
 
 #ifndef RTC_DEFAULT_CONFIG_IRQ_PRIORITY
-#define RTC_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define RTC_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <q> RTC0_ENABLED  - Enable RTC0 instance
@@ -5126,7 +5153,7 @@
 // <7=> 7 
 
 #ifndef SAADC_CONFIG_IRQ_PRIORITY
-#define SAADC_CONFIG_IRQ_PRIORITY 7
+#define SAADC_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -5150,7 +5177,7 @@
 // <7=> 7 
 
 #ifndef SPIS_DEFAULT_CONFIG_IRQ_PRIORITY
-#define SPIS_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define SPIS_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <o> SPIS_DEFAULT_MODE  - Mode
@@ -5243,7 +5270,7 @@
 // <7=> 7 
 
 #ifndef SPI_DEFAULT_CONFIG_IRQ_PRIORITY
-#define SPI_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define SPI_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <o> NRF_SPI_DRV_MISO_PULLUP_CFG  - MISO PIN pull-up configuration.
@@ -5370,7 +5397,7 @@
 // <7=> 7 
 
 #ifndef TIMER_DEFAULT_CONFIG_IRQ_PRIORITY
-#define TIMER_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define TIMER_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <q> TIMER0_ENABLED  - Enable TIMER0 instance
@@ -5491,7 +5518,7 @@
 // <7=> 7 
 
 #ifndef TWIS_DEFAULT_CONFIG_IRQ_PRIORITY
-#define TWIS_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define TWIS_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -5539,7 +5566,7 @@
 // <7=> 7 
 
 #ifndef TWI_DEFAULT_CONFIG_IRQ_PRIORITY
-#define TWI_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define TWI_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> TWI0_ENABLED - Enable TWI0 instance
@@ -5645,7 +5672,7 @@
 // <7=> 7 
 
 #ifndef UART_DEFAULT_CONFIG_IRQ_PRIORITY
-#define UART_DEFAULT_CONFIG_IRQ_PRIORITY 7
+#define UART_DEFAULT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <q> UART_EASY_DMA_SUPPORT  - Driver supporting EasyDMA
@@ -5697,7 +5724,7 @@
 // <7=> 7 
 
 #ifndef USBD_CONFIG_IRQ_PRIORITY
-#define USBD_CONFIG_IRQ_PRIORITY 7
+#define USBD_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <o> USBD_CONFIG_DMASCHEDULER_MODE  - USBD SMA scheduler working scheme
@@ -5707,6 +5734,29 @@
 
 #ifndef USBD_CONFIG_DMASCHEDULER_MODE
 #define USBD_CONFIG_DMASCHEDULER_MODE 0
+#endif
+
+// <q> USBD_CONFIG_DMASCHEDULER_ISO_BOOST  - Give priority to isochronous transfers
+ 
+
+// <i> This option gives priority to isochronous transfers.
+// <i> Enabling it assures that isochronous transfers are always processed,
+// <i> even if multiple other transfers are pending.
+// <i> Isochronous endpoints are prioritized before the usbd_dma_scheduler_algorithm
+// <i> function is called, so the option is independent of the algorithm chosen.
+
+#ifndef USBD_CONFIG_DMASCHEDULER_ISO_BOOST
+#define USBD_CONFIG_DMASCHEDULER_ISO_BOOST 1
+#endif
+
+// <q> USBD_CONFIG_ISO_IN_ZLP  - Respond to an IN token on ISO IN endpoint with ZLP when no data is ready
+ 
+
+// <i> If set, ISO IN endpoint will respond to an IN token with ZLP when no data is ready to be sent.
+// <i> Else, there will be no response.
+
+#ifndef USBD_CONFIG_ISO_IN_ZLP
+#define USBD_CONFIG_ISO_IN_ZLP 0
 #endif
 
 // </e>
@@ -5748,7 +5798,7 @@
 // <7=> 7 
 
 #ifndef WDT_CONFIG_IRQ_PRIORITY
-#define WDT_CONFIG_IRQ_PRIORITY 7
+#define WDT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // </e>
@@ -5890,7 +5940,7 @@
 // <7=> 7 
 
 #ifndef APP_TIMER_CONFIG_IRQ_PRIORITY
-#define APP_TIMER_CONFIG_IRQ_PRIORITY 7
+#define APP_TIMER_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <o> APP_TIMER_CONFIG_OP_QUEUE_SIZE - Capacity of timer requests queue. 
@@ -5918,6 +5968,17 @@
 
 #ifndef APP_TIMER_KEEPS_RTC_ACTIVE
 #define APP_TIMER_KEEPS_RTC_ACTIVE 0
+#endif
+
+// <o> APP_TIMER_SAFE_WINDOW_MS - Maximum possible latency (in milliseconds) of handling app_timer event. 
+// <i> Maximum possible timeout that can be set is reduced by safe window.
+// <i> Example: RTC frequency 16384 Hz, maximum possible timeout 1024 seconds - APP_TIMER_SAFE_WINDOW_MS.
+// <i> Since RTC is not stopped when processor is halted in debugging session, this value
+// <i> must cover it if debugging is needed. It is possible to halt processor for APP_TIMER_SAFE_WINDOW_MS
+// <i> without corrupting app_timer behavior.
+
+#ifndef APP_TIMER_SAFE_WINDOW_MS
+#define APP_TIMER_SAFE_WINDOW_MS 300000
 #endif
 
 // <h> App Timer Legacy configuration - Legacy configuration.
@@ -5949,37 +6010,32 @@
 #define APP_USBD_AUDIO_ENABLED 0
 #endif
 
-// <q> APP_USBD_CDC_ACM_ENABLED  - app_usbd_cdc_acm - USB CDC ACM class
- 
-
-#ifndef APP_USBD_CDC_ACM_ENABLED
-#define APP_USBD_CDC_ACM_ENABLED 0
-#endif
-
 // <e> APP_USBD_ENABLED - app_usbd - USB Device library
 //==========================================================
 #ifndef APP_USBD_ENABLED
 #define APP_USBD_ENABLED 0
 #endif
-// <o> APP_USBD_VID - Vendor ID  <0x0000-0xFFFF> 
+// <o> APP_USBD_VID - Vendor ID.  <0x0000-0xFFFF> 
 
 
+// <i> Note: This value is not editable in Configuration Wizard.
 // <i> Vendor ID ordered from USB IF: http://www.usb.org/developers/vendor/
 
 #ifndef APP_USBD_VID
 #define APP_USBD_VID 0
 #endif
 
-// <o> APP_USBD_PID - Product ID  <0x0000-0xFFFF> 
+// <o> APP_USBD_PID - Product ID.  <0x0000-0xFFFF> 
 
 
+// <i> Note: This value is not editable in Configuration Wizard.
 // <i> Selected Product ID
 
 #ifndef APP_USBD_PID
 #define APP_USBD_PID 0
 #endif
 
-// <o> APP_USBD_DEVICE_VER_MAJOR - Device version, major part  <0-99> 
+// <o> APP_USBD_DEVICE_VER_MAJOR - Device version, major part.  <0-99> 
 
 
 // <i> Device version, will be converted automatically to BCD notation. Use just decimal values.
@@ -5988,7 +6044,7 @@
 #define APP_USBD_DEVICE_VER_MAJOR 1
 #endif
 
-// <o> APP_USBD_DEVICE_VER_MINOR - Device version, minor part  <0-99> 
+// <o> APP_USBD_DEVICE_VER_MINOR - Device version, minor part.  <0-99> 
 
 
 // <i> Device version, will be converted automatically to BCD notation. Use just decimal values.
@@ -5997,21 +6053,21 @@
 #define APP_USBD_DEVICE_VER_MINOR 0
 #endif
 
-// <q> APP_USBD_CONFIG_SELF_POWERED  - Self powered 
+// <q> APP_USBD_CONFIG_SELF_POWERED  - Self-powered device, as opposed to bus-powered.
  
 
 #ifndef APP_USBD_CONFIG_SELF_POWERED
 #define APP_USBD_CONFIG_SELF_POWERED 1
 #endif
 
-// <o> APP_USBD_CONFIG_MAX_POWER - MaxPower field in configuration descriptor in milliamps  <0-500> 
+// <o> APP_USBD_CONFIG_MAX_POWER - MaxPower field in configuration descriptor in milliamps.  <0-500> 
 
 
 #ifndef APP_USBD_CONFIG_MAX_POWER
 #define APP_USBD_CONFIG_MAX_POWER 500
 #endif
 
-// <q> APP_USBD_CONFIG_POWER_EVENTS_PROCESS  - Process power events
+// <q> APP_USBD_CONFIG_POWER_EVENTS_PROCESS  - Process power events.
  
 
 // <i> Enable processing power events in USB event handler.
@@ -6020,17 +6076,17 @@
 #define APP_USBD_CONFIG_POWER_EVENTS_PROCESS 1
 #endif
 
-// <e> APP_USBD_CONFIG_EVENT_QUEUE_ENABLE - Enable event queue
+// <e> APP_USBD_CONFIG_EVENT_QUEUE_ENABLE - Enable event queue.
 
 // <i> This is the default configuration when all the events are placed into internal queue.
-// <i> Disable it when external queue is used like app_scheduler or if you wish to process all events inside interrupts.
+// <i> Disable it when an external queue is used like app_scheduler or if you wish to process all events inside interrupts.
 // <i> Processing all events from the interrupt level adds requirement not to call any functions that modifies the USBD library state from the context higher than USB interrupt context.
-// <i> Functions that modify USBD state are functions for sleep, wakeup, start, stop, enable and disable.
+// <i> Functions that modify USBD state are functions for sleep, wakeup, start, stop, enable, and disable.
 //==========================================================
 #ifndef APP_USBD_CONFIG_EVENT_QUEUE_ENABLE
 #define APP_USBD_CONFIG_EVENT_QUEUE_ENABLE 1
 #endif
-// <o> APP_USBD_CONFIG_EVENT_QUEUE_SIZE - The size of event queue  <16-64> 
+// <o> APP_USBD_CONFIG_EVENT_QUEUE_SIZE - The size of the event queue.  <16-64> 
 
 
 // <i> The size of the queue for the events that would be processed in the main loop.
@@ -6042,9 +6098,9 @@
 // <o> APP_USBD_CONFIG_SOF_HANDLING_MODE  - Change SOF events handling mode.
  
 
-// <i> Normal queue   - SOF events are pushed normally into event queue.
-// <i> Compress queue - SOF events are counted and binded with other events or executed when queue is empty.
-// <i>                  This prevents queue from filling with SOF events.
+// <i> Normal queue   - SOF events are pushed normally into the event queue.
+// <i> Compress queue - SOF events are counted and binded with other events or executed when the queue is empty.
+// <i>                  This prevents the queue from filling up with SOF events.
 // <i> Interrupt      - SOF events are processed in interrupt.
 // <0=> Normal queue 
 // <1=> Compress queue 
@@ -6056,78 +6112,193 @@
 
 // </e>
 
-// <q> APP_USBD_CONFIG_SOF_TIMESTAMP_PROVIDE  - Provide a function that generates timestamps for logs based on the current SOF
+// <q> APP_USBD_CONFIG_SOF_TIMESTAMP_PROVIDE  - Provide a function that generates timestamps for logs based on the current SOF.
  
 
-// <i> The function app_usbd_sof_timestamp_get will be implemented if the logger is enabled. 
+// <i> The function app_usbd_sof_timestamp_get is implemented if the logger is enabled. 
 // <i> Use it when initializing the logger. 
-// <i> SOF processing will be always enabled when this configuration parameter is active. 
-// <i> Notice that this option is configured outside of APP_USBD_CONFIG_LOG_ENABLED. 
-// <i> This means that it will work even if the logging in this very module is disabled. 
+// <i> SOF processing is always enabled when this configuration parameter is active. 
+// <i> Note: This option is configured outside of APP_USBD_CONFIG_LOG_ENABLED. 
+// <i> This means that it works even if the logging in this very module is disabled. 
 
 #ifndef APP_USBD_CONFIG_SOF_TIMESTAMP_PROVIDE
 #define APP_USBD_CONFIG_SOF_TIMESTAMP_PROVIDE 0
 #endif
 
-// <e> APP_USBD_CONFIG_LOG_ENABLED - Enable logging in the module
+// <o> APP_USBD_CONFIG_DESC_STRING_SIZE - Maximum size of the NULL-terminated string of the string descriptor.  <31-254> 
+
+
+// <i> 31 characters can be stored in the internal USB buffer used for transfers.
+// <i> Any value higher than 31 creates an additional buffer just for descriptor strings.
+
+#ifndef APP_USBD_CONFIG_DESC_STRING_SIZE
+#define APP_USBD_CONFIG_DESC_STRING_SIZE 31
+#endif
+
+// <q> APP_USBD_CONFIG_DESC_STRING_UTF_ENABLED  - Enable UTF8 conversion.
+ 
+
+// <i> Enable UTF8-encoded characters. In normal processing, only ASCII characters are available.
+
+#ifndef APP_USBD_CONFIG_DESC_STRING_UTF_ENABLED
+#define APP_USBD_CONFIG_DESC_STRING_UTF_ENABLED 0
+#endif
+
+// <s> APP_USBD_STRINGS_LANGIDS - Supported languages identifiers.
+
+// <i> Note: This value is not editable in Configuration Wizard.
+// <i> Comma-separated list of supported languages.
+#ifndef APP_USBD_STRINGS_LANGIDS
+#define APP_USBD_STRINGS_LANGIDS APP_USBD_LANG_AND_SUBLANG(APP_USBD_LANG_ENGLISH, APP_USBD_SUBLANG_ENGLISH_US)
+#endif
+
+// <e> APP_USBD_STRING_ID_MANUFACTURER - Define manufacturer string ID.
+
+// <i> Setting ID to 0 disables the string.
 //==========================================================
-#ifndef APP_USBD_CONFIG_LOG_ENABLED
-#define APP_USBD_CONFIG_LOG_ENABLED 0
+#ifndef APP_USBD_STRING_ID_MANUFACTURER
+#define APP_USBD_STRING_ID_MANUFACTURER 1
 #endif
-// <o> APP_USBD_CONFIG_LOG_LEVEL  - Default Severity level
+// <q> APP_USBD_STRINGS_MANUFACTURER_EXTERN  - Define whether @ref APP_USBD_STRINGS_MANUFACTURER is created by macro or declared as a global variable.
  
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
 
-#ifndef APP_USBD_CONFIG_LOG_LEVEL
-#define APP_USBD_CONFIG_LOG_LEVEL 3
+#ifndef APP_USBD_STRINGS_MANUFACTURER_EXTERN
+#define APP_USBD_STRINGS_MANUFACTURER_EXTERN 0
 #endif
 
-// <o> APP_USBD_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+// <s> APP_USBD_STRINGS_MANUFACTURER - String descriptor for the manufacturer name.
 
-#ifndef APP_USBD_CONFIG_INFO_COLOR
-#define APP_USBD_CONFIG_INFO_COLOR 0
-#endif
-
-// <o> APP_USBD_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
-
-#ifndef APP_USBD_CONFIG_DEBUG_COLOR
-#define APP_USBD_CONFIG_DEBUG_COLOR 0
+// <i> Note: This value is not editable in Configuration Wizard.
+// <i> Comma-separated list of manufacturer names for each defined language.
+// <i> Use @ref APP_USBD_STRING_DESC macro to create string descriptor from a NULL-terminated string.
+// <i> Use @ref APP_USBD_STRING_RAW8_DESC macro to create string descriptor from comma-separated uint8_t values.
+// <i> Use @ref APP_USBD_STRING_RAW16_DESC macro to create string descriptor from comma-separated uint16_t values.
+// <i> Alternatively, configure the macro to point to any internal variable pointer that already contains the descriptor.
+// <i> Setting string to NULL disables that string.
+// <i> The order of manufacturer names must be the same like in @ref APP_USBD_STRINGS_LANGIDS.
+#ifndef APP_USBD_STRINGS_MANUFACTURER
+#define APP_USBD_STRINGS_MANUFACTURER APP_USBD_STRING_DESC("Nordic Semiconductor")
 #endif
 
 // </e>
 
-// </e>
+// <e> APP_USBD_STRING_ID_PRODUCT - Define product string ID.
 
-// <q> APP_USBD_HID_ENABLED  - app_usbd_hid - USB HID class
+// <i> Setting ID to 0 disables the string.
+//==========================================================
+#ifndef APP_USBD_STRING_ID_PRODUCT
+#define APP_USBD_STRING_ID_PRODUCT 2
+#endif
+// <q> APP_USBD_STRINGS_PRODUCT_EXTERN  - Define whether @ref APP_USBD_STRINGS_PRODUCT is created by macro or declared as a global variable.
  
 
+#ifndef APP_USBD_STRINGS_PRODUCT_EXTERN
+#define APP_USBD_STRINGS_PRODUCT_EXTERN 0
+#endif
+
+// <s> APP_USBD_STRINGS_PRODUCT - String descriptor for the product name.
+
+// <i> Note: This value is not editable in Configuration Wizard.
+// <i> List of product names that is defined the same way like in @ref APP_USBD_STRINGS_MANUFACTURER.
+#ifndef APP_USBD_STRINGS_PRODUCT
+#define APP_USBD_STRINGS_PRODUCT APP_USBD_STRING_DESC("nRF52 USB Product")
+#endif
+
+// </e>
+
+// <e> APP_USBD_STRING_ID_SERIAL - Define serial number string ID.
+
+// <i> Setting ID to 0 disables the string.
+//==========================================================
+#ifndef APP_USBD_STRING_ID_SERIAL
+#define APP_USBD_STRING_ID_SERIAL 3
+#endif
+// <q> APP_USBD_STRING_SERIAL_EXTERN  - Define whether @ref APP_USBD_STRING_SERIAL is created by macro or declared as a global variable.
+ 
+
+#ifndef APP_USBD_STRING_SERIAL_EXTERN
+#define APP_USBD_STRING_SERIAL_EXTERN 0
+#endif
+
+// <s> APP_USBD_STRING_SERIAL - String descriptor for the serial number.
+
+// <i> Note: This value is not editable in Configuration Wizard.
+// <i> Serial number that is defined the same way like in @ref APP_USBD_STRINGS_MANUFACTURER.
+#ifndef APP_USBD_STRING_SERIAL
+#define APP_USBD_STRING_SERIAL APP_USBD_STRING_DESC("000000000000")
+#endif
+
+// </e>
+
+// <e> APP_USBD_STRING_ID_CONFIGURATION - Define configuration string ID.
+
+// <i> Setting ID to 0 disables the string.
+//==========================================================
+#ifndef APP_USBD_STRING_ID_CONFIGURATION
+#define APP_USBD_STRING_ID_CONFIGURATION 4
+#endif
+// <q> APP_USBD_STRING_CONFIGURATION_EXTERN  - Define whether @ref APP_USBD_STRINGS_CONFIGURATION is created by macro or declared as global variable.
+ 
+
+#ifndef APP_USBD_STRING_CONFIGURATION_EXTERN
+#define APP_USBD_STRING_CONFIGURATION_EXTERN 0
+#endif
+
+// <s> APP_USBD_STRINGS_CONFIGURATION - String descriptor for the device configuration.
+
+// <i> Note: This value is not editable in Configuration Wizard.
+// <i> Configuration string that is defined the same way like in @ref APP_USBD_STRINGS_MANUFACTURER.
+#ifndef APP_USBD_STRINGS_CONFIGURATION
+#define APP_USBD_STRINGS_CONFIGURATION APP_USBD_STRING_DESC("Default configuration")
+#endif
+
+// </e>
+
+// <s> APP_USBD_STRINGS_USER - Default values for user strings.
+
+// <i> Note: This value is not editable in Configuration Wizard.
+// <i> This value stores all application specific user strings with the default initialization.
+// <i> The setup is done by X-macros.
+// <i> Expected macro parameters:
+// <i> @code
+// <i> X(mnemonic, [=str_idx], ...)
+// <i> @endcode
+// <i> - @c mnemonic: Mnemonic of the string descriptor that would be added to
+// <i>                @ref app_usbd_string_desc_idx_t enumerator.
+// <i> - @c str_idx : String index value, can be set or left empty.
+// <i>                For example, WinUSB driver requires descriptor to be present on 0xEE index.
+// <i>                Then use X(USBD_STRING_WINUSB, =0xEE, (APP_USBD_STRING_DESC(...)))
+// <i> - @c ...     : List of string descriptors for each defined language.
+#ifndef APP_USBD_STRINGS_USER
+#define APP_USBD_STRINGS_USER X(APP_USER_1, , APP_USBD_STRING_DESC("User 1"))
+#endif
+
+// </e>
+
+// <e> APP_USBD_HID_ENABLED - app_usbd_hid - USB HID class
+//==========================================================
 #ifndef APP_USBD_HID_ENABLED
 #define APP_USBD_HID_ENABLED 0
 #endif
+// <o> APP_USBD_HID_DEFAULT_IDLE_RATE - Default idle rate for HID class.   <0-255> 
+
+
+// <i> 0 means indefinite duration, any other value is multiplied by 4 milliseconds. Refer to Chapter 7.2.4 of HID 1.11 Specification.
+
+#ifndef APP_USBD_HID_DEFAULT_IDLE_RATE
+#define APP_USBD_HID_DEFAULT_IDLE_RATE 0
+#endif
+
+// <o> APP_USBD_HID_REPORT_IDLE_TABLE_SIZE - Size of idle rate table.   <1-255> 
+
+
+// <i> Must be higher than the highest report ID used.
+
+#ifndef APP_USBD_HID_REPORT_IDLE_TABLE_SIZE
+#define APP_USBD_HID_REPORT_IDLE_TABLE_SIZE 4
+#endif
+
+// </e>
 
 // <q> APP_USBD_HID_GENERIC_ENABLED  - app_usbd_hid_generic - USB HID generic
  
@@ -6286,27 +6457,12 @@
 
 // </e>
 
-// <e> HARDFAULT_HANDLER_ENABLED - hardfault_default - HardFault default handler for debugging and release
-//==========================================================
+// <q> HARDFAULT_HANDLER_ENABLED  - hardfault_default - HardFault default handler for debugging and release
+ 
+
 #ifndef HARDFAULT_HANDLER_ENABLED
 #define HARDFAULT_HANDLER_ENABLED 0
 #endif
-// <q> HARDFAULT_HANDLER_GDB_PSP_BACKTRACE  - Bypass the GDB problem with multiple stack pointers backtrace
- 
-
-// <i> There is a known bug in GDB which causes it to incorrectly backtrace the code
-// <i> when multiple stack pointers are used (main and process stack pointers).
-// <i> This option enables the fix for that problem and allows to see the proper backtrace info.
-// <i> It makes it possible to trace the code to the exact point where a HardFault appeared.
-// <i> This option requires additional commands and may temporarily switch MSP stack to store data on PSP space.
-// <i> This is an optional parameter - enable it while debugging.
-// <i> Before a HardFault handler exits, the stack will be reverted to its previous value.
-
-#ifndef HARDFAULT_HANDLER_GDB_PSP_BACKTRACE
-#define HARDFAULT_HANDLER_GDB_PSP_BACKTRACE 1
-#endif
-
-// </e>
 
 // <e> HCI_MEM_POOL_ENABLED - hci_mem_pool - memory pool implementation used by HCI
 //==========================================================
@@ -6369,12 +6525,12 @@
 
 // <o> HCI_UART_RX_PIN - UART RX pin 
 #ifndef HCI_UART_RX_PIN
-#define HCI_UART_RX_PIN 8
+#define HCI_UART_RX_PIN 19
 #endif
 
 // <o> HCI_UART_TX_PIN - UART TX pin 
 #ifndef HCI_UART_TX_PIN
-#define HCI_UART_TX_PIN 6
+#define HCI_UART_TX_PIN 20
 #endif
 
 // <o> HCI_UART_RTS_PIN - UART RTS pin 
@@ -7013,6 +7169,29 @@
 // </h> 
 //==========================================================
 
+// <h> app_usbd_cdc_acm - USB CDC ACM class
+
+//==========================================================
+// <q> APP_USBD_CDC_ACM_ENABLED  - Enabling USBD CDC ACM Class library
+ 
+
+#ifndef APP_USBD_CDC_ACM_ENABLED
+#define APP_USBD_CDC_ACM_ENABLED 0
+#endif
+
+// <q> APP_USBD_CDC_ACM_ZLP_ON_EPSIZE_WRITE  - Send ZLP on write with same size as endpoint
+ 
+
+// <i> If enabled, CDC ACM class will automatically send a zero length packet after transfer which has the same size as endpoint.
+// <i> This may limit throughput if a lot of binary data is sent, but in terminal mode operation it makes sure that the data is always displayed right after it is sent.
+
+#ifndef APP_USBD_CDC_ACM_ZLP_ON_EPSIZE_WRITE
+#define APP_USBD_CDC_ACM_ZLP_ON_EPSIZE_WRITE 1
+#endif
+
+// </h> 
+//==========================================================
+
 // <h> nrf_cli - Command line interface
 
 //==========================================================
@@ -7052,6 +7231,13 @@
 
 #ifndef NRF_CLI_WILDCARD_ENABLED
 #define NRF_CLI_WILDCARD_ENABLED 0
+#endif
+
+// <q> NRF_CLI_METAKEYS_ENABLED  - Enable additional control keys for CLI commands like ctrl+a, ctrl+e, ctrl+w, ctrl+u
+ 
+
+#ifndef NRF_CLI_METAKEYS_ENABLED
+#define NRF_CLI_METAKEYS_ENABLED 0
 #endif
 
 // <o> NRF_CLI_PRINTF_BUFF_SIZE - Maximum print buffer size. 
@@ -7191,21 +7377,128 @@
 
 // </e>
 
-// <q> NRF_LOG_STR_FORMATTER_TIMESTAMP_FORMAT_ENABLED  - nrf_log_str_formatter - Log string formatter
- 
-
-#ifndef NRF_LOG_STR_FORMATTER_TIMESTAMP_FORMAT_ENABLED
-#define NRF_LOG_STR_FORMATTER_TIMESTAMP_FORMAT_ENABLED 1
-#endif
-
-// <h> nrf_log - Logger
-
-//==========================================================
-// <e> NRF_LOG_ENABLED - Logging module for nRF5 SDK
+// <e> NRF_LOG_ENABLED - nrf_log - Logger
 //==========================================================
 #ifndef NRF_LOG_ENABLED
 #define NRF_LOG_ENABLED 1
 #endif
+// <h> Log message pool - Configuration of log message pool
+
+//==========================================================
+// <o> NRF_LOG_MSGPOOL_ELEMENT_SIZE - Size of a single element in the pool of memory objects. 
+// <i> If a small value is set, then performance of logs processing
+// <i> is degraded because data is fragmented. Bigger value impacts
+// <i> RAM memory utilization. The size is set to fit a message with
+// <i> a timestamp and up to 2 arguments in a single memory object.
+
+#ifndef NRF_LOG_MSGPOOL_ELEMENT_SIZE
+#define NRF_LOG_MSGPOOL_ELEMENT_SIZE 20
+#endif
+
+// <o> NRF_LOG_MSGPOOL_ELEMENT_COUNT - Number of elements in the pool of memory objects 
+// <i> If a small value is set, then it may lead to a deadlock
+// <i> in certain cases if backend has high latency and holds
+// <i> multiple messages for long time. Bigger value impacts
+// <i> RAM memory usage.
+
+#ifndef NRF_LOG_MSGPOOL_ELEMENT_COUNT
+#define NRF_LOG_MSGPOOL_ELEMENT_COUNT 8
+#endif
+
+// </h> 
+//==========================================================
+
+// <q> NRF_LOG_ALLOW_OVERFLOW  - Configures behavior when circular buffer is full.
+ 
+
+// <i> If set then oldest logs are overwritten. Otherwise a 
+// <i> marker is injected informing about overflow.
+
+#ifndef NRF_LOG_ALLOW_OVERFLOW
+#define NRF_LOG_ALLOW_OVERFLOW 1
+#endif
+
+// <o> NRF_LOG_BUFSIZE  - Size of the buffer for storing logs (in bytes).
+ 
+
+// <i> Must be power of 2 and multiple of 4.
+// <i> If NRF_LOG_DEFERRED = 0 then buffer size can be reduced to minimum.
+// <128=> 128 
+// <256=> 256 
+// <512=> 512 
+// <1024=> 1024 
+// <2048=> 2048 
+// <4096=> 4096 
+// <8192=> 8192 
+// <16384=> 16384 
+
+#ifndef NRF_LOG_BUFSIZE
+#define NRF_LOG_BUFSIZE 1024
+#endif
+
+// <q> NRF_LOG_CLI_CMDS  - Enable CLI commands for the module.
+ 
+
+#ifndef NRF_LOG_CLI_CMDS
+#define NRF_LOG_CLI_CMDS 0
+#endif
+
+// <o> NRF_LOG_DEFAULT_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef NRF_LOG_DEFAULT_LEVEL
+#define NRF_LOG_DEFAULT_LEVEL 3
+#endif
+
+// <q> NRF_LOG_DEFERRED  - Enable deffered logger.
+ 
+
+// <i> Log data is buffered and can be processed in idle.
+
+#ifndef NRF_LOG_DEFERRED
+#define NRF_LOG_DEFERRED 1
+#endif
+
+// <q> NRF_LOG_FILTERS_ENABLED  - Enable dynamic filtering of logs.
+ 
+
+#ifndef NRF_LOG_FILTERS_ENABLED
+#define NRF_LOG_FILTERS_ENABLED 0
+#endif
+
+// <o> NRF_LOG_STR_PUSH_BUFFER_SIZE  - Size of the buffer dedicated for strings stored using @ref NRF_LOG_PUSH.
+ 
+// <16=> 16 
+// <32=> 32 
+// <64=> 64 
+// <128=> 128 
+// <256=> 256 
+// <512=> 512 
+// <1024=> 1024 
+
+#ifndef NRF_LOG_STR_PUSH_BUFFER_SIZE
+#define NRF_LOG_STR_PUSH_BUFFER_SIZE 128
+#endif
+
+// <o> NRF_LOG_STR_PUSH_BUFFER_SIZE  - Size of the buffer dedicated for strings stored using @ref NRF_LOG_PUSH.
+ 
+// <16=> 16 
+// <32=> 32 
+// <64=> 64 
+// <128=> 128 
+// <256=> 256 
+// <512=> 512 
+// <1024=> 1024 
+
+#ifndef NRF_LOG_STR_PUSH_BUFFER_SIZE
+#define NRF_LOG_STR_PUSH_BUFFER_SIZE 128
+#endif
+
 // <e> NRF_LOG_USES_COLORS - If enabled then ANSI escape code for colors is prefixed to every string
 //==========================================================
 #ifndef NRF_LOG_USES_COLORS
@@ -7261,55 +7554,6 @@
 
 // </e>
 
-// <o> NRF_LOG_DEFAULT_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
-
-#ifndef NRF_LOG_DEFAULT_LEVEL
-#define NRF_LOG_DEFAULT_LEVEL 3
-#endif
-
-// <q> NRF_LOG_DEFERRED  - Enable deffered logger.
- 
-
-// <i> Log data is buffered and can be processed in idle.
-
-#ifndef NRF_LOG_DEFERRED
-#define NRF_LOG_DEFERRED 1
-#endif
-
-// <o> NRF_LOG_BUFSIZE  - Size of the buffer for storing logs (in bytes).
- 
-
-// <i> Must be power of 2 and multiple of 4.
-// <i> If NRF_LOG_DEFERRED = 0 then buffer size can be reduced to minimum.
-// <128=> 128 
-// <256=> 256 
-// <512=> 512 
-// <1024=> 1024 
-// <2048=> 2048 
-// <4096=> 4096 
-// <8192=> 8192 
-// <16384=> 16384 
-
-#ifndef NRF_LOG_BUFSIZE
-#define NRF_LOG_BUFSIZE 1024
-#endif
-
-// <q> NRF_LOG_ALLOW_OVERFLOW  - Configures behavior when circular buffer is full.
- 
-
-// <i> If set then oldest logs are overwritten. Otherwise a 
-// <i> marker is injected informing about overflow.
-
-#ifndef NRF_LOG_ALLOW_OVERFLOW
-#define NRF_LOG_ALLOW_OVERFLOW 1
-#endif
-
 // <e> NRF_LOG_USES_TIMESTAMP - Enable timestamping
 
 // <i> Function for getting the timestamp is provided by the user
@@ -7317,52 +7561,10 @@
 #ifndef NRF_LOG_USES_TIMESTAMP
 #define NRF_LOG_USES_TIMESTAMP 0
 #endif
-// <o> NRF_LOG_TIMESTAMP_DEFAULT_FREQUENCY - Default frequency of the timestamp (in Hz) 
+// <o> NRF_LOG_TIMESTAMP_DEFAULT_FREQUENCY - Default frequency of the timestamp (in Hz) or 0 to use app_timer frequency. 
 #ifndef NRF_LOG_TIMESTAMP_DEFAULT_FREQUENCY
-#define NRF_LOG_TIMESTAMP_DEFAULT_FREQUENCY 32768
+#define NRF_LOG_TIMESTAMP_DEFAULT_FREQUENCY 0
 #endif
-
-// </e>
-
-// <q> NRF_LOG_FILTERS_ENABLED  - Enable dynamic filtering of logs.
- 
-
-#ifndef NRF_LOG_FILTERS_ENABLED
-#define NRF_LOG_FILTERS_ENABLED 0
-#endif
-
-// <q> NRF_LOG_CLI_CMDS  - Enable CLI commands for the module.
- 
-
-#ifndef NRF_LOG_CLI_CMDS
-#define NRF_LOG_CLI_CMDS 0
-#endif
-
-// <h> Log message pool - Configuration of log message pool
-
-//==========================================================
-// <o> NRF_LOG_MSGPOOL_ELEMENT_SIZE - Size of a single element in the pool of memory objects. 
-// <i> If a small value is set, then performance of logs processing
-// <i> is degraded because data is fragmented. Bigger value impacts
-// <i> RAM memory utilization. The size is set to fit a message with
-// <i> a timestamp and up to 2 arguments in a single memory object.
-
-#ifndef NRF_LOG_MSGPOOL_ELEMENT_SIZE
-#define NRF_LOG_MSGPOOL_ELEMENT_SIZE 20
-#endif
-
-// <o> NRF_LOG_MSGPOOL_ELEMENT_COUNT - Number of elements in the pool of memory objects 
-// <i> If a small value is set, then it may lead to a deadlock
-// <i> in certain cases if backend has high latency and holds
-// <i> multiple messages for long time. Bigger value impacts
-// <i> RAM memory usage.
-
-#ifndef NRF_LOG_MSGPOOL_ELEMENT_COUNT
-#define NRF_LOG_MSGPOOL_ELEMENT_COUNT 8
-#endif
-
-// </h> 
-//==========================================================
 
 // </e>
 
@@ -7731,6 +7933,57 @@
 
 #ifndef LPCOMP_CONFIG_DEBUG_COLOR
 #define LPCOMP_CONFIG_DEBUG_COLOR 0
+#endif
+
+// </e>
+
+// <e> MAX3421E_HOST_CONFIG_LOG_ENABLED - Enable logging in the module
+//==========================================================
+#ifndef MAX3421E_HOST_CONFIG_LOG_ENABLED
+#define MAX3421E_HOST_CONFIG_LOG_ENABLED 0
+#endif
+// <o> MAX3421E_HOST_CONFIG_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef MAX3421E_HOST_CONFIG_LOG_LEVEL
+#define MAX3421E_HOST_CONFIG_LOG_LEVEL 3
+#endif
+
+// <o> MAX3421E_HOST_CONFIG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef MAX3421E_HOST_CONFIG_INFO_COLOR
+#define MAX3421E_HOST_CONFIG_INFO_COLOR 0
+#endif
+
+// <o> MAX3421E_HOST_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef MAX3421E_HOST_CONFIG_DEBUG_COLOR
+#define MAX3421E_HOST_CONFIG_DEBUG_COLOR 0
 #endif
 
 // </e>
@@ -8631,6 +8884,57 @@
 
 // </e>
 
+// <e> APP_USBD_CONFIG_LOG_ENABLED - Enable logging in the module.
+//==========================================================
+#ifndef APP_USBD_CONFIG_LOG_ENABLED
+#define APP_USBD_CONFIG_LOG_ENABLED 0
+#endif
+// <o> APP_USBD_CONFIG_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef APP_USBD_CONFIG_LOG_LEVEL
+#define APP_USBD_CONFIG_LOG_LEVEL 3
+#endif
+
+// <o> APP_USBD_CONFIG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef APP_USBD_CONFIG_INFO_COLOR
+#define APP_USBD_CONFIG_INFO_COLOR 0
+#endif
+
+// <o> APP_USBD_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef APP_USBD_CONFIG_DEBUG_COLOR
+#define APP_USBD_CONFIG_DEBUG_COLOR 0
+#endif
+
+// </e>
+
 // <e> APP_USBD_DUMMY_CONFIG_LOG_ENABLED - Enables logging in the module.
 //==========================================================
 #ifndef APP_USBD_DUMMY_CONFIG_LOG_ENABLED
@@ -8910,6 +9214,195 @@
 
 #ifndef NRF_BALLOC_CONFIG_DEBUG_COLOR
 #define NRF_BALLOC_CONFIG_DEBUG_COLOR 0
+#endif
+
+// </e>
+
+// <e> NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_ENABLED - Enables logging in the module.
+//==========================================================
+#ifndef NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_ENABLED
+#define NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_ENABLED 0
+#endif
+// <o> NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_LEVEL
+#define NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_LEVEL 3
+#endif
+
+// <o> NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_INIT_FILTER_LEVEL  - Initial severity level if dynamic filtering is enabled
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_INIT_FILTER_LEVEL
+#define NRF_BLOCK_DEV_EMPTY_CONFIG_LOG_INIT_FILTER_LEVEL 3
+#endif
+
+// <o> NRF_BLOCK_DEV_EMPTY_CONFIG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef NRF_BLOCK_DEV_EMPTY_CONFIG_INFO_COLOR
+#define NRF_BLOCK_DEV_EMPTY_CONFIG_INFO_COLOR 0
+#endif
+
+// <o> NRF_BLOCK_DEV_EMPTY_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef NRF_BLOCK_DEV_EMPTY_CONFIG_DEBUG_COLOR
+#define NRF_BLOCK_DEV_EMPTY_CONFIG_DEBUG_COLOR 0
+#endif
+
+// </e>
+
+// <e> NRF_BLOCK_DEV_QSPI_CONFIG_LOG_ENABLED - Enables logging in the module.
+//==========================================================
+#ifndef NRF_BLOCK_DEV_QSPI_CONFIG_LOG_ENABLED
+#define NRF_BLOCK_DEV_QSPI_CONFIG_LOG_ENABLED 0
+#endif
+// <o> NRF_BLOCK_DEV_QSPI_CONFIG_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef NRF_BLOCK_DEV_QSPI_CONFIG_LOG_LEVEL
+#define NRF_BLOCK_DEV_QSPI_CONFIG_LOG_LEVEL 3
+#endif
+
+// <o> NRF_BLOCK_DEV_QSPI_CONFIG_LOG_INIT_FILTER_LEVEL  - Initial severity level if dynamic filtering is enabled
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef NRF_BLOCK_DEV_QSPI_CONFIG_LOG_INIT_FILTER_LEVEL
+#define NRF_BLOCK_DEV_QSPI_CONFIG_LOG_INIT_FILTER_LEVEL 3
+#endif
+
+// <o> NRF_BLOCK_DEV_QSPI_CONFIG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef NRF_BLOCK_DEV_QSPI_CONFIG_INFO_COLOR
+#define NRF_BLOCK_DEV_QSPI_CONFIG_INFO_COLOR 0
+#endif
+
+// <o> NRF_BLOCK_DEV_QSPI_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef NRF_BLOCK_DEV_QSPI_CONFIG_DEBUG_COLOR
+#define NRF_BLOCK_DEV_QSPI_CONFIG_DEBUG_COLOR 0
+#endif
+
+// </e>
+
+// <e> NRF_BLOCK_DEV_RAM_CONFIG_LOG_ENABLED - Enables logging in the module.
+//==========================================================
+#ifndef NRF_BLOCK_DEV_RAM_CONFIG_LOG_ENABLED
+#define NRF_BLOCK_DEV_RAM_CONFIG_LOG_ENABLED 0
+#endif
+// <o> NRF_BLOCK_DEV_RAM_CONFIG_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef NRF_BLOCK_DEV_RAM_CONFIG_LOG_LEVEL
+#define NRF_BLOCK_DEV_RAM_CONFIG_LOG_LEVEL 3
+#endif
+
+// <o> NRF_BLOCK_DEV_RAM_CONFIG_LOG_INIT_FILTER_LEVEL  - Initial severity level if dynamic filtering is enabled
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef NRF_BLOCK_DEV_RAM_CONFIG_LOG_INIT_FILTER_LEVEL
+#define NRF_BLOCK_DEV_RAM_CONFIG_LOG_INIT_FILTER_LEVEL 3
+#endif
+
+// <o> NRF_BLOCK_DEV_RAM_CONFIG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef NRF_BLOCK_DEV_RAM_CONFIG_INFO_COLOR
+#define NRF_BLOCK_DEV_RAM_CONFIG_INFO_COLOR 0
+#endif
+
+// <o> NRF_BLOCK_DEV_RAM_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef NRF_BLOCK_DEV_RAM_CONFIG_DEBUG_COLOR
+#define NRF_BLOCK_DEV_RAM_CONFIG_DEBUG_COLOR 0
 #endif
 
 // </e>
@@ -9589,6 +10082,57 @@
 
 // </e>
 
+// <e> PM_LOG_ENABLED - Enable logging in Peer Manager and its submodules.
+//==========================================================
+#ifndef PM_LOG_ENABLED
+#define PM_LOG_ENABLED 1
+#endif
+// <o> PM_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef PM_LOG_LEVEL
+#define PM_LOG_LEVEL 3
+#endif
+
+// <o> PM_LOG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef PM_LOG_INFO_COLOR
+#define PM_LOG_INFO_COLOR 0
+#endif
+
+// <o> PM_LOG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef PM_LOG_DEBUG_COLOR
+#define PM_LOG_DEBUG_COLOR 0
+#endif
+
+// </e>
+
 // </h> 
 //==========================================================
 
@@ -9652,8 +10196,14 @@
 // </h> 
 //==========================================================
 
-// </h> 
-//==========================================================
+// </e>
+
+// <q> NRF_LOG_STR_FORMATTER_TIMESTAMP_FORMAT_ENABLED  - nrf_log_str_formatter - Log string formatter
+ 
+
+#ifndef NRF_LOG_STR_FORMATTER_TIMESTAMP_FORMAT_ENABLED
+#define NRF_LOG_STR_FORMATTER_TIMESTAMP_FORMAT_ENABLED 1
+#endif
 
 // </h> 
 //==========================================================
@@ -10036,7 +10586,7 @@
 // <7=> 7 
 
 #ifndef NFCT_CONFIG_IRQ_PRIORITY
-#define NFCT_CONFIG_IRQ_PRIORITY 7
+#define NFCT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> HAL_NFC_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -10698,7 +11248,7 @@
 // <7=> 7 
 
 #ifndef NFCT_CONFIG_IRQ_PRIORITY
-#define NFCT_CONFIG_IRQ_PRIORITY 7
+#define NFCT_CONFIG_IRQ_PRIORITY 6
 #endif
 
 // <e> HAL_NFC_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -11601,13 +12151,6 @@
 #define BLE_LBS_C_BLE_OBSERVER_PRIO 2
 #endif
 
-// <o> BLE_LESC_OBSERVER_PRIO  
-// <i> Priority with which BLE events are dispatched to the BLE LESC module.
-
-#ifndef BLE_LESC_OBSERVER_PRIO
-#define BLE_LESC_OBSERVER_PRIO 2
-#endif
-
 // <o> BLE_LLS_BLE_OBSERVER_PRIO  
 // <i> Priority with which BLE events are dispatched to the Link Loss Service.
 
@@ -11865,6 +12408,13 @@
 
 #ifndef NRF_BLE_QWR_BLE_OBSERVER_PRIO
 #define NRF_BLE_QWR_BLE_OBSERVER_PRIO 2
+#endif
+
+// <o> NRF_BLE_SCAN_OBSERVER_PRIO  
+// <i> Priority for dispatching the BLE events to the Scanning Module.
+
+#ifndef NRF_BLE_SCAN_OBSERVER_PRIO
+#define NRF_BLE_SCAN_OBSERVER_PRIO 1
 #endif
 
 // <o> PM_BLE_OBSERVER_PRIO - Priority with which BLE events are dispatched to the Peer Manager module. 

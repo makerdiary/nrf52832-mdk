@@ -1,30 +1,30 @@
 /**
  * Copyright (c) 2016 - 2018, Nordic Semiconductor ASA
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- * 
+ *
  * 1. Redistributions of source code must retain the above copyright notice, this
  *    list of conditions and the following disclaimer.
- * 
+ *
  * 2. Redistributions in binary form, except as embedded into a Nordic
  *    Semiconductor ASA integrated circuit in a product or a software update for
  *    such product, must reproduce the above copyright notice, this list of
  *    conditions and the following disclaimer in the documentation and/or other
  *    materials provided with the distribution.
- * 
+ *
  * 3. Neither the name of Nordic Semiconductor ASA nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
- * 
+ *
  * 4. This software, with or without modification, must only be used with a
  *    Nordic Semiconductor ASA integrated circuit.
- * 
+ *
  * 5. Any software provided in binary form under this license must not be reverse
  *    engineered, decompiled, modified and/or disassembled.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  * OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -35,7 +35,7 @@
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 #ifndef ES_APP_CONFIG_H__
 #define ES_APP_CONFIG_H__
@@ -74,7 +74,7 @@
 #define APP_CONFIG_TLM_ADV_INTERLEAVE_RATIO                 5                           //!< How often should the TLM frame be advertised.
 
 
-#define APP_CONFIG_ADV_INTERVAL_MS_MAX                      20000                       //!< Maximum allowed advertisement interval. Can be undefined without int
+#define APP_CONFIG_ADV_INTERVAL_MS_MAX                      16384                       //!< Maximum allowed advertisement interval. Can be undefined without int
 #define APP_CONFIG_ADV_FRAME_SPACING_MS_MIN                 500                         //!< Minimum time between advertisement frames. Imposes limit on minumum accepted advertisement interval.
 #ifdef NRF52_SERIES
 #define APP_CONFIG_ADV_FRAME_ETLM_SPACING_MS                300                         //!< The time that is reqired for preparing an eTLM slot. Imposes limit on minimum accepted advertisement interval.
@@ -155,10 +155,10 @@
 
 // Eddystone URL data
 #define APP_ES_URL_FRAME_TYPE               ES_FRAME_TYPE_URL                           //!< URL Frame type (fixed at 0x10).
-#define APP_ES_URL_SCHEME                   0x01                                        //!< URL prefix scheme according to specification (0x01 = "https://www").
-#define APP_ES_URL_URL                      'm', 'a', 'k', 'e', \
-                                            'r', 'd', 'i', 'a', \
-                                            'r','y', 0x00                             //!< "nordicsemi.com". Last byte suffix 0x00 = ".com" according to specification.
+#define APP_ES_URL_SCHEME                   0x03                                        //!< URL prefix scheme according to specification (0x03 = "https://").
+#define APP_ES_URL_URL                      'm', 'a', 'k', 'e', 'r', \
+                                            'd', 'i', 'a', 'r', 'y', \
+                                            0x00                                        //!< "makerdiary.com". Last byte suffix 0x00 = ".com" according to specification.
 
 #define DEFAULT_FRAME_TYPE                  APP_ES_URL_FRAME_TYPE                       //!< Frame type of default frame.
 #define DEFAULT_FRAME_TX_POWER              0x00                                        //!< Default frame TX power.
