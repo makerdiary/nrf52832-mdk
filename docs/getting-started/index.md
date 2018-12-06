@@ -151,7 +151,7 @@ $ pyocd-flashtool -l
 and then flash the board by running:
 
 ``` sh
-$ pyocd-flashtool -d debug -t nrf52 -se your-hex-file.hex
+$ pyocd-flashtool -t nrf52 -se your-hex-file.hex
 ```
 
 ![](images/programming_using_pyocd.png)

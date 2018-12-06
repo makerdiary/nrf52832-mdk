@@ -1,6 +1,6 @@
 # nRF5 SDK <br><small>Software Development Kit for nRF51 and nRF52 Series</small>
 
-[![](images/SDK-icon_small.png)](http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK)
+[![](images/SDK-icon_small.png)](https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK)
 
 ## Introduction
 
@@ -80,11 +80,11 @@ $ sudo apt-get install build-essential checkinstall
 
 ## Installing the nRF5 SDK
 
-Download the SDK file `nRF5_SDK_x.x.x_xxxxxxx.zip` (for example, `nRF5_SDK_15.0.0_a53641a.zip`) from [developer.nordicsemi.com](https://developer.nordicsemi.com/).
+Download the SDK file `nRF5_SDK_x.x.x_xxxxxxx` (for example, `nRF5_SDK_15.2.0_9412b96`) from [www.nordicsemi.com](https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK).
 
-The latest version is `15.0.0`, it can be downloaded directly here:
+The latest version is `15.2.0`, it can be downloaded directly here:
 
-<a href="http://www.nordicsemi.com/eng/nordic/Products/nRF5-SDK/nRF5-SDK-zip/59011"><button data-md-color-primary="marsala">Download</button></a>
+<a href="https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK/Download#infotabs"><button data-md-color-primary="marsala">Download</button></a>
 
 Extract the zip file to the `nrf52832-mdk` repository. This should give you the following folder structure:
 
@@ -92,13 +92,13 @@ Extract the zip file to the `nrf52832-mdk` repository. This should give you the 
 ./nrf52832-mdk/
 ├── LICENSE
 ├── README.md
-├── bin
+├── config
 ├── docs
+├── firmware
 ├── examples
 ├── mkdocs.yml
 ├── nrf_sdks
-│   └── nRF5_SDK_14.2.0_17b948a
-│   └── nRF5_SDK_15.0.0_a53641a
+│   └── nRF5_SDK_v15.2.0_9412b96
 └── tools
 ```
 
@@ -111,9 +111,9 @@ To build an example application you first need to set the toolchain path in `mak
 Open the file in a text editor ([Sublime](https://www.sublimetext.com/) is recommended), and make sure that the `GNU_INSTALL_ROOT` variable is pointing to your GNU Arm Embedded Toolchain install directory.
 
 ``` sh
-GNU_INSTALL_ROOT := $(HOME)/gcc-arm-none-eabi/gcc-arm-none-eabi-6-2017-q2-update/bin/
-GNU_VERSION := 6.3.1
-GNU_PREFIX := arm-none-eabi
+GNU_INSTALL_ROOT ?= $(HOME)/gcc-arm-none-eabi/gcc-arm-none-eabi-6-2017-q2-update/bin/
+GNU_VERSION ?= 6.3.1
+GNU_PREFIX ?= arm-none-eabi
 ```
 
 ## Compiling and running blinky example
@@ -141,7 +141,7 @@ Observe that the LEDs are blinking:
 
 Before you can run more advanced examples that use *Bluetooth* or *ANT*, you must program the SoftDevice on the board.
 
-The SoftDevice binary is located in folder `components/softdevice/SoftDevice/hex` in the SDK, where SoftDevice is the name of the SoftDevice. You can also download SoftDevices from [nordicsemi.com](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832).
+The SoftDevice binary is located in folder `components/softdevice/SoftDevice/hex` in the SDK, where SoftDevice is the name of the SoftDevice. You can also download SoftDevices from [nordicsemi.com](https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK/Download#infotabs).
 
 The easiest way to program the SoftDevice is using the GCC makefile of an example:
 
@@ -167,9 +167,9 @@ Over time, more example applications will be added to the repository. You can st
 
 ## Reference
 
-* [Nordic nRF5 SDK](http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk/dita/sdk/nrf5_sdk.html)
+* [Nordic nRF5 SDK](https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK)
 
-* [Nordic Semiconductor Infocenter](http://infocenter.nordicsemi.com/index.jsp)
+* [Nordic Documentation Library](https://www.nordicsemi.com/DocLib)
 
 * [makerdiary/nrf52832-mdk](https://github.com/makerdiary/nrf52832-mdk)
 

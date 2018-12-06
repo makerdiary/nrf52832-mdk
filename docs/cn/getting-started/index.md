@@ -108,13 +108,13 @@ $ pip install --pre -U https://github.com/mbedmicro/pyOCD/archive/master.zip
 
 ``` sh
 # -se 表示只擦除需要用到的区域
-$ pyocd-flashtool -d debug -t nrf52 -se your-hex-file.hex
+$ pyocd-flashtool -t nrf52 -se your-hex-file.hex
 
 # 如果需要整片擦除，可以使用 -ce 参数
-$ pyocd-flashtool -d debug -t nrf52 -ce your-hex-file.hex
+$ pyocd-flashtool -t nrf52 -ce your-hex-file.hex
 
 # 如果只是想擦除，不编程，可以不带hex文件参数
-$ pyocd-flashtool -d debug -t nrf52 -ce
+$ pyocd-flashtool -t nrf52 -ce
 ```
 
 ![](../../getting-started/images/programming_using_pyocd.png)
