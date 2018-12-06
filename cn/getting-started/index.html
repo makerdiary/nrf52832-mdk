@@ -1013,13 +1013,13 @@
 </div>
 <p>通过以下命令可完成固件下载、擦除：</p>
 <div class="codehilite"><pre><span></span><span class="c1"># -se 表示只擦除需要用到的区域</span>
-$ pyocd-flashtool -d debug -t nrf52 -se your-hex-file.hex
+$ pyocd-flashtool -t nrf52 -se your-hex-file.hex
 
 <span class="c1"># 如果需要整片擦除，可以使用 -ce 参数</span>
-$ pyocd-flashtool -d debug -t nrf52 -ce your-hex-file.hex
+$ pyocd-flashtool -t nrf52 -ce your-hex-file.hex
 
 <span class="c1"># 如果只是想擦除，不编程，可以不带hex文件参数</span>
-$ pyocd-flashtool -d debug -t nrf52 -ce
+$ pyocd-flashtool -t nrf52 -ce
 </pre></div>
 
 <p><img alt="" src="./../../getting-started/images/programming_using_pyocd.png" /></p>

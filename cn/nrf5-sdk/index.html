@@ -910,7 +910,7 @@
                 
                 
                 <h1 id="nrf5-sdk-nordic-nrf5x-soc">nRF5 SDK <br><small>Nordic 官方针对 nRF5x 系列 SoC 的软件开发包</small><a class="headerlink" href="#nrf5-sdk-nordic-nrf5x-soc" title="Permanent link">&para;</a></h1>
-<p><a href="http://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF5-SDK"><img alt="" src="./../../nrf5-sdk/images/SDK-icon_small.png" /></a></p>
+<p><a href="https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK"><img alt="" src="./../../nrf5-sdk/images/SDK-icon_small.png" /></a></p>
 <h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>nRF5 SDK 是 Nordic 针对 nRF5x 系列芯片提供的软件开发环境，包含各种外设驱动、代码库、应用示例、低功耗蓝牙协议栈以及其他具有专利的无线协议栈。</p>
 <p>nRF5 SDK 以 <code>.zip</code> 压缩包的形式发布，这样可以便于开发者自由选择开发环境。</p>
@@ -964,19 +964,19 @@
 
 <p><img alt="" src="./../../nrf5-sdk/images/gnu-make_version.png" /></p>
 <h3 id="nrf5-sdk">安装 nRF5 SDK<a class="headerlink" href="#nrf5-sdk" title="Permanent link">&para;</a></h3>
-<p>你可以直接从 Nordic 官网下载 nRF5 SDK，该软件包以 <code>.zip</code> 压缩包的方式发布，例如 <code>nRF5_SDK_15.0.0_a53641a.zip</code>。</p>
-<p><a href="http://www.nordicsemi.com/eng/nordic/Products/nRF5-SDK/nRF5-SDK-zip/59011"><button data-md-color-primary="marsala">下载 nRF5 SDK</button></a></p>
+<p>你可以直接从 Nordic 官网下载 nRF5 SDK，最新版本为 <code>nRF5_SDK_15.2.0_9412b96</code>。</p>
+<p><a href="https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK/Download#infotabs"><button data-md-color-primary="marsala">下载 nRF5 SDK</button></a></p>
 <p>你需要将该软件包解压到 <code>nrf52832-mdk</code> 仓库，一般目录结构如下：</p>
 <div class="codehilite"><pre><span></span>./nrf52832-mdk/
 ├── LICENSE
 ├── README.md
-├── bin
+├── config
 ├── docs
+├── firmware
 ├── examples
 ├── mkdocs.yml
 ├── nrf_sdks
-│   └── nRF5_SDK_14.2.0_17b948a
-│   └── nRF5_SDK_15.0.0_a53641a
+│   └── nRF5_SDK_v15.2.0_9412b96
 └── tools
 </pre></div>
 
@@ -985,9 +985,9 @@
 </pre></div>
 
 <p>使用文本编辑器（例如：<a href="https://www.sublimetext.com/">Sublime</a>）打开该文件，将 <code>GNU_INSTALL_ROOT</code> 设置为前面安装的 GNU Arm Embedded Toolchain 的目录，参考设置如下：</p>
-<div class="codehilite"><pre><span></span>GNU_INSTALL_ROOT :<span class="o">=</span> <span class="k">$(</span>HOME<span class="k">)</span>/gcc-arm-none-eabi/gcc-arm-none-eabi-6-2017-q2-update/bin/
-GNU_VERSION :<span class="o">=</span> <span class="m">6</span>.3.1
-GNU_PREFIX :<span class="o">=</span> arm-none-eabi
+<div class="codehilite"><pre><span></span>GNU_INSTALL_ROOT ?<span class="o">=</span> <span class="k">$(</span>HOME<span class="k">)</span>/gcc-arm-none-eabi/gcc-arm-none-eabi-6-2017-q2-update/bin/
+GNU_VERSION ?<span class="o">=</span> <span class="m">6</span>.3.1
+GNU_PREFIX ?<span class="o">=</span> arm-none-eabi
 </pre></div>
 
 <h2 id="_3">编译运行第一个示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -1007,7 +1007,7 @@ GNU_PREFIX :<span class="o">=</span> arm-none-eabi
 <div class="codehilite"><pre><span></span>&lt;SDK path&gt;components/softdevice/SoftDevice/hex
 </pre></div>
 
-<p>或者直接从 <a href="https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52832">nordicsemi.com</a> 网站下载。</p>
+<p>或者直接从 <a href="https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK/Download#infotabs">nordicsemi.com</a> 网站下载。</p>
 <p>我们已经在 makefile 提供下载 SoftDevice 的命令，可以直接运行下载：</p>
 <div class="codehilite"><pre><span></span><span class="c1"># 运行flash_softdevice 可以只下载 SoftDevice</span>
 $ make flash_softdevice
@@ -1021,10 +1021,10 @@ $ make flash_all
 <h2 id="_5">参考资源<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p><a href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk/dita/sdk/nrf5_sdk.html">Nordic nRF5 SDK</a></p>
+<p><a href="https://www.nordicsemi.com/Software-and-Tools/Software/nRF5-SDK">Nordic nRF5 SDK</a></p>
 </li>
 <li>
-<p><a href="http://infocenter.nordicsemi.com/index.jsp">Nordic 文档中心</a></p>
+<p><a href="https://www.nordicsemi.com/DocLib">Nordic 文档库</a></p>
 </li>
 <li>
 <p><a href="https://github.com/makerdiary/nrf52832-mdk">makerdiary/nrf52832-mdk</a></p>
