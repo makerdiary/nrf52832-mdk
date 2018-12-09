@@ -1,4 +1,5 @@
 nrf_sdks/*
+!nrf_sdks/nRF5-SDK-for-Mesh
 !nrf_sdks/README.md
 .DS_Store/*
 _build/
