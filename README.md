@@ -242,11 +242,13 @@ nRF52832-MDK is available on the following channels (click to go directly to the
 
 [![Tindie](docs/images/tindie-logo.png)](https://www.tindie.com/stores/Zelin/)
 
+[![Taobao](docs/images/taobao-logo.png)](https://zaowubang.taobao.com/category-1347611684.htm?spm=a1z10.1-c-s.w4010-18605444712.9.39be796cJVdvk7&search=y&parentCatId=769990253&parentCatName=%CE%EF%C1%AA%CD%F8%D3%B2%BC%FE&catName=nRF52832-MDK#bd)
+
 ## License
 
 **MIT License**
 
-Copyright (c) 2018 [makerdiary.com](https://makerdiary.com)
+Copyright (c) 2019 [makerdiary.com](https://makerdiary.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -10,6 +10,7 @@ nRF52832-MDK is available on the following channels (click to go directly to the
 
 [![Tindie](images/tindie-logo.png)](https://www.tindie.com/stores/Zelin/)
 
+[![Taobao](images/taobao-logo.png)](https://zaowubang.taobao.com/category-1347611684.htm?spm=a1z10.1-c-s.w4010-18605444712.9.39be796cJVdvk7&search=y&parentCatId=769990253&parentCatName=%CE%EF%C1%AA%CD%F8%D3%B2%BC%FE&catName=nRF52832-MDK#bd)
 
 
 ## Bulk & Customization
