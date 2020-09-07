@@ -31,7 +31,7 @@ The kit gives access to 24 I/Os and interfaces via headers and has a RGB LED whi
 
 It supports the Nordic offical SDK using GCC, Keil and IAR. Program/Debug options on the kit is [DAPLink](https://github.com/ARMmbed/DAPLink).
 
-The nRF52832-MDK can also be used to play with multi-frameworks such as: nRF5 SDK, nRF5 SDK for Mesh, Mbed OS 5, Zephyr, Mynewt, JerryScript, Espruino, MicroPython, Web Bluetooth, Eddystone, etc.
+The nRF52832-MDK can also be used to play with multi-frameworks such as: nRF5 SDK, nRF5 SDK for Mesh, Mbed OS 5, Zephyr, Mynewt, NuttX, JerryScript, Espruino, MicroPython, Web Bluetooth, Eddystone, etc.
 
 There are two versions of nRF52832-MDK available:
 
