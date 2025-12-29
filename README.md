@@ -215,13 +215,13 @@ Note that you may run into permissions issues running these commands. You have a
 You can verify that your board is detected by pyOCD by running:
 
 ``` sh
-$ pyocd-flashtool -l
+$ pyocd list
 ```
 
 and then flash the board by running:
 
 ``` sh
-$ pyocd-flashtool -d debug -t nrf52 -se your-hex-file.hex
+$ pyocd load -v -t nrf52 -e sector your-hex-file.hex
 ```
 
 ## Hardware Resource
